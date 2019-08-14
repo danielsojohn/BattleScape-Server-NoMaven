@@ -1,0 +1,36 @@
+package script.npc.combat;
+
+import java.util.Arrays;
+import java.util.List;
+import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
+import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
+import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import lombok.var;
+
+public class TheUntouchable274Combat extends NCombatScript {
+    @Override
+    public List<NpcCombatDefinition> getCombatDefs() {
+        var combat = NpcCombatDefinition.builder();
+        combat.id(NpcId.THE_UNTOUCHABLE_274);
+        combat.hitpoints(NpcCombatHitpoints.total(90));
+        combat.stats(NpcCombatStats.builder().attackLevel(187).defenceLevel(434).build());
+        combat.deathAnimation(6331).blockAnimation(6330);
+
+        var style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.damage(NpcCombatDamage.maximum(26));
+        style.animation(6329).attackSpeed(6);
+        style.projectile(NpcCombatProjectile.id(335));
+        combat.style(style.build());
+
+
+        return Arrays.asList(combat.build());
+    }
+}

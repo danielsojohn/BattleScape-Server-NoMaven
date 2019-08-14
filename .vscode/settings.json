@@ -1,0 +1,33 @@
+{
+    "files.exclude": {
+        "**/.vscode": true,
+        "**/.git": true,
+        "**/.github": true,
+        "**/.gitmodules": true,
+        "**/.gitignore": true,
+        "**/README.md": true,
+        "**/.settings": true,
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/bin": true,
+        "**/data/dynamic": true,
+        "**/data/cache": true,
+        "**/data/lib": true,
+        "**/*.zip": true
+    },
+    "search.exclude": {
+        "**/data/json/map/xtea.json": true
+    },
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 120,
+    "editor.rulers": [
+        120
+    ],
+    "editor.wrappingIndent": "deepIndent",
+    "[java]": { "editor.formatOnSave": true },
+    "files.insertFinalNewline": true,
+    "search.useIgnoreFiles": false,
+    "java.jdt.ls.vmargs": "-Xmx1G -Xverify:none -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:data/lib/lombok.jar -Djava.lsp.joinOnCompletion=true",
+    "javascript.validate.enable": false,
+    "java.format.onType.enabled": true,
+}

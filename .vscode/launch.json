@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "projectName": "Server",
+            "cwd": "Server",
+            "name": "Economy",
+            "request": "launch",
+            "vmArgs": "-Xmx768m -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 -XX:MaxGCPauseMillis=50",
+            "mainClass": "com.palidino.osrs.Main",
+            "args": "settings_economy.json"
+        },
+        {
+            "type": "java",
+            "projectName": "Server",
+            "cwd": "Server",
+            "name": "Spawn",
+            "request": "launch",
+            "vmArgs": "-Xmx768m -XX:MinHeapFreeRatio=5 -XX:MaxHeapFreeRatio=25 -XX:MaxGCPauseMillis=50",
+            "mainClass": "com.palidino.osrs.Main",
+            "args": "settings_spawn.json"
+        }
+    ]
+}
