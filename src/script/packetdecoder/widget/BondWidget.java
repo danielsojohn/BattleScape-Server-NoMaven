@@ -104,7 +104,7 @@ public class BondWidget implements Widget {
             Guide.openEntry(player, "main", "bonds");
             break;
         case 75:
-            // player.openDialogue("bond", 2);
+            player.openDialogue("bond", 2);
             break;
         case 77:
             player.getBonds().setHideRankIcon(!player.getBonds().isHideRankIcon());
