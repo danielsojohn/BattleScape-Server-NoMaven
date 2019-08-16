@@ -27,7 +27,7 @@ public class StaffCommand implements Command {
             } else if (staff.isUsergroup(SqlUserRank.MODERATOR)) {
                 rank = "Moderator";
             } else if (staff.isUsergroup(SqlUserRank.SUPPORT)) {
-                rank = "Support";
+                rank = "Junior Moderator";
             }
             lines.add(staff.getMessaging().getIconImage() + staff.getUsername() + " - " + rank);
         }

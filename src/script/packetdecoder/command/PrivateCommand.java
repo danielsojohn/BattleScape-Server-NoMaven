@@ -3,6 +3,7 @@ package script.packetdecoder.command;
 import static com.palidino.osrs.model.player.Player.RIGHTS_ADMIN;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
+import com.palidino.setting.SqlUserRank;
 import lombok.var;
 
 public class PrivateCommand implements Command {
@@ -13,7 +14,8 @@ public class PrivateCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.isUsergroup(SqlUserRank.SUPPORT) || player.getRights() == Player.RIGHTS_MOD
+                || player.getRights() == Player.RIGHTS_ADMIN;
     }
 
     @Override

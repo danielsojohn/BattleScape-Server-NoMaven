@@ -3,6 +3,7 @@ package script.packetdecoder.command;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
+import com.palidino.setting.SqlUserRank;
 import lombok.var;
 
 public class UnmuteCommand implements Command {
@@ -13,7 +14,8 @@ public class UnmuteCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.isUsergroup(SqlUserRank.SUPPORT) || player.getRights() == Player.RIGHTS_MOD
+                || player.getRights() == Player.RIGHTS_ADMIN;
     }
 
     @Override

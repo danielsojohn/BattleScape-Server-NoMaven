@@ -15,8 +15,8 @@ public class YellCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.isUsergroup(SqlUserRank.DONATOR) || player.getRights() == Player.RIGHTS_MOD
-                || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.isUsergroup(SqlUserRank.DONATOR) || player.isUsergroup(SqlUserRank.SUPPORT)
+                || player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
     }
 
     @Override
