@@ -22,8 +22,8 @@ public class MuteCommand implements Command {
     public void execute(Player player, String message) {
         var split = message.split(" ");
         var hours = Integer.parseInt(split[0]);
-        if (hours > 48) {
-            player.getGameEncoder().sendMessage("Max mute time is 48 hours.");
+        if (hours > 168) {
+            player.getGameEncoder().sendMessage("Max mute time is 168 hours(a week).");
             return;
         }
         var username = message.substring(message.indexOf(split[0]) + split[0].length() + 1);
