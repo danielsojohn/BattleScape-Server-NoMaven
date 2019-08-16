@@ -204,6 +204,9 @@ public class Cooking extends SkillContainer {
         entries.add(SkillEntry.builder().level(90).failFactor(114).experience(215).animation(883)
                 .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_DARK_CRAB))
                 .create(new RandomItem(ItemId.DARK_CRAB)).failedCreate(new RandomItem(ItemId.BURNT_DARK_CRAB)).build());
+        entries.add(SkillEntry.builder().level(91).failFactor(114).experience(216).animation(883)
+                .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_MANTA_RAY))
+                .create(new RandomItem(ItemId.MANTA_RAY)).failedCreate(new RandomItem(ItemId.BURNT_MANTA_RAY)).build());
 
         entries.add(SkillEntry.builder().level(35).failFactor(68).experience(200).animation(3283)
                 .consume(new RandomItem(ItemId.GRAPES)).consume(new RandomItem(ItemId.JUG_OF_WATER))
