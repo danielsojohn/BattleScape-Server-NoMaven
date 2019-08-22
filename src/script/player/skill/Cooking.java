@@ -46,6 +46,13 @@ public class Cooking extends SkillContainer {
             } else {
                 player.getInventory().addOrDropItem(ItemId.TOKKUL, 20 + Utils.randomI(20));
             }
+        } else if (entry.getConsume() != null && entry.getConsume().getId() == ItemId.LEAPING_STURGEON) {
+            if (Utils.randomE(8) == 0) {
+                player.getInventory().addOrDropItem(ItemId.FISH_OFFCUTS);
+            } else {
+                player.getInventory().addOrDropItem(ItemId.CAVIAR);
+            }
+            player.getSkills().addXp(getSkillId(), 15);
         }
     }
 
@@ -212,6 +219,8 @@ public class Cooking extends SkillContainer {
                 .consume(new RandomItem(ItemId.GRAPES)).consume(new RandomItem(ItemId.JUG_OF_WATER))
                 .create(new RandomItem(ItemId.JUG_OF_WINE)).failedCreate(new RandomItem(ItemId.JUG_OF_BAD_WINE))
                 .build());
+        entries.add(SkillEntry.builder().level(70).experience(80).animation(1248).tool(new RandomItem(ItemId.KNIFE))
+                .consume(new RandomItem(ItemId.LEAPING_STURGEON)).build());
         entries.add(SkillEntry.builder().level(72).experience(100).animation(1248).tool(new RandomItem(ItemId.KNIFE))
                 .consume(new RandomItem(ItemId.SACRED_EEL)).build());
         entries.add(SkillEntry.builder().animation(1248).tool(new RandomItem(ItemId.HAMMER))
