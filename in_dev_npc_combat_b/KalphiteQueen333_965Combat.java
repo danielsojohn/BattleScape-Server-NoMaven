@@ -24,12 +24,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class KalphiteQueen333_965Combat extends NCombatScript {
+public class KalphiteQueen333_965Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
         var dropTable = NpcCombatDropTable.builder().chance(0.033).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.KALPHITE_PRINCESS)));
@@ -96,7 +96,7 @@ public class KalphiteQueen333_965Combat extends NCombatScript {
         combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300).bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("kalphitequeen").deathAnimation(6233).blockAnimation(6237);
         combat.drop(drop.build());

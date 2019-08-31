@@ -44,7 +44,7 @@ public class MapObject1 {
             Tile tile = new Tile(2886, 9799, 0);
             player.getMovement().animatedTeleport(tile, 746, 748, null, null, 0);
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Strange floor
@@ -61,7 +61,7 @@ public class MapObject1 {
             Tile tile = new Tile(2878, 9813, 0);
             player.getMovement().animatedTeleport(tile, 3067, null, 1);
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Spikey chain
@@ -101,7 +101,7 @@ public class MapObject1 {
         } else if (mapObject.getX() == 3034 && mapObject.getY() == 9806) {
             player.getMovement().teleport(3028, 9806);
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Strange floor
@@ -328,7 +328,7 @@ public class MapObject1 {
                 if (player.getAttributeInt("agility_stage") == 2) {
                     player.putAttribute("agility_stage", 3);
                 }
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -787,7 +787,7 @@ public class MapObject1 {
                     player.getSkills().addXp(Skills.AGILITY, xp);
                     player.putAttribute("agility_stage", 1);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -818,7 +818,7 @@ public class MapObject1 {
                 if (player.getAttributeInt("agility_stage") == 1) {
                     player.putAttribute("agility_stage", 2);
                 }
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -854,7 +854,7 @@ public class MapObject1 {
                     if (player.getAttributeInt("agility_stage") == 5) {
                         player.putAttribute("agility_stage", 6);
                     }
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -900,7 +900,7 @@ public class MapObject1 {
                         // 102 laps an hour
                         if (Utils.randomE(50) == 0) {
                             int amount = 4;
-                            if (player.getGoldMember()) {
+                            if (player.isPremiumMember()) {
                                 amount = 6;
                             }
                             player.getInventory().addOrDropItem(11849, amount);
@@ -918,7 +918,7 @@ public class MapObject1 {
                         player.getFamiliar().rollSkillPet(Skills.AGILITY, 35609, 20659);
                     }
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -978,7 +978,7 @@ public class MapObject1 {
                         }
                     }
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -1029,7 +1029,7 @@ public class MapObject1 {
                     player.getGameEncoder().sendMessage("... and make it safely to the other side.");
                     player.putAttribute("agility_stage", 2);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -1068,7 +1068,7 @@ public class MapObject1 {
                     player.getGameEncoder().sendMessage("... and make it safely to the other side.");
                     player.putAttribute("agility_stage", 1);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -1140,7 +1140,7 @@ public class MapObject1 {
                         player.putAttribute("agility_stage", 4);
                     }
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -1181,7 +1181,7 @@ public class MapObject1 {
                         player.putAttribute("agility_stage", 4);
                     }
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -1209,7 +1209,7 @@ public class MapObject1 {
                 if (player.getAttributeInt("agility_stage") == 2) {
                     player.putAttribute("agility_stage", 3);
                 }
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -1236,7 +1236,7 @@ public class MapObject1 {
                 if (player.getAttributeInt("agility_stage") == 4) {
                     player.putAttribute("agility_stage", 5);
                 }
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -1263,7 +1263,7 @@ public class MapObject1 {
                 if (player.getAttributeInt("agility_stage") == 4) {
                     player.putAttribute("agility_stage", 5);
                 }
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -1379,7 +1379,7 @@ public class MapObject1 {
         } else {
             player.getMovement().animatedTeleport(new Tile(2936, 3355), 3067, null, 1);
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Staircase
@@ -2201,7 +2201,7 @@ public class MapObject1 {
                 player.unlock();
                 player.getAppearance().setForceMoveAnimation(-1);
                 player.getMovement().setForceRunning(null);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2251,7 +2251,7 @@ public class MapObject1 {
                 player.unlock();
                 player.getAppearance().setForceMoveAnimation(-1);
                 player.getMovement().setForceRunning(null);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2301,7 +2301,7 @@ public class MapObject1 {
                 player.unlock();
                 player.getAppearance().setForceMoveAnimation(-1);
                 player.getMovement().setForceRunning(null);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2351,7 +2351,7 @@ public class MapObject1 {
                 player.unlock();
                 player.getAppearance().setForceMoveAnimation(-1);
                 player.getMovement().setForceRunning(null);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2526,7 +2526,7 @@ public class MapObject1 {
         } else if (mapObject.getX() == 2434 && mapObject.getY() == 9806) {
             player.getMovement().ladderUpTeleport(new Tile(2429, 9806, 0));
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Tunnel
@@ -2540,7 +2540,7 @@ public class MapObject1 {
         } else if (mapObject.getX() == 2434 && mapObject.getY() == 9807) {
             player.getMovement().ladderUpTeleport(new Tile(2429, 9807, 0));
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Steps
@@ -2813,7 +2813,7 @@ public class MapObject1 {
         tile.setHeight(player.getHeight());
         ForceMovement forceMovement = new ForceMovement(new Tile(player), 1, tile, 2, direction);
         player.setForceMovementTeleport(forceMovement, 6132, 1, null);
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // roof exit

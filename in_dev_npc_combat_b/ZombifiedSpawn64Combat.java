@@ -10,12 +10,12 @@ import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatType;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class ZombifiedSpawn64Combat extends NCombatScript {
+public class ZombifiedSpawn64Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ZOMBIFIED_SPAWN_64);
         combat.hitpoints(NpcCombatHitpoints.total(38));

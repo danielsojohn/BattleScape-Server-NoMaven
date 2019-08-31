@@ -161,7 +161,7 @@ public class Woodcutting extends SkillContainer {
         if (player.getEquipment().wearingLumberjackOutfit()) {
             chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
         }
-        if (player.getGoldMember()) {
+        if (player.isPremiumMember()) {
             chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {

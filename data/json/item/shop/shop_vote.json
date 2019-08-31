@@ -3,7 +3,7 @@
   "currency": "ItemId.VOTE_TICKET",
   "items": [
     { "id": "ItemId.COINS", "stack": 200000 },
-    { "id": "ItemId._14_DAYS_GOLD_MEMBERSHIP_32303", "price": 75 },
+    { "id": "ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303", "price": 75 },
     { "id": "ItemId.FIRE_CAPE", "price": 20 },
     { "id": "ItemId.IMBUED_SARADOMIN_CAPE", "price": 20 },
     { "id": "ItemId.IMBUED_GUTHIX_CAPE", "price": 20 },

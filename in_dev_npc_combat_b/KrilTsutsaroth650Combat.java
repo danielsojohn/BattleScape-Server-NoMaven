@@ -24,12 +24,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class KrilTsutsaroth650Combat extends NCombatScript {
+public class KrilTsutsaroth650Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
         var dropTable = NpcCombatDropTable.builder().chance(0.02).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PET_KRIL_TSUTSAROTH)));
@@ -83,7 +83,7 @@ public class KrilTsutsaroth650Combat extends NCombatScript {
         combat.stats(NpcCombatStats.builder().attackLevel(340).magicLevel(200).defenceLevel(270).bonus(CombatBonus.MELEE_ATTACK, 160).bonus(CombatBonus.MELEE_DEFENCE, 80).bonus(CombatBonus.DEFENCE_MAGIC, 130).bonus(CombatBonus.DEFENCE_RANGED, 80).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).singleTargetFocus(true).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("KrilTsutsarothCS").type(NpcCombatType.DEMON).deathAnimation(6949).blockAnimation(6947);
         combat.drop(drop.build());

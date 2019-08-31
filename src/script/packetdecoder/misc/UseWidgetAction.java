@@ -120,7 +120,7 @@ public class UseWidgetAction {
                 if (itemId == 1925) {
                     player.getInventory().deleteItem(itemId, 1, itemSlot);
                     player.getInventory().addItem(1929, 1, itemSlot);
-                    AchievementDiary.makeItemHooks(player, -1, new Item(1929, 1), null, null);
+                    AchievementDiary.makeItemUpdate(player, -1, new Item(1929, 1), null, null);
                 }
                 break;
             case 733: // Web

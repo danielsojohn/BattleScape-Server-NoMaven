@@ -7,19 +7,19 @@ import com.palidino.osrs.model.Hit;
 import com.palidino.osrs.model.HitEvent;
 import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
 import lombok.var;
 
-public class VerzikViturPillarCombat extends NCombatScript {
+public class VerzikViturPillarCombat extends NpcCombat {
     private static final int MAP_OBJECT_ID_SUPPORTING_PILLAR = 32687;
 
     private Npc npc;
 
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var pillar = NpcCombatDefinition.builder();
         pillar.id(NpcId.SUPPORTING_PILLAR).id(NpcId.COLLAPSING_PILLAR);
         pillar.hitpoints(NpcCombatHitpoints.builder().total(200).build());
@@ -28,17 +28,13 @@ public class VerzikViturPillarCombat extends NCombatScript {
     }
 
     @Override
-    public void setNpcHook(Npc npc) {
-        this.npc = npc;
-    }
-
-    @Override
-    public void spawn() {
+    public void spawnHook() {
+        npc = getNpc();
         npc.getController().addMapObject(new MapObject(MAP_OBJECT_ID_SUPPORTING_PILLAR, npc, 10, 0));
     }
 
     @Override
-    public void despawn() {
+    public void despawnHook() {
         removeMapObject();
         if (npc.getId() == NpcId.COLLAPSING_PILLAR) {
             for (var player : npc.getController().getPlayers()) {

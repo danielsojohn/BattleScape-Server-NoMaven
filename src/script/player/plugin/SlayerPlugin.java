@@ -811,7 +811,7 @@ public class SlayerPlugin extends PlayerPlugin {
         if (selectedTask.getLocation() != null) {
             player.getGameEncoder().sendMessage("They are located at " + selectedTask.getLocation() + ".");
         }
-        AchievementDiary.slayerAssignmentHooks(player, master, selectedTask, quantity);
+        AchievementDiary.slayerAssignmentUpdate(player, master, selectedTask, quantity);
     }
 
     private void taskKillCheck(AssignedSlayerTask assignedTask, Npc npc) {
@@ -864,7 +864,7 @@ public class SlayerPlugin extends PlayerPlugin {
         var slayerMaster = SlayerMaster.get(assignedTask.getMaster());
         var slayerTask = assignedTask.getSlayerTask();
         var rewardPoints = slayerMaster.getPoints();
-        if (player.getGoldMember()) {
+        if (player.isPremiumMember()) {
             rewardPoints *= 1.25;
         }
         if (slayerTask.isWilderness() && !Main.isSpawn()) {
@@ -910,7 +910,7 @@ public class SlayerPlugin extends PlayerPlugin {
             player.getGameEncoder().sendMessage(
                     "<col=8F4808>You've completed " + tasksCompleted + " tasks; return to a Slayer master.");
         }
-        AchievementDiary.slayerAssignmentCompleteHooks(player, slayerMaster, slayerTask);
+        AchievementDiary.slayerAssignmentCompleteUpdate(player, slayerMaster, slayerTask);
     }
 
     private boolean countsTowardTaskQuantity(AssignedSlayerTask assignedTask, int id) {

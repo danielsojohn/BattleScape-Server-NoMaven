@@ -16,12 +16,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class Karamel136Combat extends NCombatScript {
+public class Karamel136Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KARAMEL_136);
         combat.hitpoints(NpcCombatHitpoints.total(250));

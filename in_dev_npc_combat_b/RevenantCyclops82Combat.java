@@ -17,19 +17,19 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class RevenantCyclops82Combat extends NCombatScript {
+public class RevenantCyclops82Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.REVENANT_CYCLOPS_82);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(44));
         combat.stats(NpcCombatStats.builder().attackLevel(60).magicLevel(65).rangedLevel(70).defenceLevel(49).bonus(CombatBonus.MELEE_ATTACK, 53).bonus(CombatBonus.DEFENCE_STAB, 140).bonus(CombatBonus.DEFENCE_SLASH, 130).bonus(CombatBonus.DEFENCE_CRUSH, 135).bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 135).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());
         combat.combatScript("revenant").type(NpcCombatType.UNDEAD).deathAnimation(4653).blockAnimation(4651);
 

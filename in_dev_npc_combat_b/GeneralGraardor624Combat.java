@@ -21,12 +21,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class GeneralGraardor624Combat extends NCombatScript {
+public class GeneralGraardor624Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
         var dropTable = NpcCombatDropTable.builder().chance(0.02).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PET_GENERAL_GRAARDOR)));
@@ -78,7 +78,7 @@ public class GeneralGraardor624Combat extends NCombatScript {
         combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(80).rangedLevel(350).defenceLevel(250).bonus(CombatBonus.MELEE_ATTACK, 120).bonus(CombatBonus.ATTACK_RANGED, 100).bonus(CombatBonus.MELEE_DEFENCE, 90).bonus(CombatBonus.DEFENCE_MAGIC, 298).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).singleTargetFocus(true).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("GeneralGraardorCS").deathAnimation(7020).blockAnimation(7019);
         combat.drop(drop.build());

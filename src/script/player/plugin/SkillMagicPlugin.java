@@ -188,7 +188,7 @@ public class SkillMagicPlugin extends PlayerPlugin {
                     return true;
                 }
                 if (onItemId == ItemId.OLD_SCHOOL_BOND || onItemId == ItemId.OLD_SCHOOL_BOND_UNTRADEABLE
-                        || onItemId == ItemId._14_DAYS_GOLD_MEMBERSHIP_32303 || onItemId == ItemId.BOND_32318) {
+                        || onItemId == ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303 || onItemId == ItemId.BOND_32318) {
                     player.getGameEncoder().sendMessage("You can't alch bonds.");
                     return true;
                 }

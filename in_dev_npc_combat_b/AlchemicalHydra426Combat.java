@@ -23,12 +23,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class AlchemicalHydra426Combat extends NCombatScript {
+public class AlchemicalHydra426Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256).rolls(2);
         var dropTable = NpcCombatDropTable.builder().chance(0.033).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.IKKLE_HYDRA)));
@@ -130,7 +130,7 @@ public class AlchemicalHydra426Combat extends NCombatScript {
         combat.slayer(NpcCombatSlayer.builder().level(95).build());
         combat.aggression(NpcCombatAggression.builder().range(12).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(3).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(3).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("alchemicalhydra");
         combat.drop(drop.build());

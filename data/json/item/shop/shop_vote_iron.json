@@ -3,7 +3,7 @@
   "name": "Vote Shop",
   "items": [
     { "id": "ItemId.COINS", "stack": 100000 },
-    { "id": "ItemId._14_DAYS_GOLD_MEMBERSHIP_32303", "price": 75 },
+    { "id": "ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303", "price": 75 },
     { "id": "ItemId.HERB_BOX", "price": 4 },
     { "id": "ItemId.BAR_BOX_32302", "price": 4 },
     { "id": "ItemId.BAG_FULL_OF_GEMS", "price": 4 },
