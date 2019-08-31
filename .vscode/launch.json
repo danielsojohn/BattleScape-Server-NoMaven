@@ -6,6 +6,7 @@
     "configurations": [
         {
             "type": "java",
+            "console": "internalConsole",
             "projectName": "Server",
             "cwd": "Server",
             "name": "Economy",
@@ -16,6 +17,7 @@
         },
         {
             "type": "java",
+            "console": "internalConsole",
             "projectName": "Server",
             "cwd": "Server",
             "name": "Spawn",
