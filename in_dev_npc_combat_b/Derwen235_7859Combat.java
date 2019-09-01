@@ -17,12 +17,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class Derwen235_7859Combat extends NCombatScript {
+public class Derwen235_7859Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DERWEN_235_7859);
         combat.spawn(NpcCombatSpawn.builder().lock(6).animation(7844).build());

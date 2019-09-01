@@ -300,10 +300,10 @@ public class MapObject0 {
                 player.getSkills().addXp(Skills.AGILITY, xp);
                 if (player.getAttributeInt("agility_stage") == 4) {
                     player.putAttribute("agility_stage", 5);
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 } else if (player.getAttributeInt("agility_stage") == 5) {
                     player.putAttribute("agility_stage", 6);
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 } else if (player.getAttributeInt("agility_stage") == 6) {
                     player.removeAttribute("agility_stage");
                     xp = 47;
@@ -314,7 +314,7 @@ public class MapObject0 {
                     // 102 laps an hour
                     if (Utils.randomE(25) == 0) {
                         int amount = 4;
-                        if (player.getGoldMember()) {
+                        if (player.isPremiumMember()) {
                             amount = 6;
                         }
                         player.getInventory().addOrDropItem(11849, amount);
@@ -330,7 +330,7 @@ public class MapObject0 {
                         }
                     }
                     player.getFamiliar().rollSkillPet(Skills.AGILITY, 44376, 20659);
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -521,7 +521,7 @@ public class MapObject0 {
             return;
         }
         player.getMovement().ladderDownTeleport(new Tile(2800, 9340, 0));
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Ancient Gate
@@ -1735,7 +1735,7 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -1946,7 +1946,7 @@ public class MapObject0 {
                 player.getSkills().addXp(Skills.AGILITY, xp);
                 if (Utils.randomE(10) == 0) {
                     int amount = 4;
-                    if (player.getGoldMember()) {
+                    if (player.isPremiumMember()) {
                         amount = 6;
                     }
                     player.getInventory().addOrDropItem(11849, amount);
@@ -1962,7 +1962,7 @@ public class MapObject0 {
                     }
                 }
                 player.getFamiliar().rollSkillPet(Skills.AGILITY, 36842, 20659);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -1997,7 +1997,7 @@ public class MapObject0 {
                         xp *= 1.1;
                     }
                     player.getSkills().addXp(Skills.AGILITY, xp);
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -2112,7 +2112,7 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2140,7 +2140,7 @@ public class MapObject0 {
                 player.getSkills().addXp(Skills.AGILITY, xp);
                 if (Utils.randomE(6) == 0) {
                     int amount = 4;
-                    if (player.getGoldMember()) {
+                    if (player.isPremiumMember()) {
                         amount = 6;
                     }
                     player.getInventory().addOrDropItem(11849, amount);
@@ -2156,7 +2156,7 @@ public class MapObject0 {
                     }
                 }
                 player.getFamiliar().rollSkillPet(Skills.AGILITY, 35205, 20659);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2191,7 +2191,7 @@ public class MapObject0 {
                     }
                     player.getSkills().addXp(Skills.AGILITY, xp);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -2221,7 +2221,7 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2251,7 +2251,7 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2286,7 +2286,7 @@ public class MapObject0 {
                     }
                     player.getSkills().addXp(Skills.AGILITY, xp);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -2340,7 +2340,7 @@ public class MapObject0 {
                     }
                     player.getSkills().addXp(Skills.AGILITY, xp);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -2371,7 +2371,7 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2407,7 +2407,7 @@ public class MapObject0 {
                     }
                     player.getSkills().addXp(Skills.AGILITY, xp);
                     player.unlock();
-                    AchievementDiary.agilityObstacleHooks(player, mapObject);
+                    AchievementDiary.agilityObstacleUpdate(player, mapObject);
                 }
             }
         };
@@ -2442,7 +2442,7 @@ public class MapObject0 {
                 player.getSkills().addXp(Skills.AGILITY, xp);
                 if (Utils.randomE(4) == 0) {
                     int amount = 4;
-                    if (player.getGoldMember()) {
+                    if (player.isPremiumMember()) {
                         amount = 6;
                     }
                     player.getInventory().addOrDropItem(11849, amount);
@@ -2458,7 +2458,7 @@ public class MapObject0 {
                     }
                 }
                 player.getFamiliar().rollSkillPet(Skills.AGILITY, 31063, 20659);
-                AchievementDiary.agilityObstacleHooks(player, mapObject);
+                AchievementDiary.agilityObstacleUpdate(player, mapObject);
             }
         };
         player.getWorld().addEvent(event);
@@ -2872,7 +2872,7 @@ public class MapObject0 {
         } else {
             player.getMovement().animatedTeleport(new Tile(3093, 3879, player.getHeight()), 7133, null, 0);
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Stepping stone
@@ -2893,7 +2893,7 @@ public class MapObject0 {
         } else if (player.getX() == 3201 && player.getY() == 3807) {
             player.getMovement().animatedTeleport(new Tile(3201, 3810, player.getHeight()), 7133, null, 0);
         }
-        AchievementDiary.agilityObstacleHooks(player, mapObject);
+        AchievementDiary.agilityObstacleUpdate(player, mapObject);
     }
 
     // Cart tunnel

@@ -10,12 +10,12 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatType;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class RespiratorySystemCombat extends NCombatScript {
+public class RespiratorySystemCombat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.RESPIRATORY_SYSTEM);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(6000).build());

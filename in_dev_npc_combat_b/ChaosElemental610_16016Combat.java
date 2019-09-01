@@ -24,12 +24,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class ChaosElemental610_16016Combat extends NCombatScript {
+public class ChaosElemental610_16016Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().underKiller(true).rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
         var dropTable = NpcCombatDropTable.builder().chance(0.33).broadcast(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PET_CHAOS_ELEMENTAL)));

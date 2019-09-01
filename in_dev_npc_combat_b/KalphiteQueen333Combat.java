@@ -18,12 +18,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class KalphiteQueen333Combat extends NCombatScript {
+public class KalphiteQueen333Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KALPHITE_QUEEN_333);
         combat.spawn(NpcCombatSpawn.builder().respawnId(NpcId.KALPHITE_QUEEN_333_965).deathDelay(6).build());
@@ -31,7 +31,7 @@ public class KalphiteQueen333Combat extends NCombatScript {
         combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.combatScript("kalphitequeen").deathAnimation(6242).blockAnimation(6232);
 
         var style = NpcCombatStyle.builder();

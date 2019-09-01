@@ -13,12 +13,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class GelatinnothMother130_4888Combat extends NCombatScript {
+public class GelatinnothMother130_4888Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GELATINNOTH_MOTHER_130_4888);
         combat.hitpoints(NpcCombatHitpoints.total(240));

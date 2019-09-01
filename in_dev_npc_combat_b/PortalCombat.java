@@ -8,12 +8,12 @@ import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class PortalCombat extends NCombatScript {
+public class PortalCombat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.PORTAL);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(500).build());

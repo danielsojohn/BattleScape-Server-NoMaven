@@ -17,12 +17,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class ChaosDruid13Combat extends NCombatScript {
+public class ChaosDruid13Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
         var dropTable = NpcCombatDropTable.builder().chance(2.8);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ENSOULED_CHAOS_DRUID_HEAD_13472)));

@@ -1194,9 +1194,9 @@ public class InventoryWidget implements Widget {
             break;
         case ItemId.OLD_SCHOOL_BOND_UNTRADEABLE:
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getInventory().addItem(ItemId._14_DAYS_GOLD_MEMBERSHIP_32303, 1, slot);
+            player.getInventory().addItem(ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303, 1, slot);
             break;
-        case ItemId._14_DAYS_GOLD_MEMBERSHIP_32303:
+        case ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303:
             player.openDialogue("bond", 0);
             break;
         case 12791: // Rune pouch

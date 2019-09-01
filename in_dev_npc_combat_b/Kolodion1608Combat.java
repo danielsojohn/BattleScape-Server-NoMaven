@@ -14,12 +14,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class Kolodion1608Combat extends NCombatScript {
+public class Kolodion1608Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KOLODION_1608);
         combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("Now you feel it... The dark energy.").animation(715).graphic(new Graphic(86, 100)).respawnId(NpcId.KOLODION_112).deathDelay(8).build());

@@ -19,12 +19,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class Muttadile7562Combat extends NCombatScript {
+public class Muttadile7562Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder();
         var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_ALWAYS);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.BIG_BONES)));
@@ -36,10 +36,12 @@ public class Muttadile7562Combat extends NCombatScript {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MUTTADILE_7562);
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(150).rangedLevel(150).defenceLevel(138).bonus(CombatBonus.MELEE_ATTACK, 71).bonus(CombatBonus.ATTACK_RANGED, 83).bonus(CombatBonus.DEFENCE_MAGIC, 60).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(150).rangedLevel(150).defenceLevel(138)
+                .bonus(CombatBonus.MELEE_ATTACK, 71).bonus(CombatBonus.ATTACK_RANGED, 83)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 60).build());
         combat.aggression(NpcCombatAggression.builder().range(12).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.combatScript("muttadile").deathAnimation(7426);
         combat.drop(drop.build());
 

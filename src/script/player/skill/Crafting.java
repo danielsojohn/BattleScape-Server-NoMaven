@@ -198,7 +198,7 @@ public class Crafting extends SkillContainer {
         player.getInventory().deleteItem(ItemId.COINS, amount * cost);
         player.getInventory().deleteItem(baseItemId, amount);
         player.getInventory().addItem(craftItemId, amount);
-        AchievementDiary.makeItemHooks(player, getSkillId(), new RandomItem(craftItemId, amount), null, null);
+        AchievementDiary.makeItemUpdate(player, getSkillId(), new RandomItem(craftItemId, amount), null, null);
     }
 
     private void openTanning(Player player) {

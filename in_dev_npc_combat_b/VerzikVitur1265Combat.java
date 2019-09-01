@@ -10,12 +10,12 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class VerzikVitur1265Combat extends NCombatScript {
+public class VerzikVitur1265Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.VERZIK_VITUR_1265);
         combat.hitpoints(NpcCombatHitpoints.builder().total(3250).bar(HitpointsBar.GREEN_RED_100).build());

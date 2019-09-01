@@ -71,7 +71,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case VARROCK_TELEPORT:
                 if (player.isLocked()) {
@@ -95,7 +95,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case LUMBRIDGE_TELEPORT:
                 if (player.isLocked()) {
@@ -119,7 +119,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case FALADOR_TELEPORT:
                 if (player.isLocked()) {
@@ -143,7 +143,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case TELEPORT_TO_HOUSE:
                 if (player.isLocked()) {
@@ -168,7 +168,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case CAMELOT_TELEPORT:
                 if (player.isLocked()) {
@@ -190,7 +190,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case ARDOUGNE_TELEPORT:
                 if (player.isLocked()) {
@@ -212,7 +212,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case CHARGE:
                 if (player.isLocked()) {
@@ -237,7 +237,7 @@ public class SpellbookWidget implements Widget {
                 player.setGraphic(308, 124, 45);
                 player.getMagic().setChargeDelay(600);
                 player.getGameEncoder().sendMessage("<col=ef1020>You feel charged with magic power.</col>");
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case PADDEWWA_TELEPORT:
                 if (player.isLocked()) {
@@ -261,7 +261,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case KHARYRLL_TELEPORT:
                 if (player.isLocked()) {
@@ -283,7 +283,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case DAREEYAK_TELEPORT:
                 if (player.isLocked()) {
@@ -310,7 +310,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case CARRALLANGER_TELEPORT:
                 if (player.isLocked()) {
@@ -335,7 +335,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case ANNAKARL_TELEPORT:
                 if (player.isLocked()) {
@@ -360,7 +360,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case GHORROCK_TELEPORT:
                 if (player.isLocked()) {
@@ -385,7 +385,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case EDGEVILLE_HOME_TELEPORT:
                 if (player.isLocked()) {
@@ -400,7 +400,7 @@ public class SpellbookWidget implements Widget {
                         Magic.ANCIENT_MAGIC_ANIMATION, Magic.ANCIENT_MAGIC_GRAPHIC, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case LUNAR_HOME_TELEPORT:
                 if (player.isLocked()) {
@@ -416,7 +416,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case MAGIC_IMBUE:
                 if (player.isLocked()) {
@@ -442,7 +442,7 @@ public class SpellbookWidget implements Widget {
                 player.getMagic().setMagicImbueTime(20);
                 player.setGraphic(141, 100);
                 player.setAnimation(722);
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case VENGEANCE:
                 if (player.isLocked()) {
@@ -473,7 +473,7 @@ public class SpellbookWidget implements Widget {
                 player.getMagic().setVengeanceDelay(Magic.VENGEANCE_DELAY);
                 player.setGraphic(726, 100);
                 player.setAnimation(4410);
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case GEOMANCY:
                 if (player.isLocked()) {
@@ -497,7 +497,7 @@ public class SpellbookWidget implements Widget {
                 player.getSkills().addXp(Skills.MAGIC, 60);
                 player.getMagic().setGeomancyTime(20);
                 player.getFarming().openGeomancy();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             case OURANIA_TELEPORT:
                 if (player.isLocked()) {
@@ -521,7 +521,7 @@ public class SpellbookWidget implements Widget {
                         Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                 player.getController().stopWithTeleport();
                 player.clearHits();
-                AchievementDiary.castSpellHooks(player, spellbookChild, null, null, null);
+                AchievementDiary.castSpellUpdate(player, spellbookChild, null, null, null);
                 break;
             default:
                 break;

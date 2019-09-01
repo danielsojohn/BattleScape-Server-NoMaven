@@ -11,12 +11,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class GiantSpider27Combat extends NCombatScript {
+public class GiantSpider27Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GIANT_SPIDER_27);
         combat.hitpoints(NpcCombatHitpoints.total(32));

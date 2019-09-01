@@ -17,19 +17,22 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class RevenantPyrefiend52Combat extends NCombatScript {
+public class RevenantPyrefiend52Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.REVENANT_PYREFIEND_52);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(48));
-        combat.stats(NpcCombatStats.builder().attackLevel(60).magicLevel(67).rangedLevel(40).defenceLevel(33).bonus(CombatBonus.DEFENCE_STAB, 45).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 15).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(60).magicLevel(67).rangedLevel(40).defenceLevel(33)
+                .bonus(CombatBonus.DEFENCE_STAB, 45).bonus(CombatBonus.DEFENCE_SLASH, 40)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 15)
+                .bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());
         combat.combatScript("revenant").type(NpcCombatType.UNDEAD).deathAnimation(1580).blockAnimation(1581);
 

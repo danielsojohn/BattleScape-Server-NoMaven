@@ -749,7 +749,7 @@ pc = new PController() {
     },
 
     /* @Override */
-    widgetHook: function(index, widgetId, childId, slot, itemId) {
+    widget: function(index, widgetId, childId, slot, itemId) {
         sharedStorage.setPlayer(player);
         switch (widgetId) {
         case WidgetId.SHARED_STORAGE:

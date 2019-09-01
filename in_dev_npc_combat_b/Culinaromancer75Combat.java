@@ -12,18 +12,18 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class Culinaromancer75Combat extends NCombatScript {
+public class Culinaromancer75Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CULINAROMANCER_75);
         combat.hitpoints(NpcCombatHitpoints.total(150));
         combat.stats(NpcCombatStats.builder().attackLevel(10).defenceLevel(10).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.deathAnimation(836).blockAnimation(424);
 
         var style = NpcCombatStyle.builder();

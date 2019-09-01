@@ -6,6 +6,7 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
@@ -15,12 +16,11 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
 import lombok.var;
 
-public class ScorpionCombat extends NCombatScript {
+public class ScorpionCombat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder();
         var dropTable = NpcCombatDropTable.builder().chance(4);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ENSOULED_SCORPION_HEAD_13460)));

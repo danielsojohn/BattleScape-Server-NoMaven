@@ -132,7 +132,7 @@ public class MapObjectOptionDecoder extends PacketDecoder {
         if (!player.matchesTile(mapObject)) {
             player.setFaceTile(mapObject);
         }
-        AchievementDiary.mapObjectOptionHooks(player, index, mapObject);
+        AchievementDiary.mapObjectOptionUpdate(player, index, mapObject);
         if (player.getController().mapObjectOptionHook(index, mapObject)) {
             return true;
         }
@@ -141,7 +141,7 @@ public class MapObjectOptionDecoder extends PacketDecoder {
                 return true;
             }
         }
-        if (SkillContainer.mapObjectOptionHooks(player, index, mapObject)) {
+        if (SkillContainer.mapObjectOptions(player, index, mapObject)) {
             return true;
         }
         if (player.getFarming().mapObjectOptionHook(index, mapObject)) {

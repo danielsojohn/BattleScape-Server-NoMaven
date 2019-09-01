@@ -5,7 +5,7 @@
     { "id": "ItemId.MYSTERY_BOX", "price": 40 },
     { "id": "ItemId.SUPER_MYSTERY_BOX_32286", "price": 80 },
     { "id": "ItemId.PET_MYSTERY_BOX_32311", "price": 400 },
-    { "id": "ItemId._14_DAYS_GOLD_MEMBERSHIP_32303", "price": 40 },
+    { "id": "ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303", "price": 40 },
     { "id": "ItemId.BLOOD_MONEY", "price": 40, "stack": 100000 },
     { "id": "ItemId.BOSS_INSTANCE_SCROLL_32313", "price": 40, "stack": 10 },
     { "id": "ItemId._50_DROP_BOOST_SCROLL_1_HOUR_32314", "price": 40 },

@@ -129,7 +129,7 @@ instance = new DialogueScript() {
                 lines.add("<col=004080>Active Modifiers</col>");
                 lines.add("Voted: " + player.hasVoted());
                 lines.add("Wishing Well: " + WishingWell.isDonationBoostActive());
-                lines.add("Gold Membership: " + player.getGoldMember());
+                lines.add("Premium Membership: " + player.isPremiumMember());
                 lines.add("Ring of Wealth (i): " + player.getCharges().hasRoWICharge(0));
                 lines.add("Hard Mode: " + player.isGameModeHard());
                 lines.add("Set Combat Levels 25% Penalty: " + !player.getSkills().withinCombatLevelsAchieved());
@@ -139,7 +139,7 @@ instance = new DialogueScript() {
                 lines.add("<col=004080>Drop Rate Modifiers</col>");
                 lines.add("Voting: 10% (10% for Pets)");
                 lines.add("Wishing Well: 10% (10% for Pets)");
-                lines.add("Gold Membership: 10% (10% for Pets)");
+                lines.add("Premium Membership: 10% (10% for Pets)");
                 lines.add("Ring of Wealth (i): 10% (10% for Pets)");
                 lines.add("Wilderness Slayer: 10% (10% for Pets)");
                 lines.add("Hard Mode: 20% (0% for Pets)");
@@ -148,7 +148,7 @@ instance = new DialogueScript() {
                 lines.add("<col=004080>Experience</col>");
                 lines.add("Voting: 5%");
                 lines.add("Wishing Well: 10%");
-                lines.add("Gold Membership: 5%");
+                lines.add("Premium Membership: 5%");
                 lines.add("Skilling Outfit: 10%");
                 lines.add("Cooking Gauntlets: 10%");
                 lines.add("Wilderness Slayer: 10%");
@@ -156,7 +156,7 @@ instance = new DialogueScript() {
                 lines.add("");
                 lines.add("<col=004080>Skilling Success</col>");
                 lines.add("Voting: 5%");
-                lines.add("Gold Membership: 5%");
+                lines.add("Premium Membership: 5%");
                 lines.add("Skilling Outfit: 10%");
                 lines.add("Wilderness: 10%");
                 lines.add("<col=004080>Cooking:</col> Cooking Gauntlets: 10%, Cooking Cape: 100%");

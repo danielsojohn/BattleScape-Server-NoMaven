@@ -29,14 +29,14 @@ public class TrainingDayDiary extends AchievementDiary {
     }
 
     @Override
-    public void updateRegionIdHook(Player player, int oldId, int newId) {
+    public void updateRegionId(Player player, int oldId, int newId) {
         if (newId == 10553 || newId == 10554 || newId == 6966) {
             addCompletedTask(player, TrainingDayTask.VISIT_CRABS);
         }
     }
 
     @Override
-    public void addXpHook(Player player, int skillId, int amount) {
+    public void addXp(Player player, int skillId, int amount) {
         int totalLevel = player.getSkills().getTotalLevel();
         if (totalLevel >= 100) {
             addCompletedTask(player, TrainingDayTask.TOTAL_LEVEL_100);
@@ -47,7 +47,7 @@ public class TrainingDayDiary extends AchievementDiary {
     }
 
     @Override
-    public void levelUpHook(Player player, int skillId, int oldLevel, int newLevel) {
+    public void levelUp(Player player, int skillId, int oldLevel, int newLevel) {
         int totalLevel = player.getSkills().getTotalLevel();
         if (totalLevel >= 100) {
             addCompletedTask(player, TrainingDayTask.TOTAL_LEVEL_100);
@@ -58,7 +58,7 @@ public class TrainingDayDiary extends AchievementDiary {
     }
 
     @Override
-    public void sendInteractiveOverlayHook(Player player, int id) {
+    public void sendInteractiveOverlay(Player player, int id) {
         if (id == WidgetId.GRAND_EXCHANGE) {
             addCompletedTask(player, TrainingDayTask.VIEW_GRAND_EXCHANGE);
         }
@@ -68,12 +68,12 @@ public class TrainingDayDiary extends AchievementDiary {
     }
 
     @Override
-    public void sendClanChatMessageHook(Player player, int clanChatUserId, String clanChatName, String message) {
+    public void sendClanChatMessage(Player player, int clanChatUserId, String clanChatName, String message) {
         addCompletedTask(player, TrainingDayTask.TALK_CLAN_CHAT);
     }
 
     @Override
-    public void buyShopItemHook(Player player, Shop shop, ShopItem shopItem, Item item, int price) {
+    public void buyShopItem(Player player, Shop shop, ShopItem shopItem, Item item, int price) {
         addCompletedTask(player, TrainingDayTask.BUY_SHOP_ITEM);
         if (shop.getCurrency() == ItemId.VOTE_TICKET) {
             addCompletedTask(player, TrainingDayTask.SPEND_VOTE_TICKET);
@@ -81,24 +81,24 @@ public class TrainingDayDiary extends AchievementDiary {
     }
 
     @Override
-    public void slayerAssignmentHook(Player player, SlayerMaster slayerMaster, SlayerTask slayerTask, int amount) {
+    public void slayerAssignment(Player player, SlayerMaster slayerMaster, SlayerTask slayerTask, int amount) {
         addCompletedTask(player, TrainingDayTask.GET_SLAYER_TASK);
     }
 
     @Override
-    public void slayerAssignmentCompleteHook(Player player, SlayerMaster slayerMaster, SlayerTask slayerTask) {
+    public void slayerAssignmentComplete(Player player, SlayerMaster slayerMaster, SlayerTask slayerTask) {
         addCompletedTask(player, TrainingDayTask.COMPLETE_SLAYER_TASK);
     }
 
     @Override
-    public void npcOptionHook(Player player, int index, Npc npc) {
+    public void npcOption(Player player, int index, Npc npc) {
         if (npc.getId() == NpcId.LOYALTY_MANAGER) {
             addCompletedTask(player, TrainingDayTask.TALK_LOYALTY_MANAGER);
         }
     }
 
     @Override
-    public void makeItemHook(Player player, int skillId, Item item, Npc npc, MapObject mapObject) {
+    public void makeItem(Player player, int skillId, Item item, Npc npc, MapObject mapObject) {
         if (skillId == Skills.WOODCUTTING && item.getId() == ItemId.WILLOW_LOGS) {
             addCompletedTask(player, TrainingDayTask.CHOP_WILLOW);
         }
@@ -139,12 +139,12 @@ public class TrainingDayDiary extends AchievementDiary {
     }
 
     @Override
-    public void makeFireHook(Player player, Item item) {
+    public void makeFire(Player player, Item item) {
         addCompletedTask(player, TrainingDayTask.START_FIRE);
     }
 
     @Override
-    public void npcKilledHook(Player player, Npc npc) {
+    public void npcKilled(Player player, Npc npc) {
         if (npc.getId() >= 1689 && npc.getId() <= 1754) {
             addCompletedTask(player, TrainingDayTask.KILL_PC_MONSTER);
         }
