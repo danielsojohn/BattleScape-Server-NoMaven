@@ -1902,7 +1902,7 @@
     "id": "NpcId.CHAOS_ELEMENTAL_610_16016",
     "combatScript": "ChaosElementalCS",
     "respawnDelay": 36000,
-    "hitpoints": 2500,
+    "hitpoints": 2000,
     "hitpointsBarId": 2,
     "aggressive": true,
     "aggressiveRange": 8,
@@ -1920,26 +1920,13 @@
     "combatStyles": [
       {
         "type": "MELEE",
-        "meleeAttackStyle": "ATTACK_STAB",
         "animation": 3146,
         "maxHit": 28,
         "attackSpeed": 5,
-        "multiTarget": true
-      },
-      {
-        "type": "MELEE",
-        "meleeAttackStyle": "ATTACK_SLASH",
-        "animation": 3146,
-        "maxHit": 28,
-        "attackSpeed": 5,
-        "multiTarget": true
-      },
-      {
-        "type": "MELEE",
-        "meleeAttackStyle": "ATTACK_CRUSH",
-        "animation": 3146,
-        "maxHit": 28,
-        "attackSpeed": 5,
+        "castGraphic": { "id": 556, "height": 100 },
+        "targetGraphic": { "id": 558, "height": 100 },
+        "projectileId": 557,
+        "attackRange": 10,
         "multiTarget": true
       },
       {
@@ -1962,58 +1949,19 @@
         "targetGraphic": { "id": 558, "height": 100 },
         "projectileId": 557,
         "multiTarget": true
-      },
-      {
-        "identifier": 1,
-        "type": "MAGIC",
-        "subType": "TYPELESS",
-        "animation": 3146,
-        "maxHit": 4,
-        "attackSpeed": 5,
-        "fullDamage": true
-      },
-      {
-        "type": "MAGIC",
-        "subType": "TYPELESS",
-        "animation": 3146,
-        "maxHit": 28,
-        "attackSpeed": 5,
-        "castGraphic": { "id": 556, "height": 100 },
-        "targetGraphic": { "id": 558, "height": 100 },
-        "projectileId": 557,
-        "multiTarget": true,
-        "speedMinDistance": 8,
-        "targetTile": true,
-        "targetTileBreakOff": 2,
-        "targetTileBreakOffDistance": 2
       }
     ],
     "saveKillCount": true,
     "sendKillCount": true,
     "dropUnderKiller": true,
     "rareDropTableRate": 0.4,
-    "dropForAdditionalPlayers": 4,
-    "drops": [
-      {
-        "chance": 0.33,
-        "lootBroadcast": true,
-        "items": [
-          [ { "id": "ItemId.PET_CHAOS_ELEMENTAL", "amount": 1 } ]
-        ]
-      },
-      {
-        "chance": 100,
-        "items": [
-          [ { "id": "ItemId.BLOODY_KEY", "amount": 1 } ]
-        ]
-      }
-    ]
+    "dropForAdditionalPlayers": 4
   },
   {
     "id": "NpcId.SOTETSEG_995_16017",
     "combatScript": "SotetsegCS",
     "respawnDelay": 36000,
-    "hitpoints": 4000,
+    "hitpoints": 2000,
     "hitpointsBarId": 2,
     "aggressive": true,
     "aggressiveRange": 8,
@@ -2059,14 +2007,6 @@
     "sendKillCount": true,
     "dropUnderKiller": true,
     "rareDropTableRate": 0.4,
-    "dropForAdditionalPlayers": 4,
-    "drops": [
-      {
-        "chance": 100,
-        "items": [
-          [ { "id": "ItemId.BLOODY_KEY", "amount": 1 } ]
-        ]
-      }
-    ]
+    "dropForAdditionalPlayers": 4
   }
 ]
