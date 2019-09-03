@@ -17990,17 +17990,17 @@
         ]
       },
       {
-        "chance": 0.29,
-        "logLoot": true,
-        "items": [
-          [ { "id": "ItemId.ABYSSAL_WHIP", "amount": 1 } ]
-        ]
-      },
-      {
         "chance": 0.032,
         "logLoot": true,
         "items": [
           [ { "id": "ItemId.ABYSSAL_HEAD", "amount": 1 } ]
+        ]
+      },
+      {
+        "chance": 0.79,
+        "logLoot": true,
+        "items": [
+          [ { "id": "ItemId.ABYSSAL_WHIP", "amount": 1 } ]
         ]
       },
       {
