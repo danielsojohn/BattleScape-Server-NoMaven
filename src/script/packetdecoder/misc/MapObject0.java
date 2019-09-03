@@ -2713,6 +2713,10 @@ public class MapObject0 {
         }
         if (index == 0) {
             WildernessObelisk.activateObelisk(player, mapObject);
+        } else if (index == 1) {
+            player.getGameEncoder().sendMessage("Teleport to destination");
+        } else if (index == 2) {
+            WildernessObelisk.setDestinationDialogue(player);
         }
     }
 
@@ -2724,6 +2728,10 @@ public class MapObject0 {
         }
         if (index == 0) {
             WildernessObelisk.activateObelisk(player, mapObject);
+        } else if (index == 1) {
+            player.getGameEncoder().sendMessage("Teleport to destination");
+        } else if (index == 2) {
+            WildernessObelisk.setDestinationDialogue(player);
         }
     }
 
@@ -2735,6 +2743,10 @@ public class MapObject0 {
         }
         if (index == 0) {
             WildernessObelisk.activateObelisk(player, mapObject);
+        } else if (index == 1) {
+            player.getGameEncoder().sendMessage("Teleport to destination");
+        } else if (index == 2) {
+            WildernessObelisk.setDestinationDialogue(player);
         }
     }
 
@@ -2746,6 +2758,10 @@ public class MapObject0 {
         }
         if (index == 0) {
             WildernessObelisk.activateObelisk(player, mapObject);
+        } else if (index == 1) {
+            player.getGameEncoder().sendMessage("Teleport to destination");
+        } else if (index == 2) {
+            WildernessObelisk.setDestinationDialogue(player);
         }
     }
 
@@ -2757,6 +2773,10 @@ public class MapObject0 {
         }
         if (index == 0) {
             WildernessObelisk.activateObelisk(player, mapObject);
+        } else if (index == 1) {
+            player.getGameEncoder().sendMessage("Teleport to destination");
+        } else if (index == 2) {
+            WildernessObelisk.setDestinationDialogue(player);
         }
     }
 
@@ -2768,6 +2788,10 @@ public class MapObject0 {
         }
         if (index == 0) {
             WildernessObelisk.activateObelisk(player, mapObject);
+        } else if (index == 1) {
+            player.getGameEncoder().sendMessage("Teleport to destination");
+        } else if (index == 2) {
+            WildernessObelisk.setDestinationDialogue(player);
         }
     }
 

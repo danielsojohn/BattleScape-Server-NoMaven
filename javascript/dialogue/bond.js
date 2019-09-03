@@ -73,7 +73,7 @@ instance = new DialogueScript() {
         } else if (index == 2) {
             if (slot == 0) {
                 if (!player.isUsergroup(SqlUserRank.DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 10+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only red bond donators and above can use this.");
                     return;
                 }
                 player.openShop("donator");
@@ -81,25 +81,25 @@ instance = new DialogueScript() {
                 player.getAppearance().setColor(4, 1);
             } else if (slot == 2) {
                 if (!player.isUsergroup(SqlUserRank.DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 10+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only red donators or above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 16);
             } else if (slot == 3) {
                 if (!player.isUsergroup(SqlUserRank.SUPER_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 30+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only green donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 17);
             } else if (slot == 4) {
                 if (!player.isUsergroup(SqlUserRank.EXTREME_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 90+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only blue donators donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 18);
             } else if (slot == 5) {
                 if (!player.isUsergroup(SqlUserRank.LEGENDARY_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 270+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only yellow donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 19);
