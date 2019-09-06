@@ -45,6 +45,34 @@ public class ItemOnItemAction {
                 player.getInventory().deleteItem(useItemId, 1, useSlot);
                 player.getInventory().deleteItem(onItemId, 1, onSlot);
                 player.getInventory().addItem(ItemId.DRAGON_HUNTER_LANCE, 1, onSlot);
+            } else if (used(useItemId, onItemId, ItemId.VESTAS_LONGSWORD, ItemId.COINS)
+                    || used(useItemId, onItemId, ItemId.VESTAS_LONGSWORD_CHARGED_32254, ItemId.COINS)) {
+                int chargedId = ItemId.VESTAS_LONGSWORD_CHARGED_32254;
+                int chargingSlot = useItemId == ItemId.VESTAS_LONGSWORD || useItemId == chargedId ? useSlot : onSlot;
+                int coinsPerCharge = 1_000_000 / ItemDef.getDegradeTime(chargedId);
+                player.getCharges().chargeFromInventory(chargedId, chargingSlot,
+                        player.getInventory().getCount(ItemId.COINS), new Item(ItemId.COINS, coinsPerCharge), 1);
+            } else if (used(useItemId, onItemId, ItemId.STATIUSS_WARHAMMER, ItemId.COINS)
+                    || used(useItemId, onItemId, ItemId.STATIUSS_WARHAMMER_CHARGED_32255, ItemId.COINS)) {
+                int chargedId = ItemId.STATIUSS_WARHAMMER_CHARGED_32255;
+                int chargingSlot = useItemId == ItemId.STATIUSS_WARHAMMER || useItemId == chargedId ? useSlot : onSlot;
+                int coinsPerCharge = 1_000_000 / ItemDef.getDegradeTime(chargedId);
+                player.getCharges().chargeFromInventory(chargedId, chargingSlot,
+                        player.getInventory().getCount(ItemId.COINS), new Item(ItemId.COINS, coinsPerCharge), 1);
+            } else if (used(useItemId, onItemId, ItemId.VESTAS_SPEAR, ItemId.COINS)
+                    || used(useItemId, onItemId, ItemId.VESTAS_SPEAR_CHARGED_32256, ItemId.COINS)) {
+                int chargedId = ItemId.VESTAS_SPEAR_CHARGED_32256;
+                int chargingSlot = useItemId == ItemId.VESTAS_SPEAR || useItemId == chargedId ? useSlot : onSlot;
+                int coinsPerCharge = 1_000_000 / ItemDef.getDegradeTime(chargedId);
+                player.getCharges().chargeFromInventory(chargedId, chargingSlot,
+                        player.getInventory().getCount(ItemId.COINS), new Item(ItemId.COINS, coinsPerCharge), 1);
+            } else if (used(useItemId, onItemId, ItemId.ZURIELS_STAFF, ItemId.COINS)
+                    || used(useItemId, onItemId, ItemId.ZURIELS_STAFF_CHARGED_32257, ItemId.COINS)) {
+                int chargedId = ItemId.ZURIELS_STAFF_CHARGED_32257;
+                int chargingSlot = useItemId == ItemId.ZURIELS_STAFF || useItemId == chargedId ? useSlot : onSlot;
+                int coinsPerCharge = 1_000_000 / ItemDef.getDegradeTime(chargedId);
+                player.getCharges().chargeFromInventory(chargedId, chargingSlot,
+                        player.getInventory().getCount(ItemId.COINS), new Item(ItemId.COINS, coinsPerCharge), 1);
             } else if (used(useItemId, onItemId, 4151, 12004)) {
                 // Abyssal whip and Kraken tentacle
                 player.getInventory().deleteItem(useItemId, 1, useSlot);

@@ -1473,26 +1473,20 @@ public class InventoryWidget implements Widget {
         case 21031: // Infernal harpoon
         case 13243: // Infernal pickaxe
         case 21255: // Slayer's staff (e)
-        case 32254: // Vesta's longsword
-        case 32256: // Statius's warhammer
-        case 32258: // Vesta's spear
-        case 32262: // Zuriel's staff
-        case 32264: // Vesta's longsword (deg)
-        case 32265: // Statius's warhammer (deg)
-        case 32266: // Vesta's spear (deg)
-        case 32269: // Zuriel's staff (deg)
-        case 32270: // Corrupt vesta's longsword
-        case 32272: // Corrupt statius's warhammer
-        case 32274: // Corrupt vesta's spear
-        case 32278: // Corrupt zuriel's staff
-        case 32280: // C. vesta's longsword (deg)
-        case 32281: // C. statius's warhammer (deg)
-        case 32282: // C. vesta's spear (deg)
-        case 32285: // C. zuriel's staff (deg)
+        case ItemId.VESTAS_LONGSWORD_CHARGED_32254:
+        case ItemId.STATIUSS_WARHAMMER_CHARGED_32255:
+        case ItemId.VESTAS_SPEAR_CHARGED_32256:
+        case ItemId.ZURIELS_STAFF_CHARGED_32257:
         case ItemId.ARMADYL_GODSWORD_BEGINNER_32326:
         case ItemId.DRAGON_CLAWS_BEGINNER_32327:
         case ItemId.HEAVY_BALLISTA_BEGINNER_32328:
             player.getCharges().checkCharges(slot);
+            break;
+        case ItemId.VESTAS_LONGSWORD:
+        case ItemId.STATIUSS_WARHAMMER:
+        case ItemId.VESTAS_SPEAR:
+        case ItemId.ZURIELS_STAFF:
+            player.getGameEncoder().sendMessage("This item needs to be charged with coins.");
             break;
         case 22545: // Viggora's chainmace
             if (index == 2) {

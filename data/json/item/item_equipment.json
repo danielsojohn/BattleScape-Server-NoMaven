@@ -37745,7 +37745,7 @@
       "MELEE_STRENGTH": "118"
     },
     "degradeId": "ItemId.VESTAS_LONGSWORD",
-    "degradeTime": "6000",
+    "degradeTime": "1200",
     "degradeCombat": "true"
   },
   {
@@ -37761,7 +37761,7 @@
       "MELEE_STRENGTH": "114"
     },
     "degradeId": "ItemId.STATIUSS_WARHAMMER",
-    "degradeTime": "6000",
+    "degradeTime": "1200",
     "degradeCombat": "true"
   },
   {
@@ -37782,7 +37782,7 @@
       "MELEE_STRENGTH": "122"
     },
     "degradeId": "ItemId.VESTAS_SPEAR",
-    "degradeTime": "6000",
+    "degradeTime": "1200",
     "degradeCombat": "true"
   },
   {
@@ -37805,7 +37805,7 @@
       "MAGIC_DAMAGE": "10"
     },
     "degradeId": "ItemId.ZURIELS_STAFF",
-    "degradeTime": "6000",
+    "degradeTime": "1200",
     "degradeCombat": "true"
   },
   {
