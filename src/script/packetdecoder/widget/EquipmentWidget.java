@@ -115,9 +115,6 @@ public class EquipmentWidget implements Widget {
                             if (!player.getController().canTeleport(20, true)) {
                                 return;
                             }
-                            if (warriorsGuildTile == null) {
-                                return;
-                            }
                             player.getMovement().animatedTeleport(warriorsGuildTile, Magic.NORMAL_MAGIC_ANIMATION_START,
                                     Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
                             player.getController().stopWithTeleport();
@@ -127,9 +124,6 @@ public class EquipmentWidget implements Widget {
                         } else if (index == 3) {
                             Tile craftingGuildTile = new Tile(2936, 3282);
                             if (!player.getController().canTeleport(20, true)) {
-                                return;
-                            }
-                            if (craftingGuildTile == null) {
                                 return;
                             }
                             player.getMovement().animatedTeleport(craftingGuildTile, Magic.NORMAL_MAGIC_ANIMATION_START,

@@ -382,6 +382,7 @@ public class InventoryWidget implements Widget {
         case ItemId.STARTER_PACK_32288:
             if (!player.hasVoted() && player.getRights() == Player.RIGHTS_NONE) {
                 player.getGameEncoder().sendMessage("To open this, you first need to vote.");
+                player.getGameEncoder().sendMessage("Make sure to relog after voting!");
                 break;
             }
             player.getInventory().deleteItem(itemId, 1, slot);

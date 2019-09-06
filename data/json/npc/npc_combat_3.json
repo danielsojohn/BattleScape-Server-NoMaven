@@ -19620,6 +19620,7 @@
   {
     "id": "NpcId.SKELETAL_MYSTIC",
     "combatScript": "SkeletalMysticCS",
+    "undead": true,
     "hitpoints": 150,
     "aggressive": true,
     "aggressiveRange": 12,
@@ -19686,6 +19687,7 @@
   {
     "id": "NpcId.SKELETAL_MYSTIC_7605",
     "combatScript": "SkeletalMysticCS",
+    "undead": true,
     "hitpoints": 150,
     "aggressive": true,
     "aggressiveRange": 12,
@@ -19752,6 +19754,7 @@
   {
     "id": "NpcId.SKELETAL_MYSTIC_7606",
     "combatScript": "SkeletalMysticCS",
+    "undead": true,
     "hitpoints": 150,
     "aggressive": true,
     "aggressiveRange": 12,
