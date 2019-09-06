@@ -9,7 +9,8 @@ import lombok.var;
 public class MaxCommand implements Command {
     @Override
     public boolean canUse(Player player) {
-        return Main.isSpawn() && player.inEdgeville() && !player.getController().inPvPWorld();
+        return player.getRights() == Player.RIGHTS_ADMIN
+                || Main.isSpawn() && player.inEdgeville() && !player.getController().inPvPWorld();
     }
 
     @Override

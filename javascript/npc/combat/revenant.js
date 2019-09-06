@@ -1,12 +1,4 @@
 var ANCIENT_WARRIOR_DROP_TABLE = [
-    new RandomItem(ItemId.VESTAS_LONGSWORD_32254, 1),
-    new RandomItem(ItemId.STATIUSS_WARHAMMER_32256, 1),
-    new RandomItem(ItemId.VESTAS_SPEAR_32258, 1),
-    new RandomItem(ItemId.MORRIGANS_JAVELIN_32260, 50),
-    new RandomItem(ItemId.MORRIGANS_THROWING_AXE_32261, 50),
-    new RandomItem(ItemId.ZURIELS_STAFF_32262, 1)
-];
-var ANCIENT_WARRIOR_DROP_TABLE_SPAWN = [
     new RandomItem(ItemId.VESTAS_LONGSWORD, 1),
     new RandomItem(ItemId.STATIUSS_WARHAMMER, 1),
     new RandomItem(ItemId.VESTAS_SPEAR, 1),
@@ -139,8 +131,7 @@ cs = new NCombatScript() {
             }
         }
         if (Utils.randomE(32768 / Math.sqrt(clampedLevel)) == 0) {
-            var pvpItem = RandomItem.getItem(Main.isSpawn() ? ANCIENT_WARRIOR_DROP_TABLE_SPAWN
-                    : ANCIENT_WARRIOR_DROP_TABLE);
+            var pvpItem = RandomItem.getItem(ANCIENT_WARRIOR_DROP_TABLE);
             npc.getController().addMapItem(pvpItem, dropTile, player);
             player.getCombat().logNPCItem(npc.getDef().getKillCountName(), pvpItem.getId(), pvpItem.getAmount());
             npc.getWorld().sendItemDropNews(player, pvpItem.getId(), " a revenant");
