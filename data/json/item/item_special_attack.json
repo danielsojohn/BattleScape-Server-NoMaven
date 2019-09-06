@@ -293,18 +293,14 @@
   },
   {
     "itemIds": [
-      "ItemId.VESTAS_LONGSWORD",
-      "ItemId.VESTAS_LONGSWORD_32254",
-      "ItemId.VESTAS_LONGSWORD_DEG_32264"
+      "ItemId.VESTAS_LONGSWORD_CHARGED_32254"
     ],
     "drain": 25,
     "animationId": "4198"
   },
   {
     "itemIds": [
-      "ItemId.STATIUSS_WARHAMMER",
-      "ItemId.STATIUSS_WARHAMMER_32256",
-      "ItemId.STATIUSS_WARHAMMER_DEG_32265"
+      "ItemId.STATIUSS_WARHAMMER_CHARGED_32255"
     ],
     "drain": 35,
     "animationId": 1378,
@@ -312,9 +308,7 @@
   },
   {
     "itemIds": [
-      "ItemId.VESTAS_SPEAR",
-      "ItemId.VESTAS_SPEAR_32258",
-      "ItemId.VESTAS_SPEAR_DEG_32266"
+      "ItemId.VESTAS_SPEAR_CHARGED_32256"
     ],
     "drain": 50,
     "animationId": 2927,
@@ -401,9 +395,7 @@
   },
   {
     "itemIds": [
-      "ItemId.MORRIGANS_JAVELIN",
-      "ItemId.MORRIGANS_JAVELIN_32260",
-      "ItemId.MORRIGANS_JAVELIN_DEG_32267"
+      "ItemId.MORRIGANS_JAVELIN"
     ],
     "drain": 50,
     "animationId": 806,
@@ -411,9 +403,7 @@
   },
   {
     "itemIds": [
-      "ItemId.MORRIGANS_THROWING_AXE",
-      "ItemId.MORRIGANS_THROWING_AXE_32261",
-      "ItemId.MORRIGANS_THROWING_AXE_DEG_32268"
+      "ItemId.MORRIGANS_THROWING_AXE"
     ],
     "drain": 50,
     "animationId": 806,

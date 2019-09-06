@@ -36068,38 +36068,18 @@
   },
   {
     "id": "ItemId.VESTAS_SPEAR",
-    "equipSlot": "WEAPON",
     "weaponType": "TYPE_15",
     "attackSpeed": "5",
     "twoHanded": "true",
     "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "133",
-      "ATTACK_SLASH": "113",
-      "ATTACK_CRUSH": "120",
-      "DEFENCE_STAB": "18",
-      "DEFENCE_SLASH": "21",
-      "DEFENCE_CRUSH": "21",
-      "MELEE_STRENGTH": "122"
-    }
+    "levels": "Attack=78"
   },
   {
     "id": "ItemId.VESTAS_LONGSWORD",
-    "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
     "attackSpeed": "5",
     "stanceAnimations": [ "809", "823", "819", "820", "821", "822", "824" ],
-    "levels": "Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "106",
-      "ATTACK_SLASH": "121",
-      "ATTACK_CRUSH": "-2",
-      "DEFENCE_STAB": "1",
-      "DEFENCE_SLASH": "4",
-      "DEFENCE_CRUSH": "3",
-      "MELEE_STRENGTH": "118"
-    }
+    "levels": "Attack=78"
   },
   {
     "id": "ItemId.VESTAS_CHAINBODY",
@@ -36139,16 +36119,9 @@
   },
   {
     "id": "ItemId.STATIUSS_WARHAMMER",
-    "equipSlot": "WEAPON",
     "weaponType": "TYPE_2",
     "attackSpeed": "5",
-    "levels": "Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "-4",
-      "ATTACK_SLASH": "-4",
-      "ATTACK_CRUSH": "123",
-      "MELEE_STRENGTH": "114"
-    }
+    "levels": "Attack=78"
   },
   {
     "id": "ItemId.STATIUSS_FULL_HELM",
@@ -36275,23 +36248,10 @@
   },
   {
     "id": "ItemId.ZURIELS_STAFF",
-    "equipSlot": "WEAPON",
     "weaponType": "TYPE_18",
     "attackSpeed": "5",
     "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Magic=78",
-    "bonuses": {
-      "ATTACK_STAB": "13",
-      "ATTACK_SLASH": "-1",
-      "ATTACK_CRUSH": "65",
-      "ATTACK_MAGIC": "18",
-      "DEFENCE_STAB": "5",
-      "DEFENCE_SLASH": "7",
-      "DEFENCE_CRUSH": "4",
-      "DEFENCE_MAGIC": "18",
-      "MELEE_STRENGTH": "72",
-      "MAGIC_DAMAGE": "10"
-    }
+    "levels": "Magic=78"
   },
   {
     "id": "ItemId.ZURIELS_HOOD",
@@ -37769,7 +37729,7 @@
   },
 
   {
-    "id": "ItemId.VESTAS_LONGSWORD_32254",
+    "id": "ItemId.VESTAS_LONGSWORD_CHARGED_32254",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
     "attackSpeed": "5",
@@ -37784,14 +37744,15 @@
       "DEFENCE_CRUSH": "3",
       "MELEE_STRENGTH": "118"
     },
-    "degradeId": "32264",
+    "degradeId": "ItemId.VESTAS_LONGSWORD",
+    "degradeTime": "6000",
     "degradeCombat": "true"
   },
   {
-    "id": "ItemId.STATIUSS_WARHAMMER_32256",
+    "id": "ItemId.STATIUSS_WARHAMMER_CHARGED_32255",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_2",
-    "attackSpeed": "6",
+    "attackSpeed": "5",
     "levels": "Attack=78",
     "bonuses": {
       "ATTACK_STAB": "-4",
@@ -37799,11 +37760,12 @@
       "ATTACK_CRUSH": "123",
       "MELEE_STRENGTH": "114"
     },
-    "degradeId": "32265",
+    "degradeId": "ItemId.STATIUSS_WARHAMMER",
+    "degradeTime": "6000",
     "degradeCombat": "true"
   },
   {
-    "id": "ItemId.VESTAS_SPEAR_32258",
+    "id": "ItemId.VESTAS_SPEAR_CHARGED_32256",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_15",
     "attackSpeed": "5",
@@ -37819,46 +37781,17 @@
       "DEFENCE_CRUSH": "21",
       "MELEE_STRENGTH": "122"
     },
-    "degradeId": "32266",
+    "degradeId": "ItemId.VESTAS_SPEAR",
+    "degradeTime": "6000",
     "degradeCombat": "true"
   },
   {
-    "id": "ItemId.MORRIGANS_JAVELIN_32260",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "6",
-    "attackRange": "9",
-    "ammo": [ "-1" ],
-    "castGraphic": { "id": "1619", "height": "96" },
-    "projectileId": "1620",
-    "levels": "Ranged=78",
-    "bonuses": {
-      "ATTACK_RANGED": "105",
-      "RANGED_STRENGTH": "145"
-    }
-  },
-  {
-    "id": "ItemId.MORRIGANS_THROWING_AXE_32261",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "5",
-    "attackRange": "4",
-    "ammo": [ "-1" ],
-    "castGraphic": { "id": "1624", "height": "96" },
-    "projectileId": "1623",
-    "levels": "Ranged=78",
-    "bonuses": {
-      "ATTACK_RANGED": "93",
-      "RANGED_STRENGTH": "117"
-    }
-  },
-  {
-    "id": "ItemId.ZURIELS_STAFF_32262",
+    "id": "ItemId.ZURIELS_STAFF_CHARGED_32257",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_18",
-    "attackSpeed": "6",
+    "attackSpeed": "5",
     "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Magic=78,Attack=78",
+    "levels": "Magic=78",
     "bonuses": {
       "ATTACK_STAB": "13",
       "ATTACK_SLASH": "-1",
@@ -37871,324 +37804,8 @@
       "MELEE_STRENGTH": "72",
       "MAGIC_DAMAGE": "10"
     },
-    "degradeId": "32269",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.VESTAS_LONGSWORD_DEG_32264",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_9",
-    "attackSpeed": "5",
-    "levels": "Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "106",
-      "ATTACK_SLASH": "121",
-      "ATTACK_CRUSH": "-2",
-      "DEFENCE_STAB": "1",
-      "DEFENCE_SLASH": "4",
-      "DEFENCE_CRUSH": "3",
-      "MELEE_STRENGTH": "118"
-    },
-    "degradeId": "-1",
-    "degradeTime": "1200",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.STATIUSS_WARHAMMER_DEG_32265",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_2",
-    "attackSpeed": "6",
-    "levels": "Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "-4",
-      "ATTACK_SLASH": "-4",
-      "ATTACK_CRUSH": "123",
-      "MELEE_STRENGTH": "114"
-    },
-    "degradeId": "-1",
-    "degradeTime": "1000",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.VESTAS_SPEAR_DEG_32266",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_15",
-    "attackSpeed": "5",
-    "twoHanded": "true",
-    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "133",
-      "ATTACK_SLASH": "113",
-      "ATTACK_CRUSH": "120",
-      "DEFENCE_STAB": "18",
-      "DEFENCE_SLASH": "21",
-      "DEFENCE_CRUSH": "21",
-      "MELEE_STRENGTH": "122"
-    },
-    "degradeId": "-1",
-    "degradeTime": "1200",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.MORRIGANS_JAVELIN_DEG_32267",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "6",
-    "attackRange": "9",
-    "ammo": [ "-1" ],
-    "projectileId": "1192",
-    "levels": "Ranged=78",
-    "bonuses": {
-      "ATTACK_RANGED": "105",
-      "RANGED_STRENGTH": "145"
-    }
-  },
-  {
-    "id": "ItemId.MORRIGANS_THROWING_AXE_DEG_32268",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "5",
-    "attackRange": "4",
-    "ammo": [ "-1" ],
-    "projectileId": "1197",
-    "levels": "Ranged=78",
-    "bonuses": {
-      "ATTACK_RANGED": "93",
-      "RANGED_STRENGTH": "117"
-    }
-  },
-  {
-    "id": "ItemId.ZURIELS_STAFF_DEG_32269",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_18",
-    "attackSpeed": "6",
-    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Magic=78,Attack=78",
-    "bonuses": {
-      "ATTACK_STAB": "13",
-      "ATTACK_SLASH": "-1",
-      "ATTACK_CRUSH": "65",
-      "ATTACK_MAGIC": "18",
-      "DEFENCE_STAB": "5",
-      "DEFENCE_SLASH": "7",
-      "DEFENCE_CRUSH": "4",
-      "DEFENCE_MAGIC": "18",
-      "MELEE_STRENGTH": "72",
-      "MAGIC_DAMAGE": "10"
-    },
-    "degradeId": "-1",
-    "degradeTime": "1200",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.CORRUPT_VESTAS_LONGSWORD_32270",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_9",
-    "attackSpeed": "5",
-    "levels": "Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "106",
-      "ATTACK_SLASH": "121",
-      "ATTACK_CRUSH": "-2",
-      "DEFENCE_STAB": "1",
-      "DEFENCE_SLASH": "4",
-      "DEFENCE_CRUSH": "3",
-      "MELEE_STRENGTH": "118"
-    },
-    "degradeId": "32280",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.CORRUPT_STATIUSS_WARHAMMER_32272",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_2",
-    "attackSpeed": "6",
-    "levels": "Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "-4",
-      "ATTACK_SLASH": "-4",
-      "ATTACK_CRUSH": "123",
-      "MELEE_STRENGTH": "114"
-    },
-    "degradeId": "32281",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.CORRUPT_VESTAS_SPEAR_32274",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_15",
-    "attackSpeed": "5",
-    "twoHanded": "true",
-    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "133",
-      "ATTACK_SLASH": "113",
-      "ATTACK_CRUSH": "120",
-      "DEFENCE_STAB": "18",
-      "DEFENCE_SLASH": "21",
-      "DEFENCE_CRUSH": "21",
-      "MELEE_STRENGTH": "122"
-    },
-    "degradeId": "32282",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.CORRUPT_MORRIGANS_JAVELIN_32276",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "6",
-    "attackRange": "9",
-    "ammo": [ "-1" ],
-    "projectileId": "1192",
-    "levels": "Ranged=20",
-    "bonuses": {
-      "ATTACK_RANGED": "105",
-      "RANGED_STRENGTH": "145"
-    }
-  },
-  {
-    "id": "ItemId.C_MORRIGANS_THROWING_AXE_32277",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "5",
-    "attackRange": "4",
-    "ammo": [ "-1" ],
-    "projectileId": "1197",
-    "levels": "Ranged=20",
-    "bonuses": {
-      "ATTACK_RANGED": "93",
-      "RANGED_STRENGTH": "117"
-    }
-  },
-  {
-    "id": "ItemId.CORRUPT_ZURIELS_STAFF_32278",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_18",
-    "attackSpeed": "6",
-    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Magic=20,Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "13",
-      "ATTACK_SLASH": "-1",
-      "ATTACK_CRUSH": "65",
-      "ATTACK_MAGIC": "18",
-      "DEFENCE_STAB": "5",
-      "DEFENCE_SLASH": "7",
-      "DEFENCE_CRUSH": "4",
-      "DEFENCE_MAGIC": "18",
-      "MELEE_STRENGTH": "72",
-      "MAGIC_DAMAGE": "10"
-    },
-    "degradeId": "32285",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.C_VESTAS_LONGSWORD_DEG_32280",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_9",
-    "attackSpeed": "5",
-    "levels": "Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "106",
-      "ATTACK_SLASH": "121",
-      "ATTACK_CRUSH": "-2",
-      "DEFENCE_STAB": "1",
-      "DEFENCE_SLASH": "4",
-      "DEFENCE_CRUSH": "3",
-      "MELEE_STRENGTH": "118"
-    },
-    "degradeId": "-1",
-    "degradeTime": "300",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.C_STATIUSS_WARHAMMER_DEG_32281",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_2",
-    "attackSpeed": "6",
-    "levels": "Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "-4",
-      "ATTACK_SLASH": "-4",
-      "ATTACK_CRUSH": "123",
-      "MELEE_STRENGTH": "114"
-    },
-    "degradeId": "-1",
-    "degradeTime": "250",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.C_VESTAS_SPEAR_DEG_32282",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_15",
-    "attackSpeed": "5",
-    "twoHanded": "true",
-    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "133",
-      "ATTACK_SLASH": "113",
-      "ATTACK_CRUSH": "120",
-      "DEFENCE_STAB": "18",
-      "DEFENCE_SLASH": "21",
-      "DEFENCE_CRUSH": "21",
-      "MELEE_STRENGTH": "122"
-    },
-    "degradeId": "-1",
-    "degradeTime": "300",
-    "degradeCombat": "true"
-  },
-  {
-    "id": "ItemId.C_MORRIGANS_JAVELIN_DEG_32283",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "6",
-    "attackRange": "9",
-    "ammo": [ "-1" ],
-    "projectileId": "1192",
-    "levels": "Ranged=20",
-    "bonuses": {
-      "ATTACK_RANGED": "105",
-      "RANGED_STRENGTH": "145"
-    }
-  },
-  {
-    "id": "ItemId.C_MORRIGANS_THROWING_AXE_DEG_32284",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_19",
-    "attackSpeed": "5",
-    "attackRange": "4",
-    "ammo": [ "-1" ],
-    "projectileId": "1197",
-    "levels": "Ranged=20",
-    "bonuses": {
-      "ATTACK_RANGED": "93",
-      "RANGED_STRENGTH": "117"
-    }
-  },
-  {
-    "id": "ItemId.C_ZURIELS_STAFF_DEG_32285",
-    "equipSlot": "WEAPON",
-    "weaponType": "TYPE_18",
-    "attackSpeed": "6",
-    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
-    "levels": "Magic=20,Attack=20",
-    "bonuses": {
-      "ATTACK_STAB": "13",
-      "ATTACK_SLASH": "-1",
-      "ATTACK_CRUSH": "65",
-      "ATTACK_MAGIC": "18",
-      "DEFENCE_STAB": "5",
-      "DEFENCE_SLASH": "7",
-      "DEFENCE_CRUSH": "4",
-      "DEFENCE_MAGIC": "18",
-      "MELEE_STRENGTH": "72",
-      "MAGIC_DAMAGE": "10"
-    },
-    "degradeId": "-1",
-    "degradeTime": "300",
+    "degradeId": "ItemId.ZURIELS_STAFF",
+    "degradeTime": "6000",
     "degradeCombat": "true"
   },
   {
