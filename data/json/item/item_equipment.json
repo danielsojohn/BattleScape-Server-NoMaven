@@ -28053,6 +28053,7 @@
     "attackSpeed": "3",
     "attackRange": "5",
     "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
     "ammo": [ "-2" ],
     "levels": "Ranged=75",
     "bonuses": {
@@ -36181,10 +36182,12 @@
   {
     "id": "ItemId.MORRIGANS_THROWING_AXE",
     "equipSlot": "WEAPON",
-    "weaponType": "TYPE_1",
+    "weaponType": "TYPE_19",
     "attackSpeed": "5",
     "attackRange": "4",
     "ammo": [ "-1" ],
+    "castGraphic": { "id": "1624", "height": "96" },
+    "projectileId": "1623",
     "levels": "Ranged=78",
     "bonuses": {
       "ATTACK_RANGED": "93",
@@ -36194,8 +36197,12 @@
   {
     "id": "ItemId.MORRIGANS_JAVELIN",
     "equipSlot": "WEAPON",
-    "weaponType": "TYPE_0",
-    "attackSpeed": "4",
+    "weaponType": "TYPE_19",
+    "attackSpeed": "6",
+    "attackRange": "9",
+    "ammo": [ "-1" ],
+    "castGraphic": { "id": "1619", "height": "96" },
+    "projectileId": "1620",
     "levels": "Ranged=78",
     "bonuses": {
       "ATTACK_RANGED": "105",
