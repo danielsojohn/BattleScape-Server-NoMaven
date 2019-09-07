@@ -79,7 +79,8 @@ cs = new NCombatScript() {
         var chanceA = 2200 / Math.sqrt(clampedLevel);
         var chanceB = 15 + (Math.pow(npc.getDef().getCombatLevel() + 60, 2) / 200);
         var multiplier = Main.isSpawn() ? 8 : 4;
-        chanceA = chanceA / multiplier / player.getCombat().getDropRateMultiplier(-1, npc.getDef());
+        var playerMultiplier = player.getCombat().getDropRateMultiplier(-1, npc.getDef());
+        chanceA = chanceA / multiplier / playerMultiplier;
         var selectedChanceA = Utils.randomE(chanceA);
         if (selectedChanceA == 1) {
             logDrop = true;
@@ -130,7 +131,8 @@ cs = new NCombatScript() {
                         + item.getName());
             }
         }
-        if (Utils.randomE(32768 / Math.sqrt(clampedLevel)) == 0) {
+        if (Utils.randomE(1048576 / (player.getCombat().getPKSkullDelay() > 0 ? 4 : 1) / Math.sqrt(clampedLevel)
+                / playerMultiplier) == 0) {
             var pvpItem = RandomItem.getItem(ANCIENT_WARRIOR_DROP_TABLE);
             npc.getController().addMapItem(pvpItem, dropTile, player);
             player.getCombat().logNPCItem(npc.getDef().getKillCountName(), pvpItem.getId(), pvpItem.getAmount());
