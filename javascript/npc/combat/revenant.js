@@ -2,8 +2,8 @@ var ANCIENT_WARRIOR_DROP_TABLE = [
     new RandomItem(ItemId.VESTAS_LONGSWORD, 1),
     new RandomItem(ItemId.STATIUSS_WARHAMMER, 1),
     new RandomItem(ItemId.VESTAS_SPEAR, 1),
-    new RandomItem(ItemId.MORRIGANS_JAVELIN, 50),
-    new RandomItem(ItemId.MORRIGANS_THROWING_AXE, 50),
+    new RandomItem(ItemId.MORRIGANS_JAVELIN, 100),
+    new RandomItem(ItemId.MORRIGANS_THROWING_AXE, 100),
     new RandomItem(ItemId.ZURIELS_STAFF, 1)
 ];
 var UNIQUE_DROP_TABLE = [

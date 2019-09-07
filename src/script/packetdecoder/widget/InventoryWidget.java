@@ -456,7 +456,7 @@ public class InventoryWidget implements Widget {
             player.getInventory().deleteItem(itemId, 1, slot);
             anItem = new Item(items[Utils.randomE(items.length)], 1);
             if (anItem.getId() == ItemId.MORRIGANS_JAVELIN || anItem.getId() == ItemId.MORRIGANS_THROWING_AXE) {
-                anItem.setAmount(50);
+                anItem.setAmount(100);
             }
             player.getInventory().addOrDropItem(anItem);
             RequestManager.addPlayerLog(player, "lootbox",
@@ -1234,7 +1234,31 @@ public class InventoryWidget implements Widget {
                 player.getInventory().addOrDropItem(ItemId.DEATH_RUNE, 2500);
                 player.getInventory().addOrDropItem(ItemId.CHAOS_RUNE, 2500);
                 player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, 12500);
-                player.getInventory().addOrDropItem(ItemId.COINS, 25000);
+            }
+            break;
+        case ItemId.TRIDENT_OF_THE_SEAS:
+            if (index == 2) {
+                player.getCharges().checkCharges(slot);
+            } else if (index == 3) {
+                var charges = item.getCharges();
+                player.getInventory().deleteItem(itemId, 1, slot);
+                player.getInventory().addItem(ItemId.UNCHARGED_TRIDENT, 1, slot);
+                player.getInventory().addOrDropItem(ItemId.DEATH_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.CHAOS_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, charges * 5);
+            }
+            break;
+        case ItemId.TRIDENT_OF_THE_SEAS_E:
+            if (index == 2) {
+                player.getCharges().checkCharges(slot);
+            } else if (index == 3) {
+                var charges = item.getCharges();
+                player.getInventory().deleteItem(itemId, 1, slot);
+                player.getInventory().addItem(ItemId.UNCHARGED_TRIDENT_E, 1, slot);
+                player.getInventory().addItem(ItemId.UNCHARGED_TRIDENT, 1, slot);
+                player.getInventory().addOrDropItem(ItemId.DEATH_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.CHAOS_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, charges * 5);
             }
             break;
         case 11908: // Uncharged trident
@@ -1543,22 +1567,6 @@ public class InventoryWidget implements Widget {
             } else if (index == 4) {
                 player.getInventory().deleteItem(itemId, 1, slot);
                 player.getInventory().addItem(22481, 1, slot);
-            }
-            break;
-        case 11907: // Trident of the seas
-            if (index == 2) {
-                player.getCharges().checkCharges(slot);
-            } else if (index == 3) {
-                player.getInventory().deleteItem(itemId, 1, slot);
-                player.getInventory().addItem(11908, 1, slot);
-            }
-            break;
-        case 22288: // Trident of the seas (e)
-            if (index == 2) {
-                player.getCharges().checkCharges(slot);
-            } else if (index == 3) {
-                player.getInventory().deleteItem(itemId, 1, slot);
-                player.getInventory().addItem(22290, 1, slot);
             }
             break;
         case 22325: // Scythe of vitur

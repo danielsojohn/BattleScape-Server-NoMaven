@@ -4940,8 +4940,8 @@
           [ { "id": "ItemId.VESTAS_LONGSWORD", "amount": 1 } ],
           [ { "id": "ItemId.STATIUSS_WARHAMMER", "amount": 1 } ],
           [ { "id": "ItemId.VESTAS_SPEAR", "amount": 1 } ],
-          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 50 } ],
-          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 50 } ],
+          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 100 } ],
+          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 100 } ],
           [ { "id": "ItemId.ZURIELS_STAFF", "amount": 1 } ]
         ]
       },
@@ -5082,8 +5082,8 @@
           [ { "id": "ItemId.VESTAS_LONGSWORD", "amount": 1 } ],
           [ { "id": "ItemId.STATIUSS_WARHAMMER", "amount": 1 } ],
           [ { "id": "ItemId.VESTAS_SPEAR", "amount": 1 } ],
-          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 50 } ],
-          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 50 } ],
+          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 100 } ],
+          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 100 } ],
           [ { "id": "ItemId.ZURIELS_STAFF", "amount": 1 } ]
         ]
       },
@@ -6951,8 +6951,8 @@
           [ { "id": "ItemId.VESTAS_LONGSWORD", "amount": 1 } ],
           [ { "id": "ItemId.STATIUSS_WARHAMMER", "amount": 1 } ],
           [ { "id": "ItemId.VESTAS_SPEAR", "amount": 1 } ],
-          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 50 } ],
-          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 50 } ],
+          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 100 } ],
+          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 100 } ],
           [ { "id": "ItemId.ZURIELS_STAFF", "amount": 1 } ]
         ]
       },
@@ -7081,8 +7081,8 @@
           [ { "id": "ItemId.VESTAS_LONGSWORD", "amount": 1 } ],
           [ { "id": "ItemId.STATIUSS_WARHAMMER", "amount": 1 } ],
           [ { "id": "ItemId.VESTAS_SPEAR", "amount": 1 } ],
-          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 50 } ],
-          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 50 } ],
+          [ { "id": "ItemId.MORRIGANS_JAVELIN", "amount": 100 } ],
+          [ { "id": "ItemId.MORRIGANS_THROWING_AXE", "amount": 100 } ],
           [ { "id": "ItemId.ZURIELS_STAFF", "amount": 1 } ]
         ]
       },
