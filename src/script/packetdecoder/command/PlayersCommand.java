@@ -68,6 +68,8 @@ public class PlayersCommand implements Command {
             player.getWidgetManager().sendInventoryOverlay(WidgetId.UNMORPH);
         });
         Dialogue.open(player, dialogue);
+        player.getGameEncoder().sendMessage("There are currently " + player.getWorld().getPlayerCount()
+                + " players online, with " + player.getWorld().getWildernessPlayerCount() + " in the wilderness.");
     }
 
     private static String getLocation(Player player) {

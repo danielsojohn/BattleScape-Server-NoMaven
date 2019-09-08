@@ -229,6 +229,9 @@ public class Cooking extends SkillContainer {
         entries.add(SkillEntry.builder().animation(1248).tool(new RandomItem(ItemId.HAMMER))
                 .consume(new RandomItem(ItemId.INFERNAL_EEL)).build());
 
+        entries.add(SkillEntry.builder().animation(883).widgetOnMapObject(COOKING_RANGE_ID)
+                .consume(new RandomItem(ItemId.SEAWEED)).create(new RandomItem(ItemId.MOLTEN_GLASS)).build());
+
         entries.add(SkillEntry.builder().level(1).experience(10).animation(883).widgetOnMapObject(COOKING_RANGE_ID)
                 .consume(new RandomItem(ItemId.RAW_PYSK_FISH_0)).create(new RandomItem(ItemId.PYSK_FISH_0))
                 .failedCreate(new RandomItem(ItemId.BURNT_FISH_20854)).build());
