@@ -79,15 +79,12 @@ public class WildernessDiary extends AchievementDiary {
             // addCompletedTask(player, WildernessTask.PICKPOCKET_GUARD);
         } else if (item.getId() == ItemId.MITHRIL_ORE && player.getRegionId() == 12346
                 || player.getRegionId() == 12093) {
-            addCompletedTask(player, WildernessTask.MITHRIL_ORE);
+            // addCompletedTask(player, WildernessTask.MITHRIL_ORE);
         } else if (item.getId() == ItemId.IRON_ORE && player.getRegionId() == 12343) {
-            addCompletedTask(player, WildernessTask.IRON_ORE);
+            // addCompletedTask(player, WildernessTask.IRON_ORE);
         } else if (item.getId() == ItemId.AIR_RUNE && item.getAmount() >= 252) {
-            // addCompletedTask(player, WildernessTask.CRAFT_AIRS);
         } else if (item.getId() == ItemId.MAGIC_ROOTS && item.getAmount() >= 3) {
-            // addCompletedTask(player, WildernessTask.MAGIC_ROOTS);
         } else if (item.getId() == ItemId.SARADOMIN_BREW_3 && player.within(3009, 3355, 3019, 3358)) {
-            // addCompletedTask(player, WildernessTask.SARADOMIN_BREW);
         }
     }
 
@@ -102,7 +99,7 @@ public class WildernessDiary extends AchievementDiary {
     public void castSpell(Player player, WidgetChild.Spellbook spellbookChild, Item item, Entity entity,
             MapObject mapObject) {
         if (spellbookChild == WidgetChild.Spellbook.HIGH_LEVEL_ALCHEMY && player.getRegionId() == 13372) {
-            addCompletedTask(player, WildernessTask.CAST_ALCHEMY);
+            // addCompletedTask(player, WildernessTask.CAST_ALCHEMY);
         }
     }
 
@@ -120,10 +117,10 @@ public class WildernessDiary extends AchievementDiary {
     @Override
     public void npcKilled(Player player, Npc npc) {
         if ((npc.getId() == NpcId.MAMMOTH_80) && player.getController().inWilderness()) {
-            addCompletedTask(player, WildernessTask.MAMMOTH);
+            // addCompletedTask(player, WildernessTask.MAMMOTH);
         } else if ((npc.getId() == NpcId.EARTH_WARRIOR_51)
                 && (player.getRegionId() == 12443 || player.getRegionId() == 12444)) {
-            addCompletedTask(player, WildernessTask.EARTH_WARRIOR);
+            // addCompletedTask(player, WildernessTask.EARTH_WARRIOR);
         } else if (npc.getId() == NpcId.GIANT_MOLE_230
                 && (player.getRegionId() == 6992 || player.getRegionId() == 6993)) {
             // addCompletedTask(player, WildernessTask.KILL_GIANT_MOLE);
@@ -146,7 +143,7 @@ public class WildernessDiary extends AchievementDiary {
     @Override
     public void mapObjectOption(Player player, int index, MapObject mapObject) {
         if (mapObject.getId() == 411 && mapObject.getX() == 2947 && mapObject.getY() == 3820) {
-            addCompletedTask(player, WildernessTask.WILDERNESS_ALTAR);
+            // addCompletedTask(player, WildernessTask.WILDERNESS_ALTAR);
         } else if (mapObject.getId() == 410 && player.getEquipment().getHeadId() == ItemId.INITIATE_SALLET
                 && player.getEquipment().getChestId() == ItemId.INITIATE_HAUBERK
                 && player.getEquipment().getLegId() == ItemId.INITIATE_CUISSE) {
@@ -157,7 +154,7 @@ public class WildernessDiary extends AchievementDiary {
             // addCompletedTask(player, WildernessTask.SARIM_ALTAR);
         } else if (mapObject.getId() == 1816 && mapObject.getX() == 3067 && mapObject.getY() == 10253) {
             {
-                addCompletedTask(player, WildernessTask.KING_BLACK_DRAGON);
+                // addCompletedTask(player, WildernessTask.KING_BLACK_DRAGON);
             }
         }
     }
@@ -165,7 +162,7 @@ public class WildernessDiary extends AchievementDiary {
     @Override
     public void npcOption(Player player, int index, Npc npc) {
         if (npc.getId() == NpcId.MAGE_OF_ZAMORAK_2581 && index == 3) {
-            addCompletedTask(player, WildernessTask.MAGE_OF_ZAMORAK);
+            // addCompletedTask(player, WildernessTask.MAGE_OF_ZAMORAK);
         }
     }
 
