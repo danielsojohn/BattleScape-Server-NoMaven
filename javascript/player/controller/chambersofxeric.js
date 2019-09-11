@@ -566,8 +566,8 @@ pc = new PController() {
                 rooms.add(BOSS_ROOMS.get(2));
                 rooms.add(BOSS_ROOMS.get(3));
             } else {
-                //rooms.add(NORMAL_ROOMS.get(0));
-                //rooms.add(BOSS_ROOMS.get(0));
+                rooms.add(NORMAL_ROOMS.get(0));
+                rooms.add(BOSS_ROOMS.get(0));
                 rooms.add(BOSS_ROOMS.get(1));
             }
             var resourceOrder = Utils.randomI(1) == 0;
