@@ -37390,7 +37390,7 @@
     "id": "ItemId._3RD_AGE_DRUIDIC_ROBE_TOP",
     "equipSlot": "CHEST",
     "hasSleeves": "true",
-    "levels": "Prayer=65,Defence=65",
+    "levels": "Prayer=65",
     "bonuses": {
       "PRAYER": "8"
     }
@@ -37398,7 +37398,7 @@
   {
     "id": "ItemId._3RD_AGE_DRUIDIC_ROBE_BOTTOMS",
     "equipSlot": "LEG",
-    "levels": "Prayer=65,Defence=65",
+    "levels": "Prayer=65",
     "bonuses": {
       "PRAYER": "6"
     }
@@ -37426,7 +37426,7 @@
   {
     "id": "ItemId._3RD_AGE_DRUIDIC_CLOAK",
     "equipSlot": "CAPE",
-    "levels": "Prayer=65,Defence=65",
+    "levels": "Prayer=65",
     "bonuses": {
       "ATTACK_MAGIC": "1",
       "DEFENCE_STAB": "3",
