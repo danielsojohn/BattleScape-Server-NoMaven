@@ -38951,9 +38951,6 @@
     "attackSpeed": "6",
     "attackRange": "10",
     "twoHanded": "true",
-    "ammo": [
-      "ItemId.null"
-    ],
     "castGraphic": { "id": "250", "height": "96" },
     "projectileId": "249",
     "bonuses": {
@@ -38969,9 +38966,6 @@
     "attackSpeed": "6",
     "attackRange": "10",
     "twoHanded": "true",
-    "ammo": [
-      "ItemId.null"
-    ],
     "castGraphic": { "id": "250", "height": "96" },
     "projectileId": "249",
     "bonuses": {
@@ -38987,9 +38981,6 @@
     "attackSpeed": "6",
     "attackRange": "10",
     "twoHanded": "true",
-    "ammo": [
-      "ItemId.null"
-    ],
     "castGraphic": { "id": "250", "height": "96" },
     "projectileId": "249",
     "bonuses": {
@@ -39139,9 +39130,6 @@
     "attackSpeed": "5",
     "attackRange": "10",
     "twoHanded": "true",
-    "ammo": [
-      "ItemId.null"
-    ],
     "castGraphic": { "id": "250", "height": "96" },
     "projectileId": "249",
     "levels": "Agility=50,Ranged=70",
@@ -39157,9 +39145,6 @@
     "attackSpeed": "5",
     "attackRange": "10",
     "twoHanded": "true",
-    "ammo": [
-      "ItemId.null"
-    ],
     "castGraphic": { "id": "250", "height": "96" },
     "projectileId": "249",
     "levels": "Agility=50,Ranged=70",
@@ -39346,9 +39331,6 @@
     "attackSpeed": "5",
     "attackRange": "10",
     "twoHanded": "true",
-    "ammo": [
-      "ItemId.null"
-    ],
     "castGraphic": { "id": "250", "height": "96" },
     "projectileId": "249",
     "levels": "Agility=50,Ranged=70",
