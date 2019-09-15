@@ -1948,6 +1948,11 @@ public class MapObject1 {
         player.getClanWars().teleportViewing(0);
     }
 
+    // Duel arena viewing orb
+    public static void mapObject26745(Player player, int index, MapObject mapObject) {
+        player.getDuel().viewingDialogue(player);
+    }
+
     // Wilderness Statistics
     public static void mapObject26756(Player player, int index, MapObject mapObject) {
         List<Player> players = new ArrayList<>(player.getWorld().getPlayers());
