@@ -38791,6 +38791,7 @@
   {
     "id": "ItemId.CRYSTAL_BODY_BASIC",
     "equipSlot": "CHEST",
+    "hasSleeves": "true",
     "bonuses": {
       "DEFENCE_STAB": "86",
       "DEFENCE_SLASH": "86",
@@ -38803,6 +38804,7 @@
   {
     "id": "ItemId.CRYSTAL_BODY_ATTUNED",
     "equipSlot": "CHEST",
+    "hasSleeves": "true",
     "bonuses": {
       "DEFENCE_STAB": "102",
       "DEFENCE_SLASH": "102",
@@ -38815,6 +38817,7 @@
   {
     "id": "ItemId.CRYSTAL_BODY_PERFECTED",
     "equipSlot": "CHEST",
+    "hasSleeves": "true",
     "bonuses": {
       "DEFENCE_STAB": "124",
       "DEFENCE_SLASH": "124",
@@ -39066,6 +39069,7 @@
   {
     "id": "ItemId.CRYSTAL_BODY",
     "equipSlot": "CHEST",
+    "hasSleeves": "true",
     "levels": "Defence=70",
     "bonuses": {
       "ATTACK_MAGIC": "-18",
@@ -39081,6 +39085,7 @@
   {
     "id": "ItemId.CRYSTAL_BODY_INACTIVE",
     "equipSlot": "CHEST",
+    "hasSleeves": "true",
     "levels": "Defence=70",
     "bonuses": {
       "ATTACK_MAGIC": "-18",
@@ -39268,6 +39273,7 @@
   {
     "id": "ItemId.DRAGONSTONE_PLATEBODY",
     "equipSlot": "CHEST",
+    "hasSleeves": "true",
     "levels": "Defence=60",
     "bonuses": {
       "ATTACK_MAGIC": "-30",
