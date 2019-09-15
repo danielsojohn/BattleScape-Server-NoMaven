@@ -728,7 +728,13 @@ public class SlayerPlugin extends PlayerPlugin {
             if (aTask.getName().equals("Grotesque Guardians") && !isUnlocked(SlayerUnlock.GROTESQUE_GUARDIANS)) {
                 continue;
             }
-            if (assignedSlayerTask != null && assignedSlayerTask.getIdentifier() == aTask.getIdentifier()) {
+            if (assignedSlayerTask != null
+                    && (assignedSlayerTask.getIdentifier() != null || aTask.getIdentifier() != null)
+                    && assignedSlayerTask.getIdentifier() == aTask.getIdentifier()) {
+                continue;
+            }
+            if (assignedSlayerTask != null && (assignedSlayerTask.getName() != null || aTask.getName() != null)
+                    && assignedSlayerTask.getName().equals(aTask.getName())) {
                 continue;
             }
             if (isBoss && assignedSlayerTask != null && assignedSlayerTask.isWilderness() && aTask.isWilderness()) {

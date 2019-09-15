@@ -219,7 +219,7 @@ public class InventoryWidget implements Widget {
             player.getInventory().addOrDropItem(ItemId.EARTH_RUNE, 50);
             player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, 50);
             break;
-        case ItemId.COIN_POUCH_22521:
+        case ItemId.COIN_POUCH:
             player.getInventory().deleteItem(itemId, 1, slot);
             player.getInventory().addOrDropItem(ItemId.COINS, 100_000 + Utils.randomI(300_000));
             break;
