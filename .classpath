@@ -15,5 +15,6 @@
 	<classpathentry kind="lib" path="data/lib/lombok.jar"/>
 	<classpathentry kind="lib" path="data/lib/filestore.jar"/>
 	<classpathentry kind="lib" path="data/lib/scripthelper.jar"/>
+	<classpathentry kind="lib" path="data/lib/javacord-3.0.4-shaded.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
