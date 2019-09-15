@@ -2634,6 +2634,11 @@ public class MapObject0 {
         }
     }
 
+
+    public static void mapObject14235(Player player, int index, MapObject mapObject) {
+        Region.openDoors(player, mapObject);
+    }
+
     // Ladder
     public static void mapObject14296(Player player, int index, MapObject mapObject) {
         if (mapObject.getX() == 2644 && mapObject.getY() == 2601) {
