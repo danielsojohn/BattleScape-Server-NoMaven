@@ -1,0 +1,2453 @@
+{
+  {
+    "id": "ItemId.ENCHANTED_LYRE_I",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "6",
+  },
+  {
+    "id": "ItemId.MASK_OF_RANUL",
+    "equipSlot": "HEAD",
+    "bonuses": {
+      "ATTACK_MAGIC": "2",
+      "DEFENCE_MAGIC": "2",
+    }
+  },
+  {
+    "id": "ItemId.SARACHNIS_CUDGEL",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "6",
+    "levels": "Attack=65",
+    "bonuses": {
+      "ATTACK_STAB": "30",
+      "ATTACK_CRUSH": "70",
+      "MELEE_STRENGTH": "70",
+    }
+  },
+  {
+    "id": "ItemId.HELM_OF_NEITIZNOT_23591",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Defence=55",
+    "bonuses": {
+      "DEFENCE_STAB": "31",
+      "DEFENCE_SLASH": "29",
+      "DEFENCE_CRUSH": "34",
+      "DEFENCE_MAGIC": "3",
+      "DEFENCE_RANGED": "30",
+      "MELEE_STRENGTH": "3",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.BARROWS_GLOVES_23593",
+    "equipSlot": "HAND",
+    "bonuses": {
+      "ATTACK_STAB": "12",
+      "ATTACK_SLASH": "12",
+      "ATTACK_CRUSH": "12",
+      "ATTACK_MAGIC": "6",
+      "ATTACK_RANGED": "12",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "12",
+      "DEFENCE_MAGIC": "6",
+      "DEFENCE_RANGED": "12",
+      "MELEE_STRENGTH": "12",
+    }
+  },
+  {
+    "id": "ItemId.BERSERKER_RING_23595",
+    "equipSlot": "RING",
+    "bonuses": {
+      "DEFENCE_CRUSH": "4",
+      "MELEE_STRENGTH": "4",
+    }
+  },
+  {
+    "id": "ItemId.DRAGON_DEFENDER_23597",
+    "equipSlot": "SHIELD",
+    "bonuses": {
+      "ATTACK_STAB": "25",
+      "ATTACK_SLASH": "24",
+      "ATTACK_CRUSH": "23",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "25",
+      "DEFENCE_SLASH": "24",
+      "DEFENCE_CRUSH": "23",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "6",
+    }
+  },
+  {
+    "id": "ItemId.SPIRIT_SHIELD_23599",
+    "equipSlot": "SHIELD",
+    "levels": "Defence=45,Prayer=55",
+    "bonuses": {
+      "DEFENCE_STAB": "39",
+      "DEFENCE_SLASH": "41",
+      "DEFENCE_CRUSH": "50",
+      "DEFENCE_MAGIC": "1",
+      "DEFENCE_RANGED": "45",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.RUNE_CROSSBOW_23601",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_5",
+    "attackSpeed": "4",
+    "attackRange": "7",
+    "stanceAnimations": [ "4591", "823", "819", "820", "821", "822", "824" ],
+    "levels": "Ranged=61",
+    "bonuses": {
+      "ATTACK_RANGED": "90",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_GUTHIX_CAPE_23603",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_ZAMORAK_CAPE_23605",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_SARADOMIN_CAPE_23607",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.AVAS_ACCUMULATOR_23609",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_RANGED": "4",
+      "DEFENCE_SLASH": "1",
+      "DEFENCE_MAGIC": "4",
+    }
+  },
+  {
+    "id": "ItemId.ARMADYL_CROSSBOW_23611",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_5",
+    "attackSpeed": "4",
+    "attackRange": "8",
+    "stanceAnimations": [ "4591", "823", "819", "820", "821", "822", "824" ],
+    "levels": "Ranged=70",
+    "bonuses": {
+      "ATTACK_RANGED": "100",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.STAFF_OF_THE_DEAD_23613",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Magic=75,Attack=75",
+    "bonuses": {
+      "ATTACK_STAB": "55",
+      "ATTACK_SLASH": "70",
+      "ATTACK_MAGIC": "17",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "17",
+      "MELEE_STRENGTH": "72",
+      "MAGIC_DAMAGE": "15",
+    }
+  },
+  {
+    "id": "ItemId.VESTAS_LONGSWORD_23615",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_9",
+    "attackSpeed": "5",
+    "levels": "Attack=78",
+    "bonuses": {
+      "ATTACK_STAB": "106",
+      "ATTACK_SLASH": "121",
+      "ATTACK_CRUSH": "-2",
+      "DEFENCE_STAB": "1",
+      "DEFENCE_SLASH": "4",
+      "DEFENCE_CRUSH": "3",
+      "MELEE_STRENGTH": "118",
+    }
+  },
+  {
+    "id": "ItemId.ZURIELS_STAFF_23617",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "5",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Magic=78,Attack=78",
+    "bonuses": {
+      "ATTACK_STAB": "13",
+      "ATTACK_SLASH": "-1",
+      "ATTACK_CRUSH": "65",
+      "ATTACK_MAGIC": "18",
+      "DEFENCE_STAB": "5",
+      "DEFENCE_SLASH": "7",
+      "DEFENCE_CRUSH": "4",
+      "DEFENCE_MAGIC": "18",
+      "MELEE_STRENGTH": "72",
+      "MAGIC_DAMAGE": "10",
+    }
+  },
+  {
+    "id": "ItemId.MORRIGANS_JAVELIN_23619",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "4",
+    "levels": "Ranged=78",
+    "bonuses": {
+      "ATTACK_RANGED": "105",
+      "RANGED_STRENGTH": "145",
+    }
+  },
+  {
+    "id": "ItemId.STATIUSS_WARHAMMER_23620",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_2",
+    "attackSpeed": "5",
+    "levels": "Attack=78",
+    "bonuses": {
+      "ATTACK_STAB": "-4",
+      "ATTACK_SLASH": "-4",
+      "ATTACK_CRUSH": "123",
+      "MELEE_STRENGTH": "114",
+    }
+  },
+  {
+    "id": "ItemId.INFERNAL_CAPE_23622",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_STAB": "4",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "4",
+      "ATTACK_MAGIC": "1",
+      "ATTACK_RANGED": "1",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "12",
+      "DEFENCE_MAGIC": "12",
+      "DEFENCE_RANGED": "12",
+      "MELEE_STRENGTH": "8",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.SEERS_RING_I_23624",
+    "equipSlot": "RING",
+    "bonuses": {
+      "ATTACK_MAGIC": "12",
+      "DEFENCE_MAGIC": "12",
+    }
+  },
+  {
+    "id": "ItemId.KODAI_WAND_23626",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Magic=75",
+    "bonuses": {
+      "ATTACK_MAGIC": "28",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "20",
+      "MAGIC_DAMAGE": "15",
+    }
+  },
+  {
+    "id": "ItemId.GHRAZI_RAPIER_23628",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_17",
+    "attackSpeed": "6",
+    "levels": "Attack=75",
+    "bonuses": {
+      "ATTACK_STAB": "94",
+      "ATTACK_SLASH": "55",
+      "MELEE_STRENGTH": "89",
+    }
+  },
+  {
+    "id": "ItemId.HEAVY_BALLISTA_23630",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_5",
+    "attackSpeed": "3",
+    "twoHanded": "true",
+    "stanceAnimations": [ "7220", "823", "7223", "820", "821", "822", "7221" ],
+    "levels": "Ranged=75",
+    "bonuses": {
+      "ATTACK_RANGED": "125",
+      "RANGED_STRENGTH": "15",
+    }
+  },
+  {
+    "id": "ItemId.KARILS_LEATHERTOP_23632",
+    "equipSlot": "CHEST",
+    "hasSleeves": "true",
+    "levels": "Defence=70,Ranged=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-15",
+      "ATTACK_RANGED": "30",
+      "DEFENCE_STAB": "47",
+      "DEFENCE_SLASH": "42",
+      "DEFENCE_CRUSH": "50",
+      "DEFENCE_MAGIC": "65",
+      "DEFENCE_RANGED": "57",
+    }
+  },
+  {
+    "id": "ItemId.DHAROKS_PLATELEGS_23633",
+    "equipSlot": "LEG",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-21",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "85",
+      "DEFENCE_SLASH": "82",
+      "DEFENCE_CRUSH": "83",
+      "DEFENCE_MAGIC": "-4",
+      "DEFENCE_RANGED": "92",
+    }
+  },
+  {
+    "id": "ItemId.TORAGS_PLATELEGS_23634",
+    "equipSlot": "LEG",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-21",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "85",
+      "DEFENCE_SLASH": "82",
+      "DEFENCE_CRUSH": "83",
+      "DEFENCE_MAGIC": "-4",
+      "DEFENCE_RANGED": "92",
+    }
+  },
+  {
+    "id": "ItemId.VERACS_PLATESKIRT_23635",
+    "equipSlot": "LEG",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-21",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "85",
+      "DEFENCE_SLASH": "82",
+      "DEFENCE_CRUSH": "83",
+      "DEFENCE_RANGED": "84",
+      "PRAYER": "4",
+    }
+  },
+  {
+    "id": "ItemId.VERACS_HELM_23636",
+    "equipSlot": "HEAD",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-6",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "55",
+      "DEFENCE_SLASH": "58",
+      "DEFENCE_CRUSH": "54",
+      "DEFENCE_RANGED": "56",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.TORAGS_HELM_23637",
+    "equipSlot": "HEAD",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-6",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "55",
+      "DEFENCE_SLASH": "58",
+      "DEFENCE_CRUSH": "54",
+      "DEFENCE_MAGIC": "-1",
+      "DEFENCE_RANGED": "62",
+    }
+  },
+  {
+    "id": "ItemId.GUTHANS_HELM_23638",
+    "equipSlot": "HEAD",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-6",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "55",
+      "DEFENCE_SLASH": "58",
+      "DEFENCE_CRUSH": "54",
+      "DEFENCE_MAGIC": "-1",
+      "DEFENCE_RANGED": "62",
+    }
+  },
+  {
+    "id": "ItemId.DHAROKS_HELM_23639",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-1",
+      "DEFENCE_STAB": "45",
+      "DEFENCE_SLASH": "48",
+      "DEFENCE_CRUSH": "44",
+      "DEFENCE_MAGIC": "-1",
+      "DEFENCE_RANGED": "51",
+    }
+  },
+  {
+    "id": "ItemId.AMULET_OF_FURY_23640",
+    "equipSlot": "NECK",
+    "bonuses": {
+      "ATTACK_STAB": "10",
+      "ATTACK_SLASH": "10",
+      "ATTACK_CRUSH": "10",
+      "ATTACK_MAGIC": "10",
+      "ATTACK_RANGED": "10",
+      "DEFENCE_STAB": "15",
+      "DEFENCE_SLASH": "15",
+      "DEFENCE_CRUSH": "15",
+      "DEFENCE_MAGIC": "15",
+      "DEFENCE_RANGED": "15",
+      "MELEE_STRENGTH": "8",
+      "PRAYER": "5",
+    }
+  },
+  {
+    "id": "ItemId.BLESSED_SPIRIT_SHIELD_23642",
+    "equipSlot": "SHIELD",
+    "levels": "Defence=70,Prayer=60",
+    "bonuses": {
+      "DEFENCE_STAB": "53",
+      "DEFENCE_SLASH": "55",
+      "DEFENCE_CRUSH": "73",
+      "DEFENCE_MAGIC": "2",
+      "DEFENCE_RANGED": "52",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.ETERNAL_BOOTS_23644",
+    "equipSlot": "FOOT",
+    "levels": "Magic=75,Defence=75",
+    "bonuses": {
+      "ATTACK_MAGIC": "8",
+      "DEFENCE_STAB": "5",
+      "DEFENCE_SLASH": "5",
+      "DEFENCE_CRUSH": "5",
+      "DEFENCE_MAGIC": "8",
+      "DEFENCE_RANGED": "5",
+    }
+  },
+  {
+    "id": "ItemId.BANDOS_TASSETS_23646",
+    "equipSlot": "LEG",
+    "levels": "Defence=65",
+    "bonuses": {
+      "ATTACK_MAGIC": "-21",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "71",
+      "DEFENCE_SLASH": "63",
+      "DEFENCE_CRUSH": "66",
+      "DEFENCE_MAGIC": "-4",
+      "DEFENCE_RANGED": "93",
+      "MELEE_STRENGTH": "2",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.DRAGON_JAVELIN_23648",
+    "equipSlot": "AMMO",
+    "projectileId": "1301",
+    "bonuses": {
+      "RANGED_STRENGTH": "150",
+    }
+  },
+  {
+    "id": "ItemId.DIAMOND_BOLTS_E_23649",
+    "equipSlot": "AMMO",
+    "projectileId": "27",
+    "bonuses": {
+      "RANGED_STRENGTH": "105",
+    }
+  },
+  {
+    "id": "ItemId.MAGES_BOOK_23652",
+    "equipSlot": "SHIELD",
+    "levels": "Magic=60",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_MAGIC": "15",
+    }
+  },
+  {
+    "id": "ItemId.AHRIMS_STAFF_23653",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "4",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Magic=70,Attack=70",
+    "bonuses": {
+      "ATTACK_STAB": "12",
+      "ATTACK_SLASH": "-1",
+      "ATTACK_CRUSH": "65",
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "5",
+      "DEFENCE_CRUSH": "2",
+      "DEFENCE_MAGIC": "15",
+      "MELEE_STRENGTH": "68",
+      "MAGIC_DAMAGE": "5",
+    }
+  },
+  {
+    "id": "ItemId.OCCULT_NECKLACE_23654",
+    "equipSlot": "NECK",
+    "levels": "Magic=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "12",
+      "MAGIC_DAMAGE": "10",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_AXE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_1",
+    "attackSpeed": "5",
+    "levels": "Woodcutting=71",
+    "bonuses": {
+      "ATTACK_STAB": "-2",
+      "ATTACK_SLASH": "38",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_AXE_INACTIVE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_1",
+    "attackSpeed": "5",
+    "levels": "Woodcutting=71",
+    "bonuses": {
+      "ATTACK_STAB": "-2",
+      "ATTACK_SLASH": "38",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.DRAGON_PICKAXE_OR",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_11",
+    "attackSpeed": "5",
+    "levels": "Attack=60",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "-2",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_PICKAXE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_11",
+    "attackSpeed": "5",
+    "levels": "Mining=71",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "-2",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_PICKAXE_INACTIVE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_11",
+    "attackSpeed": "5",
+    "levels": "Mining=71",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "-2",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HARPOON",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "5",
+    "levels": "Fishing=71",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HARPOON_INACTIVE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "5",
+    "levels": "Fishing=71",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.ARDOUGNE_KNIGHT_HELM",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "ATTACK_MAGIC": "-6",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "6",
+      "DEFENCE_SLASH": "7",
+      "DEFENCE_CRUSH": "5",
+      "DEFENCE_MAGIC": "-1",
+      "DEFENCE_RANGED": "6",
+    }
+  },
+  {
+    "id": "ItemId.ARDOUGNE_KNIGHT_PLATEBODY",
+    "equipSlot": "CHEST",
+    "hasSleeves": "true",
+    "bonuses": {
+      "ATTACK_MAGIC": "-30",
+      "ATTACK_RANGED": "-10",
+      "DEFENCE_STAB": "21",
+      "DEFENCE_SLASH": "20",
+      "DEFENCE_CRUSH": "12",
+      "DEFENCE_MAGIC": "-6",
+      "DEFENCE_RANGED": "20",
+    }
+  },
+  {
+    "id": "ItemId.ARDOUGNE_KNIGHT_PLATELEGS",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "ATTACK_MAGIC": "-21",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "10",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "-4",
+      "DEFENCE_RANGED": "10",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_SCEPTRE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "5",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "8",
+      "ATTACK_SLASH": "10",
+      "ATTACK_CRUSH": "16",
+      "MELEE_STRENGTH": "20",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_AXE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_1",
+    "attackSpeed": "5",
+    "bonuses": {
+      "ATTACK_STAB": "4",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "4",
+      "MELEE_STRENGTH": "5",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_PICKAXE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_11",
+    "attackSpeed": "5",
+    "bonuses": {
+      "ATTACK_STAB": "4",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "4",
+      "MELEE_STRENGTH": "5",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HARPOON",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "5",
+    "bonuses": {
+      "ATTACK_STAB": "4",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "4",
+      "MELEE_STRENGTH": "5",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HELM_BASIC",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "28",
+      "DEFENCE_SLASH": "28",
+      "DEFENCE_CRUSH": "28",
+      "DEFENCE_MAGIC": "28",
+      "DEFENCE_RANGED": "28",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HELM_ATTUNED",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "48",
+      "DEFENCE_SLASH": "48",
+      "DEFENCE_CRUSH": "48",
+      "DEFENCE_MAGIC": "48",
+      "DEFENCE_RANGED": "48",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HELM_PERFECTED",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "68",
+      "DEFENCE_SLASH": "68",
+      "DEFENCE_CRUSH": "68",
+      "DEFENCE_MAGIC": "68",
+      "DEFENCE_RANGED": "68",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_BODY_BASIC",
+    "equipSlot": "CHEST",
+    "bonuses": {
+      "DEFENCE_STAB": "86",
+      "DEFENCE_SLASH": "86",
+      "DEFENCE_CRUSH": "86",
+      "DEFENCE_MAGIC": "86",
+      "DEFENCE_RANGED": "86",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_BODY_ATTUNED",
+    "equipSlot": "CHEST",
+    "bonuses": {
+      "DEFENCE_STAB": "102",
+      "DEFENCE_SLASH": "102",
+      "DEFENCE_CRUSH": "102",
+      "DEFENCE_MAGIC": "102",
+      "DEFENCE_RANGED": "102",
+      "PRAYER": "4",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_BODY_PERFECTED",
+    "equipSlot": "CHEST",
+    "bonuses": {
+      "DEFENCE_STAB": "124",
+      "DEFENCE_SLASH": "124",
+      "DEFENCE_CRUSH": "124",
+      "DEFENCE_MAGIC": "124",
+      "DEFENCE_RANGED": "124",
+      "PRAYER": "5",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_LEGS_BASIC",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "52",
+      "DEFENCE_SLASH": "52",
+      "DEFENCE_CRUSH": "52",
+      "DEFENCE_MAGIC": "52",
+      "DEFENCE_RANGED": "52",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_LEGS_ATTUNED",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "74",
+      "DEFENCE_SLASH": "74",
+      "DEFENCE_CRUSH": "74",
+      "DEFENCE_MAGIC": "74",
+      "DEFENCE_RANGED": "74",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_LEGS_PERFECTED",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "92",
+      "DEFENCE_SLASH": "92",
+      "DEFENCE_CRUSH": "92",
+      "DEFENCE_MAGIC": "92",
+      "DEFENCE_RANGED": "92",
+      "PRAYER": "4",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HALBERD_BASIC",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "6",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "68",
+      "ATTACK_SLASH": "68",
+      "ATTACK_CRUSH": "4",
+      "MELEE_STRENGTH": "42",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HALBERD_ATTUNED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "6",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "114",
+      "ATTACK_SLASH": "114",
+      "ATTACK_CRUSH": "12",
+      "MELEE_STRENGTH": "88",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_HALBERD_PERFECTED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "6",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "166",
+      "ATTACK_SLASH": "166",
+      "ATTACK_CRUSH": "28",
+      "MELEE_STRENGTH": "138",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_STAFF_BASIC",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_MAGIC": "84",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_STAFF_ATTUNED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_MAGIC": "128",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_STAFF_PERFECTED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_MAGIC": "184",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_BOW_BASIC",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "bonuses": {
+      "ATTACK_RANGED": "72",
+      "RANGED_STRENGTH": "42",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_BOW_ATTUNED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "bonuses": {
+      "ATTACK_RANGED": "118",
+      "RANGED_STRENGTH": "88",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CORRUPTED_BOW_PERFECTED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "bonuses": {
+      "ATTACK_RANGED": "172",
+      "RANGED_STRENGTH": "138",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.GAUNTLET_CAPE",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.CRYSTAL_SCEPTRE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "5",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "8",
+      "ATTACK_SLASH": "10",
+      "ATTACK_CRUSH": "16",
+      "MELEE_STRENGTH": "20",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_AXE_23862",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_1",
+    "attackSpeed": "5",
+    "levels": "Woodcutting=71",
+    "bonuses": {
+      "ATTACK_STAB": "-2",
+      "ATTACK_SLASH": "38",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_PICKAXE_23863",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_11",
+    "attackSpeed": "5",
+    "levels": "Mining=71",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "-2",
+      "ATTACK_CRUSH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HARPOON_23864",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "5",
+    "levels": "Fishing=71",
+    "bonuses": {
+      "ATTACK_STAB": "38",
+      "ATTACK_SLASH": "32",
+      "DEFENCE_SLASH": "1",
+      "MELEE_STRENGTH": "42",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HELM_BASIC",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "28",
+      "DEFENCE_SLASH": "28",
+      "DEFENCE_CRUSH": "28",
+      "DEFENCE_MAGIC": "28",
+      "DEFENCE_RANGED": "28",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HELM_ATTUNED",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "48",
+      "DEFENCE_SLASH": "48",
+      "DEFENCE_CRUSH": "48",
+      "DEFENCE_MAGIC": "48",
+      "DEFENCE_RANGED": "48",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HELM_PERFECTED",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "68",
+      "DEFENCE_SLASH": "68",
+      "DEFENCE_CRUSH": "68",
+      "DEFENCE_MAGIC": "68",
+      "DEFENCE_RANGED": "68",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BODY_BASIC",
+    "equipSlot": "CHEST",
+    "bonuses": {
+      "DEFENCE_STAB": "86",
+      "DEFENCE_SLASH": "86",
+      "DEFENCE_CRUSH": "86",
+      "DEFENCE_MAGIC": "86",
+      "DEFENCE_RANGED": "86",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BODY_ATTUNED",
+    "equipSlot": "CHEST",
+    "bonuses": {
+      "DEFENCE_STAB": "102",
+      "DEFENCE_SLASH": "102",
+      "DEFENCE_CRUSH": "102",
+      "DEFENCE_MAGIC": "102",
+      "DEFENCE_RANGED": "102",
+      "PRAYER": "4",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BODY_PERFECTED",
+    "equipSlot": "CHEST",
+    "bonuses": {
+      "DEFENCE_STAB": "124",
+      "DEFENCE_SLASH": "124",
+      "DEFENCE_CRUSH": "124",
+      "DEFENCE_MAGIC": "124",
+      "DEFENCE_RANGED": "124",
+      "PRAYER": "5",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_LEGS_BASIC",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "52",
+      "DEFENCE_SLASH": "52",
+      "DEFENCE_CRUSH": "52",
+      "DEFENCE_MAGIC": "52",
+      "DEFENCE_RANGED": "52",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_LEGS_ATTUNED",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "74",
+      "DEFENCE_SLASH": "74",
+      "DEFENCE_CRUSH": "74",
+      "DEFENCE_MAGIC": "74",
+      "DEFENCE_RANGED": "74",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_LEGS_PERFECTED",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "92",
+      "DEFENCE_SLASH": "92",
+      "DEFENCE_CRUSH": "92",
+      "DEFENCE_MAGIC": "92",
+      "DEFENCE_RANGED": "92",
+      "PRAYER": "4",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HALBERD_BASIC",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "6",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "68",
+      "ATTACK_SLASH": "68",
+      "ATTACK_CRUSH": "4",
+      "MELEE_STRENGTH": "42",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HALBERD_ATTUNED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "6",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "114",
+      "ATTACK_SLASH": "114",
+      "ATTACK_CRUSH": "12",
+      "MELEE_STRENGTH": "88",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HALBERD_PERFECTED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "6",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_STAB": "166",
+      "ATTACK_SLASH": "166",
+      "ATTACK_CRUSH": "28",
+      "MELEE_STRENGTH": "138",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_STAFF_BASIC",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_MAGIC": "84",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_STAFF_ATTUNED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_MAGIC": "128",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_STAFF_PERFECTED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "bonuses": {
+      "ATTACK_MAGIC": "184",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BOW_BASIC",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "6",
+    "attackRange": "10",
+    "twoHanded": "true",
+    "ammo": [
+      "ItemId.null"
+    ],
+    "castGraphic": { "id": "250", "height": "96" },
+    "projectileId": "249",
+    "bonuses": {
+      "ATTACK_RANGED": "72",
+      "RANGED_STRENGTH": "42",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BOW_ATTUNED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "6",
+    "attackRange": "10",
+    "twoHanded": "true",
+    "ammo": [
+      "ItemId.null"
+    ],
+    "castGraphic": { "id": "250", "height": "96" },
+    "projectileId": "249",
+    "bonuses": {
+      "ATTACK_RANGED": "118",
+      "RANGED_STRENGTH": "88",
+      "PRAYER": "1",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BOW_PERFECTED",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "6",
+    "attackRange": "10",
+    "twoHanded": "true",
+    "ammo": [
+      "ItemId.null"
+    ],
+    "castGraphic": { "id": "250", "height": "96" },
+    "projectileId": "249",
+    "bonuses": {
+      "ATTACK_RANGED": "172",
+      "RANGED_STRENGTH": "138",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_TEPHRA",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "7",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23913",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23915",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23917",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23919",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23921",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23923",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.CRYSTAL_CROWN_23925",
+    "equipSlot": "HEAD",
+  },
+  {
+    "id": "ItemId.ELVEN_SIGNET",
+    "equipSlot": "RING",
+  },
+  {
+    "id": "ItemId.CRYSTAL_HELM",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-10",
+      "ATTACK_RANGED": "8",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "8",
+      "DEFENCE_CRUSH": "14",
+      "DEFENCE_MAGIC": "26",
+      "DEFENCE_RANGED": "18",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HELM_INACTIVE",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-10",
+      "ATTACK_RANGED": "8",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "8",
+      "DEFENCE_CRUSH": "14",
+      "DEFENCE_MAGIC": "26",
+      "DEFENCE_RANGED": "18",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BODY",
+    "equipSlot": "CHEST",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-18",
+      "ATTACK_RANGED": "30",
+      "DEFENCE_STAB": "34",
+      "DEFENCE_SLASH": "24",
+      "DEFENCE_CRUSH": "32",
+      "DEFENCE_MAGIC": "44",
+      "DEFENCE_RANGED": "53",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BODY_INACTIVE",
+    "equipSlot": "CHEST",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-18",
+      "ATTACK_RANGED": "30",
+      "DEFENCE_STAB": "34",
+      "DEFENCE_SLASH": "24",
+      "DEFENCE_CRUSH": "32",
+      "DEFENCE_MAGIC": "44",
+      "DEFENCE_RANGED": "53",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_LEGS",
+    "equipSlot": "LEG",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-12",
+      "ATTACK_RANGED": "17",
+      "DEFENCE_STAB": "20",
+      "DEFENCE_SLASH": "16",
+      "DEFENCE_CRUSH": "24",
+      "DEFENCE_MAGIC": "34",
+      "DEFENCE_RANGED": "29",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_LEGS_INACTIVE",
+    "equipSlot": "LEG",
+    "levels": "Defence=70",
+    "bonuses": {
+      "ATTACK_MAGIC": "-12",
+      "ATTACK_RANGED": "17",
+      "DEFENCE_STAB": "20",
+      "DEFENCE_SLASH": "16",
+      "DEFENCE_CRUSH": "24",
+      "DEFENCE_MAGIC": "34",
+      "DEFENCE_RANGED": "29",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BOW",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "5",
+    "attackRange": "10",
+    "twoHanded": "true",
+    "ammo": [
+      "ItemId.null"
+    ],
+    "castGraphic": { "id": "250", "height": "96" },
+    "projectileId": "249",
+    "levels": "Agility=50,Ranged=70",
+    "bonuses": {
+      "ATTACK_RANGED": "100",
+      "RANGED_STRENGTH": "70",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BOW_INACTIVE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "5",
+    "attackRange": "10",
+    "twoHanded": "true",
+    "ammo": [
+      "ItemId.null"
+    ],
+    "castGraphic": { "id": "250", "height": "96" },
+    "projectileId": "249",
+    "levels": "Agility=50,Ranged=70",
+    "bonuses": {
+      "ATTACK_RANGED": "100",
+      "RANGED_STRENGTH": "70",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HALBERD",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "3",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Attack=70,Strength=35,Agility=50",
+    "bonuses": {
+      "ATTACK_STAB": "85",
+      "ATTACK_SLASH": "110",
+      "ATTACK_CRUSH": "5",
+      "ATTACK_MAGIC": "-4",
+      "DEFENCE_STAB": "-1",
+      "DEFENCE_SLASH": "4",
+      "DEFENCE_CRUSH": "5",
+      "MELEE_STRENGTH": "118",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HALBERD_INACTIVE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "3",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Attack=70,Strength=35,Agility=50",
+    "bonuses": {
+      "ATTACK_STAB": "85",
+      "ATTACK_SLASH": "110",
+      "ATTACK_CRUSH": "5",
+      "ATTACK_MAGIC": "-4",
+      "DEFENCE_STAB": "-1",
+      "DEFENCE_SLASH": "4",
+      "DEFENCE_CRUSH": "5",
+      "MELEE_STRENGTH": "118",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_SHIELD",
+    "equipSlot": "SHIELD",
+    "levels": "Defence=70,Agility=50",
+    "bonuses": {
+      "ATTACK_MAGIC": "-10",
+      "ATTACK_RANGED": "-10",
+      "DEFENCE_STAB": "51",
+      "DEFENCE_SLASH": "54",
+      "DEFENCE_CRUSH": "53",
+      "DEFENCE_RANGED": "80",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_SHIELD_INACTIVE",
+    "equipSlot": "SHIELD",
+    "levels": "Defence=70,Agility=50",
+    "bonuses": {
+      "ATTACK_MAGIC": "-10",
+      "ATTACK_RANGED": "-10",
+      "DEFENCE_STAB": "51",
+      "DEFENCE_SLASH": "54",
+      "DEFENCE_CRUSH": "53",
+      "DEFENCE_RANGED": "80",
+    }
+  },
+  {
+    "id": "ItemId.BLADE_OF_SAELDOR",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_9",
+    "attackSpeed": "6",
+    "levels": "Attack=75",
+  },
+  {
+    "id": "ItemId.BLADE_OF_SAELDOR_INACTIVE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_9",
+    "attackSpeed": "6",
+    "levels": "Attack=75",
+  },
+  {
+    "id": "ItemId.CRYSTAL_GRAIL",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_0",
+    "attackSpeed": "6",
+  },
+  {
+    "id": "ItemId.ELVEN_BOOTS",
+    "equipSlot": "FOOT",
+  },
+  {
+    "id": "ItemId.ELVEN_GLOVES",
+    "equipSlot": "HAND",
+  },
+  {
+    "id": "ItemId.ELVEN_LEGWEAR",
+    "equipSlot": "LEG",
+  },
+  {
+    "id": "ItemId.DRAGONSTONE_FULL_HELM",
+    "equipSlot": "HEAD",
+    "levels": "Defence=60",
+    "bonuses": {
+      "ATTACK_MAGIC": "-6",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "30",
+      "DEFENCE_SLASH": "32",
+      "DEFENCE_CRUSH": "27",
+      "DEFENCE_MAGIC": "-1",
+      "DEFENCE_RANGED": "30",
+    }
+  },
+  {
+    "id": "ItemId.DRAGONSTONE_PLATEBODY",
+    "equipSlot": "CHEST",
+    "levels": "Defence=60",
+    "bonuses": {
+      "ATTACK_MAGIC": "-30",
+      "ATTACK_RANGED": "-10",
+      "DEFENCE_STAB": "82",
+      "DEFENCE_SLASH": "80",
+      "DEFENCE_CRUSH": "72",
+      "DEFENCE_MAGIC": "-6",
+      "DEFENCE_RANGED": "80",
+    }
+  },
+  {
+    "id": "ItemId.DRAGONSTONE_PLATELEGS",
+    "equipSlot": "LEG",
+    "levels": "Defence=60",
+    "bonuses": {
+      "ATTACK_MAGIC": "-21",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "51",
+      "DEFENCE_SLASH": "49",
+      "DEFENCE_CRUSH": "47",
+      "DEFENCE_MAGIC": "-4",
+      "DEFENCE_RANGED": "49",
+    }
+  },
+  {
+    "id": "ItemId.DRAGONSTONE_BOOTS",
+    "equipSlot": "FOOT",
+    "levels": "Defence=60",
+    "bonuses": {
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-1",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "13",
+      "DEFENCE_CRUSH": "14",
+      "MELEE_STRENGTH": "2",
+    }
+  },
+  {
+    "id": "ItemId.DRAGONSTONE_GAUNTLETS",
+    "equipSlot": "HAND",
+    "levels": "Defence=40",
+    "bonuses": {
+      "ATTACK_STAB": "8",
+      "ATTACK_SLASH": "8",
+      "ATTACK_CRUSH": "8",
+      "ATTACK_MAGIC": "-4",
+      "ATTACK_RANGED": "8",
+      "DEFENCE_STAB": "8",
+      "DEFENCE_SLASH": "8",
+      "DEFENCE_CRUSH": "8",
+      "DEFENCE_MAGIC": "-4",
+      "DEFENCE_RANGED": "4",
+      "MELEE_STRENGTH": "4",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_BOW_24123",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_3",
+    "attackSpeed": "5",
+    "attackRange": "10",
+    "twoHanded": "true",
+    "ammo": [
+      "ItemId.null"
+    ],
+    "castGraphic": { "id": "250", "height": "96" },
+    "projectileId": "249",
+    "levels": "Agility=50,Ranged=70",
+    "bonuses": {
+      "ATTACK_RANGED": "100",
+      "RANGED_STRENGTH": "70",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_HALBERD_24125",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_12",
+    "attackSpeed": "3",
+    "attackRange": "2",
+    "twoHanded": "true",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Attack=70,Strength=35,Agility=50",
+    "bonuses": {
+      "ATTACK_STAB": "85",
+      "ATTACK_SLASH": "110",
+      "ATTACK_CRUSH": "5",
+      "ATTACK_MAGIC": "-4",
+      "DEFENCE_STAB": "-1",
+      "DEFENCE_SLASH": "4",
+      "DEFENCE_CRUSH": "5",
+      "MELEE_STRENGTH": "118",
+    }
+  },
+  {
+    "id": "ItemId.CRYSTAL_SHIELD_24127",
+    "equipSlot": "SHIELD",
+    "levels": "Defence=70,Agility=50",
+    "bonuses": {
+      "ATTACK_MAGIC": "-10",
+      "ATTACK_RANGED": "-10",
+      "DEFENCE_STAB": "51",
+      "DEFENCE_SLASH": "54",
+      "DEFENCE_CRUSH": "53",
+      "DEFENCE_RANGED": "80",
+    }
+  },
+  {
+    "id": "ItemId.INFERNAL_MAX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_STAB": "4",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "4",
+      "ATTACK_MAGIC": "1",
+      "ATTACK_RANGED": "1",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "12",
+      "DEFENCE_MAGIC": "12",
+      "DEFENCE_RANGED": "12",
+      "MELEE_STRENGTH": "8",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.FIRE_MAX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_STAB": "1",
+      "ATTACK_SLASH": "1",
+      "ATTACK_CRUSH": "1",
+      "ATTACK_MAGIC": "1",
+      "ATTACK_RANGED": "1",
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "11",
+      "DEFENCE_CRUSH": "11",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "11",
+      "MELEE_STRENGTH": "4",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.ASSEMBLER_MAX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_RANGED": "8",
+      "DEFENCE_STAB": "1",
+      "DEFENCE_SLASH": "1",
+      "DEFENCE_CRUSH": "1",
+      "DEFENCE_MAGIC": "8",
+      "DEFENCE_RANGED": "2",
+      "RANGED_STRENGTH": "2",
+    }
+  },
+  {
+    "id": "ItemId.BRONZE_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "bonuses": {
+      "ATTACK_STAB": "3",
+      "ATTACK_SLASH": "2",
+      "ATTACK_CRUSH": "1",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "2",
+      "DEFENCE_CRUSH": "1",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+    }
+  },
+  {
+    "id": "ItemId.IRON_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "bonuses": {
+      "ATTACK_STAB": "5",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "3",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "5",
+      "DEFENCE_SLASH": "4",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+    }
+  },
+  {
+    "id": "ItemId.STEEL_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "levels": "Attack=5,Defence=5",
+    "bonuses": {
+      "ATTACK_STAB": "7",
+      "ATTACK_SLASH": "6",
+      "ATTACK_CRUSH": "5",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "7",
+      "DEFENCE_SLASH": "6",
+      "DEFENCE_CRUSH": "5",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "1",
+    }
+  },
+  {
+    "id": "ItemId.BLACK_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "levels": "Attack=10,Defence=10",
+    "bonuses": {
+      "ATTACK_STAB": "9",
+      "ATTACK_SLASH": "8",
+      "ATTACK_CRUSH": "7",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "9",
+      "DEFENCE_SLASH": "8",
+      "DEFENCE_CRUSH": "7",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "2",
+    }
+  },
+  {
+    "id": "ItemId.MITHRIL_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "levels": "Attack=20,Defence=20",
+    "bonuses": {
+      "ATTACK_STAB": "10",
+      "ATTACK_SLASH": "9",
+      "ATTACK_CRUSH": "8",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "10",
+      "DEFENCE_SLASH": "9",
+      "DEFENCE_CRUSH": "8",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "3",
+    }
+  },
+  {
+    "id": "ItemId.ADAMANT_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "levels": "Attack=30,Defence=30",
+    "bonuses": {
+      "ATTACK_STAB": "13",
+      "ATTACK_SLASH": "12",
+      "ATTACK_CRUSH": "11",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "13",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "11",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "4",
+    }
+  },
+  {
+    "id": "ItemId.RUNE_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "levels": "Attack=40,Defence=40",
+    "bonuses": {
+      "ATTACK_STAB": "20",
+      "ATTACK_SLASH": "19",
+      "ATTACK_CRUSH": "18",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "20",
+      "DEFENCE_SLASH": "19",
+      "DEFENCE_CRUSH": "18",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "5",
+    }
+  },
+  {
+    "id": "ItemId.DRAGON_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "bonuses": {
+      "ATTACK_STAB": "25",
+      "ATTACK_SLASH": "24",
+      "ATTACK_CRUSH": "23",
+      "ATTACK_MAGIC": "-3",
+      "ATTACK_RANGED": "-2",
+      "DEFENCE_STAB": "25",
+      "DEFENCE_SLASH": "24",
+      "DEFENCE_CRUSH": "23",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "-2",
+      "MELEE_STRENGTH": "6",
+    }
+  },
+  {
+    "id": "ItemId.STAFF_OF_BALANCE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_18",
+    "attackSpeed": "6",
+    "stanceAnimations": [ "813", "1209", "1205", "1206", "1207", "1208", "1210" ],
+    "levels": "Attack=75,Magic=75",
+    "bonuses": {
+      "ATTACK_STAB": "55",
+      "ATTACK_SLASH": "70",
+      "ATTACK_MAGIC": "17",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "17",
+      "MELEE_STRENGTH": "72",
+      "MAGIC_DAMAGE": "15",
+    }
+  },
+  {
+    "id": "ItemId.SARADOMIN_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.ZAMORAK_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.GUTHIX_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.HEALER_HAT_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "ATTACK_STAB": "-5",
+      "ATTACK_SLASH": "-5",
+      "ATTACK_CRUSH": "-5",
+      "ATTACK_MAGIC": "6",
+      "ATTACK_RANGED": "-5",
+      "DEFENCE_STAB": "6",
+      "DEFENCE_SLASH": "8",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "7",
+    }
+  },
+  {
+    "id": "ItemId.FIGHTER_HAT_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "levels": "Defence=45",
+    "bonuses": {
+      "ATTACK_STAB": "5",
+      "ATTACK_SLASH": "5",
+      "ATTACK_CRUSH": "5",
+      "ATTACK_MAGIC": "-7",
+      "ATTACK_RANGED": "-7",
+      "DEFENCE_STAB": "27",
+      "DEFENCE_SLASH": "29",
+      "DEFENCE_CRUSH": "26",
+      "DEFENCE_MAGIC": "-3",
+      "DEFENCE_RANGED": "28",
+    }
+  },
+  {
+    "id": "ItemId.RANGER_HAT_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "levels": "Defence=45",
+    "bonuses": {
+      "ATTACK_STAB": "-5",
+      "ATTACK_SLASH": "-5",
+      "ATTACK_CRUSH": "-5",
+      "ATTACK_MAGIC": "-5",
+      "ATTACK_RANGED": "6",
+      "DEFENCE_STAB": "7",
+      "DEFENCE_SLASH": "10",
+      "DEFENCE_CRUSH": "11",
+      "DEFENCE_MAGIC": "5",
+      "DEFENCE_RANGED": "8",
+    }
+  },
+  {
+    "id": "ItemId.FIGHTER_TORSO_L",
+    "equipSlot": "CHEST",
+    "hasSleeves": "true",
+    "bonuses": {
+      "ATTACK_MAGIC": "-40",
+      "DEFENCE_STAB": "62",
+      "DEFENCE_SLASH": "85",
+      "DEFENCE_CRUSH": "62",
+      "DEFENCE_MAGIC": "-10",
+      "DEFENCE_RANGED": "67",
+      "MELEE_STRENGTH": "4",
+    }
+  },
+  {
+    "id": "ItemId.PENANCE_SKIRT_L",
+    "equipSlot": "LEG",
+    "levels": "Ranged=60,Defence=40",
+    "bonuses": {
+      "ATTACK_MAGIC": "-10",
+      "ATTACK_RANGED": "15",
+      "DEFENCE_STAB": "26",
+      "DEFENCE_SLASH": "21",
+      "DEFENCE_CRUSH": "28",
+      "DEFENCE_MAGIC": "19",
+      "DEFENCE_RANGED": "26",
+    }
+  },
+  {
+    "id": "ItemId.VOID_KNIGHT_TOP_L",
+    "equipSlot": "CHEST",
+    "hasSleeves": "true",
+    "levels": "Attack=42,Defence=42",
+    "bonuses": {
+      "DEFENCE_STAB": "45",
+      "DEFENCE_SLASH": "45",
+      "DEFENCE_CRUSH": "45",
+      "DEFENCE_MAGIC": "45",
+      "DEFENCE_RANGED": "45",
+    }
+  },
+  {
+    "id": "ItemId.ELITE_VOID_TOP_L",
+    "equipSlot": "CHEST",
+    "hasSleeves": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "45",
+      "DEFENCE_SLASH": "45",
+      "DEFENCE_CRUSH": "45",
+      "DEFENCE_MAGIC": "45",
+      "DEFENCE_RANGED": "45",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.VOID_KNIGHT_ROBE_L",
+    "equipSlot": "LEG",
+    "levels": "Attack=42,Defence=42",
+    "bonuses": {
+      "DEFENCE_STAB": "30",
+      "DEFENCE_SLASH": "30",
+      "DEFENCE_CRUSH": "30",
+      "DEFENCE_MAGIC": "30",
+      "DEFENCE_RANGED": "30",
+    }
+  },
+  {
+    "id": "ItemId.ELITE_VOID_ROBE_L",
+    "equipSlot": "LEG",
+    "bonuses": {
+      "DEFENCE_STAB": "30",
+      "DEFENCE_SLASH": "30",
+      "DEFENCE_CRUSH": "30",
+      "DEFENCE_MAGIC": "30",
+      "DEFENCE_RANGED": "30",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.VOID_KNIGHT_MACE_L",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_16",
+    "attackSpeed": "5",
+    "bonuses": {
+      "ATTACK_STAB": "22",
+      "ATTACK_CRUSH": "41",
+      "ATTACK_MAGIC": "8",
+      "DEFENCE_STAB": "2",
+      "DEFENCE_SLASH": "2",
+      "DEFENCE_CRUSH": "2",
+      "DEFENCE_MAGIC": "2",
+      "DEFENCE_RANGED": "2",
+      "MELEE_STRENGTH": "38",
+      "PRAYER": "6",
+    }
+  },
+  {
+    "id": "ItemId.VOID_KNIGHT_GLOVES_L",
+    "equipSlot": "HAND",
+    "levels": "Attack=42,Defence=42",
+    "bonuses": {
+      "DEFENCE_STAB": "6",
+      "DEFENCE_SLASH": "6",
+      "DEFENCE_CRUSH": "6",
+      "DEFENCE_MAGIC": "4",
+      "DEFENCE_RANGED": "6",
+    }
+  },
+  {
+    "id": "ItemId.VOID_MAGE_HELM_L",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Attack=42,Defence=42",
+    "bonuses": {
+      "DEFENCE_STAB": "6",
+      "DEFENCE_SLASH": "6",
+      "DEFENCE_CRUSH": "6",
+      "DEFENCE_MAGIC": "6",
+      "DEFENCE_RANGED": "6",
+    }
+  },
+  {
+    "id": "ItemId.VOID_RANGER_HELM_L",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Attack=42,Defence=42",
+    "bonuses": {
+      "DEFENCE_STAB": "6",
+      "DEFENCE_SLASH": "6",
+      "DEFENCE_CRUSH": "6",
+      "DEFENCE_MAGIC": "6",
+      "DEFENCE_RANGED": "6",
+    }
+  },
+  {
+    "id": "ItemId.VOID_MELEE_HELM_L",
+    "equipSlot": "HEAD",
+    "showBeard": "true",
+    "levels": "Attack=42,Defence=42",
+    "bonuses": {
+      "DEFENCE_STAB": "6",
+      "DEFENCE_SLASH": "6",
+      "DEFENCE_CRUSH": "6",
+      "DEFENCE_MAGIC": "6",
+      "DEFENCE_RANGED": "6",
+    }
+  },
+  {
+    "id": "ItemId.AVERNIC_DEFENDER_L",
+    "equipSlot": "SHIELD",
+    "levels": "Attack=70,Defence=70",
+    "bonuses": {
+      "ATTACK_STAB": "30",
+      "ATTACK_SLASH": "29",
+      "ATTACK_CRUSH": "28",
+      "ATTACK_MAGIC": "-5",
+      "ATTACK_RANGED": "-4",
+      "DEFENCE_STAB": "30",
+      "DEFENCE_SLASH": "29",
+      "DEFENCE_CRUSH": "28",
+      "DEFENCE_MAGIC": "-5",
+      "DEFENCE_RANGED": "-4",
+      "MELEE_STRENGTH": "8",
+    }
+  },
+  {
+    "id": "ItemId.DEADMANS_CHEST_24189",
+    "equipSlot": "CHEST",
+    "hasSleeves": "true",
+  },
+  {
+    "id": "ItemId.DEADMANS_LEGS_24190",
+    "equipSlot": "LEG",
+  },
+  {
+    "id": "ItemId.DEADMANS_CAPE_24191",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.ARMADYL_HALO",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.ARMADYL_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.BANDOS_HALO",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.BANDOS_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.SEREN_HALO",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.SEREN_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.ANCIENT_HALO",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.ANCIENT_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.BRASSICA_HALO",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.BRASSICA_HALO_L",
+    "equipSlot": "HEAD",
+    "showHair": "true",
+    "showBeard": "true",
+    "bonuses": {
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "10",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "-1",
+      "PRAYER": "3",
+    }
+  },
+  {
+    "id": "ItemId.VICTORS_CAPE_1",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.VICTORS_CAPE_10",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.VICTORS_CAPE_50",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.VICTORS_CAPE_100",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.VICTORS_CAPE_500",
+    "equipSlot": "CAPE",
+  },
+  {
+    "id": "ItemId.SWIFT_BLADE",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_9",
+    "attackSpeed": "7",
+  },
+  {
+    "id": "ItemId.AVAS_ASSEMBLER_L",
+    "equipSlot": "CAPE",
+    "levels": "Ranged=70",
+    "bonuses": {
+      "ATTACK_RANGED": "8",
+      "DEFENCE_STAB": "1",
+      "DEFENCE_SLASH": "1",
+      "DEFENCE_CRUSH": "1",
+      "DEFENCE_MAGIC": "8",
+      "DEFENCE_RANGED": "2",
+      "RANGED_STRENGTH": "2",
+    }
+  },
+  {
+    "id": "ItemId.FIRE_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_STAB": "1",
+      "ATTACK_SLASH": "1",
+      "ATTACK_CRUSH": "1",
+      "ATTACK_MAGIC": "1",
+      "ATTACK_RANGED": "1",
+      "DEFENCE_STAB": "11",
+      "DEFENCE_SLASH": "11",
+      "DEFENCE_CRUSH": "11",
+      "DEFENCE_MAGIC": "11",
+      "DEFENCE_RANGED": "11",
+      "MELEE_STRENGTH": "4",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.INFERNAL_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_STAB": "4",
+      "ATTACK_SLASH": "4",
+      "ATTACK_CRUSH": "4",
+      "ATTACK_MAGIC": "1",
+      "ATTACK_RANGED": "1",
+      "DEFENCE_STAB": "12",
+      "DEFENCE_SLASH": "12",
+      "DEFENCE_CRUSH": "12",
+      "DEFENCE_MAGIC": "12",
+      "DEFENCE_RANGED": "12",
+      "MELEE_STRENGTH": "8",
+      "PRAYER": "2",
+    }
+  },
+  {
+    "id": "ItemId.GRANITE_MAUL_24225",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_2",
+    "attackSpeed": "3",
+    "twoHanded": "true",
+    "stanceAnimations": [ "1662", "823", "1663", "820", "821", "822", "1664" ],
+    "levels": "Strength=50,Attack=50",
+    "bonuses": {
+      "ATTACK_CRUSH": "81",
+      "MELEE_STRENGTH": "79",
+    }
+  },
+  {
+    "id": "ItemId.GRANITE_MAUL_24227",
+    "equipSlot": "WEAPON",
+    "weaponType": "TYPE_2",
+    "attackSpeed": "3",
+    "twoHanded": "true",
+    "stanceAnimations": [ "1662", "823", "1663", "820", "821", "822", "1664" ],
+    "levels": "Strength=50,Attack=50",
+    "bonuses": {
+      "ATTACK_CRUSH": "81",
+      "MELEE_STRENGTH": "79",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_SARADOMIN_MAX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_ZAMORAK_MAX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_GUTHIX_MAX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_SARADOMIN_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_GUTHIX_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+  {
+    "id": "ItemId.IMBUED_ZAMORAK_CAPE_L",
+    "equipSlot": "CAPE",
+    "bonuses": {
+      "ATTACK_MAGIC": "15",
+      "DEFENCE_STAB": "3",
+      "DEFENCE_SLASH": "3",
+      "DEFENCE_CRUSH": "3",
+      "DEFENCE_MAGIC": "15",
+      "MAGIC_DAMAGE": "2",
+    }
+  },
+}
