@@ -28,7 +28,10 @@ public class QuestWidget implements Widget {
             if (childId == 2) {
                 if (slot == 2) {
                     AchievementDiary.getDiary(AchievementDiary.Name.FALADOR).sendTaskList(player);
-                } else {
+                } /*
+                   * else if (slot == 3) {
+                   * AchievementDiary.getDiary(AchievementDiary.Name.WILDERNESS).sendTaskList(player); }
+                   */ else {
                     player.getGameEncoder().sendMessage("This diary is currently unavailable.");
                 }
             }

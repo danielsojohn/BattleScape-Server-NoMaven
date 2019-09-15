@@ -11,8 +11,8 @@ import com.palidino.osrs.model.HitpointsBar;
 import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.map.route.Route;
-import com.palidino.osrs.model.npc.NCombatStyle;
 import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
@@ -26,13 +26,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.util.Utils;
 import lombok.var;
 import script.map.area.CatacombsOfKourendArea;
 
-public class AbyssalDemonCombat extends NCombatScript {
+public class AbyssalDemonCombat extends NpcCombat {
     private static final NpcCombatDropTable SUPERIOR_DROP_TABLE = NpcCombatDropTable.builder().chance(2.32).log(true)
             .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.IMBUED_HEART, 1, 1, 1)))
             .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ETERNAL_GEM, 1, 1, 1)))
@@ -52,7 +51,7 @@ public class AbyssalDemonCombat extends NCombatScript {
     private Tile specialAttackTile;
 
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
                 .clue(NpcCombatDrop.ClueScroll.ELITE, 0.084)
                 .clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_128);
@@ -162,19 +161,15 @@ public class AbyssalDemonCombat extends NCombatScript {
     }
 
     @Override
-    public void setNpcHook(Npc npc) {
-        this.npc = npc;
-    }
-
-    @Override
-    public void restore() {
+    public void restoreHook() {
+        npc = getNpc();
         usingSpecialAttack = false;
         specialAttackCount = 0;
         specialAttackTile = null;
     }
 
     @Override
-    public void tick() {
+    public void tickStartHook() {
         if (npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 && npc.isAttacking() && !usingSpecialAttack
                 && Utils.randomE(20) == 0) {
             usingSpecialAttack = true;
@@ -183,17 +178,17 @@ public class AbyssalDemonCombat extends NCombatScript {
     }
 
     @Override
-    public int attackSpeedHook(NCombatStyle combatStyle) {
+    public int attackTickAttackSpeedHook(NpcCombatStyle combatStyle) {
         return usingSpecialAttack ? 2 : combatStyle.getAttackSpeed();
     }
 
     @Override
-    public double accuracyHook(NCombatStyle combatStyle, double accuracy) {
+    public double accuracyHook(NpcCombatStyle combatStyle, double accuracy) {
         return usingSpecialAttack ? Integer.MAX_VALUE : accuracy;
     }
 
     @Override
-    public void applyAttackEndHook(NCombatStyle combatStyle, Entity entity, HitEvent hitEvent) {
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
         if (!usingSpecialAttack) {
             return;
         }
@@ -203,10 +198,10 @@ public class AbyssalDemonCombat extends NCombatScript {
             specialAttackCount = 0;
             specialAttackTile = null;
         } else {
-            Tile t = new Tile(entity);
+            Tile t = new Tile(opponent);
             int tries = 0;
-            while (tries++ < 8 && (t.matchesTile(entity) || t.matchesTile(npc) || !Route.canMove(npc, t))) {
-                t.setTile(entity);
+            while (tries++ < 8 && (t.matchesTile(opponent) || t.matchesTile(npc) || !Route.canMove(npc, t))) {
+                t.setTile(opponent);
                 t = Utils.randomI(1) == 0 ? t.randomizeX(1) : t.randomizeY(1);
             }
             if (!Route.canMove(npc, t)) {
@@ -217,7 +212,7 @@ public class AbyssalDemonCombat extends NCombatScript {
     }
 
     @Override
-    public void dropItemHook(Player player, Tile dropTile, int dropForIndex, boolean hasRoWICharge) {
+    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
         if (npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
             SUPERIOR_DROP_TABLE.dropItems(npc, player, dropTile);
         }

@@ -9,13 +9,15 @@ import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.dialogue.Dialogue;
 import com.palidino.osrs.model.dialogue.DialogueEntry;
 import com.palidino.osrs.model.player.Player;
+import com.palidino.setting.SqlUserRank;
 import com.palidino.util.Time;
 import lombok.var;
 
 public class PlayersCommand implements Command {
     @Override
     public boolean canUse(Player player) {
-        return player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.isUsergroup(SqlUserRank.SUPPORT) || player.getRights() == Player.RIGHTS_MOD
+                || player.getRights() == Player.RIGHTS_ADMIN;
     }
 
     @Override
@@ -66,6 +68,8 @@ public class PlayersCommand implements Command {
             player.getWidgetManager().sendInventoryOverlay(WidgetId.UNMORPH);
         });
         Dialogue.open(player, dialogue);
+        player.getGameEncoder().sendMessage("There are currently " + player.getWorld().getPlayerCount()
+                + " players online, with " + player.getWorld().getWildernessPlayerCount() + " in the wilderness.");
     }
 
     private static String getLocation(Player player) {

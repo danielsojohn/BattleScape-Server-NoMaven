@@ -54,11 +54,7 @@ public class CombatOptionsWidget implements Widget {
                         || player.getEquipment().getWeaponId() == ItemId.KODAI_WAND
                         || player.getEquipment().wearingFullAhrims()
                                 && player.getEquipment().getNeckId() == ItemId.AMULET_OF_THE_DAMNED_FULL
-                        || player.getEquipment().getWeaponId() == ItemId.ZURIELS_STAFF
-                        || player.getEquipment().getWeaponId() == ItemId.ZURIELS_STAFF_32262
-                        || player.getEquipment().getWeaponId() == ItemId.ZURIELS_STAFF_DEG_32269
-                        || player.getEquipment().getWeaponId() == ItemId.CORRUPT_ZURIELS_STAFF_32278
-                        || player.getEquipment().getWeaponId() == ItemId.C_ZURIELS_STAFF_DEG_32285) {
+                        || player.getEquipment().getWeaponId() == ItemId.ZURIELS_STAFF_CHARGED_32257) {
                     varpValue = ItemId.ANCIENT_STAFF;
                 } else {
                     player.getGameEncoder().sendMessage("This staff can't autocast Ancient Magicks.");

@@ -13,20 +13,20 @@ import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.HitpointsBar;
 import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.util.Utils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.var;
 
-public class VerzikViturCombat extends NCombatScript {
+public class VerzikViturCombat extends NpcCombat {
     private static final VerzikPillar[] PILLARS = {
         new VerzikPillar(new Tile(3161, 4318), new Tile[] {
             new Tile(3160, 4318), new Tile(3159, 4317), new Tile(3160, 4317), new Tile(3161, 4317),
@@ -56,7 +56,7 @@ public class VerzikViturCombat extends NCombatScript {
     private int redSpiderDelay;
 
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat1 = NpcCombatDefinition.builder();
         combat1.id(NpcId.VERZIK_VITUR_1040_8370);
         combat1.spawn(NpcCombatSpawn.builder().respawnId(NpcId.VERZIK_VITUR_1040_8371).build());
@@ -90,12 +90,8 @@ public class VerzikViturCombat extends NCombatScript {
     }
 
     @Override
-    public void setNpcHook(Npc npc) {
-        this.npc = npc;
-    }
-
-    @Override
-    public void spawn() {
+    public void spawnHook() {
+        npc = getNpc();
         if (npc.getId() == NpcId.VERZIK_VITUR_1040_8370) {
             for (var pillar : PILLARS) {
                 pillars.add(new Npc(npc.getController(), NpcId.SUPPORTING_PILLAR, pillar.getTile()));
@@ -107,7 +103,7 @@ public class VerzikViturCombat extends NCombatScript {
     }
 
     @Override
-    public void despawn() {
+    public void despawnHook() {
         for (var pillarNpc : pillars) {
             if (pillarNpc.isLocked()) {
                 continue;
@@ -130,13 +126,13 @@ public class VerzikViturCombat extends NCombatScript {
             if (pillarNpc.isLocked()) {
                 continue;
             }
-            pillarNpc.getCombat().timedDeath();
+            pillarNpc.getCombat2().timedDeath();
         }
         pillars.clear();
     }
 
     @Override
-    public void tick() {
+    public void tickStartHook() {
         if (npc.isLocked()) {
             return;
         }

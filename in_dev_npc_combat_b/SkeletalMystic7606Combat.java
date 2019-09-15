@@ -21,12 +21,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class SkeletalMystic7606Combat extends NCombatScript {
+public class SkeletalMystic7606Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder();
         var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_ALWAYS);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.BUCHU_SEED, 8, 12)));
@@ -41,7 +41,7 @@ public class SkeletalMystic7606Combat extends NCombatScript {
         combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(140).defenceLevel(187).bonus(CombatBonus.MELEE_ATTACK, 85).bonus(CombatBonus.ATTACK_MAGIC, 40).bonus(CombatBonus.DEFENCE_STAB, 155).bonus(CombatBonus.DEFENCE_SLASH, 155).bonus(CombatBonus.DEFENCE_CRUSH, 115).bonus(CombatBonus.DEFENCE_MAGIC, 140).bonus(CombatBonus.DEFENCE_RANGED, 115).build());
         combat.aggression(NpcCombatAggression.builder().range(12).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.combatScript("SkeletalMysticCS").deathAnimation(5491).blockAnimation(5489);
+        combat.combatScript("SkeletalMysticCS").type(NpcCombatType.UNDEAD).deathAnimation(5491).blockAnimation(5489);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();

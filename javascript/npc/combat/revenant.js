@@ -1,17 +1,9 @@
 var ANCIENT_WARRIOR_DROP_TABLE = [
-    new RandomItem(ItemId.VESTAS_LONGSWORD_32254, 1),
-    new RandomItem(ItemId.STATIUSS_WARHAMMER_32256, 1),
-    new RandomItem(ItemId.VESTAS_SPEAR_32258, 1),
-    new RandomItem(ItemId.MORRIGANS_JAVELIN_32260, 50),
-    new RandomItem(ItemId.MORRIGANS_THROWING_AXE_32261, 50),
-    new RandomItem(ItemId.ZURIELS_STAFF_32262, 1)
-];
-var ANCIENT_WARRIOR_DROP_TABLE_SPAWN = [
     new RandomItem(ItemId.VESTAS_LONGSWORD, 1),
     new RandomItem(ItemId.STATIUSS_WARHAMMER, 1),
     new RandomItem(ItemId.VESTAS_SPEAR, 1),
-    new RandomItem(ItemId.MORRIGANS_JAVELIN, 50),
-    new RandomItem(ItemId.MORRIGANS_THROWING_AXE, 50),
+    new RandomItem(ItemId.MORRIGANS_JAVELIN, 100),
+    new RandomItem(ItemId.MORRIGANS_THROWING_AXE, 100),
     new RandomItem(ItemId.ZURIELS_STAFF, 1)
 ];
 var UNIQUE_DROP_TABLE = [
@@ -87,7 +79,8 @@ cs = new NCombatScript() {
         var chanceA = 2200 / Math.sqrt(clampedLevel);
         var chanceB = 15 + (Math.pow(npc.getDef().getCombatLevel() + 60, 2) / 200);
         var multiplier = Main.isSpawn() ? 8 : 4;
-        chanceA = chanceA / multiplier / player.getCombat().getDropRateMultiplier(-1, npc.getDef());
+        var playerMultiplier = player.getCombat().getDropRateMultiplier(-1, npc.getDef());
+        chanceA = chanceA / multiplier / playerMultiplier;
         var selectedChanceA = Utils.randomE(chanceA);
         if (selectedChanceA == 1) {
             logDrop = true;
@@ -138,9 +131,9 @@ cs = new NCombatScript() {
                         + item.getName());
             }
         }
-        if (Utils.randomE(32768 / Math.sqrt(clampedLevel)) == 0) {
-            var pvpItem = RandomItem.getItem(Main.isSpawn() ? ANCIENT_WARRIOR_DROP_TABLE_SPAWN
-                    : ANCIENT_WARRIOR_DROP_TABLE);
+        if (Utils.randomE(1048576 / (player.getCombat().getPKSkullDelay() > 0 ? 4 : 1) / Math.sqrt(clampedLevel)
+                / playerMultiplier) == 0) {
+            var pvpItem = RandomItem.getItem(ANCIENT_WARRIOR_DROP_TABLE);
             npc.getController().addMapItem(pvpItem, dropTile, player);
             player.getCombat().logNPCItem(npc.getDef().getKillCountName(), pvpItem.getId(), pvpItem.getAmount());
             npc.getWorld().sendItemDropNews(player, pvpItem.getId(), " a revenant");

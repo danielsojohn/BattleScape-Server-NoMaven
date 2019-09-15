@@ -111,13 +111,37 @@ public class EquipmentWidget implements Widget {
                         break;
                     case ItemId.MAX_CAPE:
                         if (index == 1) {
-                            player.getGameEncoder().sendMessage("Warriors guild");
+                            Tile warriorsGuildTile = new Tile(2845, 3544);
+                            if (!player.getController().canTeleport(20, true)) {
+                                return;
+                            }
+                            player.getMovement().animatedTeleport(warriorsGuildTile, Magic.NORMAL_MAGIC_ANIMATION_START,
+                                    Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                            player.getController().stopWithTeleport();
+                            player.clearHits();
                         } else if (index == 2) {
                             player.openDialogue(EquipmentMaxCapeDialogue.FISH.getEntry());
                         } else if (index == 3) {
-                            player.getGameEncoder().sendMessage("Crafting guild");
+                            Tile craftingGuildTile = new Tile(2936, 3282);
+                            if (!player.getController().canTeleport(20, true)) {
+                                return;
+                            }
+                            player.getMovement().animatedTeleport(craftingGuildTile, Magic.NORMAL_MAGIC_ANIMATION_START,
+                                    Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                            player.getController().stopWithTeleport();
+                            player.clearHits();
                         } else if (index == 4) {
-                            player.getGameEncoder().sendMessage("Tele to POH");
+                            Tile homeTile = player.getWidgetManager().getHomeTile();
+                            if (!player.getController().canTeleport(20, true)) {
+                                return;
+                            }
+                            if (homeTile == null) {
+                                return;
+                            }
+                            player.getMovement().animatedTeleport(homeTile, Magic.NORMAL_MAGIC_ANIMATION_START,
+                                    Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                            player.getController().stopWithTeleport();
+                            player.clearHits();
                         } else if (index == 5) {
                             player.openDialogue(EquipmentMaxCapeDialogue.PORTALS.getEntry());
                         } else if (index == 6) {

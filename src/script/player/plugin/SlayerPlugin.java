@@ -728,7 +728,13 @@ public class SlayerPlugin extends PlayerPlugin {
             if (aTask.getName().equals("Grotesque Guardians") && !isUnlocked(SlayerUnlock.GROTESQUE_GUARDIANS)) {
                 continue;
             }
-            if (assignedSlayerTask == aTask) {
+            if (assignedSlayerTask != null
+                    && (assignedSlayerTask.getIdentifier() != null || aTask.getIdentifier() != null)
+                    && assignedSlayerTask.getIdentifier() == aTask.getIdentifier()) {
+                continue;
+            }
+            if (assignedSlayerTask != null && (assignedSlayerTask.getName() != null || aTask.getName() != null)
+                    && assignedSlayerTask.getName().equals(aTask.getName())) {
                 continue;
             }
             if (isBoss && assignedSlayerTask != null && assignedSlayerTask.isWilderness() && aTask.isWilderness()) {
@@ -811,7 +817,7 @@ public class SlayerPlugin extends PlayerPlugin {
         if (selectedTask.getLocation() != null) {
             player.getGameEncoder().sendMessage("They are located at " + selectedTask.getLocation() + ".");
         }
-        AchievementDiary.slayerAssignmentHooks(player, master, selectedTask, quantity);
+        AchievementDiary.slayerAssignmentUpdate(player, master, selectedTask, quantity);
     }
 
     private void taskKillCheck(AssignedSlayerTask assignedTask, Npc npc) {
@@ -864,7 +870,7 @@ public class SlayerPlugin extends PlayerPlugin {
         var slayerMaster = SlayerMaster.get(assignedTask.getMaster());
         var slayerTask = assignedTask.getSlayerTask();
         var rewardPoints = slayerMaster.getPoints();
-        if (player.getGoldMember()) {
+        if (player.isPremiumMember()) {
             rewardPoints *= 1.25;
         }
         if (slayerTask.isWilderness() && !Main.isSpawn()) {
@@ -910,7 +916,7 @@ public class SlayerPlugin extends PlayerPlugin {
             player.getGameEncoder().sendMessage(
                     "<col=8F4808>You've completed " + tasksCompleted + " tasks; return to a Slayer master.");
         }
-        AchievementDiary.slayerAssignmentCompleteHooks(player, slayerMaster, slayerTask);
+        AchievementDiary.slayerAssignmentCompleteUpdate(player, slayerMaster, slayerTask);
     }
 
     private boolean countsTowardTaskQuantity(AssignedSlayerTask assignedTask, int id) {

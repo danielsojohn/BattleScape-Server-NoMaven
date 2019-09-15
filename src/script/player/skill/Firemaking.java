@@ -62,7 +62,7 @@ public class Firemaking extends SkillContainer {
                     public void execute() {
                         var fire = new MapObject(FIRE_MAP_OBJECT, player, 10, 0);
                         player.getWorld().addEvent(new TempMapObject(100, player.getController(), fire));
-                        AchievementDiary.makeFireHooks(player, entry.getConsume());
+                        AchievementDiary.makeFireUpdate(player, entry.getConsume());
                         Route.moveOffTile(player);
                         player.getGameEncoder().sendRemoveMapItem(logMapItem);
                         player.unlock();

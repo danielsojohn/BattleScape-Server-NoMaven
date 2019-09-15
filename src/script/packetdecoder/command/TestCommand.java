@@ -23,6 +23,12 @@ public class TestCommand implements Command {
 
     @Override
     public void execute(Player player, String message) {
-        var npc = new Npc(player.getController(), NpcId.VERZIK_VITUR_1040_8370, new Tile(3166, 4323));
+        // lms fog
+        var baseX = 2968;
+        var baseY = 3915;
+        player.getGameEncoder().setVarbit(5314, 1);
+        player.getGameEncoder().setVarbit(5320, baseX);
+        player.getGameEncoder().setVarbit(5316, baseY);
+        player.getGameEncoder().setVarbit(5317, 8);
     }
 }

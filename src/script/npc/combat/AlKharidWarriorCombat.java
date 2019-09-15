@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
@@ -13,12 +14,11 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
 import lombok.var;
 
-public class AlKharidWarriorCombat extends NCombatScript {
+public class AlKharidWarriorCombat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.EASY, NpcCombatDropTable.CHANCE_1_IN_128);
 
 

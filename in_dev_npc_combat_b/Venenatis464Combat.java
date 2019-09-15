@@ -22,12 +22,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class Venenatis464Combat extends NCombatScript {
+public class Venenatis464Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder();
         var dropTable = NpcCombatDropTable.builder().chance(0.05).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.VENENATIS_SPIDERLING)));
@@ -94,7 +94,7 @@ public class Venenatis464Combat extends NCombatScript {
         combat.stats(NpcCombatStats.builder().attackLevel(470).magicLevel(150).defenceLevel(490).bonus(CombatBonus.MELEE_DEFENCE, 260).bonus(CombatBonus.DEFENCE_MAGIC, 850).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).singleTargetFocus(true).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("VenenatisCS").deathAnimation(5321).blockAnimation(5320);
         combat.drop(drop.build());

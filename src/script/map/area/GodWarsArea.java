@@ -26,13 +26,13 @@ public class GodWarsArea extends Area {
     public Object script(String identifier, Object... parameters) {
         var player = getPlayer();
         if (identifier.equals("increase_armadyl_killcount")) {
-            armadylKillcount++;
+            armadylKillcount += player.isPremiumMember() ? 2 : 1;
         } else if (identifier.equals("increase_bandos_killcount")) {
-            bandosKillcount++;
+            bandosKillcount += player.isPremiumMember() ? 2 : 1;
         } else if (identifier.equals("increase_saradomin_killcount")) {
-            saradominKillcount++;
+            saradominKillcount += player.isPremiumMember() ? 2 : 1;
         } else if (identifier.equals("increase_zamorak_killcount")) {
-            zamorakKillcount++;
+            zamorakKillcount += player.isPremiumMember() ? 2 : 1;
         } else if (identifier.equals("get_armadyl_killcount")) {
             return armadylKillcount;
         } else if (identifier.equals("get_bandos_killcount")) {

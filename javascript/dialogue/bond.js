@@ -4,7 +4,7 @@ var lines = new ArrayList();
 var actions = new ArrayList();
 
 title = "Select an Option";
-lines.add("+14 Days Gold Membership");
+lines.add("+14 Days Premium Membership");
 actions.add("close|script");
 lines.add("Nevermind");
 actions.add("close");
@@ -50,18 +50,18 @@ instance = new DialogueScript() {
                 if (Main.isSpawn()) {
                     return;
                 }
-                if ( player.getInventory().getCount(ItemId._14_DAYS_GOLD_MEMBERSHIP_32303) == 0) {
+                if ( player.getInventory().getCount(ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303) == 0) {
                     player.getGameEncoder().sendMessage("You need a bond to do this.");
                     return;
                 }
                 RequestServer.getInstance().addSqlUpdate("INSERT INTO goldmember_update (userid) VALUES("
                         + player.getId() + ")");
-                player.setGoldMember(true);
+                player.setPremiumMember(true);
                 player.getGameEncoder().sendMessage("<col=ff0000>14 days of membership have been added to your account.");
-                player.getInventory().deleteItem(ItemId._14_DAYS_GOLD_MEMBERSHIP_32303, 1);
-                player.setGoldMemberDays(player.getGoldMemberDays() + 14);
+                player.getInventory().deleteItem(ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303, 1);
+                player.setPremiumMemberDays(player.isPremiumMemberDays() + 14);
                 RequestManager.addPlayerLog(player, "bond", player.getLogName()
-                        + " received gold membership from a bond.");
+                        + " received Premium Membership from a bond.");
                 player.getFamiliar().rollPet(ItemId.CHOMPY_CHICK, 1);
             }
         } else if (index == 1) {
@@ -73,7 +73,7 @@ instance = new DialogueScript() {
         } else if (index == 2) {
             if (slot == 0) {
                 if (!player.isUsergroup(SqlUserRank.DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 10+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only red bond donators and above can use this.");
                     return;
                 }
                 player.openShop("donator");
@@ -81,25 +81,25 @@ instance = new DialogueScript() {
                 player.getAppearance().setColor(4, 1);
             } else if (slot == 2) {
                 if (!player.isUsergroup(SqlUserRank.DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 10+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only red donators or above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 16);
             } else if (slot == 3) {
                 if (!player.isUsergroup(SqlUserRank.SUPER_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 30+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only green donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 17);
             } else if (slot == 4) {
                 if (!player.isUsergroup(SqlUserRank.EXTREME_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 90+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only blue donators donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 18);
             } else if (slot == 5) {
                 if (!player.isUsergroup(SqlUserRank.LEGENDARY_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only 270+ bond donators can use this.");
+                    player.getGameEncoder().sendMessage("Only yellow donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 19);

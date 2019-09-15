@@ -82,7 +82,7 @@ public class WidgetDecoder extends PacketDecoder {
                 itemId = player.getEquipment().getId(equipmentSlot);
             }
         }
-        AchievementDiary.widgetHooks(player, index, widgetId, childId, slot, itemId);
+        AchievementDiary.widgetUpdate(player, index, widgetId, childId, slot, itemId);
         if (player.getController().widgetHook(index, widgetId, childId, slot, itemId)) {
             return;
         }
@@ -94,7 +94,7 @@ public class WidgetDecoder extends PacketDecoder {
         if (player.getRandomEvent().widgetHook(index, widgetId, childId, slot, itemId)) {
             return;
         }
-        if (SkillContainer.widgetHooks(player, index, widgetId, childId, slot, itemId)) {
+        if (SkillContainer.widgets(player, index, widgetId, childId, slot, itemId)) {
             return;
         }
         var widget = widgets.get(widgetId);

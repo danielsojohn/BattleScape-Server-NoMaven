@@ -19,19 +19,23 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class RevenantKnight126Combat extends NCombatScript {
+public class RevenantKnight126Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.REVENANT_KNIGHT_126);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(143));
-        combat.stats(NpcCombatStats.builder().attackLevel(100).magicLevel(146).rangedLevel(146).defenceLevel(80).bonus(CombatBonus.MELEE_ATTACK, 69).bonus(CombatBonus.ATTACK_MAGIC, 55).bonus(CombatBonus.ATTACK_RANGED, 55).bonus(CombatBonus.DEFENCE_STAB, 195).bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_CRUSH, 180).bonus(CombatBonus.DEFENCE_MAGIC, 95).bonus(CombatBonus.DEFENCE_RANGED, 190).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(100).magicLevel(146).rangedLevel(146).defenceLevel(80)
+                .bonus(CombatBonus.MELEE_ATTACK, 69).bonus(CombatBonus.ATTACK_MAGIC, 55)
+                .bonus(CombatBonus.ATTACK_RANGED, 55).bonus(CombatBonus.DEFENCE_STAB, 195)
+                .bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_CRUSH, 180)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 95).bonus(CombatBonus.DEFENCE_RANGED, 190).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());
         combat.combatScript("revenant").type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(404);
 

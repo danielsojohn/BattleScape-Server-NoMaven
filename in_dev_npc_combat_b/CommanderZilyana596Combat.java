@@ -22,12 +22,12 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class CommanderZilyana596Combat extends NCombatScript {
+public class CommanderZilyana596Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
         var dropTable = NpcCombatDropTable.builder().chance(0.02).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PET_ZILYANA)));
@@ -78,13 +78,20 @@ public class CommanderZilyana596Combat extends NCombatScript {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.COMMANDER_ZILYANA_596);
-        combat.phrase("Death to the enemies of the light!").phrase("Slay the evil ones!").phrase("Saradomin lend me strength!").phrase("By the power of Saradomin!").phrase("May Saradomin be my sword.").phrase("Good will always triumph!").phrase("Forward! Our allies are with us!").phrase("Saradomin is with us!").phrase("In the name of Saradomin!").phrase("All praise Saradomin!");
+        combat.phrase("Death to the enemies of the light!").phrase("Slay the evil ones!")
+                .phrase("Saradomin lend me strength!").phrase("By the power of Saradomin!")
+                .phrase("May Saradomin be my sword.").phrase("Good will always triumph!")
+                .phrase("Forward! Our allies are with us!").phrase("Saradomin is with us!")
+                .phrase("In the name of Saradomin!").phrase("All praise Saradomin!");
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(100).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(300).rangedLevel(250).defenceLevel(300).bonus(CombatBonus.MELEE_ATTACK, 195).bonus(CombatBonus.ATTACK_MAGIC, 200).bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(300).rangedLevel(250).defenceLevel(300)
+                .bonus(CombatBonus.MELEE_ATTACK, 195).bonus(CombatBonus.ATTACK_MAGIC, 200)
+                .bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 100)
+                .bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinCombatTiles(1).singleTargetFocus(true).build());
+        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("CommanderZilyanaCS").deathAnimation(6968).blockAnimation(6969);
         combat.drop(drop.build());

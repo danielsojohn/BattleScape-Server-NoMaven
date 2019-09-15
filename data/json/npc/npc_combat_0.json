@@ -9724,16 +9724,16 @@
         ]
       },
       {
-        "chance": 0.29,
-        "logLoot": true,
-        "items": [
-          [ { "id": "ItemId.ABYSSAL_WHIP", "amount": 1 } ]
-        ]
-      },
-      {
         "chance": 0.78,
         "items": [
           [ { "id": "ItemId.CLUE_SCROLL_HARD", "amount": 1 } ]
+        ]
+      },
+      {
+        "chance": 0.79,
+        "logLoot": true,
+        "items": [
+          [ { "id": "ItemId.ABYSSAL_WHIP", "amount": 1 } ]
         ]
       },
       {

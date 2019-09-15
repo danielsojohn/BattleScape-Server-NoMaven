@@ -2,17 +2,17 @@ Old School Bonds
 
 You are able to purchase bonds either on the website or in-game by clicking on Old School Bonds, located under game information. To view the items bonds can be spent on, go to your bond pouch and then select spend bonds.
 
-<col=800000>Membership</col>
+<col=800000>Premium Membership</col>
 <col=0000A0>*</col> A bond can be converted to 14 days of membership
-<col=0000A0>*</col> 10% boosted drop rates (including all pets)
-<col=0000A0>*</col> 10% more experience and 25% more experience using bones on an altar
+<col=0000A0>*</col> 25% boosted drop rates (including all pets)
+<col=0000A0>*</col> 25% more experience
 <col=0000A0>*</col> 25% more Slayer points and Pest Control points
 <col=0000A0>*</col> 25% more coins from monster drops
 <col=0000A0>*</col> 5% higher skilling success rates
 <col=0000A0>*</col> 25% lower item reclaim fee
-<col=0000A0>*</col> <col=0000A0>*</col> Skip early waves of the Fight Cave and the Inferno
+<col=0000A0>*</col> Skip early waves of the Fight Cave and the Inferno
 <col=0000A0>*</col> Doubled kill count at God Wars
-<col=0000A0>*</col> Noted key halves, herbs, abd ensouled head drops
+<col=0000A0>*</col> Noted key halves, herbs, and ensouled head drops
 <col=0000A0>*</col> Able to set your home location
 <col=0000A0>*</col> The General Store buys items for high alch price
 <col=0000A0>*</col> Slower run energy drain outside of the wilderness

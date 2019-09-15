@@ -4,19 +4,19 @@ import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
 import lombok.var;
 
-public class VerzikNylocasMatomenosCombat extends NCombatScript {
+public class VerzikNylocasMatomenosCombat extends NpcCombat {
     private Npc npc;
 
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.NYLOCAS_MATOMENOS_115_8385);
         combat.spawn(NpcCombatSpawn.builder().animation(8098).build());
@@ -31,18 +31,18 @@ public class VerzikNylocasMatomenosCombat extends NCombatScript {
     }
 
     @Override
-    public void setNpcHook(Npc npc) {
-        this.npc = npc;
+    public void restoreHook() {
+        npc = getNpc();
     }
 
     @Override
-    public void tick() {
+    public void tickStartHook() {
         if (npc.isLocked()) {
             return;
         }
         if (npc.getTotalTicks() == 20) {
             var remainingHitpoints = npc.getHitpoints();
-            npc.getCombat().timedDeath();
+            timedDeath();
             var verzikNpc = npc.getController().getNpc(NpcId.VERZIK_VITUR_1265);
             if (verzikNpc != null && !verzikNpc.isLocked()) {
                 verzikNpc.adjustHitpoints(remainingHitpoints);

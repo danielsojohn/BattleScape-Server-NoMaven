@@ -196,7 +196,7 @@ public class Fishing extends SkillContainer {
                 || usingUnchargedInfernalHarpoon(player, entry)) {
             chance = Math.min(Utils.addDoubles(chance, 0.2), 1.0);
         }
-        if (player.getGoldMember()) {
+        if (player.isPremiumMember()) {
             chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {

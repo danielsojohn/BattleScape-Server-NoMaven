@@ -3,6 +3,7 @@ package script.packetdecoder.command;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
+import com.palidino.setting.SqlUserRank;
 import lombok.var;
 
 public class MuteCommand implements Command {
@@ -13,15 +14,16 @@ public class MuteCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.isUsergroup(SqlUserRank.SUPPORT) || player.getRights() == Player.RIGHTS_MOD
+                || player.getRights() == Player.RIGHTS_ADMIN;
     }
 
     @Override
     public void execute(Player player, String message) {
         var split = message.split(" ");
         var hours = Integer.parseInt(split[0]);
-        if (hours > 48) {
-            player.getGameEncoder().sendMessage("Max mute time is 48 hours.");
+        if (hours > 168) {
+            player.getGameEncoder().sendMessage("Max mute time is 168 hours(a week).");
             return;
         }
         var username = message.substring(message.indexOf(split[0]) + split[0].length() + 1);

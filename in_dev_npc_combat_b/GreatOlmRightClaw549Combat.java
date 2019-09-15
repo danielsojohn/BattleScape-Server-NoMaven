@@ -9,12 +9,12 @@ import com.palidino.osrs.model.HitpointsBar;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
-import com.palidino.osrs.model.npc.combatscript.NCombatScript;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class GreatOlmRightClaw549Combat extends NCombatScript {
+public class GreatOlmRightClaw549Combat extends NpcCombat {
     @Override
-    public List<NpcCombatDefinition> getCombatDefs() {
+    public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GREAT_OLM_RIGHT_CLAW_549);
         combat.hitpoints(NpcCombatHitpoints.builder().total(500).bar(HitpointsBar.GREEN_RED_100).build());

@@ -126,7 +126,7 @@ public class NpcOptionDecoder extends PacketDecoder {
             player.getMovement().clear();
         }
         player.setFaceTile(npc);
-        AchievementDiary.npcOptionHooks(player, index, npc);
+        AchievementDiary.npcOptionUpdate(player, index, npc);
         if (player.getController().npcOptionHook(index, npc)) {
             return true;
         }
@@ -135,7 +135,7 @@ public class NpcOptionDecoder extends PacketDecoder {
                 return true;
             }
         }
-        if (SkillContainer.npcOptionHooks(player, index, npc)) {
+        if (SkillContainer.npcOptions(player, index, npc)) {
             return true;
         }
         if (npc.getDef().isOption(index, "pick-up") && Familiar.isPetNPC(npc.getId())) {

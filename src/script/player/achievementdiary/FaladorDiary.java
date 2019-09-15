@@ -31,7 +31,7 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void animationHook(Player player, int id, int delay) {
+    public void animation(Player player, int id, int delay) {
         if (id == 4959 || id == 4961 || id == 4981 || id == 4971 || id == 4973 || id == 4979 || id == 4939 || id == 4955
                 || id == 4957 || id == 4937 || id == 4951 || id == 4975 || id == 4949 || id == 4943 || id == 4941
                 || id == 4969 || id == 4977 || id == 4965 || id == 4967 || id == 4963 || id == 4947 || id == 5158
@@ -43,28 +43,28 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void teleportedHook(Player player, Tile fromTile) {
+    public void teleported(Player player, Tile fromTile) {
         if (player.getRegionId() == 11316 && fromTile.getRegionId() == 12082) {
             addCompletedTask(player, FaladorTask.ENTRANA);
         }
     }
 
     @Override
-    public void equipItemHook(Player player, Item item, int slot) {
+    public void equipItem(Player player, Item item, int slot) {
         if (item.getId() == ItemId.DWARVEN_HELMET && player.within(2962, 9699, 3061, 9852)) {
             addCompletedTask(player, FaladorTask.DWARVEN_HELMET);
         }
     }
 
     @Override
-    public void buyShopItemHook(Player player, Shop shop, ShopItem shopItem, Item item, int price) {
+    public void buyShopItem(Player player, Shop shop, ShopItem shopItem, Item item, int price) {
         if (item.getId() == ItemId.WHITE_2H_SWORD && item.getAmount() > 0 && shopItem.getMonsterKillCount() > 0) {
             addCompletedTask(player, FaladorTask.WHITE_2H);
         }
     }
 
     @Override
-    public void makeItemHook(Player player, int skillId, Item item, Npc npc, MapObject mapObject) {
+    public void makeItem(Player player, int skillId, Item item, Npc npc, MapObject mapObject) {
         if (item.getId() == ItemId.BUCKET_OF_WATER && player.getRegionId() == 11828) {
             addCompletedTask(player, FaladorTask.FILL_BUCKET);
         } else if (item.getId() == ItemId.MIND_TIARA) {
@@ -92,14 +92,14 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void makeFireHook(Player player, Item item) {
+    public void makeFire(Player player, Item item) {
         if (item.getId() == ItemId.WILLOW_LOGS && player.getRegionId() == 11573) {
             addCompletedTask(player, FaladorTask.BURN_WILLOW);
         }
     }
 
     @Override
-    public void castSpellHook(Player player, WidgetChild.Spellbook spellbookChild, Item item, Entity entity,
+    public void castSpell(Player player, WidgetChild.Spellbook spellbookChild, Item item, Entity entity,
             MapObject mapObject) {
         if (spellbookChild == WidgetChild.Spellbook.FALADOR_TELEPORT) {
             addCompletedTask(player, FaladorTask.FALADOR_TELEPORT);
@@ -107,7 +107,7 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void agilityObstacleHook(Player player, MapObject mapObject) {
+    public void agilityObstacle(Player player, MapObject mapObject) {
         if (mapObject.getId() == 24222 && player.getRegionId() == 11572) {
             addCompletedTask(player, FaladorTask.CLIMB_WALL);
         } else if (mapObject.getId() == 16543 && player.getRegionId() == 12185) {
@@ -118,7 +118,7 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void npcKilledHook(Player player, Npc npc) {
+    public void npcKilled(Player player, Npc npc) {
         if ((npc.getId() == NpcId.DUCK_1 || npc.getId() == NpcId.DUCK_1_1839) && player.getRegionId() == 12084) {
             addCompletedTask(player, FaladorTask.KILL_DUCK);
         } else if (npc.getId() == NpcId.MOGRE_60) {
@@ -136,14 +136,14 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void openShopHook(Player player, String referenceName) {
+    public void openShop(Player player, String referenceName) {
         if (referenceName != null && referenceName.equals("skilling") && player.getRegionId() == 12083) {
             addCompletedTask(player, FaladorTask.SARAHS_SHOP);
         }
     }
 
     @Override
-    public void mapObjectOptionHook(Player player, int index, MapObject mapObject) {
+    public void mapObjectOption(Player player, int index, MapObject mapObject) {
         if (mapObject.getId() == 172 && mapObject.getX() == 2914 && mapObject.getY() == 3452
                 && player.getInventory().hasItem(ItemId.CRYSTAL_KEY)) {
             addCompletedTask(player, FaladorTask.CRYSTAL_CHEST);
@@ -166,7 +166,7 @@ public class FaladorDiary extends AchievementDiary {
     }
 
     @Override
-    public void npcOptionHook(Player player, int index, Npc npc) {
+    public void npcOption(Player player, int index, Npc npc) {
         if (npc.getId() == NpcId.SECURITY_GUARD) {
             addCompletedTask(player, FaladorTask.SECURITY_BOOK);
         }

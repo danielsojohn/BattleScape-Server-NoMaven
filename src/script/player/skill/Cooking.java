@@ -46,6 +46,13 @@ public class Cooking extends SkillContainer {
             } else {
                 player.getInventory().addOrDropItem(ItemId.TOKKUL, 20 + Utils.randomI(20));
             }
+        } else if (entry.getConsume() != null && entry.getConsume().getId() == ItemId.LEAPING_STURGEON) {
+            if (Utils.randomE(2) == 0) {
+                player.getInventory().addOrDropItem(ItemId.FISH_OFFCUTS);
+            } else {
+                player.getInventory().addOrDropItem(ItemId.CAVIAR);
+            }
+            player.getSkills().addXp(getSkillId(), 15);
         }
     }
 
@@ -125,7 +132,7 @@ public class Cooking extends SkillContainer {
         if (player.getEquipment().getHandId() == ItemId.COOKING_GAUNTLETS) {
             chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
         }
-        if (player.getGoldMember()) {
+        if (player.isPremiumMember()) {
             chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {
@@ -188,6 +195,9 @@ public class Cooking extends SkillContainer {
         entries.add(SkillEntry.builder().level(40).failFactor(74).experience(90).animation(883)
                 .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_LOBSTER))
                 .create(new RandomItem(ItemId.LOBSTER)).failedCreate(new RandomItem(ItemId.BURNT_LOBSTER)).build());
+        entries.add(SkillEntry.builder().level(43).failFactor(80).experience(130).animation(883)
+                .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_BASS))
+                .create(new RandomItem(ItemId.BASS)).failedCreate(new RandomItem(ItemId.BURNT_FISH_367)).build());
         entries.add(SkillEntry.builder().level(45).failFactor(86).experience(140).animation(883)
                 .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_SWORDFISH))
                 .create(new RandomItem(ItemId.SWORDFISH)).failedCreate(new RandomItem(ItemId.BURNT_SWORDFISH)).build());
@@ -204,15 +214,23 @@ public class Cooking extends SkillContainer {
         entries.add(SkillEntry.builder().level(90).failFactor(114).experience(215).animation(883)
                 .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_DARK_CRAB))
                 .create(new RandomItem(ItemId.DARK_CRAB)).failedCreate(new RandomItem(ItemId.BURNT_DARK_CRAB)).build());
+        entries.add(SkillEntry.builder().level(91).failFactor(114).experience(216).animation(883)
+                .widgetOnMapObject(COOKING_RANGE_ID).consume(new RandomItem(ItemId.RAW_MANTA_RAY))
+                .create(new RandomItem(ItemId.MANTA_RAY)).failedCreate(new RandomItem(ItemId.BURNT_MANTA_RAY)).build());
 
         entries.add(SkillEntry.builder().level(35).failFactor(68).experience(200).animation(3283)
                 .consume(new RandomItem(ItemId.GRAPES)).consume(new RandomItem(ItemId.JUG_OF_WATER))
                 .create(new RandomItem(ItemId.JUG_OF_WINE)).failedCreate(new RandomItem(ItemId.JUG_OF_BAD_WINE))
                 .build());
+        entries.add(SkillEntry.builder().level(70).experience(80).animation(1248).tool(new RandomItem(ItemId.KNIFE))
+                .consume(new RandomItem(ItemId.LEAPING_STURGEON)).build());
         entries.add(SkillEntry.builder().level(72).experience(100).animation(1248).tool(new RandomItem(ItemId.KNIFE))
                 .consume(new RandomItem(ItemId.SACRED_EEL)).build());
         entries.add(SkillEntry.builder().animation(1248).tool(new RandomItem(ItemId.HAMMER))
                 .consume(new RandomItem(ItemId.INFERNAL_EEL)).build());
+
+        entries.add(SkillEntry.builder().animation(883).widgetOnMapObject(COOKING_RANGE_ID)
+                .consume(new RandomItem(ItemId.SEAWEED)).create(new RandomItem(ItemId.MOLTEN_GLASS)).build());
 
         entries.add(SkillEntry.builder().level(1).experience(10).animation(883).widgetOnMapObject(COOKING_RANGE_ID)
                 .consume(new RandomItem(ItemId.RAW_PYSK_FISH_0)).create(new RandomItem(ItemId.PYSK_FISH_0))

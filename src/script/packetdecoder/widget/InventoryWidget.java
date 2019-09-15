@@ -219,7 +219,7 @@ public class InventoryWidget implements Widget {
             player.getInventory().addOrDropItem(ItemId.EARTH_RUNE, 50);
             player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, 50);
             break;
-        case ItemId.COIN_POUCH_22521:
+        case ItemId.COIN_POUCH:
             player.getInventory().deleteItem(itemId, 1, slot);
             player.getInventory().addOrDropItem(ItemId.COINS, 100_000 + Utils.randomI(300_000));
             break;
@@ -382,6 +382,7 @@ public class InventoryWidget implements Widget {
         case ItemId.STARTER_PACK_32288:
             if (!player.hasVoted() && player.getRights() == Player.RIGHTS_NONE) {
                 player.getGameEncoder().sendMessage("To open this, you first need to vote.");
+                player.getGameEncoder().sendMessage("Make sure to relog after voting!");
                 break;
             }
             player.getInventory().deleteItem(itemId, 1, slot);
@@ -455,7 +456,7 @@ public class InventoryWidget implements Widget {
             player.getInventory().deleteItem(itemId, 1, slot);
             anItem = new Item(items[Utils.randomE(items.length)], 1);
             if (anItem.getId() == ItemId.MORRIGANS_JAVELIN || anItem.getId() == ItemId.MORRIGANS_THROWING_AXE) {
-                anItem.setAmount(50);
+                anItem.setAmount(100);
             }
             player.getInventory().addOrDropItem(anItem);
             RequestManager.addPlayerLog(player, "lootbox",
@@ -1194,9 +1195,9 @@ public class InventoryWidget implements Widget {
             break;
         case ItemId.OLD_SCHOOL_BOND_UNTRADEABLE:
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getInventory().addItem(ItemId._14_DAYS_GOLD_MEMBERSHIP_32303, 1, slot);
+            player.getInventory().addItem(ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303, 1, slot);
             break;
-        case ItemId._14_DAYS_GOLD_MEMBERSHIP_32303:
+        case ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303:
             player.openDialogue("bond", 0);
             break;
         case 12791: // Rune pouch
@@ -1233,7 +1234,31 @@ public class InventoryWidget implements Widget {
                 player.getInventory().addOrDropItem(ItemId.DEATH_RUNE, 2500);
                 player.getInventory().addOrDropItem(ItemId.CHAOS_RUNE, 2500);
                 player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, 12500);
-                player.getInventory().addOrDropItem(ItemId.COINS, 25000);
+            }
+            break;
+        case ItemId.TRIDENT_OF_THE_SEAS:
+            if (index == 2) {
+                player.getCharges().checkCharges(slot);
+            } else if (index == 3) {
+                var charges = item.getCharges();
+                player.getInventory().deleteItem(itemId, 1, slot);
+                player.getInventory().addItem(ItemId.UNCHARGED_TRIDENT, 1, slot);
+                player.getInventory().addOrDropItem(ItemId.DEATH_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.CHAOS_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, charges * 5);
+            }
+            break;
+        case ItemId.TRIDENT_OF_THE_SEAS_E:
+            if (index == 2) {
+                player.getCharges().checkCharges(slot);
+            } else if (index == 3) {
+                var charges = item.getCharges();
+                player.getInventory().deleteItem(itemId, 1, slot);
+                player.getInventory().addItem(ItemId.UNCHARGED_TRIDENT_E, 1, slot);
+                player.getInventory().addItem(ItemId.UNCHARGED_TRIDENT, 1, slot);
+                player.getInventory().addOrDropItem(ItemId.DEATH_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.CHAOS_RUNE, charges);
+                player.getInventory().addOrDropItem(ItemId.FIRE_RUNE, charges * 5);
             }
             break;
         case 11908: // Uncharged trident
@@ -1472,26 +1497,20 @@ public class InventoryWidget implements Widget {
         case 21031: // Infernal harpoon
         case 13243: // Infernal pickaxe
         case 21255: // Slayer's staff (e)
-        case 32254: // Vesta's longsword
-        case 32256: // Statius's warhammer
-        case 32258: // Vesta's spear
-        case 32262: // Zuriel's staff
-        case 32264: // Vesta's longsword (deg)
-        case 32265: // Statius's warhammer (deg)
-        case 32266: // Vesta's spear (deg)
-        case 32269: // Zuriel's staff (deg)
-        case 32270: // Corrupt vesta's longsword
-        case 32272: // Corrupt statius's warhammer
-        case 32274: // Corrupt vesta's spear
-        case 32278: // Corrupt zuriel's staff
-        case 32280: // C. vesta's longsword (deg)
-        case 32281: // C. statius's warhammer (deg)
-        case 32282: // C. vesta's spear (deg)
-        case 32285: // C. zuriel's staff (deg)
+        case ItemId.VESTAS_LONGSWORD_CHARGED_32254:
+        case ItemId.STATIUSS_WARHAMMER_CHARGED_32255:
+        case ItemId.VESTAS_SPEAR_CHARGED_32256:
+        case ItemId.ZURIELS_STAFF_CHARGED_32257:
         case ItemId.ARMADYL_GODSWORD_BEGINNER_32326:
         case ItemId.DRAGON_CLAWS_BEGINNER_32327:
         case ItemId.HEAVY_BALLISTA_BEGINNER_32328:
             player.getCharges().checkCharges(slot);
+            break;
+        case ItemId.VESTAS_LONGSWORD:
+        case ItemId.STATIUSS_WARHAMMER:
+        case ItemId.VESTAS_SPEAR:
+        case ItemId.ZURIELS_STAFF:
+            player.getGameEncoder().sendMessage("This item needs to be charged with coins.");
             break;
         case 22545: // Viggora's chainmace
             if (index == 2) {
@@ -1548,22 +1567,6 @@ public class InventoryWidget implements Widget {
             } else if (index == 4) {
                 player.getInventory().deleteItem(itemId, 1, slot);
                 player.getInventory().addItem(22481, 1, slot);
-            }
-            break;
-        case 11907: // Trident of the seas
-            if (index == 2) {
-                player.getCharges().checkCharges(slot);
-            } else if (index == 3) {
-                player.getInventory().deleteItem(itemId, 1, slot);
-                player.getInventory().addItem(11908, 1, slot);
-            }
-            break;
-        case 22288: // Trident of the seas (e)
-            if (index == 2) {
-                player.getCharges().checkCharges(slot);
-            } else if (index == 3) {
-                player.getInventory().deleteItem(itemId, 1, slot);
-                player.getInventory().addItem(22290, 1, slot);
             }
             break;
         case 22325: // Scythe of vitur
