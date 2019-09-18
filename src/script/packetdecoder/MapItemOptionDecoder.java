@@ -31,7 +31,8 @@ public class MapItemOptionDecoder extends PacketDecoder {
             x = stream.getUShortLE();
             id = stream.getUShortLE();
         }
-        var message = "[MapItemOption(" + index + ")] id=" + id + "/" + ItemId.valueOf(id) + "; x=" + x + "; y=" + y + "; moveType=" + moveType;
+        var message = "[MapItemOption(" + index + ")] id=" + id + "/" + ItemId.valueOf(id) + "; x=" + x + "; y=" + y
+                + "; moveType=" + moveType;
         if (Main.isLocal()) {
             Logger.println(message);
         }
@@ -80,8 +81,8 @@ public class MapItemOptionDecoder extends PacketDecoder {
         }
         player.getMovement().clear();
         if (index == 2) {
-            if (id == ItemId.BLOODIER_KEY && player.getSkills().getCombatLevel() != 126) {
-                player.getGameEncoder().sendMessage("You need a combat level of 126 to pick this up.");
+            if (id == ItemId.BLOODIER_KEY && player.getSkills().getCombatLevel() > 110) {
+                player.getGameEncoder().sendMessage("You need a combat level of atleast 110 to pick this up.");
                 return true;
             }
             var isStackableAndCarrying = ItemDef.getStackable(id) && player.getInventory().hasItem(id);
