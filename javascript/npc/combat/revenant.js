@@ -40,7 +40,7 @@ var MEDIOCRE_DROP_TABLE = [
     new RandomItem(ItemId.MANTA_RAY_NOTED, 30, 50).setWeight(3),
     new RandomItem(ItemId.RUNITE_BAR_NOTED, 3, 5).setWeight(6),
     new RandomItem(ItemId.REVENANT_CAVE_TELEPORT, 1).setWeight(7),
-    new RandomItem(ItemId.BRACELET_OF_ETHEREUM_UNCHARGED, 1).setWeight(15),
+    new RandomItem(ItemId.BRACELET_OF_ETHEREUM_UNCHARGED, 1).setWeight(30)
 ];
 
 var npc = null;
