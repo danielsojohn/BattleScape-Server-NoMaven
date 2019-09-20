@@ -1,4 +1,4 @@
-package script.player.plugin;
+package script.player.plugin.skillmagic;
 
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.item.ItemDef;

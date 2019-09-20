@@ -1,7 +1,4 @@
-/**
- * @author Dalton H. (Palidino)
- */
-package script.player.plugin;
+package script.player.plugin.achievementdiary;
 
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;

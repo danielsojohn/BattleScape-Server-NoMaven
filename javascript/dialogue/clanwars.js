@@ -117,7 +117,7 @@ instance = new DialogueScript() {
             player.getWidgetManager().removeInteractiveWidgets();
             if (ClanWarsTournament.donateItem(player, itemId, slot)) {
                 player.openDialogue("clanwars", 4);
-                Dialogue.setText(player, null, ClanWarsTournament.getWarModeNames());
+                DialogueOld.setText(player, null, ClanWarsTournament.getWarModeNames());
             }
         } else if (index == 4) {
             ClanWarsTournament.donatedSelectWarMode(player, slot);
@@ -128,7 +128,7 @@ instance = new DialogueScript() {
             } else if (slot == 1) {
                 if (ClanWarsTournament.startCustom(player, 0)) {
                     player.openDialogue("clanwars", 4);
-                    Dialogue.setText(player, null, ClanWarsTournament.getWarModeNames());
+                    DialogueOld.setText(player, null, ClanWarsTournament.getWarModeNames());
                 }
             } else if (slot == 2) {
                 player.getGameEncoder().sendEnterAmount("Prize (Ex. 8M entered: 1st: 8M, 2nd: 4M, 3rd: 2M, 4th: 1M):",
@@ -136,7 +136,7 @@ instance = new DialogueScript() {
                     execute: function(value) {
                         if (ClanWarsTournament.startCustom(player, value)) {
                             player.openDialogue("clanwars", 4);
-                            Dialogue.setText(player, null, ClanWarsTournament.getWarModeNames());
+                            DialogueOld.setText(player, null, ClanWarsTournament.getWarModeNames());
                         }
                     }
                 });
@@ -147,7 +147,7 @@ instance = new DialogueScript() {
                         if (ClanWarsTournament.startCustom(player, 0)) {
                             ClanWarsTournament.setOSCoinsPrize(value);
                             player.openDialogue("clanwars", 4);
-                            Dialogue.setText(player, null, ClanWarsTournament.getWarModeNames());
+                            DialogueOld.setText(player, null, ClanWarsTournament.getWarModeNames());
                         }
                     }
                 });

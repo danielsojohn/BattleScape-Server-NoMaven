@@ -6,8 +6,8 @@ import java.util.Comparator;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.Dialogue;
-import com.palidino.osrs.model.dialogue.DialogueEntry;
+import com.palidino.osrs.model.dialogue.old.DialogueOld;
+import com.palidino.osrs.model.dialogue.old.DialogueEntry;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.setting.SqlUserRank;
 import com.palidino.util.Time;
@@ -67,7 +67,7 @@ public class PlayersCommand implements Command {
             player.getMovement().setViewing(viewTile);
             player.getWidgetManager().sendInventoryOverlay(WidgetId.UNMORPH);
         });
-        Dialogue.open(player, dialogue);
+        DialogueOld.open(player, dialogue);
         player.getGameEncoder().sendMessage("There are currently " + player.getWorld().getPlayerCount()
                 + " players online, with " + player.getWorld().getWildernessPlayerCount() + " in the wilderness.");
     }

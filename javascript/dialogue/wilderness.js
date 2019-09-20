@@ -97,7 +97,7 @@ instance = new DialogueScript() {
                         + player.getCombat().getBountyHunter().getTargetIndicator());
             } else if (slot == 4) {
                 player.openDialogue("wilderness", 2);
-                Dialogue.setText(player, null, "Your current KDR is " + player.getCombat().getKills()
+                DialogueOld.setText(player, null, "Your current KDR is " + player.getCombat().getKills()
                         + " kills and " + player.getCombat().getDeaths() + " deaths ("
                         + Utils.formatDouble2(player.getCombat().getKDR()) + ") and your best KDR is "
                         + Utils.formatDouble2(player.getCombat().getHighestKDR()) + ". Your current spree is "
@@ -131,7 +131,7 @@ instance = new DialogueScript() {
                 lines.add("Hunter target kill, an additional 2,500 blood money is rewarded.");
                 lines.add("Any blood money your opponent is carrying is given to you if you");
                 lines.add("kill them.");
-                Dialogue.openScroll(player, "Blood Money", Utils.toStringArray(lines));
+                Scroll.open(player, "Blood Money", Utils.toStringArray(lines));
             } else if (slot == 1) {
                 var lines = new ArrayList();
                 lines.add("Mysterious emblems are given when you kill a player. A tier 1");
@@ -153,7 +153,7 @@ instance = new DialogueScript() {
                 lines.add("Tier 8: 10M coins and 25K blood money");
                 lines.add("Tier 9: 14M coins and 35K blood money");
                 lines.add("Tier 10: 20M coins and 50K blood money");
-                Dialogue.openScroll(player, "Mysterious Emblems", Utils.toStringArray(lines));
+                Scroll.open(player, "Mysterious Emblems", Utils.toStringArray(lines));
             } else if (slot == 2) {
                 var lines = new ArrayList();
                 lines.add("You can get a wilderness Slayer task be speaking to Krystilia");
@@ -172,7 +172,7 @@ instance = new DialogueScript() {
                 lines.add("Chance of a dark crab or prayer potion(3)");
                 lines.add("Blood money once a task is completed");
                 lines.add("A carried mysterious emblem upgraded");
-                Dialogue.openScroll(player, "Slayer", Utils.toStringArray(lines));
+                Scroll.open(player, "Slayer", Utils.toStringArray(lines));
             } else if (slot == 3) {
                 var lines = new ArrayList();
                 lines.add("The Chaos Elemental spawns at 12AM, 6AM, 12PM, and 6PM. The");
@@ -201,7 +201,7 @@ instance = new DialogueScript() {
                 lines.add("Possible loot includes are rare items found in the game. If your");
                 lines.add("game mode isn't normal, the most rare items are removed from the");
                 lines.add("potential loot table.");
-                Dialogue.openScroll(player, "Chaos Elemental", Utils.toStringArray(lines));
+                Scroll.open(player, "Chaos Elemental", Utils.toStringArray(lines));
             } else if (slot == 4) {
                 var lines = new ArrayList();
                 lines.add("<col=004080>Bosses</col>");
@@ -221,7 +221,7 @@ instance = new DialogueScript() {
                 lines.add("Archaeologist, and Scorpia.");
                 lines.add("");
                 lines.add("All three drop the odium and malediction wards.");
-                Dialogue.openScroll(player, "Bosses and Demi-Bosses", Utils.toStringArray(lines));
+                Scroll.open(player, "Bosses and Demi-Bosses", Utils.toStringArray(lines));
             } else if (slot == 5) {
                 var lines = new ArrayList();
                 lines.add("<col=004080>Experience</col>");
@@ -239,7 +239,7 @@ instance = new DialogueScript() {
                 lines.add("Piles can be found inside and will note items for 50 coins each.");
                 lines.add("Anglerfish are caught at double the speed, and both anglerfish and");
                 lines.add("dark crabs give two fish per catch.");
-                Dialogue.openScroll(player, "Special Boosts, Resource Area, and Monsters", Utils.toStringArray(lines));
+                Scroll.open(player, "Special Boosts, Resource Area, and Monsters", Utils.toStringArray(lines));
             }
         }
     },

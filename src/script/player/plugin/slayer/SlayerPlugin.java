@@ -1,4 +1,4 @@
-package script.player.plugin;
+package script.player.plugin.slayer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,8 +10,6 @@ import com.palidino.osrs.io.cache.VarbitId;
 import com.palidino.osrs.io.cache.VarpId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.Dialogue;
-import com.palidino.osrs.model.dialogue.SelectionDialogueEntry;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.map.MapObject;
@@ -29,10 +27,13 @@ import com.palidino.osrs.model.player.slayer.SlayerTaskIdentifier;
 import com.palidino.osrs.model.player.slayer.SlayerUnlock;
 import com.palidino.util.Time;
 import com.palidino.util.Utils;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.var;
 import script.packetdecoder.UseWidgetDecoder;
+import script.player.plugin.slayer.dialogue.MasterMenuDialogue;
+import script.player.plugin.slayer.dialogue.RewardsDialogue;
+import script.player.plugin.slayer.dialogue.SlayerRingDialogue;
+import script.player.plugin.slayer.dialogue.WildernessMasterMenuDialogue;
 
 public class SlayerPlugin extends PlayerPlugin {
     private static final int[] BLOCKED_TASK_VARBITS = {
@@ -79,8 +80,10 @@ public class SlayerPlugin extends PlayerPlugin {
 
     private transient Player player;
 
+    @Getter
     private AssignedSlayerTask task = new AssignedSlayerTask();
     private AssignedSlayerTask wildernessTask = new AssignedSlayerTask();
+    @Getter
     private AssignedSlayerTask bossTask = new AssignedSlayerTask();
     private int consecutiveTasks;
     private int consecutiveWildernessTasks;
@@ -611,18 +614,18 @@ public class SlayerPlugin extends PlayerPlugin {
         switch (npc.getId()) {
         case NpcId.NIEVE:
             if (index == 0) {
-                player.openDialogue(new MasterMenuDialogue());
+                new MasterMenuDialogue(player);
             } else if (index == 2) {
                 getAssignment();
             } else if (index == 3) {
                 player.openShop("slayer");
             } else if (index == 4) {
-                player.openDialogue(new RewardsDialogue());
+                new RewardsDialogue(player);
             }
             return true;
         case NpcId.KRYSTILIA:
             if (index == 0) {
-                player.openDialogue(new WildernessMasterMenuDialogue());
+                new WildernessMasterMenuDialogue(player);
             } else if (index == 2) {
                 getAssignment(SlayerMaster.WILDERNESS_MASTER);
             } else if (index == 3) {
@@ -1057,15 +1060,7 @@ public class SlayerPlugin extends PlayerPlugin {
             player.getGameEncoder().sendMessage("There are no teleports associated with this task.");
             return;
         }
-        var locations = new ArrayList<String>();
-        for (var teleport : task.getSlayerTask().getTeleports()) {
-            locations.add(teleport.getName());
-        }
-        if (task.getSlayerTask().getTeleports().size() == 1) {
-            locations.add("Nevermind");
-        }
-        player.openDialogue(new SlayerRingDialogue());
-        Dialogue.setText(player, "Choose an Option", locations.toArray(new String[locations.size()]));
+        new SlayerRingDialogue(player);
     }
 
     public boolean isBlockedTask(SlayerTaskIdentifier identifier) {
@@ -1157,164 +1152,4 @@ public class SlayerPlugin extends PlayerPlugin {
         points -= cost;
         sendRewardsVarps();
     }
-
-    private class MasterMenuDialogue extends SelectionDialogueEntry {
-        public MasterMenuDialogue() {
-            super("Choose an Option", "Get task", "Current task", "Get boss task", "Cancel boss task");
-            setScript((player, index, childId, slot) -> {
-                if (slot == 0) {
-                    player.openDialogue(new ChooseMasterDialogue());
-                } else if (slot == 1) {
-                    sendTask();
-                } else if (slot == 2) {
-                    getAssignment(SlayerMaster.BOSS_MASTER);
-                } else if (slot == 3) {
-                    if (player.getInventory().getCount(ItemId.COINS) < 500000) {
-                        player.getGameEncoder().sendMessage("You need 500K coins to do this.");
-                        return;
-                    }
-                    if (player.getInventory().getCount(ItemId.VOTE_TICKET) < 2) {
-                        player.getGameEncoder().sendMessage("You need 2 vote tickets to do this.");
-                        return;
-                    }
-                    if (bossTask.isComplete()) {
-                        player.getGameEncoder().sendMessage("You don't have a boss task to cancel.");
-                        return;
-                    }
-                    bossTask.cancel();
-                    player.getInventory().deleteItem(ItemId.COINS, 500000);
-                    player.getInventory().deleteItem(ItemId.VOTE_TICKET, 2);
-                    player.getGameEncoder().sendMessage("Your boss task has been cancelled.");
-                }
-            });
-        }
-    }
-
-    private class WildernessMasterMenuDialogue extends SelectionDialogueEntry {
-        public WildernessMasterMenuDialogue() {
-            super("Choose an Option", "Get task", "Current task", "Cancel task (30 points)");
-            setScript((player, index, childId, slot) -> {
-                if (slot == 0) {
-                    getAssignment(SlayerMaster.WILDERNESS_MASTER);
-                } else if (slot == 1) {
-                    sendTask();
-                } else if (slot == 2) {
-                    cancelWildernessTask();
-                }
-            });
-        }
-    }
-
-    private class ChooseMasterDialogue extends SelectionDialogueEntry {
-        public ChooseMasterDialogue() {
-            super("Choose an Option", "Mazchna - level 20", "Chaeldar - level 70", "Nieve - level 85",
-                    "Duradel - level 100", "Krystilia - wilderness");
-            setScript((player, index, childId, slot) -> {
-                if (slot == 0) {
-                    getAssignment("Mazchna");
-                } else if (slot == 1) {
-                    getAssignment("Chaeldar");
-                } else if (slot == 2) {
-                    getAssignment("Nieve");
-                } else if (slot == 3) {
-                    getAssignment("Duradel");
-                } else if (slot == 4) {
-                    player.getGameEncoder().sendMessage("Please speak to krystilia for a wilderness task.");
-                }
-            });
-        }
-    }
-
-    private class RewardsDialogue extends SelectionDialogueEntry {
-        public RewardsDialogue() {
-            super("Choose an Option", "Slayer rewards", "Boss Slayer rewards");
-            setScript((player, index, childId, slot) -> {
-                if (slot == 0) {
-                    openRewards();
-                } else if (slot == 1) {
-                    player.openShop("boss_slayer");
-                }
-            });
-        }
-    }
-
-    private class SlayerRingDialogue extends SelectionDialogueEntry {
-        public SlayerRingDialogue() {
-            super("Choose an Option", "Option 1", "Option 2", "Option 3", "Option 4", "Option 5");
-            setScript((player, index, childId, slot) -> {
-                if (task.isComplete()) {
-                    player.getGameEncoder().sendMessage("You need a task to do this.");
-                    return;
-                }
-                if (task.getSlayerTask().getTeleports() == null || task.getSlayerTask().getTeleports().isEmpty()) {
-                    player.getGameEncoder().sendMessage("There are no teleports associated with this task.");
-                    return;
-                }
-                if (slot >= task.getSlayerTask().getTeleports().size()) {
-                    return;
-                }
-                if (!player.getController().canTeleport(30, true)) {
-                    return;
-                }
-                var ringSlot = player.getAttributeInt("slayer_ring_slot");
-                Item ringItem = null;
-                if (ringSlot >= 65536) {
-                    ringItem = player.getEquipment().getItem(ringSlot - 65536);
-                } else {
-                    ringItem = player.getInventory().getItem(ringSlot);
-                }
-                if (ringItem == null) {
-                    player.getGameEncoder().sendMessage("Unable to locate your ring.");
-                    return;
-                }
-                var ringIds = new int[] {
-                    ItemId.SLAYER_RING_8, ItemId.SLAYER_RING_7, ItemId.SLAYER_RING_6, ItemId.SLAYER_RING_5,
-                    ItemId.SLAYER_RING_4, ItemId.SLAYER_RING_3, ItemId.SLAYER_RING_2, ItemId.SLAYER_RING_1, -1
-                };
-                var newRingId = -2;
-                for (var i = 0; i < ringIds.length; i++) {
-                    if (ringItem.getId() == ringIds[i]) {
-                        newRingId = ringIds[i + 1];
-                        break;
-                    }
-                }
-                if (newRingId != -2) {
-                    if (ringSlot >= 65536) {
-                        player.getEquipment().setItem(ringSlot - 65536, new Item(newRingId, ringItem));
-                    } else {
-                        player.getInventory().setItem(ringSlot, new Item(newRingId, ringItem));
-                    }
-                }
-                player.getMagic().standardTeleport(task.getSlayerTask().getTeleports().get(slot).getTile());
-                player.getController().stopWithTeleport();
-                player.clearHits();
-            });
-        }
-    }
-}
-
-
-@AllArgsConstructor
-@Getter
-enum ColoredSlayerHelmet {
-    RED(ItemId.SLAYER_HELMET, ItemId.ABYSSAL_HEAD, SlayerUnlock.UNHOLY_HELMET, ItemId.RED_SLAYER_HELMET),
-    RED_I(ItemId.SLAYER_HELMET_I, ItemId.ABYSSAL_HEAD, SlayerUnlock.UNHOLY_HELMET, ItemId.RED_SLAYER_HELMET_I),
-    GREEN(ItemId.SLAYER_HELMET, ItemId.KQ_HEAD, SlayerUnlock.KALPHITE_KHAT, ItemId.GREEN_SLAYER_HELMET),
-    GREEN_I(ItemId.SLAYER_HELMET_I, ItemId.KQ_HEAD, SlayerUnlock.KALPHITE_KHAT, ItemId.GREEN_SLAYER_HELMET_I),
-    BLACK(ItemId.SLAYER_HELMET, ItemId.KBD_HEADS, SlayerUnlock.KING_BLACK_BONNET, ItemId.BLACK_SLAYER_HELMET),
-    BLACK_I(ItemId.SLAYER_HELMET_I, ItemId.KBD_HEADS, SlayerUnlock.KING_BLACK_BONNET, ItemId.BLACK_SLAYER_HELMET_I),
-    PURPLE(ItemId.SLAYER_HELMET, ItemId.DARK_CLAW, SlayerUnlock.DARK_MANTLE, ItemId.PURPLE_SLAYER_HELMET),
-    PURPLE_I(ItemId.SLAYER_HELMET_I, ItemId.DARK_CLAW, SlayerUnlock.DARK_MANTLE, ItemId.PURPLE_SLAYER_HELMET_I),
-    TURQUOISE(ItemId.SLAYER_HELMET, ItemId.VORKATHS_HEAD_21907, SlayerUnlock.UNDEAD_HEAD,
-            ItemId.TURQUOISE_SLAYER_HELMET),
-    TURQUOISE_I(ItemId.SLAYER_HELMET_I, ItemId.VORKATHS_HEAD_21907, SlayerUnlock.UNDEAD_HEAD,
-            ItemId.TURQUOISE_SLAYER_HELMET_I),
-    HYDRA(ItemId.SLAYER_HELMET, ItemId.ALCHEMICAL_HYDRA_HEADS, SlayerUnlock.USE_MORE_HEAD, ItemId.HYDRA_SLAYER_HELMET),
-    HYDRA_I(ItemId.SLAYER_HELMET_I, ItemId.ALCHEMICAL_HYDRA_HEADS, SlayerUnlock.USE_MORE_HEAD,
-            ItemId.HYDRA_SLAYER_HELMET_I);
-
-    private int fromHelmetId;
-    private int fromAttachmentId;
-    private SlayerUnlock unlock;
-    private int toHelmetId;
 }

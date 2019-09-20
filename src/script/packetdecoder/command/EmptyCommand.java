@@ -1,9 +1,9 @@
 package script.packetdecoder.command;
 
 import com.palidino.osrs.io.Command;
-import com.palidino.osrs.model.dialogue.Dialogue;
-import com.palidino.osrs.model.dialogue.DialogueEntry;
-import com.palidino.osrs.model.dialogue.DialogueScript;
+import com.palidino.osrs.model.dialogue.old.DialogueOld;
+import com.palidino.osrs.model.dialogue.old.DialogueEntry;
+import com.palidino.osrs.model.dialogue.old.DialogueScript;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.player.Player;
 import lombok.var;
@@ -30,6 +30,6 @@ public class EmptyCommand implements Command {
                 }
             }
         };
-        Dialogue.open(player, entry, script);
+        DialogueOld.open(player, entry, script);
     }
 }

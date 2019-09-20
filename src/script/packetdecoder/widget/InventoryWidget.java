@@ -7,7 +7,7 @@ import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.Dialogue;
+import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.guide.Guide;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.ItemDef;
@@ -35,11 +35,9 @@ import com.palidino.osrs.world.World;
 import com.palidino.setting.SqlUserRank;
 import com.palidino.util.Time;
 import com.palidino.util.Utils;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.var;
-import com.palidino.osrs.model.dialogue.DialogueEntry;
-import com.palidino.osrs.model.dialogue.SelectionDialogueEntry;
+import com.palidino.osrs.model.dialogue.DialogueAction;
+import com.palidino.osrs.model.dialogue.SelectionDialogue;
 
 // No longer JS woohoo! Need a better solution than a 2K line file and growing.
 // One item id per file would be horid
@@ -746,34 +744,6 @@ public class InventoryWidget implements Widget {
             player.getInventory().deleteItem(itemId, 1, slot);
             player.getInventory().addItem(ItemId.CORPOREAL_BEAST_TASKS_32301, 1, slot);
             break;
-        case ItemId.LOOTING_BAG:
-        case ItemId.LOOTING_BAG_22586:
-            if (index == 0) {
-                player.getInventory().deleteItem(itemId, 1, slot);
-                if (itemId == ItemId.LOOTING_BAG) {
-                    player.getInventory().addItem(ItemId.LOOTING_BAG_22586, 1, slot);
-                } else {
-                    player.getInventory().addItem(ItemId.LOOTING_BAG, 1, slot);
-                }
-            } else if (index == 1) {
-                player.getWidgetManager().initLootingBag();
-                player.getWidgetManager().getLootingBag().displayItemList();
-            } else if (index == 2) {
-                player.getWidgetManager().initLootingBag();
-                if (!player.getController().inWilderness() && !player.getController().inPvPWorld()) {
-                    player.getGameEncoder()
-                            .sendMessage("You can't put items in the bag unless you're in the Wilderness.");
-                    break;
-                }
-                player.getWidgetManager().sendInventoryOverlay(WidgetId.LOOTING_BAG_DEPOSIT);
-                player.getGameEncoder().sendScript(495, 1, "Looting bag");
-                player.getGameEncoder().sendWidgetSettings(WidgetId.LOOTING_BAG_DEPOSIT, 5, 0,
-                        player.getInventory().capacity() - 1, 1086);
-                player.getInventory().setUpdate(true);
-            } else if (index == 3) {
-                player.openDialogue("lootingbag", 1);
-            }
-            break;
         case 12789: // Clue box
             player.getInventory().deleteItem(itemId, 1, slot);
             randomItems = new RandomItem[] {
@@ -1151,7 +1121,7 @@ public class InventoryWidget implements Widget {
             int smithingXP = (int) (12.5 * (player.getController().getLevelForXP(Skills.SMITHING)
                     * player.getController().getLevelForXP(Skills.SMITHING)
                     - player.getController().getLevelForXP(Skills.SMITHING) * 2 + 100) * 2);
-            Dialogue.setText(player, null, Utils.formatNumber(herbloreXP) + " Herblore XP",
+            DialogueOld.setText(player, null, Utils.formatNumber(herbloreXP) + " Herblore XP",
                     Utils.formatNumber(miningXP) + " Mining XP", Utils.formatNumber(smithingXP) + " Smithing XP");
             break;
         case 4447: // Antique lamp
@@ -1696,7 +1666,7 @@ public class InventoryWidget implements Widget {
                 break;
             }
             if (index == 2) {
-                player.openDialogue(InventoryMaxCapeDialogue.DEFAULT.getEntry());
+                new MaxCapeDialogue(player);
             } else if (index == 3) {
                 player.getGameEncoder().sendMessage("There are currently no features. Feel free to suggest some!");
             }
@@ -2264,32 +2234,33 @@ public class InventoryWidget implements Widget {
             break;
         }
     }
-}
 
-
-@AllArgsConstructor
-@Getter
-enum InventoryMaxCapeDialogue {
-    DEFAULT(new SelectionDialogueEntry("Choose an Option", (player, index, childId, slot) -> {
-        Tile maxCapeTele = null;
-        if (slot == 0) {
-            maxCapeTele = new Tile(3093, 3495);
-        } else if (slot == 1) {
-            maxCapeTele = new Tile(1233, 3565);
-        } else if (slot == 2) {
-            maxCapeTele = new Tile(1666, 10050);
+    public class MaxCapeDialogue extends SelectionDialogue {
+        public MaxCapeDialogue(Player player) {
+            DialogueAction action = (childId, slot) -> {
+                Tile maxCapeTele = null;
+                if (slot == 0) {
+                    maxCapeTele = new Tile(3093, 3495);
+                } else if (slot == 1) {
+                    maxCapeTele = new Tile(1233, 3565);
+                } else if (slot == 2) {
+                    maxCapeTele = new Tile(1666, 10050);
+                }
+                if (!player.getController().canTeleport(true)) {
+                    return;
+                }
+                if (maxCapeTele == null) {
+                    return;
+                }
+                player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
+                        Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                player.getController().stopWithTeleport();
+                player.clearHits();
+            };
+            addOption("Edgeville", action);
+            addOption("Chambers of Xeric", action);
+            addOption("Catacombs of Kourend", action);
+            open(player);
         }
-        if (!player.getController().canTeleport(true)) {
-            return;
-        }
-        if (maxCapeTele == null) {
-            return;
-        }
-        player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
-                Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
-        player.getController().stopWithTeleport();
-        player.clearHits();
-    }, "Edgeville", "Chambers of Xeric", "Catacombs of Kourend"));
-
-    private DialogueEntry entry;
+    }
 }

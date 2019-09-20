@@ -1,11 +1,10 @@
-package script.player.plugin;
+package script.player.plugin.cluechest;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import com.palidino.osrs.io.cache.WidgetId;
-import com.palidino.osrs.model.dialogue.Dialogue;
-import com.palidino.osrs.model.dialogue.SelectionDialogueEntry;
+import com.palidino.osrs.model.dialogue.Scroll;
 import com.palidino.osrs.model.item.clue.ClueChestSet;
 import com.palidino.osrs.model.item.clue.ClueChestSetEntry;
 import com.palidino.osrs.model.item.clue.ClueChestType;
@@ -14,6 +13,7 @@ import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.PlayerPlugin;
 import com.palidino.util.Utils;
 import lombok.var;
+import script.player.plugin.cluechest.dialogue.TreasureChestDialogue;
 
 public class ClueChestPlugin extends PlayerPlugin {
     private transient Player player;
@@ -72,7 +72,7 @@ public class ClueChestPlugin extends PlayerPlugin {
     public boolean mapObjectOptionHook(int index, MapObject mapObject) {
         switch (mapObject.getId()) {
         case 18808: // treasure chest
-            player.openDialogue(new TreasureChestDialogue());
+            new TreasureChestDialogue(player);
             return true;
         }
         return false;
@@ -89,8 +89,7 @@ public class ClueChestPlugin extends PlayerPlugin {
             }
             names.add(name);
         }
-        Dialogue.openScroll(player, type.getFormattedName() + "-level Treasure Trail rewards",
-                Utils.toStringArray(names));
+        Scroll.open(player, type.getFormattedName() + "-level Treasure Trail rewards", names);
     }
 
     public void addItem(int id) {
@@ -180,24 +179,5 @@ public class ClueChestPlugin extends PlayerPlugin {
             return masterClueChest;
         }
         return null;
-    }
-
-    private class TreasureChestDialogue extends SelectionDialogueEntry {
-        public TreasureChestDialogue() {
-            super("Choose an Option", "Easy", "Medium", "Hard", "Elite", "Master");
-            setScript((player, index, childId, slot) -> {
-                if (slot == 0) {
-                    open(ClueChestType.EASY);
-                } else if (slot == 1) {
-                    open(ClueChestType.MEDIUM);
-                } else if (slot == 2) {
-                    open(ClueChestType.HARD);
-                } else if (slot == 3) {
-                    open(ClueChestType.ELITE);
-                } else if (slot == 4) {
-                    open(ClueChestType.MASTER);
-                }
-            });
-        }
     }
 }

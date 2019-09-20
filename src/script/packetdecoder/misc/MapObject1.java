@@ -7,7 +7,7 @@ import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.model.ForceMovement;
 import com.palidino.osrs.model.Movement;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.Dialogue;
+import com.palidino.osrs.model.dialogue.Scroll;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.map.Region;
@@ -1982,7 +1982,7 @@ public class MapObject1 {
                     + p.getCombat().getKillingSpree());
             rank++;
         }
-        Dialogue.openScroll(player, "Top Online PKers", Utils.toStringArray(lines));
+        Scroll.open(player, "Top Online PKers", lines);
     }
 
     // (Wilderness Resource Area) Gate

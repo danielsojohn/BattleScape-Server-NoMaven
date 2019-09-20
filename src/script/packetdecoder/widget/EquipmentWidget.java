@@ -4,13 +4,11 @@ import com.palidino.osrs.io.Widget;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.DialogueEntry;
-import com.palidino.osrs.model.dialogue.SelectionDialogueEntry;
+import com.palidino.osrs.model.dialogue.DialogueAction;
+import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.player.Equipment;
 import com.palidino.osrs.model.player.Magic;
 import com.palidino.osrs.model.player.Player;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.var;
 
 public class EquipmentWidget implements Widget {
@@ -120,7 +118,7 @@ public class EquipmentWidget implements Widget {
                             player.getController().stopWithTeleport();
                             player.clearHits();
                         } else if (index == 2) {
-                            player.openDialogue(EquipmentMaxCapeDialogue.FISH.getEntry());
+                            new MaxCapeDialogue.FishDialogue(player);
                         } else if (index == 3) {
                             Tile craftingGuildTile = new Tile(2936, 3282);
                             if (!player.getController().canTeleport(20, true)) {
@@ -143,13 +141,13 @@ public class EquipmentWidget implements Widget {
                             player.getController().stopWithTeleport();
                             player.clearHits();
                         } else if (index == 5) {
-                            player.openDialogue(EquipmentMaxCapeDialogue.PORTALS.getEntry());
+                            new MaxCapeDialogue.PortalsDialogue(player);
                         } else if (index == 6) {
-                            player.openDialogue(EquipmentMaxCapeDialogue.OTHER.getEntry());
+                            new MaxCapeDialogue.OtherDialogue(player);
                         } else if (index == 7) {
                             player.openDialogue("spellbooks", 1);
                         } else if (index == 8) {
-                            player.openDialogue(EquipmentMaxCapeDialogue.FEATURES.getEntry());
+                            new MaxCapeDialogue.FeaturesDialogue(player);
                         }
                         break;
                     case ItemId.BINDING_NECKLACE:
@@ -208,112 +206,151 @@ public class EquipmentWidget implements Widget {
             }
         }
     }
-}
 
+    public static class MaxCapeDialogue {
+        public static class FishDialogue extends SelectionDialogue {
+            public FishDialogue(Player player) {
+                DialogueAction action = (childId, slot) -> {
+                    Tile maxCapeTele = null;
+                    if (slot == 0) {
+                        maxCapeTele = new Tile(3093, 3495);
+                    } else if (slot == 1) {
+                        maxCapeTele = new Tile(1233, 3565);
+                    } else if (slot == 2) {
+                        maxCapeTele = new Tile(1666, 10050);
+                    }
+                    if (!player.getController().canTeleport(true)) {
+                        return;
+                    }
+                    if (maxCapeTele == null) {
+                        return;
+                    }
+                    player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
+                            Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                    player.getController().stopWithTeleport();
+                    player.clearHits();
+                };
+                addOption("Edgeville", action);
+                addOption("Chambers of Xeric", action);
+                addOption("Catacombs of Kourend", action);
+                open(player);
+            }
+        }
 
-@AllArgsConstructor
-@Getter
-enum EquipmentMaxCapeDialogue {
-    FISH(new SelectionDialogueEntry("Choose an Option", (player, index, childId, slot) -> {
-        Tile maxCapeTele = null;
-        if (slot == 0) {
-            maxCapeTele = new Tile(3093, 3495);
-        } else if (slot == 1) {
-            maxCapeTele = new Tile(1233, 3565);
-        } else if (slot == 2) {
-            maxCapeTele = new Tile(1666, 10050);
+        public static class OtherDialogue extends SelectionDialogue {
+            public OtherDialogue(Player player) {
+                DialogueAction action = (childId, slot) -> {
+                    Tile maxCapeTele = null;
+                    if (slot == 0) {
+                        maxCapeTele = new Tile(3093, 3495);
+                    } else if (slot == 1) {
+                        maxCapeTele = new Tile(1233, 3565);
+                    } else if (slot == 2) {
+                        maxCapeTele = new Tile(1666, 10050);
+                    }
+                    if (!player.getController().canTeleport(true)) {
+                        return;
+                    }
+                    if (maxCapeTele == null) {
+                        return;
+                    }
+                    player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
+                            Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                    player.getController().stopWithTeleport();
+                    player.clearHits();
+                };
+                addOption("Edgeville", action);
+                addOption("Chambers of Xeric", action);
+                addOption("Catacombs of Kourend", action);
+                open(player);
+            }
         }
-        if (!player.getController().canTeleport(true)) {
-            return;
-        }
-        if (maxCapeTele == null) {
-            return;
-        }
-        player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
-                Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
-        player.getController().stopWithTeleport();
-        player.clearHits();
-    }, "Fish", "Chambers of Xeric", "Catacombs of Kourend")),
-    OTHER(new SelectionDialogueEntry("Choose an Option", (player, index, childId, slot) -> {
-        Tile maxCapeTele = null;
-        if (slot == 0) {
-            maxCapeTele = new Tile(3093, 3495);
-        } else if (slot == 1) {
-            maxCapeTele = new Tile(1233, 3565);
-        } else if (slot == 2) {
-            maxCapeTele = new Tile(1666, 10050);
-        }
-        if (!player.getController().canTeleport(true)) {
-            return;
-        }
-        if (maxCapeTele == null) {
-            return;
-        }
-        player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
-                Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
-        player.getController().stopWithTeleport();
-        player.clearHits();
-    }, "Other", "Chambers of Xeric", "Catacombs of Kourend")),
-    PORTALS(new SelectionDialogueEntry("Choose an Option", (player, index, childId, slot) -> {
-        Tile maxCapeTele = null;
-        if (slot == 0) {
-            maxCapeTele = new Tile(3093, 3495);
-        } else if (slot == 1) {
-            maxCapeTele = new Tile(1233, 3565);
-        } else if (slot == 2) {
-            maxCapeTele = new Tile(1666, 10050);
-        }
-        if (!player.getController().canTeleport(true)) {
-            return;
-        }
-        if (maxCapeTele == null) {
-            return;
-        }
-        player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
-                Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
-        player.getController().stopWithTeleport();
-        player.clearHits();
-    }, "Portals", "Chambers of Xeric", "Catacombs of Kourend")),
-    TELEPORTS(new SelectionDialogueEntry("Choose an Option", (player, index, childId, slot) -> {
-        Tile maxCapeTele = null;
-        if (slot == 0) {
-            maxCapeTele = new Tile(3093, 3495);
-        } else if (slot == 1) {
-            maxCapeTele = new Tile(1233, 3565);
-        } else if (slot == 2) {
-            maxCapeTele = new Tile(1666, 10050);
-        }
-        if (!player.getController().canTeleport(true)) {
-            return;
-        }
-        if (maxCapeTele == null) {
-            return;
-        }
-        player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
-                Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
-        player.getController().stopWithTeleport();
-        player.clearHits();
-    }, "Teleports", "Chambers of Xeric", "Catacombs of Kourend")),
-    FEATURES(new SelectionDialogueEntry("Choose an Option", (player, index, childId, slot) -> {
-        Tile maxCapeTele = null;
-        if (slot == 0) {
-            maxCapeTele = new Tile(3093, 3495);
-        } else if (slot == 1) {
-            maxCapeTele = new Tile(1233, 3565);
-        } else if (slot == 2) {
-            maxCapeTele = new Tile(1666, 10050);
-        }
-        if (!player.getController().canTeleport(true)) {
-            return;
-        }
-        if (maxCapeTele == null) {
-            return;
-        }
-        player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
-                Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
-        player.getController().stopWithTeleport();
-        player.clearHits();
-    }, "Features", "Chambers of Xeric", "Catacombs of Kourend"));
 
-    private DialogueEntry entry;
+        public static class PortalsDialogue extends SelectionDialogue {
+            public PortalsDialogue(Player player) {
+                DialogueAction action = (childId, slot) -> {
+                    Tile maxCapeTele = null;
+                    if (slot == 0) {
+                        maxCapeTele = new Tile(3093, 3495);
+                    } else if (slot == 1) {
+                        maxCapeTele = new Tile(1233, 3565);
+                    } else if (slot == 2) {
+                        maxCapeTele = new Tile(1666, 10050);
+                    }
+                    if (!player.getController().canTeleport(true)) {
+                        return;
+                    }
+                    if (maxCapeTele == null) {
+                        return;
+                    }
+                    player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
+                            Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                    player.getController().stopWithTeleport();
+                    player.clearHits();
+                };
+                addOption("Edgeville", action);
+                addOption("Chambers of Xeric", action);
+                addOption("Catacombs of Kourend", action);
+                open(player);
+            }
+        }
+
+        public static class TeleportsDialogue extends SelectionDialogue {
+            public TeleportsDialogue(Player player) {
+                DialogueAction action = (childId, slot) -> {
+                    Tile maxCapeTele = null;
+                    if (slot == 0) {
+                        maxCapeTele = new Tile(3093, 3495);
+                    } else if (slot == 1) {
+                        maxCapeTele = new Tile(1233, 3565);
+                    } else if (slot == 2) {
+                        maxCapeTele = new Tile(1666, 10050);
+                    }
+                    if (!player.getController().canTeleport(true)) {
+                        return;
+                    }
+                    if (maxCapeTele == null) {
+                        return;
+                    }
+                    player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
+                            Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                    player.getController().stopWithTeleport();
+                    player.clearHits();
+                };
+                addOption("Edgeville", action);
+                addOption("Chambers of Xeric", action);
+                addOption("Catacombs of Kourend", action);
+                open(player);
+            }
+        }
+
+        public static class FeaturesDialogue extends SelectionDialogue {
+            public FeaturesDialogue(Player player) {
+                DialogueAction action = (childId, slot) -> {
+                    Tile maxCapeTele = null;
+                    if (slot == 0) {
+                        maxCapeTele = new Tile(3093, 3495);
+                    } else if (slot == 1) {
+                        maxCapeTele = new Tile(1233, 3565);
+                    } else if (slot == 2) {
+                        maxCapeTele = new Tile(1666, 10050);
+                    }
+                    if (!player.getController().canTeleport(true)) {
+                        return;
+                    }
+                    if (maxCapeTele == null) {
+                        return;
+                    }
+                    player.getMovement().animatedTeleport(maxCapeTele, Magic.NORMAL_MAGIC_ANIMATION_START,
+                            Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                    player.getController().stopWithTeleport();
+                    player.clearHits();
+                };
+                addOption("Edgeville", action);
+                addOption("Chambers of Xeric", action);
+                addOption("Catacombs of Kourend", action);
+                open(player);
+            }
+        }
+    }
 }

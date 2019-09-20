@@ -9,6 +9,7 @@ import com.palidino.osrs.model.player.Bank;
 import com.palidino.osrs.model.player.Magic;
 import com.palidino.osrs.model.player.Player;
 import lombok.var;
+import script.player.plugin.lootingbag.LootingBagPlugin;
 
 public class BankWidget implements Widget {
     @Override
@@ -188,7 +189,7 @@ public class BankWidget implements Widget {
                 player.getBank().storeEquipment();
                 break;
             case 8:
-                player.getBank().storeLootingBag();
+                player.getPlugin(LootingBagPlugin.class).bankItems();
                 break;
             }
         } else if (widgetId == WidgetId.BANK_PIN_SETTINGS) {
