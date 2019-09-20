@@ -2,14 +2,12 @@ package script.packetdecoder.misc;
 
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
-import com.palidino.osrs.model.dialogue.Dialogue;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.ItemDef;
 import com.palidino.osrs.model.player.Fletching;
 import com.palidino.osrs.model.player.Herblore;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.osrs.model.player.WidgetManager;
 
 public class ItemOnItemAction {
     public static void doAction(Player player, int useWidgetId, int useChildId, int onWidgetId, int onChildId,
@@ -1141,29 +1139,6 @@ public class ItemOnItemAction {
                 } else if (onItemId == 12791) {
                     player.getMagic().addRunesToPouch(useSlot, player.getInventory().getAmount(useSlot));
                 }
-            } else if (hasMatch(useItemId, onItemId, 11941)) {
-                // Looting bag
-                int depositingSlot = useItemId != 11941 ? useSlot : onSlot;
-                player.putAttribute("looting_bag_item_slot", depositingSlot);
-                if (player.getWidgetManager().getLootingBagStoreType() == WidgetManager.LOOTING_BAG_ASK) {
-                    player.openDialogue("lootingbag", 0);
-                    player.getWidgetManager().addChatboxCloseEvent(new WidgetManager.CloseEvent() {
-                        @Override
-                        public void execute() {
-                            player.removeAttribute("looting_bag_item_slot");
-                        }
-                    });
-                    return;
-                } else if (player.getWidgetManager().getLootingBagStoreType() == WidgetManager.LOOTING_BAG_STORE_1) {
-                    Dialogue.executeScript(player, "lootingbag", 0, 0);
-                } else if (player.getWidgetManager().getLootingBagStoreType() == WidgetManager.LOOTING_BAG_STORE_5) {
-                    Dialogue.executeScript(player, "lootingbag", 0, 1);
-                } else if (player.getWidgetManager().getLootingBagStoreType() == WidgetManager.LOOTING_BAG_STORE_ALL) {
-                    Dialogue.executeScript(player, "lootingbag", 0, 2);
-                } else if (player.getWidgetManager().getLootingBagStoreType() == WidgetManager.LOOTING_BAG_STORE_X) {
-                    Dialogue.executeScript(player, "lootingbag", 0, 3);
-                }
-                player.removeAttribute("looting_bag_item_slot");
             } else if (hasMatch(useItemId, onItemId, ItemId.HYDRAS_HEART, ItemId.HYDRAS_EYE, ItemId.HYDRAS_FANG)) {
                 if (!player.getInventory().hasItem(ItemId.HYDRAS_HEART)
                         || !player.getInventory().hasItem(ItemId.HYDRAS_EYE)

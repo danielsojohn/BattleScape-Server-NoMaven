@@ -6,8 +6,7 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.DialogueEntry;
-import com.palidino.osrs.model.dialogue.SelectionDialogueEntry;
+import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.guide.Guide;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.MysteryBox;
@@ -25,8 +24,6 @@ import com.palidino.util.Utils;
 import lombok.var;
 
 public class EdgevilleArea extends Area {
-    private static final DialogueEntry SKILLING_SELLER_DIALOGUE = new ExchangeSpecialSkillItemsDialogue();
-    private static final DialogueEntry FFA_PORTAL_DIALOGUE = new FreeForAllPortalDialogue();
     private static final List<RandomItem> CRYSTAL_CHEST_ITEMS =
             RandomItem.buildList(new RandomItem(ItemId.LOOP_HALF_OF_KEY), new RandomItem(ItemId.TOOTH_HALF_OF_KEY),
                     new RandomItem(ItemId.BABYDRAGON_BONES, 1, 150), new RandomItem(ItemId.DRAGON_BONES, 1, 50),
@@ -121,7 +118,7 @@ public class EdgevilleArea extends Area {
             return true;
         case NpcId.SKILLING_SELLER:
             if (index == 0) {
-                player.openDialogue(SKILLING_SELLER_DIALOGUE);
+                new ExchangeSpecialSkillItemsDialogue(player);
             } else if (index == 2) {
                 player.openShop("skilling");
             }
@@ -246,7 +243,7 @@ public class EdgevilleArea extends Area {
             player.getClanWars().openJoinTournament();
             return true;
         case 26645: // Free-for-all portal
-            player.openDialogue(FFA_PORTAL_DIALOGUE);
+            new FreeForAllPortalDialogue(player);
             return true;
         case 26743: // Viewing orb
             player.getClanWars().teleportViewing(0);
@@ -384,16 +381,13 @@ public class EdgevilleArea extends Area {
             player.getGameEncoder().sendMessage("You need a key to open this.");
         }
     }
-}
 
-
-class ExchangeSpecialSkillItemsDialogue extends SelectionDialogueEntry {
-    public ExchangeSpecialSkillItemsDialogue() {
-        super("Choose an Option", "View shop.", "Exchange special skilling items.", "Nevermind.");
-        setScript((player, index, childId, slot) -> {
-            if (slot == 0) {
+    public class ExchangeSpecialSkillItemsDialogue extends SelectionDialogue {
+        public ExchangeSpecialSkillItemsDialogue(Player player) {
+            addOption("View shop", (childId, slot) -> {
                 player.openShop("skilling");
-            } else if (slot == 1) {
+            });
+            addOption("Exchange special skilling items", (childId, slot) -> {
                 var unusualFishCount = player.getInventory().getCount(ItemId.UNUSUAL_FISH);
                 if (unusualFishCount > 0) {
                     var value = 300_000;
@@ -451,22 +445,22 @@ class ExchangeSpecialSkillItemsDialogue extends SelectionDialogueEntry {
                 if (unusualFishCount == 0 && coloredEggCount == 0 && unidentifiedMineralCount == 0) {
                     player.getGameEncoder().sendMessage("You have no special items to exchange.");
                 }
-            }
-        });
+            });
+            addOption("Nevermind");
+            open(player);
+        }
     }
-}
 
-
-class FreeForAllPortalDialogue extends SelectionDialogueEntry {
-    public FreeForAllPortalDialogue() {
-        super("Choose an Option", "Safe Free-For-All", "Risk Zone");
-        setScript((player, index, childId, slot) -> {
-            if (slot == 0) {
+    public class FreeForAllPortalDialogue extends SelectionDialogue {
+        public FreeForAllPortalDialogue(Player player) {
+            addOption("Safe Free-For-All", (childId, slot) -> {
                 player.getMovement().teleport(3327, 4752);
                 player.setController(new ClanWarsFreeForAllPC());
-            } else if (slot == 1) {
+            });
+            addOption("Risk Zone", (childId, slot) -> {
                 player.getMovement().teleport(2655, 5471);
-            }
-        });
+            });
+            open(player);
+        }
     }
 }

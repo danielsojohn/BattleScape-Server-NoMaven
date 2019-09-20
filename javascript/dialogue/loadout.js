@@ -80,7 +80,7 @@ instance = new DialogueScript() {
             player.putAttribute("loadout_spellbook", true);
             if (slot >= player.getCombat().getCustomLoadoutsSize()) {
                 player.openDialogue("loadout", 4);
-                Dialogue.setText(player, null,
+                DialogueOld.setText(player, null,
                         "Equipment: " + (player.getAttributeBool("loadout_equipment") ? "Save" : "Ignore"),
                         "Inventory: " + (player.getAttributeBool("loadout_inventory") ? "Save" : "Ignore"),
                         "Rune Pouch: " + (player.getAttributeBool("loadout_rune_puch") ? "Save" : "Ignore"),
@@ -118,13 +118,13 @@ instance = new DialogueScript() {
                         player.getCombat().addCustomLoadout(player.getAttributeInt("loadout_slot"),
                                 new CustomLoadout(player, value));
                         player.openDialogue("loadout", 0);
-                        Dialogue.setText(player, null, player.getCombat().getCustomLoadoutsDialgoue());
+                        DialogueOld.setText(player, null, player.getCombat().getCustomLoadoutsDialgoue());
                     }
                 });
                 return;
             }
             player.openDialogue("loadout", 2);
-            Dialogue.setText(player, null,
+            DialogueOld.setText(player, null,
                     "Combat Levels: " + (player.getAttributeBool("loadout_skills") ? "Save" : "Ignore"),
                     "Equipment: " + (player.getAttributeBool("loadout_equipment") ? "Save" : "Ignore"),
                     "Inventory: " + (player.getAttributeBool("loadout_inventory") ? "Save" : "Ignore"),
@@ -138,7 +138,7 @@ instance = new DialogueScript() {
             if (slot == 0) {
                 player.getCombat().clearCustomLoadout(player.getAttributeInt("loadout_slot"));
                 player.openDialogue("loadout", 0);
-                Dialogue.setText(player, null, player.getCombat().getCustomLoadoutsDialgoue());
+                DialogueOld.setText(player, null, player.getCombat().getCustomLoadoutsDialgoue());
             }
         } else if (index == 4) {
             if (slot == 0) {
@@ -155,13 +155,13 @@ instance = new DialogueScript() {
                         player.getCombat().addCustomLoadout(player.getAttributeInt("loadout_slot"),
                                 new CustomLoadout(player, value));
                         player.openDialogue("loadout", 0);
-                        Dialogue.setText(player, null, player.getCombat().getCustomLoadoutsDialgoue());
+                        DialogueOld.setText(player, null, player.getCombat().getCustomLoadoutsDialgoue());
                     }
                 });
                 return;
             }
             player.openDialogue("loadout", 4);
-            Dialogue.setText(player, null,
+            DialogueOld.setText(player, null,
                     "Equipment: " + (player.getAttributeBool("loadout_equipment") ? "Save" : "Ignore"),
                     "Inventory: " + (player.getAttributeBool("loadout_inventory") ? "Save" : "Ignore"),
                     "Rune Pouch: " + (player.getAttributeBool("loadout_rune_puch") ? "Save" : "Ignore"),

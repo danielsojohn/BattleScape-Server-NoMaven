@@ -3,7 +3,7 @@ package script.packetdecoder.misc;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.Dialogue;
+import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.ItemDef;
 import com.palidino.osrs.model.map.MapObject;
@@ -32,7 +32,7 @@ public class UseWidgetAction {
             case 13: // Piles
                 int inventoryCount = player.getInventory().getCount(itemId);
                 player.openDialogue("piles", 0);
-                Dialogue.setText(player, "Banknote " + inventoryCount + " x " + ItemDef.getName(itemId),
+                DialogueOld.setText(player, "Banknote " + inventoryCount + " x " + ItemDef.getName(itemId),
                         "Yes - " + Utils.formatNumber(inventoryCount * 50) + " gp", "Cancel");
                 player.putAttribute("use_item_id", itemId);
                 player.getWidgetManager().addChatboxCloseEvent(new WidgetManager.CloseEvent() {
@@ -50,7 +50,7 @@ public class UseWidgetAction {
                 exchangeCount = Math.min(exchangeCount, player.getInventory().getRemainingSlots());
                 exchangeCount = Math.min(exchangeCount, Item.MAX_AMOUNT / 50);
                 player.openDialogue("elderchaosdruid", 0);
-                Dialogue.setText(player, null,
+                DialogueOld.setText(player, null,
                         "Exchange '" + ItemDef.getName(ItemDef.getUnnotedId(itemId)) + "': 50 coins",
                         "Exchange 5: 250 coins", "Exchange All: " + Utils.formatNumber(exchangeCount * 50) + " coins",
                         "Exchange X", "Cancel");
@@ -179,12 +179,12 @@ public class UseWidgetAction {
                 }
                 player.openDialogue("wishingwell", 4);
                 if (itemId == ItemId.BOND_32318) {
-                    Dialogue.setText(player,
+                    DialogueOld.setText(player,
                             item.getName() + " x" + Utils.formatNumber(item.getAmount()) + ": " + Utils.formatNumber(
                                     Utils.multiplyInt(WishingWell.BOND_VALUE, item.getAmount(), Item.MAX_AMOUNT)),
                             (String[]) null);
                 } else {
-                    Dialogue.setText(player,
+                    DialogueOld.setText(player,
                             item.getName() + " x" + Utils.formatNumber(item.getAmount()) + ": "
                                     + Utils.formatNumber(Utils.multiplyInt(item.getDef().getConfiguredExchangePrice(),
                                             item.getAmount(), Item.MAX_AMOUNT)),
@@ -204,7 +204,7 @@ public class UseWidgetAction {
                     break;
                 }
                 player.openDialogue("clanwars", 3);
-                Dialogue.setText(player, item.getName() + " x" + Utils.formatNumber(item.getAmount()), (String[]) null);
+                DialogueOld.setText(player, item.getName() + " x" + Utils.formatNumber(item.getAmount()), (String[]) null);
                 player.putAttribute("clan_wars_coffer_item_id", itemId);
                 player.getWidgetManager().addChatboxCloseEvent(new WidgetManager.CloseEvent() {
                     @Override

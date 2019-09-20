@@ -64,7 +64,7 @@ instance = new DialogueScript() {
                     return;
                 }
                 player.openDialogue("perdu", 1);
-                Dialogue.setText(player, null, "Reclaim Items for "
+                DialogueOld.setText(player, null, "Reclaim Items for "
                         + Utils.abbreviateNumber(player.getCombat().getItemCollection().getCAttachment()),
                         "Nevermind");
             }

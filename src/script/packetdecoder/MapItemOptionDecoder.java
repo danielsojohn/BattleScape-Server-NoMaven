@@ -5,7 +5,6 @@ import com.palidino.osrs.Main;
 import com.palidino.osrs.io.PacketDecoder;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.dialogue.Dialogue;
 import com.palidino.osrs.model.item.ItemDef;
 import com.palidino.osrs.model.map.route.Route;
 import com.palidino.osrs.model.player.PCombat;
@@ -81,13 +80,8 @@ public class MapItemOptionDecoder extends PacketDecoder {
         }
         player.getMovement().clear();
         if (index == 2) {
-            if (id == ItemId.BLOODIER_KEY && player.getSkills().getCombatLevel() > 110) {
-                player.getGameEncoder().sendMessage("You need a combat level of atleast 110 to pick this up.");
-                return true;
-            }
-            var isStackableAndCarrying = ItemDef.getStackable(id) && player.getInventory().hasItem(id);
             var result = player.getWorld().pickupMapItem(player, id, x, y);
-            if (result.partialSuccess() && (id == ItemId.BLOODY_KEY || id == ItemId.BLOODIER_KEY)
+            if (result != null && result.partialSuccess() && (id == ItemId.BLOODY_KEY || id == ItemId.BLOODIER_KEY)
                     && (player.getController().inWilderness() || player.getController().inPvPWorld())) {
                 player.getCombat().setPKSkullDelay(PCombat.SKULL_DELAY);
                 player.getMovement().setEnergy(0);
@@ -96,11 +90,6 @@ public class MapItemOptionDecoder extends PacketDecoder {
                     player.getWorld().sendMessage("<col=ff0000>A " + ItemDef.getName(id) + " has been picked up by "
                             + player.getUsername() + " at level " + player.getWildernessLevel() + " wilderness!");
                 }
-            } else if (result.partialSuccess() && result.getSlot() != -1 && !isStackableAndCarrying
-                    && player.getInventory().hasItem(ItemId.LOOTING_BAG_22586)) {
-                player.putAttribute("looting_bag_item_slot", result.getSlot());
-                Dialogue.executeScript(player, "lootingbag", 0, 4);
-                player.removeAttribute("looting_bag_item_slot");
             }
         }
         return true;

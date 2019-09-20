@@ -8,7 +8,7 @@ import com.palidino.io.Stream;
 import com.palidino.osrs.Main;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.io.PacketDecoder;
-import com.palidino.osrs.model.dialogue.Dialogue;
+import com.palidino.osrs.model.dialogue.Scroll;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.util.Logger;
@@ -34,7 +34,7 @@ public class CommandDecoder extends PacketDecoder {
                     }
                     examples.add(getExample(entry.getKey(), entry.getValue()));
                 }
-                Dialogue.openScroll(player, "Commands", examples);
+                Scroll.open(player, "Commands", examples);
                 return;
             }
             var message = "";

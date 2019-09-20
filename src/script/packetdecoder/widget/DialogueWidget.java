@@ -3,6 +3,7 @@ package script.packetdecoder.widget;
 import com.palidino.osrs.io.Widget;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.dialogue.Dialogue;
+import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.player.Player;
 
 public class DialogueWidget implements Widget {
@@ -22,6 +23,10 @@ public class DialogueWidget implements Widget {
         } else if (widgetId == WidgetId.MAKE_X) {
             childId -= 14;
         }
-        Dialogue.handleWidget(player, childId, slot);
+        if (player.getAttribute("dialogue") != null) {
+            ((Dialogue) player.getAttribute("dialogue")).widgetSelected(player, childId, slot);
+        } else {
+            DialogueOld.handleWidget(player, childId, slot);
+        }
     }
 }
