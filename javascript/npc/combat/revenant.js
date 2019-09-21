@@ -73,6 +73,8 @@ cs = new NCombatScript() {
     },
 
     dropItemHook: function(player, dropTile, dropForIndex, hasRoWICharge) {
+        var total = player.getSkills().isAnySlayerTask(npc) ? 2 : 1;
+        for (var i = 0; i < total; i++) {
         var item = null;
         var logDrop = false;
         var clampedLevel = Math.min(Math.max(1, npc.getDef().getCombatLevel()), 144);
@@ -151,6 +153,7 @@ cs = new NCombatScript() {
         }
         if (etherCount > 0) {
             npc.getController().addMapItem(new Item(ItemId.REVENANT_ETHER, etherCount), dropTile, player);
+        }
         }
     }
 };
