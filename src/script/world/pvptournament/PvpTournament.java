@@ -521,10 +521,10 @@ public class PvpTournament {
             List<String> lines = new ArrayList<>();
             for (Iterator<Item> it = prizes.iterator(); it.hasNext();) {
                 Item prize = it.next();
-                if (!isCustom || p.isModeNormal() || p.isModeHard() || prize.getId() == ItemId.BOND_32318) {
+                if (!isCustom || p.isGameModeNormal() || p.isGameModeHard() || prize.getId() == ItemId.BOND_32318) {
                     it.remove();
                     int prizeAmount = prize.getAmount();
-                    if (prize.getId() != ItemId.BOND_32318 && !p.isModeNormal() && !p.isModeHard()) {
+                    if (prize.getId() != ItemId.BOND_32318 && !p.isGameModeNormal() && !p.isGameModeHard()) {
                         continue;
                     }
                     p.getBank().add(new Item(prize.getId(), prizeAmount));
