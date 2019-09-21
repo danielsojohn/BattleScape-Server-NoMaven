@@ -224,7 +224,7 @@ public class MapObject0 {
                         + player.getMovement().getTeleportBlockRemaining() + ".");
                 return;
             }
-            Tile tile = new Tile(3090, 3475, 0);
+            Tile tile = player.getWidgetManager().getHomeTile();
             if (player.getClientHeight() == tile.getHeight()) {
                 tile.setHeight(player.getHeight());
             }
