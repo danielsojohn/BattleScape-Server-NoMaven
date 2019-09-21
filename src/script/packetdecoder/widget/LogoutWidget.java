@@ -8,7 +8,6 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.world.JavaCord;
 import com.palidino.setting.DiscordChannel;
-import com.palidino.util.Logger;
 
 public class LogoutWidget implements Widget {
     @Override
