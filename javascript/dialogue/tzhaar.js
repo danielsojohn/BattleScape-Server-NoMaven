@@ -94,7 +94,7 @@ instance = new DialogueScript() {
         } else if (index == 3) {
             if (slot == 0) {
                 if (!player.getInventory().hasItem(ItemId.FIRE_CAPE)) {
-                    player.getGameEncoder().sendMessage("You need an Fire cape to do this.");
+                    player.getGameEncoder().sendMessage("You need a Fire cape to do this.");
                     return;
                 }
                 player.getInventory().deleteItem(ItemId.FIRE_CAPE, 1);
