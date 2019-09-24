@@ -700,8 +700,8 @@ public class InventoryWidget implements Widget {
                 ectoTile = new Tile(World.DEFAULT_TILE).randomize(2);
                 ectoTile.setHeight(height);
             }
-            player.getMovement().animatedTeleport(ectoTile, Magic.NORMAL_MAGIC_ANIMATION_START,
-                    Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+            player.getMovement().animatedTeleport(ectoTile, Magic.ECTOPHIAL_ANIMATION, -1, Magic.ECTOPHIAL_GRAPHIC,
+                    null, 2);
             player.getController().stopWithTeleport();
             player.clearHits();
             break;
