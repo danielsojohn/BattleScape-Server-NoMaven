@@ -51,6 +51,5 @@ public class XpCommand implements Command {
         player2.getSkills().setLevel(skillID, Skills.getLevelSuppliedXP(skillXP));
         player2.getSkills().setCombatLevel();
         player2.getGameEncoder().sendSkillLevel(skillID);
-        player.getGameEncoder().sendMessage(split[0] + " - " + split[1] + " - " + split[2]);
     }
 }
