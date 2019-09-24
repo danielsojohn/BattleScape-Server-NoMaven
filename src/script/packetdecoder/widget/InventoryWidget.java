@@ -683,8 +683,8 @@ public class InventoryWidget implements Widget {
             if (player.getController().inPvPWorld()) {
                 homeTile = new Tile(3093, 3495, height);
             }
-            player.getMovement().animatedTeleport(homeTile, Magic.TABLET_ANIMATION_START, Magic.TABLET_ANIMATION_END,
-                    -1, null, Magic.TABLET_GRAPHIC, null, 0, 2);
+            player.getMovement().animatedTeleport(homeTile, Magic.SEEDPOD_ANIMATION_START, Magic.SEEDPOD_ANIMATION_MID,
+                    Magic.SEEDPOD_ANIMATION_END, Magic.SEEDPOD_START_GRAPHIC, null, Magic.SEEDPOD_END_GRAPHIC, 0, 2);
             player.getController().stopWithTeleport();
             player.clearHits();
             break;
