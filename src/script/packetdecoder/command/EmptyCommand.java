@@ -24,11 +24,11 @@ public class EmptyCommand implements Command {
                 var id = player.getInventory().getId(i);
                 if (slot == 0) {
                     player.getInventory().deleteItem(id, Item.MAX_AMOUNT);
-                    player.getGameEncoder().sendMessage("You empty your inventory..");
                 } else {
                     return;
                 }
             }
+            player.getGameEncoder().sendMessage("You empty your inventory..");
         };
         DialogueOld.open(player, entry, script);
     }
