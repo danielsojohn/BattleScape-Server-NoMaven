@@ -2,7 +2,6 @@ package script.player.plugin.slayer.dialogue;
 
 import java.util.ArrayList;
 import com.palidino.osrs.io.cache.ItemId;
-import com.palidino.osrs.model.dialogue.DialogueAction;
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.player.Player;
@@ -12,7 +11,7 @@ import script.player.plugin.slayer.SlayerPlugin;
 public class SlayerRingDialogue extends SelectionDialogue {
     public SlayerRingDialogue(Player player) {
         var plugin = player.getPlugin(SlayerPlugin.class);
-        DialogueAction action = (childId, slot) -> {
+        addOption("Option", (childId, slot) -> {
             if (plugin.getTask().isComplete()) {
                 player.getGameEncoder().sendMessage("You need a task to do this.");
                 return;
@@ -60,12 +59,7 @@ public class SlayerRingDialogue extends SelectionDialogue {
             player.getMagic().standardTeleport(plugin.getTask().getSlayerTask().getTeleports().get(slot).getTile());
             player.getController().stopWithTeleport();
             player.clearHits();
-        };
-        addOption("Option 1", action);
-        addOption("Option 2", action);
-        addOption("Option 3", action);
-        addOption("Option 4", action);
-        addOption("Option 5", action);
+        });
         open(player);
     }
 

@@ -846,16 +846,6 @@ public class NpcOptions {
         player.openShop("skilling");
     }
 
-    // Lisa
-    public static void npc7316(Player player, int index, Npc npc) {
-        player.openDialogue("clanwars", 5);
-    }
-
-    // Lisa
-    public static void npc7317(Player player, int index, Npc npc) {
-        player.openDialogue("clanwars", 2);
-    }
-
     // Eniola
     public static void npc7417(Player player, int index, Npc npc) {
         player.getBank().open();

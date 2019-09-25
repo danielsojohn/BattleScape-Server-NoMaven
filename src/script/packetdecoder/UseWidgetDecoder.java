@@ -11,6 +11,7 @@ import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Runecrafting;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.util.RequestManager;
+import com.palidino.osrs.world.WorldEventHooks;
 import com.palidino.util.Logger;
 import lombok.var;
 import script.packetdecoder.misc.UseWidgetAction;
@@ -382,6 +383,14 @@ public class UseWidgetDecoder extends PacketDecoder {
         }
         for (var plugin : player.getPlugins()) {
             if (plugin.widgetOnMapObjectHook(widgetId, childId, slot, itemId, mapObject)) {
+                return true;
+            }
+        }
+        for (var event : player.getWorld().getWorldEvents()) {
+            if (!(event instanceof WorldEventHooks)) {
+                continue;
+            }
+            if (((WorldEventHooks) event).widgetOnMapObjectHook(player, widgetId, childId, slot, itemId, mapObject)) {
                 return true;
             }
         }

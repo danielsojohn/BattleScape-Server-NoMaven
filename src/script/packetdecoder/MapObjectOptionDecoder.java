@@ -15,6 +15,7 @@ import com.palidino.osrs.model.player.Prayer;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.util.RequestManager;
+import com.palidino.osrs.world.WorldEventHooks;
 import com.palidino.util.Logger;
 import lombok.var;
 
@@ -138,6 +139,14 @@ public class MapObjectOptionDecoder extends PacketDecoder {
         }
         for (var plugin : player.getPlugins()) {
             if (plugin.mapObjectOptionHook(index, mapObject)) {
+                return true;
+            }
+        }
+        for (var event : player.getWorld().getWorldEvents()) {
+            if (!(event instanceof WorldEventHooks)) {
+                continue;
+            }
+            if (((WorldEventHooks) event).mapObjectOptionHook(player, index, mapObject)) {
                 return true;
             }
         }

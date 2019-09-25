@@ -22,17 +22,32 @@ public class Mode {
     private int spellbook;
     private int brewCap;
     private int[] rules;
-    private int attackLevel;
-    private int defenceLevel;
-    private int strengthLevel;
-    private int hitpointsLevel;
-    private int rangedLevel;
-    private int prayerLevel;
-    private int magicLevel;
+    @Builder.Default
+    private int teamSize = 1;
+    @Builder.Default
+    private int attackLevel = 1;
+    @Builder.Default
+    private int defenceLevel = 1;
+    @Builder.Default
+    private int strengthLevel = 1;
+    @Builder.Default
+    private int hitpointsLevel = 10;
+    @Builder.Default
+    private int rangedLevel = 1;
+    @Builder.Default
+    private int prayerLevel = 1;
+    @Builder.Default
+    private int magicLevel = 1;
     @Singular
     private List<Integer> runes;
     @Singular
     private List<Loadout.Entry> loadouts;
+
+    public int[] getSkillLevels() {
+        return new int[] {
+            attackLevel, defenceLevel, strengthLevel, hitpointsLevel, rangedLevel, prayerLevel, magicLevel
+        };
+    }
 
     public static int[] buildRules(Object... settings) {
         var rules = ClanWars.getDefaultRules();

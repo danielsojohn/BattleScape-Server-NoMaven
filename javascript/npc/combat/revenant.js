@@ -73,7 +73,7 @@ cs = new NCombatScript() {
     },
 
     dropItemHook: function(player, dropTile, dropForIndex, hasRoWICharge) {
-        var total = player.getSkills().isAnySlayerTask(npc) ? 2 : 1;
+        var total = player.getSkills().isWildernessSlayerTask(npc) ? 2 : 1;
         for (var i = 0; i < total; i++) {
         var item = null;
         var logDrop = false;
