@@ -11,6 +11,11 @@ import lombok.var;
 public class EmptyCommand implements Command {
 
     @Override
+    public boolean canUse(Player player) {
+        return !player.getController().inWilderness() && !player.getController().inPvPWorld();
+    }
+
+    @Override
     public String getExample() {
         return "- Empties your inventory.";
     }
