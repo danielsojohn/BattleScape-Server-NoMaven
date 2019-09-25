@@ -66,6 +66,14 @@ public class PvpTournament extends Event implements WorldEventHooks {
     private transient State state = new IdleState(this);
 
     @Override
+    public Object script(String name, Object... args) {
+        if (name.equals("pvp_tournament_message")) {
+            return state.getMessage();
+        }
+        return null;
+    }
+
+    @Override
     public void execute() {
         state.execute();
     }
