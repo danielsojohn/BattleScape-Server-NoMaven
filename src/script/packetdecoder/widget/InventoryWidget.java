@@ -1832,6 +1832,20 @@ public class InventoryWidget implements Widget {
             player.getController().stopWithTeleport();
             player.clearHits();
             break;
+        case 12642:
+            if ((player.inEdgeville() || player.getController().inWilderness()) && player.getClientHeight() == 0) {
+                height = player.getHeight();
+            }
+            tile = new Tile(3303, 3488, height);
+            if (!player.getController().canTeleport(tile, true)) {
+                break;
+            }
+            player.getInventory().deleteItem(itemId, 1, slot);
+            player.getMovement().animatedTeleport(tile, Magic.TABLET_ANIMATION_START, Magic.TABLET_ANIMATION_END, -1,
+                    null, Magic.TABLET_GRAPHIC, null, 0, 2);
+            player.getController().stopWithTeleport();
+            player.clearHits();
+            break;
         case 1704: // Amulet of glory
         case 1706: // Amulet of glory(1)
         case 1708: // Amulet of glory(2)
