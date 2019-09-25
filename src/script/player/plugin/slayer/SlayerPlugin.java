@@ -856,7 +856,7 @@ public class SlayerPlugin extends PlayerPlugin {
                 tile = player;
             }
 
-            if (hasRoWICharge && p.getInventory().canAddItem(ItemId.BRIMSTONE_KEY, 1)) {
+            if (hasRoWICharge && player.getInventory().canAddItem(ItemId.BRIMSTONE_KEY, 1)) {
                 player.getInventory().addItem(ItemId.BRIMSTONE_KEY, 1);
             } else {
                 player.getController().addMapItem(new Item(ItemId.BRIMSTONE_KEY), tile, player);
