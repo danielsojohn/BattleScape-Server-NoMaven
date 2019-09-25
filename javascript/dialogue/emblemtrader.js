@@ -55,17 +55,17 @@ instance = new DialogueScript() {
                 for (var i = 0; i < player.getInventory().size(); i++) {
                     var id = player.getInventory().getId(i);
                     var value = 0;
-                    if (id == ItemId.ANCIENT_EMBLEM) {
+                    if (id == ItemId.ANCIENT_EMBLEM || id == ItemId.ANCIENT_EMBLEM_NOTED) {
                         value = 500000;
-                    } else if (id == ItemId.ANCIENT_TOTEM) {
+                    } else if (id == ItemId.ANCIENT_TOTEM || id == ItemId.ANCIENT_TOTEM_NOTED) {
                         value = 1000000;
-                    } else if (id == ItemId.ANCIENT_STATUETTE) {
+                    } else if (id == ItemId.ANCIENT_STATUETTE || id == ItemId.ANCIENT_STATUETTE_NOTED) {
                         value = 2000000;
-                    } else if (id == ItemId.ANCIENT_MEDALLION) {
+                    } else if (id == ItemId.ANCIENT_MEDALLION || id == ItemId.ANCIENT_MEDALLION_NOTED) {
                         value = 4000000;
-                    } else if (id == ItemId.ANCIENT_EFFIGY) {
+                    } else if (id == ItemId.ANCIENT_EFFIGY || id == ItemId.ANCIENT_EFFIGY_NOTED) {
                         value = 8000000;
-                    } else if (id == ItemId.ANCIENT_RELIC) {
+                    } else if (id == ItemId.ANCIENT_RELIC || id == ItemId.ANCIENT_RELIC_NOTED) {
                         value = 16000000;
                     }
                     if (value == 0) {
@@ -73,6 +73,10 @@ instance = new DialogueScript() {
                     }
                     var amount = player.getInventory().getAmount(i);
                     var toAmount = amount * value;
+                    if (toAmount > Item.MAX_AMOUNT || toAmount <= 0) {
+                        player.getGameEncoder().sendMessage("You can not exchange this many emblems at once.");
+                    continue;
+                    } 
                     if (player.getInventory().canAddItem(ItemId.COINS, toAmount)) {
                         player.getInventory().deleteItem(id, amount, i);
                         player.getInventory().addItem(ItemId.COINS, toAmount);
