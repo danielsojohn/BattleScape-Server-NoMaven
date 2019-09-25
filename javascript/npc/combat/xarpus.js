@@ -152,7 +152,7 @@ cs = new NCombatScript() {
             var newExhumedCount = exhumedCount - exhumedList.size();
             for (var iterator = exhumedList.iterator(); iterator.hasNext();) {
                 var exumedEvent = iterator.next();
-                if (exumedEvent.getRunning()) {
+                if (exumedEvent.isRunning()) {
                     continue;
                 }
                 iterator.remove();

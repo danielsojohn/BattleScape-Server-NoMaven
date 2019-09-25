@@ -18,10 +18,9 @@ import com.palidino.osrs.model.player.Magic;
 import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.controller.ClanWarsFreeForAllPC;
-import com.palidino.osrs.world.ClanWarsTournament;
-import com.palidino.setting.SqlUserRank;
 import com.palidino.util.Utils;
 import lombok.var;
+import script.world.pvptournament.PvpTournament;
 
 public class EdgevilleArea extends Area {
     private static final List<RandomItem> CRYSTAL_CHEST_ITEMS =
@@ -58,6 +57,13 @@ public class EdgevilleArea extends Area {
 
     public EdgevilleArea() {
         super(12342, 12441, 12442);
+    }
+
+    @Override
+    public void tickPlayer() {
+        var player = getPlayer();
+        var tournament = player.getWorld().getWorldEvent(PvpTournament.class);
+        tournament.sendWidgetText(player);
     }
 
     @Override
@@ -234,14 +240,6 @@ public class EdgevilleArea extends Area {
             player.getGameEncoder().sendMessage("The pool restores you.");
             player.rejuvenate();
             return true;
-        case 26081: // Gate
-        case 26082: // Gate
-            if (!player.getInventory().isEmpty() || !player.getEquipment().isEmpty()) {
-                player.getGameEncoder().sendMessage("No items can be taken beyond this point.");
-                return true;
-            }
-            player.getClanWars().openJoinTournament();
-            return true;
         case 26645: // Free-for-all portal
             new FreeForAllPortalDialogue(player);
             return true;
@@ -287,13 +285,6 @@ public class EdgevilleArea extends Area {
                 MysteryBox.open(player, mysteryId);
             } else {
                 player.getGameEncoder().sendMessage("You need a key to open this chest.");
-            }
-            return true;
-        case 29087: // Coffer
-            if (player.getRights() == Player.RIGHTS_ADMIN || player.isUsergroup(SqlUserRank.ADVERTISEMENT_MANAGER)) {
-                player.openDialogue("clanwars", 6);
-            } else {
-                ClanWarsTournament.viewDonatedItems(player);
             }
             return true;
         case 29150: // Altar of the Occult

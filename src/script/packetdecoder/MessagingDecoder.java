@@ -5,9 +5,9 @@ import com.palidino.osrs.io.PacketDecoder;
 import com.palidino.osrs.io.cache.CacheManager;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.osrs.world.ClanWarsTournament;
 import com.palidino.rs.Clan;
 import lombok.var;
+import script.world.pvptournament.PvpTournament;
 
 public class MessagingDecoder extends PacketDecoder {
     public MessagingDecoder() {
@@ -102,7 +102,7 @@ public class MessagingDecoder extends PacketDecoder {
             RequestManager.addUserPacketLog(player, "[Messaging-Kick Clan User] username=" + username);
             player.getMessaging().kickClanUser(username);
         } else if (index == 10) {
-            ClanWarsTournament.teleportViewing(player, stream.getString());
+            player.getWorld().getWorldEvent(PvpTournament.class).teleportViewing(player, stream.getString());
         }
     }
 }

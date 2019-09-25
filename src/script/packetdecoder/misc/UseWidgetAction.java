@@ -16,7 +16,6 @@ import com.palidino.osrs.model.player.Prayer;
 import com.palidino.osrs.model.player.Smithing;
 import com.palidino.osrs.model.player.WidgetManager;
 import com.palidino.osrs.model.player.combat.WarriorsGuild;
-import com.palidino.osrs.world.ClanWarsTournament;
 import com.palidino.osrs.world.WishingWell;
 import com.palidino.util.Utils;
 
@@ -195,21 +194,6 @@ public class UseWidgetAction {
                     @Override
                     public void execute() {
                         player.removeAttribute("wishing_well_item_id");
-                    }
-                });
-                break;
-            case 29087: // Coffer
-                if (!ClanWarsTournament.canDonateItem(itemId)) {
-                    player.getGameEncoder().sendMessage("The coffer won't take this item.");
-                    break;
-                }
-                player.openDialogue("clanwars", 3);
-                DialogueOld.setText(player, item.getName() + " x" + Utils.formatNumber(item.getAmount()), (String[]) null);
-                player.putAttribute("clan_wars_coffer_item_id", itemId);
-                player.getWidgetManager().addChatboxCloseEvent(new WidgetManager.CloseEvent() {
-                    @Override
-                    public void execute() {
-                        player.removeAttribute("clan_wars_coffer_item_id");
                     }
                 });
                 break;
