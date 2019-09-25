@@ -6,7 +6,7 @@ import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.dialogue.old.DialogueScript;
 import com.palidino.osrs.model.player.Player;
 
-public class EastsCommand implements Command {
+public class ChinsCommand implements Command {
     @Override
     public boolean canUse(Player player) {
         return !player.getController().inWilderness() && !player.getController().inPvPWorld();
@@ -19,8 +19,8 @@ public class EastsCommand implements Command {
                 "Yes, teleport me to the wilderness!", "No!");
         DialogueScript script = (p, index, childId, slot) -> {
             if (slot == 0) {
-                player.getMagic().standardTeleport(3342, 3664, 0);
-                player.getGameEncoder().sendMessage("You teleport to East dragons..");
+                player.getMagic().standardTeleport(3137, 3784, 0);
+                player.getGameEncoder().sendMessage("You teleport to Chinchompas..");
             } else {
                 return;
             }
