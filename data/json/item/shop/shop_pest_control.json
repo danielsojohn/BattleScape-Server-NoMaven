@@ -1,6 +1,6 @@
 {
   "name": "Pest Control Rewards",
-  "virtualCurrency": "pest control points",
+  "variableCurrency": "pest control points",
   "items": [
     { "id": "ItemId.GRANITE_BODY", "price": 5000 },
     { "id": "ItemId.VOID_MELEE_HELM", "price": 6000 },

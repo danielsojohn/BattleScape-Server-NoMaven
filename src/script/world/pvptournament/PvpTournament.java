@@ -157,9 +157,9 @@ public class PvpTournament extends Event implements WorldEventHooks {
     }
 
     public void checkPrizes(Player player, boolean isWinner) {
-        var isCustom = !(prize instanceof DefaultPrize);
-        if (isWinner && !isCustom) {
-            player.getPlugin(ClanWarsPlugin.class).incrimentTournamentWins();
+        var plugin = player.getPlugin(ClanWarsPlugin.class);
+        if (isWinner) {
+            plugin.incrimentTournamentWins();
             if (Utils.randomE(240) == 0) {
                 player.getBank().add(new Item(ItemId.RAINBOW_PARTYHAT, 1));
                 player.getWorld().sendItemDropNews(player, ItemId.RAINBOW_PARTYHAT, "a tournament");
@@ -168,7 +168,12 @@ public class PvpTournament extends Event implements WorldEventHooks {
         if (prize == null) {
             return;
         }
-        var prizes = prize.getItems(players.size());
+        var position = players.size();
+        var points = getPoints(position);
+        if (points > 0) {
+            plugin.setPoints(Utils.addInt(plugin.getPoints(), points));
+        }
+        var prizes = prize.getItems(position);
         if (prizes == null || prizes.isEmpty()) {
             return;
         }
@@ -191,7 +196,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
                             + prize.getId() + "] " + prize.getName() + " x" + Utils.formatNumber(prizeAmount)
                             + " in the tournament.");
         }
-        Scroll.open(player, "#" + (players.size() + 1) + ": Rewards", lines);
+        Scroll.open(player, "#" + (position + 1) + ": Rewards", lines);
         player.getGameEncoder().sendMessage("Your rewards have been placed in your bank or bond pouch.");
     }
 
@@ -290,7 +295,8 @@ public class PvpTournament extends Event implements WorldEventHooks {
         if (player.getWidgetManager().getOverlay() != WidgetId.LMS_LOBBY_OVERLAY) {
             return;
         }
-        var opponent = player.getPlugin(ClanWarsPlugin.class).getOpponent();
+        var plugin = player.getPlugin(ClanWarsPlugin.class);
+        var opponent = plugin.getOpponent();
         player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 6, state.getMessage());
         if (player.inClanWarsBattle()) {
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 8,
@@ -301,20 +307,25 @@ public class PvpTournament extends Event implements WorldEventHooks {
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 8,
                     "Mode: " + (mode != null ? mode.getName() : "None"));
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 10,
-                    "Wins: " + Utils.formatNumber(player.getPlugin(ClanWarsPlugin.class).getTournamentWins()));
+                    "Wins/Points: " + Utils.abbreviateNumber(plugin.getTournamentWins()) + "/"
+                            + Utils.abbreviateNumber(plugin.getPoints()));
         }
     }
 
-    public int getPoints(int positioning) {
-        switch (positioning) {
+    public int getPoints(int position) {
+        switch (position) {
         case 0:
             return 5;
         case 1:
             return 4;
         case 2:
-            return 3;
         case 3:
+            return 3;
         case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
             return 2;
         default:
             return 1;

@@ -1,6 +1,6 @@
 {
   "name": "Bond Shop",
-  "virtualCurrency": "bonds",
+  "variableCurrency": "bonds",
   "items": [
     { "id": "ItemId._14_DAYS_PREMIUM_MEMBERSHIP_32303", "price": 40 },
     { "id": "ItemId.BLOOD_MONEY", "price": 40, "stack": 100000 },

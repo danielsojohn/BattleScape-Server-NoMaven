@@ -1,0 +1,12 @@
+{
+  "name": "Tournament Rewards",
+  "variableCurrency": "tournament points",
+  "items": [
+    { "id": "ItemId.VESTAS_LONGSWORD", "price": 150 },
+    { "id": "ItemId.VESTAS_SPEAR", "price": 150 },
+    { "id": "ItemId.STATIUSS_WARHAMMER", "price": 150 },
+    { "id": "ItemId.ZURIELS_STAFF", "price": 150 },
+    { "id": "ItemId.MORRIGANS_THROWING_AXE", "stack": 50, "price": 75 },
+    { "id": "ItemId.MORRIGANS_JAVELIN", "stack": 50, "price": 75 }
+  ]
+}

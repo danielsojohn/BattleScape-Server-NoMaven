@@ -1,6 +1,6 @@
 {
   "name": "Boss Slayer Rewards",
-  "virtualCurrency": "boss slayer points",
+  "variableCurrency": "boss slayer points",
   "ceilPrice": true,
   "items": [
     { "id": "ItemId.INFINITY_HAT", "price": 1500 },

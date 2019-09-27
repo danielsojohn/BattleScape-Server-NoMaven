@@ -60,6 +60,9 @@ public class ClanWarsPlugin extends PlayerPlugin {
     private transient int tournamentFightDelay;
     @Getter
     private int tournamentWins;
+    @Getter
+    @Setter
+    private int points;
 
     @Override
     public void loadLegacy(Map<String, Object> map) {
@@ -71,6 +74,21 @@ public class ClanWarsPlugin extends PlayerPlugin {
     @Override
     public void login() {
         player = getPlayer();
+    }
+
+    @Override
+    public int getCurrency(String identifier) {
+        if (identifier.equals("tournament points")) {
+            return points;
+        }
+        return 0;
+    }
+
+    @Override
+    public void changeCurrency(String identifier, int amount) {
+        if (identifier.equals("tournament points")) {
+            points += amount;
+        }
     }
 
     @Override
