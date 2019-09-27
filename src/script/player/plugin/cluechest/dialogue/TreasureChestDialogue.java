@@ -3,12 +3,10 @@ package script.player.plugin.cluechest.dialogue;
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.item.clue.ClueChestType;
 import com.palidino.osrs.model.player.Player;
-import lombok.var;
 import script.player.plugin.cluechest.ClueChestPlugin;
 
 public class TreasureChestDialogue extends SelectionDialogue {
-    public TreasureChestDialogue(Player player) {
-        var plugin = player.getPlugin(ClueChestPlugin.class);
+    public TreasureChestDialogue(Player player, ClueChestPlugin plugin) {
         addOption("Easy", (childId, slot) -> {
             plugin.open(ClueChestType.EASY);
         });

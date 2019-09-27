@@ -15,6 +15,7 @@ import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.util.Time;
 import lombok.var;
+import script.player.plugin.clanwars.ClanWarsPlugin;
 import script.world.pvptournament.PvpTournament;
 
 public class RoundsState implements State {
@@ -39,7 +40,7 @@ public class RoundsState implements State {
             player.getGameEncoder().sendPlayerOption("Attack", 2, false);
             player.getWidgetManager().removeInteractiveWidgets();
             player.getWidgetManager().removeOverlay();
-            player.getClanWars().setCountDown(timer);
+            player.getPlugin(ClanWarsPlugin.class).setCountdown(timer);
         }
     }
 
@@ -146,10 +147,11 @@ public class RoundsState implements State {
     }
 
     public void startRound(Player player, Player opponent, Tile teleportTile) {
-        player.getClanWars().setWarring(opponent);
+        var plugin = player.getPlugin(ClanWarsPlugin.class);
+        plugin.setOpponent(opponent);
         player.getGameEncoder().sendMessage("<col=ff0000>Your opponent is " + opponent.getUsername() + "!");
         player.setCombatImmunity(PvpTournament.FIGHT_COUNTDOWN);
-        player.getClanWars().setTournamentFightDelay(PvpTournament.FIGHT_COUNTDOWN);
+        plugin.setTournamentFightDelay(PvpTournament.FIGHT_COUNTDOWN);
         player.getCombat().setDamageInflicted(0);
         player.getWidgetManager().removeInteractiveWidgets();
         player.getCharges().setRingOfRecoil(ItemCharges.RING_OF_RECOIL);
@@ -166,26 +168,27 @@ public class RoundsState implements State {
         boolean matchesRemain = false;
         for (var i = 0; i < tournament.getPlayers().size(); i++) {
             var player = tournament.getPlayers().get(i);
+            var plugin = player.getPlugin(ClanWarsPlugin.class);
             tournament.sendWidgetText(player);
-            if (player.getClanWars().getWarring() != null
-                    && !tournament.getPlayers().contains(player.getClanWars().getWarring())) {
-                player.getClanWars().setWarring(null);
+            if (plugin.getOpponent() != null && !tournament.getPlayers().contains(plugin.getOpponent())) {
+                plugin.setOpponent(null);
             }
-            if (timer == 0 && player.getClanWars().getWarring() != null) {
-                var loser = player.getCombat().getDamageInflicted() < player.getClanWars().getWarring().getCombat()
-                        .getDamageInflicted() ? player : player.getClanWars().getWarring();
-                var winner = loser == player ? player.getClanWars().getWarring() : player;
+            if (timer == 0 && plugin.getOpponent() != null) {
+                var opponent = plugin.getOpponent();
+                var loser = player.getCombat().getDamageInflicted() < opponent.getCombat().getDamageInflicted() ? player
+                        : opponent;
+                var winner = loser == player ? opponent : player;
                 loser.getController().stop();
                 loser.getGameEncoder().sendMessage(
                         "<col=ff0000>You have run out of time and dealt less damage than your opponent! You have been disqualified.");
                 winner.getGameEncoder().sendMessage(
                         "<col=ff0000>You have run out of time and dealt more damage than your opponent! Your opponent has been disqualified.");
-                winner.getClanWars().setWarring(null);
+                winner.getPlugin(ClanWarsPlugin.class).setOpponent(null);
                 if (player == loser) {
                     i--;
                 }
             }
-            if (player.getClanWars().getWarring() != null) {
+            if (plugin.getOpponent() != null) {
                 matchesRemain = true;
             } else if (!player.isLocked() && player.inClanWarsBattle()) {
                 player.getEquipment().setItems(playersEquipment.get(player));

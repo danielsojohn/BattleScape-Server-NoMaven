@@ -2,6 +2,7 @@ package script.world.pvptournament;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.palidino.osrs.Main;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Controller;
@@ -9,7 +10,6 @@ import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.dialogue.Scroll;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.map.MapObject;
-import com.palidino.osrs.model.player.ClanWars;
 import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.controller.ClanWarsPC;
@@ -21,6 +21,8 @@ import com.palidino.util.event.Event;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.var;
+import script.player.plugin.clanwars.ClanWarsPlugin;
+import script.player.plugin.clanwars.state.PlayerState;
 import script.world.pvptournament.dialogue.AdminDialogue;
 import script.world.pvptournament.dialogue.DonateItemDialogue;
 import script.world.pvptournament.prize.DefaultPrize;
@@ -59,6 +61,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
     private transient int[] rules;
     @Getter
     private transient List<Player> players = new ArrayList<>();
+    @Getter
     @Setter
     private transient String viewerList = "";
     @Getter
@@ -126,14 +129,16 @@ public class PvpTournament extends Event implements WorldEventHooks {
             return;
         }
         for (var aPlayer : players) {
+            if (Main.adminPrivledges(player)) {
+                break;
+            }
             if (!player.getIP().equals(aPlayer.getIP())) {
                 continue;
             }
             player.getGameEncoder().sendMessage("A player with your IP has already joined the tournament.");
             return;
         }
-
-        player.getClanWars().setStatus(ClanWars.Status.TOURNAMENT);
+        player.getPlugin(ClanWarsPlugin.class).setState(PlayerState.TOURNAMENT);
         player.setController(new ClanWarsPC());
         player.restore();
         player.getCombat().setSpecialAttackAmount(PCombat.MAX_SPECIAL_ATTACK);
@@ -154,7 +159,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
     public void checkPrizes(Player player, boolean isWinner) {
         var isCustom = !(prize instanceof DefaultPrize);
         if (isWinner && !isCustom) {
-            player.getClanWars().setCompetitiveTournamentWins(player.getClanWars().getCompetitiveTournamentWins() + 1);
+            player.getPlugin(ClanWarsPlugin.class).incrimentTournamentWins();
             if (Utils.randomE(240) == 0) {
                 player.getBank().add(new Item(ItemId.RAINBOW_PARTYHAT, 1));
                 player.getWorld().sendItemDropNews(player, ItemId.RAINBOW_PARTYHAT, "a tournament");
@@ -175,7 +180,11 @@ public class PvpTournament extends Event implements WorldEventHooks {
                 continue;
             }
             var prizeAmount = prize.getAmount();
-            player.getBank().add(new Item(prize.getId(), prizeAmount));
+            if (prize.getId() == ItemId.BOND_32318) {
+                player.getBonds().setPouch(player.getBonds().getPouch() + prizeAmount);
+            } else {
+                player.getBank().add(new Item(prize.getId(), prizeAmount));
+            }
             lines.add(prize.getName() + " x" + Utils.formatNumber(prizeAmount));
             RequestManager.addPlayerLog("clanwarstournament/" + player.getLogFilename(),
                     "[" + player.getId() + "; " + player.getIP() + "] " + player.getUsername() + " won ["
@@ -193,11 +202,11 @@ public class PvpTournament extends Event implements WorldEventHooks {
         var options = viewerList.split("\\|\\|");
         for (var i = 0; i < options.length; i++) {
             if (selected.equals(options[i])) {
-                player.getClanWars().teleportViewing(i);
+                player.getPlugin(ClanWarsPlugin.class).teleportViewing(i);
                 return;
             }
         }
-        player.getClanWars().teleportViewing(-1);
+        player.getPlugin(ClanWarsPlugin.class).teleportViewing(-1);
     }
 
     public void viewPrizes(Player player) {
@@ -281,18 +290,34 @@ public class PvpTournament extends Event implements WorldEventHooks {
         if (player.getWidgetManager().getOverlay() != WidgetId.LMS_LOBBY_OVERLAY) {
             return;
         }
-        var warring = player.getClanWars().getWarring();
+        var opponent = player.getPlugin(ClanWarsPlugin.class).getOpponent();
         player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 6, state.getMessage());
         if (player.inClanWarsBattle()) {
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 8,
                     "Remaining: " + Time.ticksToDuration(state.getTime()));
-            String opponent = warring != null && warring.isVisible() ? warring.getUsername() : "None";
-            player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 10, "Opponent: " + opponent);
+            String opponentName = opponent != null && !opponent.isLocked() ? opponent.getUsername() : "None";
+            player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 10, "Opponent: " + opponentName);
         } else {
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 8,
                     "Mode: " + (mode != null ? mode.getName() : "None"));
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 10,
-                    "Wins: " + Utils.formatNumber(player.getClanWars().getCompetitiveTournamentWins()));
+                    "Wins: " + Utils.formatNumber(player.getPlugin(ClanWarsPlugin.class).getTournamentWins()));
+        }
+    }
+
+    public int getPoints(int positioning) {
+        switch (positioning) {
+        case 0:
+            return 5;
+        case 1:
+            return 4;
+        case 2:
+            return 3;
+        case 3:
+        case 4:
+            return 2;
+        default:
+            return 1;
         }
     }
 

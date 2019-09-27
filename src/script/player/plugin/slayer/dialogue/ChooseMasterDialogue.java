@@ -2,12 +2,10 @@ package script.player.plugin.slayer.dialogue;
 
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.player.Player;
-import lombok.var;
 import script.player.plugin.slayer.SlayerPlugin;
 
 public class ChooseMasterDialogue extends SelectionDialogue {
-    public ChooseMasterDialogue(Player player) {
-        var plugin = player.getPlugin(SlayerPlugin.class);
+    public ChooseMasterDialogue(Player player, SlayerPlugin plugin) {
         addOption("Mazchna - level 20", (childId, slot) -> {
             plugin.getAssignment("Mazchna");
         });

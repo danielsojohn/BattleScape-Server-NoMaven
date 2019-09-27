@@ -23,7 +23,7 @@ public class CustomPrize implements Prize {
         var value = 0L;
         for (var itemGroup : items) {
             for (var item : itemGroup) {
-                value += item.getDef().getConfiguredExchangePrice();
+                value += item.getDef().getConfiguredExchangePrice() * item.getAmount();
             }
         }
         return value > 0 ? "Prizes include " + Utils.abbreviateNumber(value) + "." : null;

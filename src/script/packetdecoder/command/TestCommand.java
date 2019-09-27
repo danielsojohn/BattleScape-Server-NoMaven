@@ -7,7 +7,6 @@ import com.palidino.osrs.io.cache.WidgetSetting;
 import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.osrs.world.LastManStandingEvent;
 import lombok.var;
 
 /*

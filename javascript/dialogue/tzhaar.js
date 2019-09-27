@@ -104,11 +104,6 @@ instance = new DialogueScript() {
             }
         } else if (index == 4) {
             if (slot == 0) {
-                if (!player.isGameModeNormal() && !player.isGameModeHard()
-                        && !player.getCombat().getTzHaar().getInferno()) {
-                    player.getGameEncoder().sendMessage("You can't do that until you've completed the Inferno.");
-                    return;
-                }
                 player.getCombat().getTzHaar().startInferno(0);
             } else if (slot == 1) {
                 player.getCombat().getTzHaar().startInferno(1);

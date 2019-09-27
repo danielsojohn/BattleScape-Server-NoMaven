@@ -9,8 +9,7 @@ import lombok.var;
 import script.player.plugin.slayer.SlayerPlugin;
 
 public class SlayerRingDialogue extends SelectionDialogue {
-    public SlayerRingDialogue(Player player) {
-        var plugin = player.getPlugin(SlayerPlugin.class);
+    public SlayerRingDialogue(Player player, SlayerPlugin plugin) {
         addOption("Option", (childId, slot) -> {
             if (plugin.getTask().isComplete()) {
                 player.getGameEncoder().sendMessage("You need a task to do this.");

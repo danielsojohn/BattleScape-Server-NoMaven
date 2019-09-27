@@ -5,13 +5,14 @@ import java.util.Collections;
 import java.util.List;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.item.Item;
-import com.palidino.osrs.model.player.ClanWars;
 import com.palidino.osrs.model.player.Loadout;
 import com.palidino.osrs.model.player.Magic;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Singular;
 import lombok.var;
+import script.player.plugin.clanwars.rule.Rule;
+import script.player.plugin.clanwars.rule.RuleOption;
 
 @Builder
 @Getter
@@ -50,14 +51,14 @@ public class Mode {
     }
 
     public static int[] buildRules(Object... settings) {
-        var rules = ClanWars.getDefaultRules();
+        var rules = Rule.getDefault();
         for (var i = 0; i < settings.length; i += 2) {
-            if (!(settings[i] instanceof ClanWars.Rule) || !(settings[i + 1] instanceof ClanWars.RuleOption)) {
+            if (!(settings[i] instanceof Rule) || !(settings[i + 1] instanceof RuleOption)) {
                 break;
             }
-            ClanWars.Rule rule = (ClanWars.Rule) settings[i];
-            ClanWars.RuleOption option = (ClanWars.RuleOption) settings[i + 1];
-            rules[rule.ordinal()] = option.index;
+            Rule rule = (Rule) settings[i];
+            RuleOption option = (RuleOption) settings[i + 1];
+            rules[rule.ordinal()] = option.getIndex();
         }
         return rules;
     }
@@ -66,8 +67,8 @@ public class Mode {
         List<Mode> modes = new ArrayList<>();
 
         var mode = Mode.builder().name("<img=8> Main Hybrid").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -92,8 +93,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=6> Main Hybrid").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -120,8 +121,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=4> Main Hybrid").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -201,7 +202,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=8> Main NH").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.SPECIAL_ATTACKS, ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.SPECIAL_ATTACKS, RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -227,7 +228,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=6> Main NH").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.SPECIAL_ATTACKS, ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.SPECIAL_ATTACKS, RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -255,7 +256,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=4> Main NH").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.SPECIAL_ATTACKS, ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.SPECIAL_ATTACKS, RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -335,7 +336,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=8> Pure NH").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.SPECIAL_ATTACKS, ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.SPECIAL_ATTACKS, RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(1).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -360,7 +361,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=4> Pure NH").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.SPECIAL_ATTACKS, ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.SPECIAL_ATTACKS, RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(1).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -405,8 +406,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("Dharoks").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(80).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -449,8 +450,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("Berserker").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(60).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(45).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -477,8 +478,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("Berserker Ranged").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(60).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(45).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -528,8 +529,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=8> Main Melee").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -556,8 +557,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=6> Main Melee").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -584,8 +585,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=4> Main Melee").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -629,8 +630,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=8> Pure").spellbook(Magic.STANDARD_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(1).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.AIR_RUNE).rune(ItemId.FIRE_RUNE).rune(ItemId.WRATH_RUNE);
@@ -759,8 +760,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("<img=4> Pure").spellbook(Magic.STANDARD_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(1).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.AIR_RUNE).rune(ItemId.FIRE_RUNE).rune(ItemId.WRATH_RUNE);
@@ -906,8 +907,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("F2P Pure").spellbook(Magic.LUNAR_MAGIC).brewCap(0);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.IGNORE_FREEZING,
-                ClanWars.RuleOption.ALLOWED));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.IGNORE_FREEZING, RuleOption.ALLOWED));
         mode.attackLevel(40).strengthLevel(65).rangedLevel(70).magicLevel(69).defenceLevel(1).hitpointsLevel(65)
                 .prayerLevel(31);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -935,7 +935,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("Void Range").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(42).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.ASTRAL_RUNE).rune(ItemId.EARTH_RUNE);
@@ -965,8 +965,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("No Arm Main Melee").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.ASTRAL_RUNE).rune(ItemId.DEATH_RUNE).rune(ItemId.EARTH_RUNE);
@@ -1011,8 +1011,7 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("F2P No Arm Main").spellbook(Magic.LUNAR_MAGIC).brewCap(0);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.IGNORE_FREEZING,
-                ClanWars.RuleOption.ALLOWED));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.IGNORE_FREEZING, RuleOption.ALLOWED));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(52);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -1039,8 +1038,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("Dharoks Brid").spellbook(Magic.ANCIENT_MAGIC).brewCap(3);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.NO_OVERHEADS, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.NO_STAFF_OF_THE_DEAD));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.SPECIAL_ATTACKS,
+                RuleOption.NO_STAFF_OF_THE_DEAD));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(70).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
@@ -1068,9 +1067,8 @@ public class Mode {
         modes.add(mode.build());
 
         mode = Mode.builder().name("Tentacle Stake").spellbook(Magic.STANDARD_MAGIC).brewCap(0);
-        mode.rules(buildRules(ClanWars.Rule.PRAYER, ClanWars.RuleOption.DISABLED, ClanWars.Rule.SPECIAL_ATTACKS,
-                ClanWars.RuleOption.DISABLED, ClanWars.Rule.FOOD, ClanWars.RuleOption.DISABLED, ClanWars.Rule.DRINKS,
-                ClanWars.RuleOption.DISABLED));
+        mode.rules(buildRules(Rule.PRAYER, RuleOption.DISABLED, Rule.SPECIAL_ATTACKS, RuleOption.DISABLED, Rule.FOOD,
+                RuleOption.DISABLED, Rule.DRINKS, RuleOption.DISABLED));
         mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
                 .prayerLevel(99);
         mode.loadout(new Loadout.Entry("Load-out", new Item[] {
