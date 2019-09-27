@@ -305,6 +305,22 @@ public class PvpTournament extends Event implements WorldEventHooks {
         }
     }
 
+    public int getPoints(int positioning) {
+        switch (positioning) {
+        case 0:
+            return 5;
+        case 1:
+            return 4;
+        case 2:
+            return 3;
+        case 3:
+        case 4:
+            return 2;
+        default:
+            return 1;
+        }
+    }
+
     public static String[] getModeNames() {
         var names = new String[Mode.MODES.size()];
         for (var i = 0; i < Mode.MODES.size(); i++) {

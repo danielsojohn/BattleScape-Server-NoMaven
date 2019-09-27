@@ -20,7 +20,7 @@ public class StaffCommand implements Command {
         var lines = new ArrayList<String>();
         for (var staff : player.getWorld().getStaffPlayers()) {
             var rank = "";
-            if (staff.isUsergroup(SqlUserRank.ADMINISTRATOR)) {
+            if (player.getRights() == Player.RIGHTS_ADMIN) {
                 rank = "Administrator";
             } else if (staff.isUsergroup(SqlUserRank.HEAD_MODERATOR)) {
                 rank = "Head Moderator";
