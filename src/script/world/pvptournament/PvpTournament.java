@@ -102,7 +102,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
     public boolean mapObjectOptionHook(Player player, int index, MapObject mapObject) {
         switch (mapObject.getId()) {
         case 29087: // Coffer
-            if (player.getRights() == Player.RIGHTS_ADMIN) {
+            if (player.getRights() == Player.RIGHTS_ADMIN || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER)) {
                 new AdminDialogue(player);
             } else {
                 viewPrizes(player);
