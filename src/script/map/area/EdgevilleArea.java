@@ -243,9 +243,6 @@ public class EdgevilleArea extends Area {
         case 26645: // Free-for-all portal
             new FreeForAllPortalDialogue(player);
             return true;
-        case 26743: // Viewing orb
-            player.getClanWars().teleportViewing(0);
-            return true;
         case 26761: // Lever
             if (player.getMovement().getTeleportBlock() > 0) {
                 player.getGameEncoder().sendMessage("A teleport block has been cast on you. It should wear off in "

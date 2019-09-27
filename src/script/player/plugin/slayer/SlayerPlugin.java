@@ -614,18 +614,18 @@ public class SlayerPlugin extends PlayerPlugin {
         switch (npc.getId()) {
         case NpcId.NIEVE:
             if (index == 0) {
-                new MasterMenuDialogue(player);
+                new MasterMenuDialogue(player, this);
             } else if (index == 2) {
                 getAssignment();
             } else if (index == 3) {
                 player.openShop("slayer");
             } else if (index == 4) {
-                new RewardsDialogue(player);
+                new RewardsDialogue(player, this);
             }
             return true;
         case NpcId.KRYSTILIA:
             if (index == 0) {
-                new WildernessMasterMenuDialogue(player);
+                new WildernessMasterMenuDialogue(player, this);
             } else if (index == 2) {
                 getAssignment(SlayerMaster.WILDERNESS_MASTER);
             } else if (index == 3) {
@@ -1060,7 +1060,7 @@ public class SlayerPlugin extends PlayerPlugin {
             player.getGameEncoder().sendMessage("There are no teleports associated with this task.");
             return;
         }
-        new SlayerRingDialogue(player);
+        new SlayerRingDialogue(player, this);
     }
 
     public boolean isBlockedTask(SlayerTaskIdentifier identifier) {

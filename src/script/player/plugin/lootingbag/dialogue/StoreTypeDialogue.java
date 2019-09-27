@@ -2,13 +2,11 @@ package script.player.plugin.lootingbag.dialogue;
 
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.player.Player;
-import lombok.var;
 import script.player.plugin.lootingbag.LootingBagPlugin;
 import script.player.plugin.lootingbag.StoreType;
 
 public class StoreTypeDialogue extends SelectionDialogue {
-    public StoreTypeDialogue(Player player) {
-        var plugin = player.getPlugin(LootingBagPlugin.class);
+    public StoreTypeDialogue(Player player, LootingBagPlugin plugin) {
         addOption("Always Ask", (childId, slot) -> {
             plugin.setStoreType(StoreType.ASK);
         });

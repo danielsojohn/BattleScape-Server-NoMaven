@@ -8,6 +8,7 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.world.JavaCord;
 import com.palidino.setting.DiscordChannel;
+import com.palidino.util.Time;
 
 public class LogoutWidget implements Widget {
     @Override
@@ -36,7 +37,7 @@ public class LogoutWidget implements Widget {
                     player.getCombat().getTzHaar().pause();
                     return;
                 }
-                if (player.isNewAccount()) {
+                if (player.isNewAccount() || Time.milliToHour(player.getCreationTime()) < 2) {
                     player.getGameEncoder().sendEnterString("Will you return? If not, why?",
                             new ValueEnteredEvent.StringEvent() {
                                 @Override

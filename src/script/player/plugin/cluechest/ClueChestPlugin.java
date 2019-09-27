@@ -72,7 +72,7 @@ public class ClueChestPlugin extends PlayerPlugin {
     public boolean mapObjectOptionHook(int index, MapObject mapObject) {
         switch (mapObject.getId()) {
         case 18808: // treasure chest
-            new TreasureChestDialogue(player);
+            new TreasureChestDialogue(player, this);
             return true;
         }
         return false;

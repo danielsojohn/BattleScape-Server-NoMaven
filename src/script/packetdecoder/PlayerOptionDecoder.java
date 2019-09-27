@@ -4,7 +4,6 @@ import com.palidino.io.Stream;
 import com.palidino.osrs.Main;
 import com.palidino.osrs.io.PacketDecoder;
 import com.palidino.osrs.model.map.route.Route;
-import com.palidino.osrs.model.player.ClanWars;
 import com.palidino.osrs.model.player.Equipment;
 import com.palidino.osrs.model.player.Messaging;
 import com.palidino.osrs.model.player.Player;
@@ -118,6 +117,11 @@ public class PlayerOptionDecoder extends PacketDecoder {
         if (player.getController().playerOptionHook(index, player2)) {
             return true;
         }
+        for (var plugin : player.getPlugins()) {
+            if (plugin.playerOptionHook(index, player2)) {
+                return true;
+            }
+        }
         doAction(player, index, player2);
         return true;
     }
@@ -141,28 +145,6 @@ public class PlayerOptionDecoder extends PacketDecoder {
                 } else {
                     player.getGameEncoder().sendMessage("Challenging " + player2.getUsername() + "...");
                     player2.getGameEncoder().sendMessage(player.getUsername() + " wishes to duel with you.",
-                            Messaging.CHAT_TYPE_DUEL, player.getUsername());
-                }
-            } else if (player.inClanWarsChallengeArea() && player2.inClanWarsChallengeArea()) {
-                if (player.getClanWars().getStatus() != ClanWars.Status.NONE
-                        || player2.getClanWars().getStatus() != ClanWars.Status.NONE) {
-                    return;
-                }
-                if (!player.getMessaging().canClanChatEvent()) {
-                    player.getGameEncoder().sendMessage("Your Clan Chat privledges aren't high enough to do that.");
-                    return;
-                } else if (!player2.getMessaging().canClanChatEvent()) {
-                    player.getGameEncoder().sendMessage("Their Clan Chat privledges aren't high enough to do that.");
-                    return;
-                }
-                player.getClanWars().setWarring(player2);
-                if (player == player2.getClanWars().getWarring()) {
-                    player.getClanWars().openRuleSelection();
-                    player2.getClanWars().openRuleSelection();
-                } else {
-                    player.getGameEncoder().sendMessage("Sending Clan Wars challenge...");
-                    player2.getGameEncoder().sendMessage(
-                            player.getUsername() + " wishes to challenge your clan to a Clan War.",
                             Messaging.CHAT_TYPE_DUEL, player.getUsername());
                 }
             }

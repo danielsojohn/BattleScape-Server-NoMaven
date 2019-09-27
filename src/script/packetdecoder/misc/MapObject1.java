@@ -1904,21 +1904,6 @@ public class MapObject1 {
         player.getGameEncoder().sendMessage("Perhaps I should use this to forge something...");
     }
 
-    // Challenge portal
-    public static void mapObject26642(Player player, int index, MapObject mapObject) {
-        player.openDialogue("clanwars", 0);
-    }
-
-    // Challenge portal
-    public static void mapObject26643(Player player, int index, MapObject mapObject) {
-        player.openDialogue("clanwars", 0);
-    }
-
-    // Challenge portal
-    public static void mapObject26644(Player player, int index, MapObject mapObject) {
-        player.openDialogue("clanwars", 0);
-    }
-
     // Free-for-all portal
     public static void mapObject26645(Player player, int index, MapObject mapObject) {
         // player.openDialogue("freeforall", 0);
@@ -1941,11 +1926,6 @@ public class MapObject1 {
             Tile tile = new Tile(2393, 9788, 0);
             player.getMovement().ladderUpTeleport(tile);
         }
-    }
-
-    // Viewing orb
-    public static void mapObject26743(Player player, int index, MapObject mapObject) {
-        player.getClanWars().teleportViewing(0);
     }
 
     // Duel arena viewing orb

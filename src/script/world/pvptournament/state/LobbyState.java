@@ -1,10 +1,11 @@
 package script.world.pvptournament.state;
 
 import com.palidino.osrs.Main;
-import com.palidino.osrs.model.player.ClanWars;
 import com.palidino.util.Time;
 import com.palidino.util.Utils;
 import lombok.var;
+import script.player.plugin.clanwars.ClanWarsPlugin;
+import script.player.plugin.clanwars.rule.Rule;
 import script.world.pvptournament.Mode;
 import script.world.pvptournament.PvpTournament;
 import script.world.pvptournament.prize.DefaultPrize;
@@ -29,8 +30,8 @@ public class LobbyState implements State {
                 tournament.getRecentModes().remove(0);
             }
         }
-        var rules = new int[ClanWars.RULE_COUNT];
-        System.arraycopy(selectedMode.getRules(), 0, rules, 0, ClanWars.RULE_COUNT);
+        var rules = new int[Rule.TOTAL];
+        System.arraycopy(selectedMode.getRules(), 0, rules, 0, Rule.TOTAL);
         tournament.setRules(rules);
         tournament.getPlayers().clear();
     }
@@ -69,10 +70,10 @@ public class LobbyState implements State {
             }
             Main.getWorld().sendBroadcast(message);
         } else if (countdown == 0) {
-            var hasEnoughPlayers = !isCustom && tournament.getPlayers().size() >= PvpTournament.MINIMUM_PLAYERS;
+            var hasEnoughPlayers = isCustom || tournament.getPlayers().size() >= PvpTournament.MINIMUM_PLAYERS;
             if (hasEnoughPlayers) {
                 for (var player : tournament.getPlayers()) {
-                    player.getClanWars().setCountDown(countdown);
+                    player.getPlugin(ClanWarsPlugin.class).setCountdown(countdown);
                 }
                 tournament.setState(new RoundsState(tournament));
             } else {

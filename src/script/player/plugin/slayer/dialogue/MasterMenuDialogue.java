@@ -4,14 +4,12 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.slayer.SlayerMaster;
-import lombok.var;
 import script.player.plugin.slayer.SlayerPlugin;
 
 public class MasterMenuDialogue extends SelectionDialogue {
-    public MasterMenuDialogue(Player player) {
-        var plugin = player.getPlugin(SlayerPlugin.class);
+    public MasterMenuDialogue(Player player, SlayerPlugin plugin) {
         addOption("Get task", (childId, slot) -> {
-            new ChooseMasterDialogue(player);
+            new ChooseMasterDialogue(player, plugin);
         });
         addOption("Current task", (childId, slot) -> {
             plugin.sendTask();
