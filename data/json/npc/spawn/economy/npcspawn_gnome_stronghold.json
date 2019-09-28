@@ -27,6 +27,12 @@
     "y": 3446
   },
   {
+    "id": "NpcId.TOOL_LEPRECHAUN",
+    "direction": 6,
+    "x": 2476,
+    "y": 3443
+  },
+  {
     "id": "NpcId.WIZARD_4399",
     "direction": 1,
     "moveDistance": 2,

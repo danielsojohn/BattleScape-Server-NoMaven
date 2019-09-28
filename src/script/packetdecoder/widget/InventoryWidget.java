@@ -683,8 +683,8 @@ public class InventoryWidget implements Widget {
             if (player.getController().inPvPWorld()) {
                 homeTile = new Tile(3093, 3495, height);
             }
-            player.getMovement().animatedTeleport(homeTile, Magic.TABLET_ANIMATION_START, Magic.TABLET_ANIMATION_END,
-                    -1, null, Magic.TABLET_GRAPHIC, null, 0, 2);
+            player.getMovement().animatedTeleport(homeTile, Magic.SEEDPOD_ANIMATION_START, Magic.SEEDPOD_ANIMATION_MID,
+                    Magic.SEEDPOD_ANIMATION_END, Magic.SEEDPOD_START_GRAPHIC, null, Magic.SEEDPOD_END_GRAPHIC, 0, 2);
             player.getController().stopWithTeleport();
             player.clearHits();
             break;
@@ -700,8 +700,8 @@ public class InventoryWidget implements Widget {
                 ectoTile = new Tile(World.DEFAULT_TILE).randomize(2);
                 ectoTile.setHeight(height);
             }
-            player.getMovement().animatedTeleport(ectoTile, Magic.NORMAL_MAGIC_ANIMATION_START,
-                    Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+            player.getMovement().animatedTeleport(ectoTile, Magic.ECTOPHIAL_ANIMATION, -1, Magic.ECTOPHIAL_GRAPHIC,
+                    null, 2);
             player.getController().stopWithTeleport();
             player.clearHits();
             break;
@@ -1823,6 +1823,20 @@ public class InventoryWidget implements Widget {
                 height = player.getHeight();
             }
             tile = new Tile(2974, 3873, height);
+            if (!player.getController().canTeleport(tile, true)) {
+                break;
+            }
+            player.getInventory().deleteItem(itemId, 1, slot);
+            player.getMovement().animatedTeleport(tile, Magic.TABLET_ANIMATION_START, Magic.TABLET_ANIMATION_END, -1,
+                    null, Magic.TABLET_GRAPHIC, null, 0, 2);
+            player.getController().stopWithTeleport();
+            player.clearHits();
+            break;
+        case 12642:
+            if ((player.inEdgeville() || player.getController().inWilderness()) && player.getClientHeight() == 0) {
+                height = player.getHeight();
+            }
+            tile = new Tile(3303, 3488, height);
             if (!player.getController().canTeleport(tile, true)) {
                 break;
             }

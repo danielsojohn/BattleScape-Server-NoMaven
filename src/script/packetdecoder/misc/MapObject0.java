@@ -990,7 +990,7 @@ public class MapObject0 {
         player.getGameEncoder().sendMessage("This valve seems to already be open.");
     }
 
-    // Crystal outcrop
+    // Crystal outcrop x:2792, y: 4429
     public static void mapObject4926(Player player, int index, MapObject mapObject) {
         if (!player.getInventory().hasItem(1755)) {
             player.getGameEncoder().sendMessage("You need a chisel to do this.");
@@ -1008,7 +1008,7 @@ public class MapObject0 {
         }
     }
 
-    // Crystal outcrop
+    // Crystal outcrop x:2792, y: 4429
     public static void mapObject4927(Player player, int index, MapObject mapObject) {
         if (!player.getInventory().hasItem(1755)) {
             player.getGameEncoder().sendMessage("You need a chisel to do this.");
@@ -1026,7 +1026,7 @@ public class MapObject0 {
         }
     }
 
-    // Crystal outcrop
+    // Crystal outcrop x:2792, y: 4429
     public static void mapObject4928(Player player, int index, MapObject mapObject) {
         if (!player.getInventory().hasItem(1755)) {
             player.getGameEncoder().sendMessage("You need a chisel to do this.");

@@ -15,7 +15,7 @@ public class PrivateCommand implements Command {
     @Override
     public boolean canUse(Player player) {
         return player.isUsergroup(SqlUserRank.SUPPORT) || player.getRights() == Player.RIGHTS_MOD
-                || player.getRights() == Player.RIGHTS_ADMIN;
+                || player.getRights() == Player.RIGHTS_ADMIN || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER);
     }
 
     @Override

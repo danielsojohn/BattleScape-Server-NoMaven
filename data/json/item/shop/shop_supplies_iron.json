@@ -32,6 +32,7 @@
     { "id": "ItemId.DAREEYAK_TELEPORT" },
     { "id": "ItemId.ANNAKARL_TELEPORT" },
     { "id": "ItemId.GHORROCK_TELEPORT" },
+    { "id": "ItemId.LUMBERYARD_TELEPORT", "price": 500000 },
     { "id": "ItemId.GAMES_NECKLACE_8" },
     { "id": "ItemId.LOCKPICK" },
     { "id": "ItemId.CLEANING_CLOTH", "price": 50000 }

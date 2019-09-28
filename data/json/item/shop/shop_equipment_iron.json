@@ -148,6 +148,7 @@
     { "id": "ItemId.MIND_RUNE" },
     { "id": "ItemId.CHAOS_RUNE" },
     { "id": "ItemId.DEATH_RUNE" },
+    { "id": "ItemId.WRATH_RUNE" },
     { "id": "ItemId.SOUL_RUNE" },
     { "id": "ItemId.NATURE_RUNE" },
     { "id": "ItemId.LAW_RUNE" },

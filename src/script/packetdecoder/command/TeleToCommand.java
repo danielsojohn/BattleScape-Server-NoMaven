@@ -2,6 +2,7 @@ package script.packetdecoder.command;
 
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
+import com.palidino.setting.SqlUserRank;
 import lombok.var;
 
 public class TeleToCommand implements Command {
@@ -12,7 +13,8 @@ public class TeleToCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN
+                || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER);
     }
 
     @Override

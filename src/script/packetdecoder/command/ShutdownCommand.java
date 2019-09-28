@@ -16,7 +16,8 @@ public class ShutdownCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return player.isUsergroup(SqlUserRank.HEAD_MODERATOR) || player.getRights() == Player.RIGHTS_ADMIN;
+        return player.isUsergroup(SqlUserRank.HEAD_MODERATOR) || player.getRights() == Player.RIGHTS_ADMIN
+                || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER);
     }
 
     @Override

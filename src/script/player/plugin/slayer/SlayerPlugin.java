@@ -848,13 +848,19 @@ public class SlayerPlugin extends PlayerPlugin {
             brimstoneKeyChance = (int) (0.2 * Math.pow(npc.getDef().getCombatLevel() - 100, 2) + 100);
         }
         var brimstoneKeyPercent = 100.0 / brimstoneKeyChance;
+        boolean hasRoWICharge = player.getCharges().hasRoWICharge(0);
         if (brimstoneKeyChance > 1 && assignedTask != bossTask
                 && Utils.inRange(player.getCombat().getDropRate(ItemId.BRIMSTONE_KEY, brimstoneKeyPercent))) {
             Tile tile = npc;
             if (npc.getDef().getDropUnderKiller()) {
                 tile = player;
             }
-            player.getController().addMapItem(new Item(ItemId.BRIMSTONE_KEY), tile, player);
+
+            if (hasRoWICharge && player.getInventory().canAddItem(ItemId.BRIMSTONE_KEY, 1)) {
+                player.getInventory().addItem(ItemId.BRIMSTONE_KEY, 1);
+            } else {
+                player.getController().addMapItem(new Item(ItemId.BRIMSTONE_KEY), tile, player);
+            }
         }
         assignedTask.decreaseQuantity();
         if (!assignedTask.isComplete()) {

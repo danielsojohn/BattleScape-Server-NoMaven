@@ -93,10 +93,10 @@ instance = new DialogueScript() {
                 player.getAppearance().setColor(4, 17);
             } else if (slot == 4) {
                 if (!player.isUsergroup(SqlUserRank.EXTREME_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only blue donators donators and above can use this.");
+                    player.getGameEncoder().sendMessage("Only blue donators and above can use this.");
                     return;
                 }
-                player.getAppearance().setColor(4, 18);
+                player.getAppearance().setColor(4, 11);
             } else if (slot == 5) {
                 if (!player.isUsergroup(SqlUserRank.LEGENDARY_DONATOR)) {
                     player.getGameEncoder().sendMessage("Only yellow donators and above can use this.");

@@ -16,7 +16,8 @@ public class YellCommand implements Command {
     @Override
     public boolean canUse(Player player) {
         return player.isUsergroup(SqlUserRank.DONATOR) || player.isUsergroup(SqlUserRank.SUPPORT)
-                || player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN;
+                || player.getRights() == Player.RIGHTS_MOD || player.getRights() == Player.RIGHTS_ADMIN
+                || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER);
     }
 
     @Override
@@ -38,7 +39,7 @@ public class YellCommand implements Command {
         }
 
         if (player.isUsergroup(SqlUserRank.SUPPORT) || player.isUsergroup(SqlUserRank.MODERATOR)
-                || player.getRights() == Player.RIGHTS_ADMIN) {
+                || player.getRights() == Player.RIGHTS_ADMIN || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER)) {
             yellDelay = Time.secToTick(5);
         } else if (player.isUsergroup(SqlUserRank.UBER_DONATOR)) {
             yellDelay = Time.secToTick(5);
