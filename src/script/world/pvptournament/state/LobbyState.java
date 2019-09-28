@@ -23,6 +23,7 @@ public class LobbyState implements State {
             while (attempts++ < 16 && (selectedMode == null || tournament.getRecentModes().contains(selectedMode))) {
                 selectedMode = Utils.listRandom(Mode.MODES);
             }
+            tournament.setMode(selectedMode);
             if (!tournament.getRecentModes().contains(selectedMode)) {
                 tournament.getRecentModes().add(selectedMode);
             }

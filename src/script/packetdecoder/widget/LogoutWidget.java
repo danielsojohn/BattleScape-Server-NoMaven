@@ -42,8 +42,8 @@ public class LogoutWidget implements Widget {
                             new ValueEnteredEvent.StringEvent() {
                                 @Override
                                 public void execute(String value) {
-                                    JavaCord.sendMessage(DiscordChannel.FEEDBACK, "[NEW USER FEEDBACK; "
-                                            + player.getIP() + "] " + player.getUsername() + ": " + value);
+                                    JavaCord.sendMessage(DiscordChannel.FEEDBACK,
+                                            "[" + player.getId() + "] " + player.getUsername() + ": " + value);
                                     player.getGameEncoder().sendLogout();
                                     player.setVisible(false);
                                 }

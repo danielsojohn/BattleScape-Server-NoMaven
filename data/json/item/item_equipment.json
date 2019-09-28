@@ -39228,14 +39228,22 @@
     "id": "ItemId.BLADE_OF_SAELDOR",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
-    "attackSpeed": "6",
-    "levels": "Attack=75"
+    "attackSpeed": "4",
+    "levels": "Attack=75",
+    "bonuses": {
+      "ATTACK_STAB": "55",
+      "ATTACK_SLASH": "94",
+      "MELEE_STRENGTH": "89"
+    },
+    "degradeId": "ItemId.BLADE_OF_SAELDOR_INACTIVE",
+    "degradeTime": "20000",
+    "degradeCombat": "true"
   },
   {
     "id": "ItemId.BLADE_OF_SAELDOR_INACTIVE",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
-    "attackSpeed": "6",
+    "attackSpeed": "4",
     "levels": "Attack=75"
   },
   {

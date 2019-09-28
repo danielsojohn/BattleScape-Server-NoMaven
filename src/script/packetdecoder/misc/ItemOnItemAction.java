@@ -71,6 +71,13 @@ public class ItemOnItemAction {
                 int coinsPerCharge = 1_000_000 / ItemDef.getDegradeTime(chargedId);
                 player.getCharges().chargeFromInventory(chargedId, chargingSlot,
                         player.getInventory().getCount(ItemId.COINS), new Item(ItemId.COINS, coinsPerCharge), 1);
+            } else if (used(useItemId, onItemId, ItemId.BLADE_OF_SAELDOR_INACTIVE, ItemId.CRYSTAL_SHARD)
+                    || used(useItemId, onItemId, ItemId.BLADE_OF_SAELDOR, ItemId.CRYSTAL_SHARD)) {
+                int chargedId = ItemId.BLADE_OF_SAELDOR;
+                int chargingSlot =
+                        useItemId == ItemId.BLADE_OF_SAELDOR_INACTIVE || useItemId == chargedId ? useSlot : onSlot;
+                player.getCharges().chargeFromInventory(chargedId, chargingSlot,
+                        player.getInventory().getCount(ItemId.CRYSTAL_SHARD), new Item(ItemId.CRYSTAL_SHARD), 100);
             } else if (used(useItemId, onItemId, 4151, 12004)) {
                 // Abyssal whip and Kraken tentacle
                 player.getInventory().deleteItem(useItemId, 1, useSlot);
