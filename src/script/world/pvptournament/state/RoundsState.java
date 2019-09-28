@@ -111,6 +111,7 @@ public class RoundsState implements State {
                 tournament.getPlayers().remove(i--);
             }
         }
+        state = State.FIGHT;
         timer = PvpTournament.MAX_ROUND_TIME;
         Collections.shuffle(tournament.getPlayers());
         var height = PvpTournament.ARENA_TILE_1.getHeight();

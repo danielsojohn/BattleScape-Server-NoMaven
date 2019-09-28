@@ -82,12 +82,12 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.FIGHTER_TORSO), new Item(ItemId.DRAGON_DEFENDER),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.RUNE_PLATELEGS),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.RUNE_POUCH)
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("+ Granite Maul", new Item(ItemId.GRANITE_MAUL)));
         modes.add(mode.build());
@@ -108,9 +108,9 @@ public class Mode {
             new Item(ItemId.SUPER_COMBAT_POTION_4), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.DHAROKS_PLATEBODY), new Item(ItemId.DRAGON_DEFENDER), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.DHAROKS_PLATELEGS), new Item(ItemId.INFERNAL_CAPE),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), null, new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), null, new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
@@ -138,8 +138,8 @@ public class Mode {
             new Item(ItemId.BANDOS_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS), new Item(ItemId.INFERNAL_CAPE),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.DRAGON_CLAWS),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
@@ -156,8 +156,8 @@ public class Mode {
             new Item(ItemId.BANDOS_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS), new Item(ItemId.INFERNAL_CAPE),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ARMADYL_GODSWORD),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
@@ -173,8 +173,8 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.DRAGON_CLAWS), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.DRAGON_CLAWS), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
@@ -191,8 +191,8 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.ARMADYL_GODSWORD), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ARMADYL_GODSWORD), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
@@ -217,12 +217,12 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.SARADOMIN_DHIDE), new Item(ItemId.DRAGON_DEFENDER),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.RUNE_PLATELEGS),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
-            new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.RUNE_POUCH)
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("+ Granite Maul", new Item(ItemId.GRANITE_MAUL)));
         modes.add(mode.build());
@@ -244,9 +244,9 @@ public class Mode {
             new Item(ItemId.KARILS_LEATHERTOP), new Item(ItemId.DRAGON_DEFENDER), new Item(ItemId.BASTION_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.DHAROKS_PLATELEGS), new Item(ItemId.INFERNAL_CAPE),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), null, new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
@@ -272,9 +272,9 @@ public class Mode {
             new Item(ItemId.ARMADYL_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER), new Item(ItemId.BASTION_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS), new Item(ItemId.INFERNAL_CAPE),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.DRAGON_CLAWS),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
@@ -290,10 +290,10 @@ public class Mode {
             new Item(ItemId.ARMADYL_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER), new Item(ItemId.BASTION_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS), new Item(ItemId.INFERNAL_CAPE),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ARMADYL_GODSWORD),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("Load-out #3", new Item[] {
@@ -307,9 +307,9 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ARMADYL_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
-            new Item(ItemId.DRAGON_CLAWS), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.DRAGON_CLAWS), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.RUNE_POUCH)
@@ -325,9 +325,9 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ARMADYL_CHESTPLATE), new Item(ItemId.AVERNIC_DEFENDER),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BANDOS_TASSETS),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
-            new Item(ItemId.ARMADYL_GODSWORD), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ARMADYL_GODSWORD), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.RUNE_POUCH)
@@ -351,9 +351,9 @@ public class Mode {
             new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS), new Item(ItemId.BASTION_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.DRAGON_SCIMITAR), new Item(ItemId.INFERNAL_CAPE),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.BOOK_OF_WAR),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
@@ -376,9 +376,9 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ZAMORAK_CHAPS), new Item(ItemId.DRAGON_CLAWS),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.DRAGON_SCIMITAR),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
-            new Item(ItemId.BOOK_OF_WAR), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.BOOK_OF_WAR), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANTI_VENOM_PLUS_4),
             new Item(ItemId.RUNE_POUCH)
@@ -394,9 +394,9 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ZAMORAK_CHAPS), new Item(ItemId.ARMADYL_GODSWORD),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.DRAGON_SCIMITAR),
             new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
-            new Item(ItemId.BOOK_OF_WAR), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.BOOK_OF_WAR), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANTI_VENOM_PLUS_4),
             new Item(ItemId.RUNE_POUCH)
@@ -417,15 +417,16 @@ public class Mode {
             null, new Item(ItemId.DHAROKS_PLATELEGS), null, new Item(ItemId.FEROCIOUS_GLOVES),
             new Item(ItemId.PRIMORDIAL_BOOTS), null, new Item(ItemId.BERSERKER_RING_I), null
         }, new Item[] {
-            new Item(ItemId.DHAROKS_GREATAXE), new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
-            new Item(ItemId.SARADOMIN_BREW_4), null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.DHAROKS_GREATAXE), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.SUPER_COMBAT_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), null,
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("Load-out #2", new Item[] {
             new Item(ItemId.DHAROKS_HELM), new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.AMULET_OF_TORTURE),
@@ -434,7 +435,7 @@ public class Mode {
             new Item(ItemId.PRIMORDIAL_BOOTS), null, new Item(ItemId.BERSERKER_RING_I), null
         }, new Item[] {
             new Item(ItemId.DHAROKS_GREATAXE), new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
-            new Item(ItemId.SARADOMIN_BREW_4), null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
+            new Item(ItemId.SARADOMIN_BREW_4), null, new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
@@ -467,7 +468,7 @@ public class Mode {
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
         }, -1));
@@ -497,7 +498,7 @@ public class Mode {
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("Load-out #2", new Item[] {
@@ -514,7 +515,7 @@ public class Mode {
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("+ Dragon Dagger (P++)", new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS)));
@@ -543,7 +544,7 @@ public class Mode {
             null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -571,7 +572,7 @@ public class Mode {
             null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -599,7 +600,7 @@ public class Mode {
             null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -616,7 +617,7 @@ public class Mode {
             null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -645,7 +646,7 @@ public class Mode {
             new Item(ItemId.SUPER_COMBAT_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
@@ -662,7 +663,7 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
@@ -679,7 +680,7 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
@@ -696,7 +697,7 @@ public class Mode {
             new Item(ItemId.DARK_BOW), new Item(ItemId.ANGLERFISH), new Item(ItemId.BASTION_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -712,7 +713,7 @@ public class Mode {
         }, new Item[] {
             new Item(ItemId.DARK_BOW), new Item(ItemId.DRAGON_ARROW_P_PLUS_PLUS, 8000),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -729,7 +730,7 @@ public class Mode {
         }, new Item[] {
             new Item(ItemId.DARK_BOW), new Item(ItemId.DRAGON_ARROW_P_PLUS_PLUS, 8000),
             new Item(ItemId.BASTION_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -747,7 +748,7 @@ public class Mode {
             new Item(ItemId.SARADOMIN_SWORD), new Item(ItemId.ANGLERFISH), new Item(ItemId.BATTLEMAGE_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -774,7 +775,7 @@ public class Mode {
             new Item(ItemId.DRAGON_CLAWS), new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
@@ -793,11 +794,11 @@ public class Mode {
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH)
+            new Item(ItemId.COOKED_KARAMBWAN)
         }, -1));
         mode.loadout(new Loadout.Entry("Melee Load-out #3", new Item[] {
             new Item(ItemId.BEARHEAD), new Item(ItemId.INFERNAL_CAPE), new Item(ItemId.AMULET_OF_TORTURE),
@@ -808,10 +809,10 @@ public class Mode {
             new Item(ItemId.DRAGON_CLAWS), new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH)
@@ -827,11 +828,11 @@ public class Mode {
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH)
+            new Item(ItemId.COOKED_KARAMBWAN)
         }, -1));
         mode.loadout(new Loadout.Entry("Ranged Load-out #1", new Item[] {
             new Item(ItemId.ROBIN_HOOD_HAT), new Item(ItemId.AVAS_ASSEMBLER), new Item(ItemId.NECKLACE_OF_ANGUISH),
@@ -845,11 +846,11 @@ public class Mode {
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH)
+            new Item(ItemId.COOKED_KARAMBWAN)
         }, -1));
         mode.loadout(new Loadout.Entry("Ranged Load-out #2", new Item[] {
             new Item(ItemId.ROBIN_HOOD_HAT), new Item(ItemId.AVAS_ASSEMBLER), new Item(ItemId.NECKLACE_OF_ANGUISH),
@@ -861,11 +862,11 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH)
         }, -1));
         mode.loadout(new Loadout.Entry("Ranged Load-out #3", new Item[] {
@@ -880,10 +881,10 @@ public class Mode {
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH)
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN)
         }, -1));
         mode.loadout(new Loadout.Entry("Magic Load-out", new Item[] {
             new Item(ItemId.ELDER_CHAOS_HOOD), new Item(ItemId.IMBUED_ZAMORAK_CAPE), new Item(ItemId.OCCULT_NECKLACE),
@@ -895,11 +896,11 @@ public class Mode {
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("+ Dragon Thrownaxe", new Item(ItemId.DRAGON_THROWNAXE, 8000)));
@@ -908,10 +909,27 @@ public class Mode {
 
         mode = Mode.builder().name("F2P Pure").spellbook(Magic.LUNAR_MAGIC).brewCap(0);
         mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.IGNORE_FREEZING, RuleOption.ALLOWED));
-        mode.attackLevel(40).strengthLevel(65).rangedLevel(70).magicLevel(69).defenceLevel(1).hitpointsLevel(65)
-                .prayerLevel(31);
+        mode.attackLevel(40).strengthLevel(80).rangedLevel(80).magicLevel(69).defenceLevel(1).hitpointsLevel(80)
+                .prayerLevel(59);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
-        mode.loadout(new Loadout.Entry("Load-out", new Item[] {
+        mode.loadout(new Loadout.Entry("Load-out #1", new Item[] {
+            new Item(ItemId.GREEN_HALLOWEEN_MASK), new Item(ItemId.BLACK_CAPE), new Item(ItemId.STRENGTH_AMULET_T),
+            new Item(ItemId.RUNE_SCIMITAR), new Item(ItemId.MONKS_ROBE_TOP), null, null,
+            new Item(ItemId.GREEN_DHIDE_CHAPS_G), null, new Item(ItemId.LEATHER_GLOVES), new Item(ItemId.LEATHER_BOOTS),
+            null, null, new Item(ItemId.ADAMANT_ARROW, 8000)
+        }, new Item[] {
+            new Item(ItemId.SWORDFISH), new Item(ItemId.RUNE_2H_SWORD), new Item(ItemId.STRENGTH_POTION_4),
+            new Item(ItemId.PRAYER_POTION_4), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.ANCHOVY_PIZZA),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH)
+        }, -1));
+        mode.loadout(new Loadout.Entry("Load-out #2", new Item[] {
             new Item(ItemId.GREEN_HALLOWEEN_MASK), new Item(ItemId.BLACK_CAPE), new Item(ItemId.STRENGTH_AMULET_T),
             new Item(ItemId.MAPLE_SHORTBOW), new Item(ItemId.MONKS_ROBE_TOP), null, null,
             new Item(ItemId.GREEN_DHIDE_CHAPS_G), null, new Item(ItemId.LEATHER_GLOVES), new Item(ItemId.LEATHER_BOOTS),
@@ -945,15 +963,15 @@ public class Mode {
             null, new Item(ItemId.VOID_KNIGHT_ROBE), null, new Item(ItemId.VOID_KNIGHT_GLOVES),
             new Item(ItemId.SNAKESKIN_BOOTS), null, new Item(ItemId.ARCHERS_RING_I), null
         }, new Item[] {
-            null, null, new Item(ItemId.RANGING_POTION_4), new Item(ItemId.SARADOMIN_BREW_4),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4),
-            new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.RANGING_POTION_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.SARADOMIN_BREW_4),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.RUNE_POUCH)
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
+            new Item(ItemId.ANGLERFISH), null, null, new Item(ItemId.RUNE_POUCH)
         }, -1));
         mode.loadout(new Loadout.Entry("+ Heavy Ballista", new Item(ItemId.HEAVY_BALLISTA),
                 new Item(ItemId.DRAGON_JAVELIN_P_PLUS_PLUS, 8000)));
@@ -961,7 +979,7 @@ public class Mode {
                 new Item(ItemId.DRAGON_ARROW_P_PLUS_PLUS, 8000)));
         mode.loadout(new Loadout.Entry("+ Armadyl Crossbow", new Item(ItemId.ARMADYL_CROSSBOW),
                 new Item(ItemId.DRAGONSTONE_DRAGON_BOLTS_E, 8000)));
-        mode.loadout(new Loadout.Entry("+ Dragon Throwing axe", new Item(ItemId.DRAGON_AXE, 8000)));
+        mode.loadout(new Loadout.Entry("+ Dragon Thrownaxe", new Item(ItemId.DRAGON_THROWNAXE, 8000)));
         modes.add(mode.build());
 
         mode = Mode.builder().name("No Arm Main Melee").spellbook(Magic.LUNAR_MAGIC).brewCap(3);
@@ -979,7 +997,7 @@ public class Mode {
             null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -996,7 +1014,7 @@ public class Mode {
             null, new Item(ItemId.ANGLERFISH), new Item(ItemId.SUPER_COMBAT_POTION_4),
             new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.SARADOMIN_BREW_4), new Item(ItemId.ANGLERFISH),
-            new Item(ItemId.ANGLERFISH), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
+            new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.SANFEW_SERUM_4), new Item(ItemId.COOKED_KARAMBWAN),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.ANGLERFISH), new Item(ItemId.COOKED_KARAMBWAN), new Item(ItemId.ANGLERFISH),
@@ -1004,7 +1022,7 @@ public class Mode {
             new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH), new Item(ItemId.ANGLERFISH),
             new Item(ItemId.RUNE_POUCH)
         }, -1));
-        mode.loadout(new Loadout.Entry("+ Dragon Claws", new Item(ItemId.DRAGON_CLAWS)));
+        mode.loadout(new Loadout.Entry("+ Dragon Dagger (P++)", new Item(ItemId.DRAGON_DAGGER_P_PLUS_PLUS)));
         mode.loadout(new Loadout.Entry("+ Armadyl Godsword", new Item(ItemId.ARMADYL_GODSWORD)));
         mode.loadout(new Loadout.Entry("+ Elder Maul", new Item(ItemId.ELDER_MAUL)));
         mode.loadout(new Loadout.Entry("+ Granite Maul", new Item(ItemId.GRANITE_MAUL)));
@@ -1012,17 +1030,34 @@ public class Mode {
 
         mode = Mode.builder().name("F2P No Arm Main").spellbook(Magic.LUNAR_MAGIC).brewCap(0);
         mode.rules(buildRules(Rule.PRAYER, RuleOption.NO_OVERHEADS, Rule.IGNORE_FREEZING, RuleOption.ALLOWED));
-        mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(99).hitpointsLevel(99)
-                .prayerLevel(52);
+        mode.attackLevel(99).strengthLevel(99).rangedLevel(99).magicLevel(99).defenceLevel(80).hitpointsLevel(99)
+                .prayerLevel(59);
         mode.rune(ItemId.DEATH_RUNE).rune(ItemId.BLOOD_RUNE).rune(ItemId.WATER_RUNE);
-        mode.loadout(new Loadout.Entry("Load-out", new Item[] {
+        mode.loadout(new Loadout.Entry("Load-out #1", new Item[] {
             new Item(ItemId.RED_HALLOWEEN_MASK), new Item(ItemId.BLACK_CAPE), new Item(ItemId.STRENGTH_AMULET_T),
             new Item(ItemId.MAPLE_SHORTBOW), new Item(ItemId.MONKS_ROBE_TOP), null, null, new Item(ItemId.MONKS_ROBE),
             null, new Item(ItemId.LEATHER_GLOVES), new Item(ItemId.LEATHER_BOOTS), null, null,
             new Item(ItemId.ADAMANT_ARROW, 8000)
         }, new Item[] {
             new Item(ItemId.SWORDFISH), new Item(ItemId.RUNE_2H_SWORD), new Item(ItemId.STRENGTH_POTION_4),
+            new Item(ItemId.PRAYER_POTION_4), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.ANCHOVY_PIZZA),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH)
+        }, -1));
+        mode.loadout(new Loadout.Entry("Load-out #2", new Item[] {
+            new Item(ItemId.RED_HALLOWEEN_MASK), new Item(ItemId.BLACK_CAPE), new Item(ItemId.STRENGTH_AMULET_T),
+            new Item(ItemId.RUNE_SCIMITAR), new Item(ItemId.MONKS_ROBE_TOP), null, null, new Item(ItemId.MONKS_ROBE),
+            null, new Item(ItemId.LEATHER_GLOVES), new Item(ItemId.LEATHER_BOOTS), null, null,
+            new Item(ItemId.ADAMANT_ARROW, 8000)
+        }, new Item[] {
+            new Item(ItemId.SWORDFISH), new Item(ItemId.RUNE_2H_SWORD), new Item(ItemId.STRENGTH_POTION_4),
+            new Item(ItemId.PRAYER_POTION_4), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.ANCHOVY_PIZZA),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
@@ -1033,6 +1068,7 @@ public class Mode {
             new Item(ItemId.SWORDFISH)
         }, -1));
         mode.loadout(new Loadout.Entry("+ Rune Scimitar", new Item(ItemId.RUNE_SCIMITAR)));
+        mode.loadout(new Loadout.Entry("+ Rune Sword", new Item(ItemId.RUNE_SWORD)));
         mode.loadout(new Loadout.Entry("+ Rune Battleaxe", new Item(ItemId.RUNE_BATTLEAXE)));
         mode.loadout(new Loadout.Entry("+ Rune Longsword", new Item(ItemId.RUNE_LONGSWORD)));
         modes.add(mode.build());
