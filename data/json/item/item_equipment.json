@@ -39229,6 +39229,7 @@
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
     "attackSpeed": "4",
+    "stanceAnimations": [ "809", "823", "819", "820", "821", "822", "824" ],
     "levels": "Attack=75",
     "bonuses": {
       "ATTACK_STAB": "55",
@@ -39244,6 +39245,7 @@
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
     "attackSpeed": "4",
+    "stanceAnimations": [ "809", "823", "819", "820", "821", "822", "824" ],
     "levels": "Attack=75"
   },
   {

@@ -14,7 +14,6 @@
     { "id": "ItemId.DUST_RUNE" },
     { "id": "ItemId.SMOKE_RUNE" },
     { "id": "ItemId.MUD_RUNE" },
-    { "id": "ItemId.LAVA_RUNE" },
-    { "id": "ItemId.WRATH_RUNE" }
+    { "id": "ItemId.LAVA_RUNE" }
   ]
 }

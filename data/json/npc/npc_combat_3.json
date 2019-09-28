@@ -4926,7 +4926,7 @@
         ]
       },
       {
-        "chance": 0.098,
+        "chance": 0.048,
         "lootBroadcast": true,
         "logLoot": true,
         "items": [
@@ -5068,7 +5068,7 @@
         ]
       },
       {
-        "chance": 0.098,
+        "chance": 0.048,
         "lootBroadcast": true,
         "logLoot": true,
         "items": [
@@ -6917,7 +6917,7 @@
         ]
       },
       {
-        "chance": 0.098,
+        "chance": 0.048,
         "lootBroadcast": true,
         "logLoot": true,
         "items": [
@@ -7067,7 +7067,7 @@
         ]
       },
       {
-        "chance": 0.098,
+        "chance": 0.048,
         "lootBroadcast": true,
         "logLoot": true,
         "items": [

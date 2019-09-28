@@ -9,11 +9,14 @@ import script.world.pvptournament.prize.DefaultPrize;
 import script.world.pvptournament.prize.OsrsPrize;
 import script.world.pvptournament.state.IdleState;
 
-public class AdminDialogue extends SelectionDialogue {
-    public AdminDialogue(Player player) {
+public class AdminCofferDialogue extends SelectionDialogue {
+    public AdminCofferDialogue(Player player) {
         var tournament = player.getWorld().getWorldEvent(PvpTournament.class);
         addOption("View prizes", (childId, slot) -> {
             tournament.viewPrizes(player);
+        });
+        addOption("View shop", (childId, slot) -> {
+            player.openShop("pvp_tournament");
         });
         addOption("Select mode", (childId, slot) -> {
             new ChooseModeDialogue(player);

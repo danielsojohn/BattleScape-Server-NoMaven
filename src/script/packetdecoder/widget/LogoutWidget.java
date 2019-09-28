@@ -5,6 +5,7 @@ import com.palidino.osrs.io.Widget;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetChild;
 import com.palidino.osrs.io.cache.WidgetId;
+import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.world.JavaCord;
 import com.palidino.setting.DiscordChannel;
@@ -37,7 +38,7 @@ public class LogoutWidget implements Widget {
                     player.getCombat().getTzHaar().pause();
                     return;
                 }
-                if (player.isNewAccount() || Time.milliToHour(player.getCreationTime()) < 2) {
+                if (player.isNewAccount()) {
                     player.getGameEncoder().sendEnterString("Will you return? If not, why?",
                             new ValueEnteredEvent.StringEvent() {
                                 @Override
@@ -48,6 +49,8 @@ public class LogoutWidget implements Widget {
                                     player.setVisible(false);
                                 }
                             });
+                } else if (Time.milliToHour(player.getCreationTime()) < 2) {
+                    new FeedbackDialogue(player);
                 } else {
                     player.getGameEncoder().sendLogout();
                     player.setVisible(false);
@@ -95,6 +98,27 @@ public class LogoutWidget implements Widget {
                 player.setVisible(false);
                 break;
             }
+        }
+    }
+
+    public class FeedbackDialogue extends SelectionDialogue {
+        public FeedbackDialogue(Player player) {
+            addOption("Leave feedback and logout.", (childId, slot) -> {
+                player.getGameEncoder().sendEnterString("Feedback:", new ValueEnteredEvent.StringEvent() {
+                    @Override
+                    public void execute(String value) {
+                        JavaCord.sendMessage(DiscordChannel.FEEDBACK,
+                                "[" + player.getId() + "] " + player.getUsername() + ": " + value);
+                        player.getGameEncoder().sendLogout();
+                        player.setVisible(false);
+                    }
+                });
+            });
+            addOption("Logout.", (childId, slot) -> {
+                player.getGameEncoder().sendLogout();
+                player.setVisible(false);
+            });
+            open(player);
         }
     }
 }

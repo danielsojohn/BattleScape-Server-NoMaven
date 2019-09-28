@@ -15,6 +15,7 @@ import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.controller.ClanWarsPC;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.osrs.world.WorldEventHooks;
+import com.palidino.setting.SqlUserRank;
 import com.palidino.util.Time;
 import com.palidino.util.Utils;
 import com.palidino.util.event.Event;
@@ -23,7 +24,8 @@ import lombok.Setter;
 import lombok.var;
 import script.player.plugin.clanwars.ClanWarsPlugin;
 import script.player.plugin.clanwars.state.PlayerState;
-import script.world.pvptournament.dialogue.AdminDialogue;
+import script.world.pvptournament.dialogue.AdminCofferDialogue;
+import script.world.pvptournament.dialogue.CofferDialogue;
 import script.world.pvptournament.dialogue.DonateItemDialogue;
 import script.world.pvptournament.prize.DefaultPrize;
 import script.world.pvptournament.prize.Prize;
@@ -103,9 +105,9 @@ public class PvpTournament extends Event implements WorldEventHooks {
         switch (mapObject.getId()) {
         case 29087: // Coffer
             if (player.getRights() == Player.RIGHTS_ADMIN || player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER)) {
-                new AdminDialogue(player);
+                new AdminCofferDialogue(player);
             } else {
-                viewPrizes(player);
+                new CofferDialogue(player);
             }
             return true;
         case 26081: // Gate
