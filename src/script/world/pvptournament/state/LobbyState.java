@@ -5,7 +5,6 @@ import com.palidino.util.Time;
 import com.palidino.util.Utils;
 import lombok.var;
 import script.player.plugin.clanwars.ClanWarsPlugin;
-import script.player.plugin.clanwars.rule.Rule;
 import script.world.pvptournament.Mode;
 import script.world.pvptournament.PvpTournament;
 import script.world.pvptournament.prize.DefaultPrize;
@@ -31,9 +30,6 @@ public class LobbyState implements State {
                 tournament.getRecentModes().remove(0);
             }
         }
-        var rules = new int[Rule.TOTAL];
-        System.arraycopy(selectedMode.getRules(), 0, rules, 0, Rule.TOTAL);
-        tournament.setRules(rules);
         tournament.getPlayers().clear();
     }
 

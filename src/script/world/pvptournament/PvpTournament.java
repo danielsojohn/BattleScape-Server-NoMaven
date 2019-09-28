@@ -59,8 +59,6 @@ public class PvpTournament extends Event implements WorldEventHooks {
     @Getter
     @Setter
     private transient Prize prize = new DefaultPrize(false);
-    @Setter
-    private transient int[] rules;
     @Getter
     private transient List<Player> players = new ArrayList<>();
     @Getter
@@ -140,7 +138,9 @@ public class PvpTournament extends Event implements WorldEventHooks {
             player.getGameEncoder().sendMessage("A player with your IP has already joined the tournament.");
             return;
         }
-        player.getPlugin(ClanWarsPlugin.class).setState(PlayerState.TOURNAMENT);
+        var plugin = player.getPlugin(ClanWarsPlugin.class);
+        plugin.setState(PlayerState.TOURNAMENT);
+        plugin.setRules(mode.getRules());
         player.setController(new ClanWarsPC());
         player.restore();
         player.getCombat().setSpecialAttackAmount(PCombat.MAX_SPECIAL_ATTACK);
@@ -159,6 +159,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
     }
 
     public void checkPrizes(Player player, boolean isWinner) {
+        var isCustom = !(prize instanceof DefaultPrize);
         var plugin = player.getPlugin(ClanWarsPlugin.class);
         if (isWinner) {
             plugin.incrimentTournamentWins();
@@ -172,7 +173,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
         }
         var position = players.size();
         var points = getPoints(position);
-        if (points > 0) {
+        if (points > 0 && !isCustom) {
             plugin.setPoints(Utils.addInt(plugin.getPoints(), points));
         }
         var prizes = prize.getItems(position);
