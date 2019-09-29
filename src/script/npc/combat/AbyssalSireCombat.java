@@ -2,7 +2,6 @@ package script.npc.combat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 import com.palidino.osrs.Main;
 import com.palidino.osrs.io.cache.ItemId;
@@ -311,7 +310,7 @@ public class AbyssalSireCombat extends NpcCombat {
         if (!(entity instanceof Player)) {
             return false;
         }
-        Player player = (Player) entity;
+        var player = (Player) entity;
         if (!Main.isSpawn() && !player.getSkills().isAnySlayerTask(npc) && !player.isUsergroup(SqlUserRank.YOUTUBER)) {
             if (sendMessage) {
                 player.getGameEncoder().sendMessage("This can only be attacked on an appropriate Slayer task.");
@@ -338,21 +337,21 @@ public class AbyssalSireCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return 0;
         }
-        Player p = (Player) opponent;
-        combatWith = p;
+        var player = (Player) opponent;
+        combatWith = player;
         if (phase == 0) {
             wakeUp();
         } else if (phase == 1) {
             if (disorientingDelay == 0 && npc.getId() != NpcId.ABYSSAL_SIRE_350 && !npc.isLocked()) {
-                if (hitType == HitType.MAGIC && p.getMagic().getActiveSpell() != null
-                        && p.getMagic().getActiveSpell().getName().contains("shadow")) {
-                    if (p.getMagic().getActiveSpell().getName().contains("rush")) {
+                if (hitType == HitType.MAGIC && player.getMagic().getActiveSpell() != null
+                        && player.getMagic().getActiveSpell().getName().contains("shadow")) {
+                    if (player.getMagic().getActiveSpell().getName().contains("rush")) {
                         disorientingState += 25;
-                    } else if (p.getMagic().getActiveSpell().getName().contains("burst")) {
+                    } else if (player.getMagic().getActiveSpell().getName().contains("burst")) {
                         disorientingState += 50;
-                    } else if (p.getMagic().getActiveSpell().getName().contains("blitz")) {
+                    } else if (player.getMagic().getActiveSpell().getName().contains("blitz")) {
                         disorientingState += 75;
-                    } else if (p.getMagic().getActiveSpell().getName().contains("barrage")) {
+                    } else if (player.getMagic().getActiveSpell().getName().contains("barrage")) {
                         disorientingState += 100;
                     }
                 } else {
@@ -378,8 +377,8 @@ public class AbyssalSireCombat extends NpcCombat {
             npc.getWorld().removeNpcs(respiratorySystems);
             npc.getWorld().removeNpcs(vents);
         }
-        for (int i = 0; i < respiratorySystems.length; i++) {
-            Tile tile = RESPIRATORY_SYSTEMS[getRegionIndex()][i];
+        for (var i = 0; i < respiratorySystems.length; i++) {
+            var tile = RESPIRATORY_SYSTEMS[getRegionIndex()][i];
             respiratorySystems[i] = new Npc(npc.getController(), NpcId.RESPIRATORY_SYSTEM, tile);
             respiratorySystems[i].setRespawns(npc.getRespawns());
             respiratorySystems[i].getCombat2().script("abyssal_sire", npc);
@@ -391,8 +390,8 @@ public class AbyssalSireCombat extends NpcCombat {
         } else {
             npc.getWorld().removeNpcs(tentacles);
         }
-        for (int i = 0; i < tentacles.length; i++) {
-            int id = -1;
+        for (var i = 0; i < tentacles.length; i++) {
+            var id = -1;
             if (i == 0 || i == 1) {
                 id = NpcId.TENTACLE_5910;
             } else if (i == 2 || i == 3) {
@@ -400,14 +399,14 @@ public class AbyssalSireCombat extends NpcCombat {
             } else if (i == 4 || i == 5) {
                 id = NpcId.TENTACLE_5909;
             }
-            Tile tile2 = TENTACLES[getRegionIndex()][i];
+            var tile2 = TENTACLES[getRegionIndex()][i];
             tentacles[i] = new Npc(npc.getController(), id, tile2);
             tentacles[i].setRespawns(npc.getRespawns());
         }
-        for (Npc spawnedNpc : respiratorySystems) {
+        for (var spawnedNpc : respiratorySystems) {
             spawnedNpc.getMovement().setImmobile(true);
         }
-        for (Npc spawnedNpc : tentacles) {
+        for (var spawnedNpc : tentacles) {
             spawnedNpc.getMovement().setImmobile(true);
         }
         removeSpawns();
@@ -439,14 +438,14 @@ public class AbyssalSireCombat extends NpcCombat {
             if (npc.isLocked() || !npc.getDef().hasAttack()) {
                 npc.setFaceEntity(null);
             }
-            for (Npc spawnedNpc : tentacles) {
+            for (var spawnedNpc : tentacles) {
                 spawnedNpc.setAttacking(true);
                 spawnedNpc.setEngagingEntity(combatWith);
                 if (spawnedNpc.isLocked() || !spawnedNpc.getDef().hasAttack()) {
                     spawnedNpc.setFaceEntity(null);
                 }
             }
-            for (Npc spawnedNpc : spawns) {
+            for (var spawnedNpc : spawns) {
                 spawnedNpc.setAttacking(true);
                 spawnedNpc.setEngagingEntity(combatWith);
                 if (spawnedNpc.isLocked() || !spawnedNpc.getDef().hasAttack()) {
@@ -467,7 +466,7 @@ public class AbyssalSireCombat extends NpcCombat {
     }
 
     public void lockTentacles(int lock) {
-        for (Npc spawnedNpc : tentacles) {
+        for (var spawnedNpc : tentacles) {
             if (spawnedNpc.getId() != NpcId.TENTACLE_5913) {
                 spawnedNpc.setTransformationId(NpcId.TENTACLE_5913);
                 spawnedNpc.setAnimation(7112);
@@ -478,7 +477,7 @@ public class AbyssalSireCombat extends NpcCombat {
     }
 
     public void unlockTentacles() {
-        for (Npc spawnedNpc : tentacles) {
+        for (var spawnedNpc : tentacles) {
             if (spawnedNpc.getId() != NpcId.TENTACLE_5912) {
                 spawnedNpc.setTransformationId(NpcId.TENTACLE_5912);
                 spawnedNpc.setAnimation(7114);
@@ -498,10 +497,10 @@ public class AbyssalSireCombat extends NpcCombat {
             fumeDelay--;
             if (fumeTile != null && fumeDelay < 4 && combatWith != null && !combatWith.isLocked()) {
                 if (fumeTile.withinDistance(combatWith, 0)) {
-                    HitEvent hitEvent = new HitEvent(0, combatWith, new Hit(28, HitMark.POISON));
+                    var hitEvent = new HitEvent(0, combatWith, new Hit(28, HitMark.POISON));
                     combatWith.addHit(hitEvent);
                 } else if (fumeTile.withinDistance(combatWith, 1)) {
-                    HitEvent hitEvent2 = new HitEvent(0, combatWith, new Hit(14, HitMark.POISON));
+                    var hitEvent2 = new HitEvent(0, combatWith, new Hit(14, HitMark.POISON));
                     combatWith.addHit(hitEvent2);
                 }
             }
@@ -517,7 +516,7 @@ public class AbyssalSireCombat extends NpcCombat {
         if (spawns.isEmpty()) {
             return;
         }
-        Iterator<Npc> iterator = spawns.iterator();
+        var iterator = spawns.iterator();
         while (iterator.hasNext()) {
             if (iterator.next().isDead()) {
                 iterator.remove();
@@ -529,16 +528,16 @@ public class AbyssalSireCombat extends NpcCombat {
         if (npc.isDead() || !npc.isVisible()) {
             return;
         }
-        Npc spawnedNpc = new Npc(npc.getController(), NpcId.SPAWN_60, x, y, npc.getHeight());
+        var spawnedNpc = new Npc(npc.getController(), NpcId.SPAWN_60, x, y, npc.getHeight());
         spawnedNpc.setRespawns(npc.getRespawns());
         spawnedNpc.getCombat2().script("abyssal_sire", npc);
         spawns.add(spawnedNpc);
     }
 
     public void phase1Tick() {
-        boolean areDead = true;
+        var areDead = true;
         for (int i = 0; i < respiratorySystems.length; ++i) {
-            Npc spawnedNpc = respiratorySystems[i];
+            var spawnedNpc = respiratorySystems[i];
             if (spawnedNpc.isVisible()) {
                 areDead = false;
                 if (spawnedNpc.isDead()) {
@@ -576,7 +575,7 @@ public class AbyssalSireCombat extends NpcCombat {
         npc.setAnimation(4528);
         npc.setLock(8);
         unlockTentacles();
-        for (Npc vent : vents) {
+        for (var vent : vents) {
             vent.setAnimation(-1);
         }
     }
@@ -645,7 +644,7 @@ public class AbyssalSireCombat extends NpcCombat {
         if (status == 0 && countdown == 0) {
             status = 1;
             if (combatWith != null && npc.withinDistance(combatWith, 1)) {
-                HitEvent hitEvent = new HitEvent(0, combatWith, new Hit(Utils.randomI(72)));
+                var hitEvent = new HitEvent(0, combatWith, new Hit(Utils.randomI(72)));
                 combatWith.addHit(hitEvent);
             }
             summonSpawn(npc.getX(), npc.getY());

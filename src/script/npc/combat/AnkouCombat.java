@@ -2,41 +2,31 @@ package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatType;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import lombok.var;
 
-public class Ankou95Combat extends NpcCombat {
+public class AnkouCombat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
-        var dropTable = NpcCombatDropTable.builder().chance(0.2);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_HARD)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.3).order(NpcCombatDropTable.Order.RANDOM_UNIQUE);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DARK_TOTEM_BASE)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DARK_TOTEM_MIDDLE)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DARK_TOTEM_TOP)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.5);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ANCIENT_SHARD)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
+        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
+                .clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_512);
+        var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.AVANTOE_SEED)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DWARF_WEED_SEED)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.JANGERBERRY_SEED)));
@@ -83,11 +73,9 @@ public class Ankou95Combat extends NpcCombat {
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.FRIED_MUSHROOMS)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.BASS)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MITHRIL_ORE_NOTED, 3, 7)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.LEFT_SKULL_HALF)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_COMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DEATH_RUNE, 10)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DARK_FISHING_BAIT, 40, 120)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.COINS, 6, 203)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_ALWAYS);
@@ -95,22 +83,70 @@ public class Ankou95Combat extends NpcCombat {
         drop.table(dropTable.build());
 
 
-        var combat = NpcCombatDefinition.builder();
-        combat.id(NpcId.ANKOU_95);
-        combat.hitpoints(NpcCombatHitpoints.total(60));
-        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(60).build());
-        combat.aggression(NpcCombatAggression.PLAYERS);
-        combat.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(424);
-        combat.drop(drop.build());
+        var combat75 = NpcCombatDefinition.builder();
+        combat75.id(NpcId.ANKOU_75);
+        combat75.hitpoints(NpcCombatHitpoints.total(60));
+        combat75.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(60).build());
+        combat75.aggression(NpcCombatAggression.PLAYERS);
+        combat75.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(424);
+        combat75.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(422).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
-        combat.style(style.build());
+        combat75.style(style.build());
 
 
-        return Arrays.asList(combat.build());
+        var combat86 = NpcCombatDefinition.builder();
+        combat86.id(NpcId.ANKOU_86);
+        combat86.hitpoints(NpcCombatHitpoints.total(70));
+        combat86.stats(NpcCombatStats.builder().attackLevel(75).defenceLevel(80).build());
+        combat86.aggression(NpcCombatAggression.PLAYERS);
+        combat86.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(424);
+        combat86.drop(drop.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.damage(NpcCombatDamage.maximum(8));
+        style.animation(422).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        combat86.style(style.build());
+
+
+        var combat95 = NpcCombatDefinition.builder();
+        combat95.id(NpcId.ANKOU_95);
+        combat95.hitpoints(NpcCombatHitpoints.total(60));
+        combat95.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(60).build());
+        combat95.aggression(NpcCombatAggression.PLAYERS);
+        combat95.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(424);
+        combat95.drop(drop.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.damage(NpcCombatDamage.maximum(8));
+        style.animation(422).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        combat95.style(style.build());
+
+
+        var combat98 = NpcCombatDefinition.builder();
+        combat98.id(NpcId.ANKOU_98);
+        combat98.hitpoints(NpcCombatHitpoints.total(100));
+        combat98.stats(NpcCombatStats.builder().attackLevel(75).defenceLevel(80).build());
+        combat98.aggression(NpcCombatAggression.PLAYERS);
+        combat98.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(424);
+        combat98.drop(drop.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.damage(NpcCombatDamage.maximum(10));
+        style.animation(422).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        combat98.style(style.build());
+
+
+        return Arrays.asList(combat75.build(), combat86.build(), combat95.build(), combat98.build());
     }
 }

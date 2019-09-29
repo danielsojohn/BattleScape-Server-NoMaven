@@ -95,8 +95,12 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
+    public void spawnHook() {
         npc = getNpc();
+    }
+
+    @Override
+    public void restoreHook() {
         transformTimer = 0;
     }
 
@@ -126,16 +130,15 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return false;
         }
-        Player player = (Player) opponent;
-        Player player2 =
-                abyssalSire != null ? (Player) abyssalSire.getCombat2().script("combat_with") : null;
+        var player = (Player) opponent;
+        var player2 = abyssalSire != null ? (Player) abyssalSire.getCombat2().script("combat_with") : null;
         if (player2 != null && player != player2) {
             if (sendMessage) {
                 player.getGameEncoder().sendMessage(npc.getDef().getName() + " is busy with someone else.");
             }
             return false;
         }
-        int phase = abyssalSire != null ? (int) abyssalSire.getCombat2().script("phase") : 0;
+        var phase = abyssalSire != null ? (int) abyssalSire.getCombat2().script("phase") : 0;
         if (phase == 0) {
             if (sendMessage) {
                 player.getGameEncoder().sendMessage("Nothing intereseting happens.");
@@ -147,8 +150,7 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
 
     @Override
     public double damageReceivedHook(Entity opponent, double damage, HitType hitType, HitType defenceType) {
-        int delay = (int) (abyssalSire != null ? abyssalSire.getCombat2().script("disorienting_delay")
-                : 0);
+        var delay = (int) (abyssalSire != null ? abyssalSire.getCombat2().script("disorienting_delay") : 0);
         if (npc.getId() == NpcId.RESPIRATORY_SYSTEM && delay == 0 && damage > 0) {
             damage = Utils.randomI(3);
         }

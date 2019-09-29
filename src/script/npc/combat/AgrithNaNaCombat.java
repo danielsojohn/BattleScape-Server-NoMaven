@@ -3,26 +3,28 @@ package script.npc.combat;
 import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import lombok.var;
 
-public class AgrithNaNa146Combat extends NpcCombat {
+public class AgrithNaNaCombat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.AGRITH_NA_NA_146);
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(83).magicLevel(100).rangedLevel(100).defenceLevel(82).bonus(CombatBonus.MELEE_ATTACK, 100).bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(83).magicLevel(100).rangedLevel(100).defenceLevel(82)
+                .bonus(CombatBonus.MELEE_ATTACK, 100).bonus(CombatBonus.MELEE_DEFENCE, 100)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(3503).blockAnimation(3500);
 

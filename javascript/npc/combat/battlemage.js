@@ -11,18 +11,25 @@ cs = new NCombatScript() {
         if (!(entity instanceof Player)) {
             return true;
         }
-        if (npc.getId() == 1610 && (entity.getEquipment().getWeaponId() == 2417
-                || entity.getEquipment().getCapeId() == 2414 || entity.getEquipment().getCapeId() == 13333
-                || entity.getEquipment().getCapeId() == 21795 || entity.getEquipment().getCapeId() == 21780)) {
+        if (npc.getId() == NpcId.BATTLE_MAGE_54 && (entity.getEquipment().getWeaponId() == ItemId.ZAMORAK_STAFF
+                || entity.getEquipment().getCapeId() == ItemId.ZAMORAK_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.ZAMORAK_MAX_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.IMBUED_ZAMORAK_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.IMBUED_ZAMORAK_MAX_CAPE)) {
             return false;
-        } else if (npc.getId() == 1611 && (entity.getEquipment().getWeaponId() == 2415
-                || entity.getEquipment().getCapeId() == 2412 || entity.getEquipment().getCapeId() == 13331
-                || entity.getEquipment().getCapeId() == 21791 || entity.getEquipment().getCapeId() == 21776)) {
+        } else if (npc.getId() == 1611 && (entity.getEquipment().getWeaponId() == ItemId.SARADOMIN_STAFF
+                || entity.getEquipment().getCapeId() == ItemId.SARADOMIN_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.SARADOMIN_MAX_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.IMBUED_SARADOMIN_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.IMBUED_SARADOMIN_MAX_CAPE)) {
             return false;
-        } else if (npc.getId() == 1612 && (entity.getEquipment().getWeaponId() == 2416
-                || entity.getEquipment().getCapeId() == 2413 || entity.getEquipment().getCapeId() == 13335
-                || entity.getEquipment().getCapeId() == 21793 || entity.getEquipment().getCapeId() == 21784)) {
+        } else if (npc.getId() == 1612 && (entity.getEquipment().getWeaponId() == ItemId.GUTHIX_STAFF
+                || entity.getEquipment().getCapeId() == ItemId.GUTHIX_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.GUTHIX_MAX_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.IMBUED_GUTHIX_CAPE
+                || entity.getEquipment().getCapeId() == ItemId.IMBUED_GUTHIX_MAX_CAPE)) {
             return false;
         }
+        return true;
     }
 };

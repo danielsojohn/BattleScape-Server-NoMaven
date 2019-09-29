@@ -2,25 +2,25 @@ package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import lombok.var;
 
-public class Basilisk61Combat extends NpcCombat {
+public class BasiliskCombat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
@@ -64,7 +64,8 @@ public class Basilisk61Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BASILISK_61);
         combat.hitpoints(NpcCombatHitpoints.total(75));
-        combat.stats(NpcCombatStats.builder().attackLevel(30).defenceLevel(75).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 20).bonus(CombatBonus.DEFENCE_MAGIC, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(30).defenceLevel(75).bonus(CombatBonus.DEFENCE_STAB, 20)
+                .bonus(CombatBonus.DEFENCE_SLASH, 20).bonus(CombatBonus.DEFENCE_MAGIC, 20).build());
         combat.slayer(NpcCombatSlayer.builder().level(40).build());
         combat.deathAnimation(1548).blockAnimation(1547);
         combat.drop(drop.build());

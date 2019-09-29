@@ -2,28 +2,36 @@ package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Entity;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.HitEvent;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.player.Player;
+import com.palidino.util.Utils;
 import lombok.var;
 
-public class AncientWyvern210Combat extends NpcCombat {
+public class AncientWyvernCombat extends NpcCombat {
+    private Npc npc;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
@@ -92,7 +100,9 @@ public class AncientWyvern210Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ANCIENT_WYVERN_210);
         combat.hitpoints(NpcCombatHitpoints.total(300));
-        combat.stats(NpcCombatStats.builder().attackLevel(150).magicLevel(90).rangedLevel(90).defenceLevel(220).bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 170).bonus(CombatBonus.DEFENCE_RANGED, 120).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(150).magicLevel(90).rangedLevel(90).defenceLevel(220)
+                .bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 170)
+                .bonus(CombatBonus.DEFENCE_RANGED, 120).build());
         combat.slayer(NpcCombatSlayer.builder().level(82).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Fossil Island wyvern").build());
@@ -116,5 +126,46 @@ public class AncientWyvern210Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
+        if (!(opponent instanceof Player) || combatStyle.getType().getType() != HitType.DRAGONFIRE
+                || Utils.randomE(5) != 0) {
+            return;
+        }
+        var player = (Player) opponent;
+        if (player.getController().canMagicBind()
+                && player.getEquipment().getShieldId() != ItemId.ANCIENT_WYVERN_SHIELD) {
+            player.getController().setMagicBind(8, npc);
+            if (player.getHitDelay() < 8) {
+                player.setHitDelay(8);
+            }
+            player.getGameEncoder().sendMessage("You've been frozen!");
+        }
+    }
+
+    @Override
+    public int dragonfireDamageHook(NpcCombatStyle combatStyle, Entity opponent, int damage) {
+        if (!(opponent instanceof Player)) {
+            return damage;
+        }
+        var player = (Player) opponent;
+        if (player.getEquipment().getShieldId() == ItemId.ELEMENTAL_SHIELD
+                || player.getEquipment().getShieldId() == ItemId.MIND_SHIELD
+                || player.getEquipment().getShieldId() == ItemId.DRAGONFIRE_SHIELD
+                || player.getEquipment().getShieldId() == ItemId.DRAGONFIRE_SHIELD_11284
+                || player.getEquipment().getShieldId() == ItemId.ANCIENT_WYVERN_SHIELD
+                || player.getEquipment().getShieldId() == ItemId.ANCIENT_WYVERN_SHIELD_21634
+                || player.getEquipment().getShieldId() == ItemId.DRAGONFIRE_WARD
+                || player.getEquipment().getShieldId() == ItemId.DRAGONFIRE_WARD_22003) {
+            damage *= 0.20;
+        }
+        return damage;
     }
 }

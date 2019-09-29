@@ -2,30 +2,34 @@ package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Entity;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.HitType;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.util.Utils;
 import lombok.var;
 
-public class AdamantDragon338Combat extends NpcCombat {
+public class AdamantDragonCombat extends NpcCombat {
+    private boolean boltEffect;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder();
@@ -79,10 +83,13 @@ public class AdamantDragon338Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ADAMANT_DRAGON_338);
         combat.hitpoints(NpcCombatHitpoints.total(295));
-        combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(186).rangedLevel(186).defenceLevel(272).bonus(CombatBonus.DEFENCE_STAB, 30).bonus(CombatBonus.DEFENCE_SLASH, 110).bonus(CombatBonus.DEFENCE_CRUSH, 85).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 95).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(186).rangedLevel(186).defenceLevel(272)
+                .bonus(CombatBonus.DEFENCE_STAB, 30).bonus(CombatBonus.DEFENCE_SLASH, 110)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 85).bonus(CombatBonus.DEFENCE_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 95).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.combatScript("adamantdragon").deathAnimation(92).blockAnimation(89);
+        combat.deathAnimation(92).blockAnimation(89);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
@@ -115,7 +122,8 @@ public class AdamantDragon338Combat extends NpcCombat {
         style.projectile(NpcCombatProjectile.builder().id(1486).speedMinimumDistance(8).build());
         style.effect(NpcCombatEffect.builder().poison(4).build());
         var targetTile = NpcCombatTargetTile.builder().radius(2);
-        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(2).distance(3).maximumDamage(14).afterTargettedTile(true).build());
+        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(2).distance(3).maximumDamage(14)
+                .afterTargettedTile(true).build());
         style.specialAttack(targetTile.build());
         combat.style(style.build());
 
@@ -128,5 +136,34 @@ public class AdamantDragon338Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void applyAttackStartHook(NpcCombatStyle combatStyle, Entity opponent, int count) {
+        boltEffect = combatStyle.getType().getType() == HitType.RANGED && Utils.randomE(20) == 0;
+    }
+
+    @Override
+    public double damageInflictedHook(NpcCombatStyle combatStyle, Entity opponent, double damage) {
+        if (boltEffect) {
+            damage *= 1.15;
+        }
+        return damage;
+    }
+
+    @Override
+    public Graphic applyAttackTargetGraphicHook(NpcCombatStyle combatStyle, Entity opponent) {
+        if (boltEffect) {
+            new Graphic(758);
+        }
+        return combatStyle.getTargetGraphic();
+    }
+
+    @Override
+    public double accuracyHook(NpcCombatStyle combatStyle, double accuracy) {
+        if (boltEffect) {
+            accuracy *= 1024;
+        }
+        return accuracy;
     }
 }

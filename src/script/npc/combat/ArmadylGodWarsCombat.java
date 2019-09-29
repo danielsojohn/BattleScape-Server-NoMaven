@@ -187,12 +187,13 @@ public class ArmadylGodWarsCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
+    public void spawnHook() {
         npc = getNpc();
     }
 
     @Override
-    public Item dropTableGetItem(Player player, int dropRateDivider, int roll, Item item, NpcCombatDropTable table) {
+    public Item dropTableGetItem(Player player, Tile tile, int dropRateDivider, int roll, Item item,
+            NpcCombatDropTable table) {
         if (npc.getController().inWilderness() && item.getId() == ItemId.ADAMANTITE_BAR) {
             item = new Item(item.getNotedId(), item);
         }
@@ -208,7 +209,7 @@ public class ArmadylGodWarsCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return true;
         }
-        Player player = (Player) opponent;
+        var player = (Player) opponent;
         if (player.getEquipment().hasItemIC("Armadyl") || player.getEquipment().getShieldId() == ItemId.BOOK_OF_LAW
                 || player.getEquipment().getAmmoId() == ItemId.HONOURABLE_BLESSING) {
             return false;

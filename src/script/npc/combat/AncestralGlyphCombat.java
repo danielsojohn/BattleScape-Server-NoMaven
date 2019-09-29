@@ -33,7 +33,7 @@ public class AncestralGlyphCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
+    public void spawnHook() {
         npc = getNpc();
         moveDelay = 2;
     }

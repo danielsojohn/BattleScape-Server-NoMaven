@@ -2,28 +2,50 @@ package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import lombok.var;
 
-public class Bandit130Combat extends NpcCombat {
+public class BanditCombat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder();
-        var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_128);
+        var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_ALWAYS);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.BONES)));
+        drop.table(dropTable.build());
+
+
+        var combat22 = NpcCombatDefinition.builder();
+        combat22.id(NpcId.BANDIT_22);
+        combat22.hitpoints(NpcCombatHitpoints.total(27));
+        combat22.aggression(NpcCombatAggression.PLAYERS);
+        combat22.deathAnimation(836).blockAnimation(404);
+        combat22.drop(drop.build());
+
+        var style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.damage(NpcCombatDamage.maximum(3));
+        style.animation(386).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        combat22.style(style.build());
+
+
+        drop = NpcCombatDrop.builder();
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_128);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_EASY)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
@@ -66,21 +88,21 @@ public class Bandit130Combat extends NpcCombat {
         drop.table(dropTable.build());
 
 
-        var combat = NpcCombatDefinition.builder();
-        combat.id(NpcId.BANDIT_130);
-        combat.hitpoints(NpcCombatHitpoints.total(125));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).defenceLevel(150).build());
-        combat.deathAnimation(836).blockAnimation(404);
-        combat.drop(drop.build());
+        var combat130 = NpcCombatDefinition.builder();
+        combat130.id(NpcId.BANDIT_130);
+        combat130.hitpoints(NpcCombatHitpoints.total(125));
+        combat130.stats(NpcCombatStats.builder().attackLevel(140).defenceLevel(150).build());
+        combat130.deathAnimation(836).blockAnimation(404);
+        combat130.drop(drop.build());
 
-        var style = NpcCombatStyle.builder();
+        style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(412).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
-        combat.style(style.build());
+        combat130.style(style.build());
 
 
-        return Arrays.asList(combat.build());
+        return Arrays.asList(combat22.build(), combat130.build());
     }
 }

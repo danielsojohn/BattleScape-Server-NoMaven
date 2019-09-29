@@ -2,28 +2,28 @@ package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatType;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import lombok.var;
 
-public class Banshee23Combat extends NpcCombat {
+public class BansheeCombat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
@@ -64,7 +64,8 @@ public class Banshee23Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BANSHEE_23);
         combat.hitpoints(NpcCombatHitpoints.total(22));
-        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(22).bonus(CombatBonus.MELEE_DEFENCE, 5).bonus(CombatBonus.DEFENCE_RANGED, 5).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(22).bonus(CombatBonus.MELEE_DEFENCE, 5)
+                .bonus(CombatBonus.DEFENCE_RANGED, 5).build());
         combat.slayer(NpcCombatSlayer.builder().level(15).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.type(NpcCombatType.UNDEAD).deathAnimation(1524).blockAnimation(1525);
