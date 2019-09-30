@@ -24669,7 +24669,8 @@
         "lootBroadcast": true,
         "logLoot": true,
         "items": [
-          [ { "id": "ItemId.NOON", "amount": 1 } ]
+          [ { "id": "ItemId.NOON", "amount": 1 } ],
+          [ { "id": "ItemId.MIDNIGHT", "amount": 1 } ]
         ]
       },
       {
