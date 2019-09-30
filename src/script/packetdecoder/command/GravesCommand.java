@@ -10,7 +10,8 @@ public class GravesCommand implements Command {
 
     @Override
     public boolean canUse(Player player) {
-        return !player.getController().inWilderness() && !player.getController().inPvPWorld();
+        return !player.getController().inWilderness() && !player.getController().inPvPWorld()
+                && player.getController().canTeleportHook(player, 0, false);
     }
 
     @Override
