@@ -22,6 +22,8 @@ public class StaffCommand implements Command {
             var rank = "";
             if (player.getRights() == Player.RIGHTS_ADMIN) {
                 rank = "Administrator";
+            } else if (staff.isUsergroup(SqlUserRank.COMMUNITY_MANAGER)) {
+                rank = "Community Manager";
             } else if (staff.isUsergroup(SqlUserRank.HEAD_MODERATOR)) {
                 rank = "Head Moderator";
             } else if (staff.isUsergroup(SqlUserRank.MODERATOR)) {

@@ -251,7 +251,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
         var isCustomizable =
                 state instanceof IdleState && (prize instanceof DefaultPrize || prize instanceof CustomPrize)
                         || state instanceof LobbyState && prize instanceof CustomPrize;
-        if (player.getRights() == 0) {
+        if (player.getRights() == 0 && !player.isUsergroup(SqlUserRank.COMMUNITY_MANAGER)) {
             player.getGameEncoder().sendMessage("This feature is currently limited to staff.");
             return false;
         }
