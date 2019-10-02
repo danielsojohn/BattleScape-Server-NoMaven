@@ -31,7 +31,7 @@ public class VerzikNylocasMatomenosCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
+    public void spawnHook() {
         npc = getNpc();
     }
 

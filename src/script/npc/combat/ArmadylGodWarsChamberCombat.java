@@ -259,17 +259,13 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
-        npc = getNpc();
-    }
-
-    @Override
     public void spawnHook() {
-        int[] respawns = new int[] {
+        npc = getNpc();
+        var respawns = new int[] {
             NpcId.WINGMAN_SKREE_143, NpcId.FLOCKLEADER_GEERIN_149, NpcId.FLIGHT_KILISA_159
         };
-        for (int id : respawns) {
-            Npc respawningNpc = npc.getWorld().getNPC(id, npc);
+        for (var id : respawns) {
+            var respawningNpc = npc.getWorld().getNPC(id, npc);
             if (respawningNpc != null && !respawningNpc.isVisible() && respawningNpc.getRespawns()) {
                 respawningNpc.restore();
             }
@@ -296,8 +292,8 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     @Override
     public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
         if (Utils.randomI(4) == 0) {
-            int x = opponent.getX();
-            int y = opponent.getY();
+            var x = opponent.getX();
+            var y = opponent.getY();
             if (x < npc.getX() && y <= npc.getY() && Route.canMove(opponent, x, y, x - 1, y)) {
                 x--;
             } else if (x > npc.getX() && y <= npc.getY() && Route.canMove(opponent, x, y, x + 1, y)) {
@@ -320,10 +316,10 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     @Override
     public Graphic.ProjectileSpeed projectileSpeedHook(NpcCombatStyle combatStyle, Graphic.ProjectileSpeed speed,
             Tile tile, HitType hitType, int minimumDistance) {
-        int distance = Math.max(minimumDistance, npc.getDistance(tile));
-        int eventDelay = 0;
-        int clientSpeed = 0;
-        int clientDelay = 0;
+        var distance = Math.max(minimumDistance, npc.getDistance(tile));
+        var eventDelay = 0;
+        var clientSpeed = 0;
+        var clientDelay = 0;
         if (hitType != HitType.MELEE) {
             eventDelay = 1;
             if (distance >= 3 && distance <= 8) {

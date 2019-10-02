@@ -327,7 +327,7 @@ public class BandosGodWarsCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
+    public void spawnHook() {
         npc = getNpc();
     }
 
@@ -344,7 +344,7 @@ public class BandosGodWarsCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return true;
         }
-        Player player = (Player) opponent;
+        var player = (Player) opponent;
         if (player.getEquipment().hasItemIC("Bandos") || player.getEquipment().getShieldId() == ItemId.BOOK_OF_WAR
                 || player.getEquipment().getAmmoId() == ItemId.WAR_BLESSING
                 || player.getEquipment().getWeaponId() == ItemId.ANCIENT_MACE

@@ -9,6 +9,7 @@ import com.palidino.osrs.model.Entity;
 import com.palidino.osrs.model.HitEvent;
 import com.palidino.osrs.model.HitpointsBar;
 import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.map.route.Route;
 import com.palidino.osrs.model.npc.Npc;
@@ -147,7 +148,7 @@ public class AbyssalDemonCombat extends NpcCombat {
         superiorCombat.slayer(NpcCombatSlayer.builder().level(85).experience(4200).build());
         superiorCombat.killCount(NpcCombatKillCount.builder().asName("Superior Slayer Creature").build());
         superiorCombat.type(NpcCombatType.DEMON).deathAnimation(1538).blockAnimation(2309);
-        superiorCombat.drop(drop.build());
+        superiorCombat.drop(drop.rolls(3).build());
 
         style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
@@ -198,16 +199,16 @@ public class AbyssalDemonCombat extends NpcCombat {
             specialAttackCount = 0;
             specialAttackTile = null;
         } else {
-            Tile t = new Tile(opponent);
-            int tries = 0;
-            while (tries++ < 8 && (t.matchesTile(opponent) || t.matchesTile(npc) || !Route.canMove(npc, t))) {
-                t.setTile(opponent);
-                t = Utils.randomI(1) == 0 ? t.randomizeX(1) : t.randomizeY(1);
+            var tile = new Tile(opponent);
+            var tries = 0;
+            while (tries++ < 8 && (tile.matchesTile(opponent) || tile.matchesTile(npc) || !Route.canMove(npc, tile))) {
+                tile.setTile(opponent);
+                tile = Utils.randomI(1) == 0 ? tile.randomizeX(1) : tile.randomizeY(1);
             }
-            if (!Route.canMove(npc, t)) {
-                t = npc;
+            if (!Route.canMove(npc, tile)) {
+                tile = npc;
             }
-            npc.getMovement().teleport(t);
+            npc.getMovement().teleport(tile);
         }
     }
 
@@ -217,11 +218,21 @@ public class AbyssalDemonCombat extends NpcCombat {
             SUPERIOR_DROP_TABLE.dropItems(npc, player, dropTile);
         }
         if (npc.getArea().matches(CatacombsOfKourendArea.class)) {
-            if (TOTEM_DROP_TABLE.canDrop(npc, player)) {
+            if (npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 || TOTEM_DROP_TABLE.canDrop(npc, player)) {
                 TOTEM_DROP_TABLE.dropItems(npc, player, dropTile);
             } else if (SHARD_DROP_TABLE.canDrop(npc, player)) {
                 SHARD_DROP_TABLE.dropItems(npc, player, dropTile);
             }
         }
+    }
+
+    @Override
+    public Item dropTableGetItem(Player player, Tile tile, int dropRateDivider, int roll, Item item,
+            NpcCombatDropTable table) {
+        if (roll == 0 && npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
+            SUPERIOR_DROP_TABLE.dropItems(npc, player, tile);
+            return null;
+        }
+        return item;
     }
 }

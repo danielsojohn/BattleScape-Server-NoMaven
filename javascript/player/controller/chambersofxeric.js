@@ -1134,7 +1134,7 @@ pc = new PController() {
         var sentSpecialLootMessage = false;
         var totalUniques = 0;
         var playersRewarded = [];
-        for (var i = totalPoints; i >= 0 && totalUniques < 3; i -= 570000) {
+        for (var i = totalPoints; i > 0 && totalUniques < 3; i -= 570000) {
             var selectedPlayer = Utils.listRandom(playerEntries);
             var percent = selectedPlayer.getCombat().getForcedDropRate(-1, Math.min(i / 4338, 65),
                     NpcDef.getNpcDef(7554));

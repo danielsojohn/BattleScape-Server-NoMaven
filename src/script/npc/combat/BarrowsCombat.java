@@ -235,7 +235,7 @@ public class BarrowsCombat extends NpcCombat {
     }
 
     @Override
-    public void restoreHook() {
+    public void spawnHook() {
         npc = getNpc();
     }
 
@@ -244,11 +244,11 @@ public class BarrowsCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return combatStyle;
         }
-        Player player = (Player) opponent;
+        var player = (Player) opponent;
         if (npc.getId() == NpcId.AHRIM_THE_BLIGHTED_98 && Utils.randomE(5) == 0) {
-            int type = Utils.randomE(3);
+            var type = Utils.randomE(3);
             NpcCombatStyle attemptedStyle = null;
-            int skillId = 0;
+            var skillId = 0;
             if (type == 0) {
                 attemptedStyle = AHRIM_STUN;
                 skillId = Skills.ATTACK;
@@ -259,9 +259,9 @@ public class BarrowsCombat extends NpcCombat {
                 attemptedStyle = AHRIM_VULNERABILITY;
                 skillId = Skills.DEFENCE;
             }
-            int currentLevel = player.getSkills().getLevel(skillId);
-            int maxLevel = player.getSkills().getLevel(skillId);
-            int maxReducedLevel = (int) (maxLevel * 0.9);
+            var currentLevel = player.getSkills().getLevel(skillId);
+            var maxLevel = player.getSkills().getLevel(skillId);
+            var maxReducedLevel = (int) (maxLevel * 0.9);
             if (currentLevel > maxReducedLevel) {
                 if (attemptedStyle != null) {
                     return attemptedStyle;
@@ -276,7 +276,7 @@ public class BarrowsCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return;
         }
-        Player player = (Player) opponent;
+        var player = (Player) opponent;
         if (npc.getId() == NpcId.AHRIM_THE_BLIGHTED_98) {
             if (Utils.randomE(4) == 0) {
                 player.getSkills().changeStat(Skills.STRENGTH, -5);
@@ -286,7 +286,7 @@ public class BarrowsCombat extends NpcCombat {
                     || hitEvent.getDefenceBlocked()) {
                 return;
             }
-            int skillId = 0;
+            var skillId = 0;
             if (combatStyle == AHRIM_STUN) {
                 skillId = Skills.ATTACK;
             } else if (combatStyle == AHRIM_ENFEEBLE) {
@@ -294,10 +294,10 @@ public class BarrowsCombat extends NpcCombat {
             } else if (combatStyle == AHRIM_VULNERABILITY) {
                 skillId = Skills.DEFENCE;
             }
-            int currentLevel = player.getSkills().getLevel(skillId);
-            int maxLevel = player.getSkills().getLevel(skillId);
-            int reducedLevel = (int) (currentLevel * 0.9);
-            int maxReducedLevel = (int) (maxLevel * 0.9);
+            var currentLevel = player.getSkills().getLevel(skillId);
+            var maxLevel = player.getSkills().getLevel(skillId);
+            var reducedLevel = (int) (currentLevel * 0.9);
+            var maxReducedLevel = (int) (maxLevel * 0.9);
             if (reducedLevel < maxReducedLevel) {
                 reducedLevel = maxReducedLevel;
             }
@@ -312,7 +312,7 @@ public class BarrowsCombat extends NpcCombat {
         if (!npc.getController().inWilderness() || !(opponent instanceof Player)) {
             return;
         }
-        Player player = (Player) opponent;
+        var player = (Player) opponent;
         player.getCombat().setPKSkullDelay(PCombat.SKULL_DELAY);
     }
 
@@ -339,7 +339,7 @@ public class BarrowsCombat extends NpcCombat {
         if (!(opponent instanceof Player)) {
             return damage;
         }
-        Player player = (Player) opponent;
+        var player = (Player) opponent;
         if (npc.getId() == NpcId.DHAROK_THE_WRETCHED_115) {
             damage *= 1.0 + (npc.getMaxHitpoints() - npc.getHitpoints()) / 100.0 * (npc.getMaxHitpoints() / 100.0);
         } else if (npc.getId() == NpcId.GUTHAN_THE_INFESTED_115 && Utils.randomE(4) == 0) {
