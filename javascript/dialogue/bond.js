@@ -30,11 +30,11 @@ lines.add("Default Skin");
 actions.add("close|script");
 lines.add("Red Skin (Donator)");
 actions.add("close|script");
-lines.add("Yellow Skin (Super Donator)");
+lines.add("Green Skin (Super Donator)");
 actions.add("close|script");
-lines.add("Purple Skin (Extreme Donator)");
+lines.add("Blue Skin (Extreme Donator)");
 actions.add("close|script");
-lines.add("Green Skin (Legendary Donator)");
+lines.add("Yellow Skin (Legendary Donator)");
 actions.add("close|script");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
@@ -87,22 +87,22 @@ instance = new DialogueScript() {
                 player.getAppearance().setColor(4, 16);
             } else if (slot == 3) {
                 if (!player.isUsergroup(SqlUserRank.SUPER_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only green donators and above can use this.");
+                    player.getGameEncoder().sendMessage("Only super donators and above can use this.");
                     return;
                 }
-                player.getAppearance().setColor(4, 17);
+                player.getAppearance().setColor(4, 19);
             } else if (slot == 4) {
                 if (!player.isUsergroup(SqlUserRank.EXTREME_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only blue donators and above can use this.");
+                    player.getGameEncoder().sendMessage("Only extreme donators and above can use this.");
                     return;
                 }
                 player.getAppearance().setColor(4, 11);
             } else if (slot == 5) {
                 if (!player.isUsergroup(SqlUserRank.LEGENDARY_DONATOR)) {
-                    player.getGameEncoder().sendMessage("Only yellow donators and above can use this.");
+                    player.getGameEncoder().sendMessage("Only legendary donators and above can use this.");
                     return;
                 }
-                player.getAppearance().setColor(4, 19);
+                player.getAppearance().setColor(4, 17);
             }
         }
     },
