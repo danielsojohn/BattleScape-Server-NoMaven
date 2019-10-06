@@ -104,7 +104,9 @@ public class Dagannoth74_7259Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DAGANNOTH_74_7259);
         combat.hitpoints(NpcCombatHitpoints.total(85));
-        combat.stats(NpcCombatStats.builder().rangedLevel(100).defenceLevel(75).bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_CRUSH, 90).bonus(CombatBonus.DEFENCE_MAGIC, 200).bonus(CombatBonus.DEFENCE_RANGED, 150).build());
+        combat.stats(NpcCombatStats.builder().rangedLevel(100).defenceLevel(75).bonus(CombatBonus.DEFENCE_SLASH, 10)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 90).bonus(CombatBonus.DEFENCE_MAGIC, 200)
+                .bonus(CombatBonus.DEFENCE_RANGED, 150).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(1342).blockAnimation(1340);
         combat.drop(drop.build());

@@ -79,7 +79,9 @@ public class Cyclops56_2463Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CYCLOPS_56_2463);
         combat.hitpoints(NpcCombatHitpoints.total(75));
-        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.MELEE_ATTACK, 29).bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 2).bonus(CombatBonus.DEFENCE_MAGIC, 400).bonus(CombatBonus.DEFENCE_RANGED, 400).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.MELEE_ATTACK, 29)
+                .bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 2)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 400).bonus(CombatBonus.DEFENCE_RANGED, 400).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("WGCyclopsCS").deathAnimation(4653).blockAnimation(4651);
         combat.drop(drop.build());

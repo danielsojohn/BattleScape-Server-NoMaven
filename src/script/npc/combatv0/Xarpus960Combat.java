@@ -19,7 +19,8 @@ public class Xarpus960Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.XARPUS_960);
         combat.hitpoints(NpcCombatHitpoints.builder().total(400).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().magicLevel(220).defenceLevel(250).bonus(CombatBonus.DEFENCE_RANGED, 160).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(220).defenceLevel(250).bonus(CombatBonus.DEFENCE_RANGED, 160)
+                .build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).build());
         combat.combatScript("xarpus").deathAnimation(7495);

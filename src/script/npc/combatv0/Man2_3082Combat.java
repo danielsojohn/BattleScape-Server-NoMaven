@@ -61,7 +61,8 @@ public class Man2_3082Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MAN_2_3082);
-        combat.stats(NpcCombatStats.builder().bonus(CombatBonus.DEFENCE_MAGIC, -21).bonus(CombatBonus.DEFENCE_RANGED, -21).build());
+        combat.stats(NpcCombatStats.builder().bonus(CombatBonus.DEFENCE_MAGIC, -21)
+                .bonus(CombatBonus.DEFENCE_RANGED, -21).build());
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();

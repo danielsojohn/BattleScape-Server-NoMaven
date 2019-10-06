@@ -61,7 +61,9 @@ public class BlackKnight33_2875Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BLACK_KNIGHT_33_2875);
         combat.hitpoints(NpcCombatHitpoints.total(42));
-        combat.stats(NpcCombatStats.builder().attackLevel(25).defenceLevel(25).bonus(CombatBonus.MELEE_ATTACK, 18).bonus(CombatBonus.DEFENCE_STAB, 73).bonus(CombatBonus.DEFENCE_SLASH, 76).bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_RANGED, 72).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(25).defenceLevel(25).bonus(CombatBonus.MELEE_ATTACK, 18)
+                .bonus(CombatBonus.DEFENCE_STAB, 73).bonus(CombatBonus.DEFENCE_SLASH, 76)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_RANGED, 72).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(836).blockAnimation(404);
         combat.drop(drop.build());

@@ -29,7 +29,12 @@ public class WarriorWoman24Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.WARRIOR_WOMAN_24);
-        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(22).bonus(CombatBonus.ATTACK_STAB, 6).bonus(CombatBonus.ATTACK_SLASH, 6).bonus(CombatBonus.ATTACK_CRUSH, 6).bonus(CombatBonus.ATTACK_MAGIC, 6).bonus(CombatBonus.ATTACK_RANGED, 6).bonus(CombatBonus.DEFENCE_STAB, 40).bonus(CombatBonus.DEFENCE_SLASH, 41).bonus(CombatBonus.DEFENCE_CRUSH, 37).bonus(CombatBonus.DEFENCE_MAGIC, -10).bonus(CombatBonus.DEFENCE_RANGED, 38).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(22).bonus(CombatBonus.ATTACK_STAB, 6)
+                .bonus(CombatBonus.ATTACK_SLASH, 6).bonus(CombatBonus.ATTACK_CRUSH, 6)
+                .bonus(CombatBonus.ATTACK_MAGIC, 6).bonus(CombatBonus.ATTACK_RANGED, 6)
+                .bonus(CombatBonus.DEFENCE_STAB, 40).bonus(CombatBonus.DEFENCE_SLASH, 41)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 37).bonus(CombatBonus.DEFENCE_MAGIC, -10)
+                .bonus(CombatBonus.DEFENCE_RANGED, 38).build());
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();

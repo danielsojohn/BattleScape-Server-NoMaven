@@ -40,7 +40,11 @@ public class GrizzlyBear21Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GRIZZLY_BEAR_21);
         combat.hitpoints(NpcCombatHitpoints.total(27));
-        combat.stats(NpcCombatStats.builder().attackLevel(17).defenceLevel(15).bonus(CombatBonus.ATTACK_STAB, 1).bonus(CombatBonus.ATTACK_SLASH, 1).bonus(CombatBonus.ATTACK_CRUSH, 1).bonus(CombatBonus.ATTACK_MAGIC, 1).bonus(CombatBonus.ATTACK_RANGED, 1).bonus(CombatBonus.DEFENCE_SLASH, 1).bonus(CombatBonus.DEFENCE_CRUSH, 1).bonus(CombatBonus.DEFENCE_MAGIC, 1).bonus(CombatBonus.DEFENCE_RANGED, 1).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(17).defenceLevel(15).bonus(CombatBonus.ATTACK_STAB, 1)
+                .bonus(CombatBonus.ATTACK_SLASH, 1).bonus(CombatBonus.ATTACK_CRUSH, 1)
+                .bonus(CombatBonus.ATTACK_MAGIC, 1).bonus(CombatBonus.ATTACK_RANGED, 1)
+                .bonus(CombatBonus.DEFENCE_SLASH, 1).bonus(CombatBonus.DEFENCE_CRUSH, 1)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 1).bonus(CombatBonus.DEFENCE_RANGED, 1).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(4929).blockAnimation(4927);
         combat.drop(drop.build());

@@ -83,7 +83,9 @@ public class LavaDragon252Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.LAVA_DRAGON_252);
         combat.hitpoints(NpcCombatHitpoints.total(230));
-        combat.stats(NpcCombatStats.builder().attackLevel(240).defenceLevel(220).bonus(CombatBonus.DEFENCE_STAB, 70).bonus(CombatBonus.DEFENCE_SLASH, 90).bonus(CombatBonus.DEFENCE_CRUSH, 90).bonus(CombatBonus.DEFENCE_MAGIC, 80).bonus(CombatBonus.DEFENCE_RANGED, 70).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(240).defenceLevel(220).bonus(CombatBonus.DEFENCE_STAB, 70)
+                .bonus(CombatBonus.DEFENCE_SLASH, 90).bonus(CombatBonus.DEFENCE_CRUSH, 90)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 80).bonus(CombatBonus.DEFENCE_RANGED, 70).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Chromatic dragon").build());
         combat.deathAnimation(92).blockAnimation(89);

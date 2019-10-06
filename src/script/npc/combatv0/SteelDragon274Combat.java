@@ -77,7 +77,10 @@ public class SteelDragon274Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.STEEL_DRAGON_274);
         combat.hitpoints(NpcCombatHitpoints.total(250));
-        combat.stats(NpcCombatStats.builder().attackLevel(235).magicLevel(130).defenceLevel(235).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70).bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(235).magicLevel(130).defenceLevel(235)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 90).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Metal dragon").build());
         combat.deathAnimation(92).blockAnimation(89);

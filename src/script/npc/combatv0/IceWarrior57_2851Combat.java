@@ -21,7 +21,9 @@ public class IceWarrior57_2851Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ICE_WARRIOR_57_2851);
         combat.hitpoints(NpcCombatHitpoints.total(59));
-        combat.stats(NpcCombatStats.builder().attackLevel(47).defenceLevel(47).bonus(CombatBonus.DEFENCE_STAB, 30).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 20).bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(47).defenceLevel(47).bonus(CombatBonus.DEFENCE_STAB, 30)
+                .bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 20)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(843).blockAnimation(404);
 

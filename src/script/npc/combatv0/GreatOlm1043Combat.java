@@ -26,7 +26,10 @@ public class GreatOlm1043Combat extends NpcCombat {
         combat.id(NpcId.GREAT_OLM_1043);
         combat.spawn(NpcCombatSpawn.builder().lock(8).build());
         combat.hitpoints(NpcCombatHitpoints.builder().total(680).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(250).magicLevel(250).rangedLevel(250).defenceLevel(150).bonus(CombatBonus.ATTACK_MAGIC, 60).bonus(CombatBonus.ATTACK_RANGED, 60).bonus(CombatBonus.MELEE_DEFENCE, 200).bonus(CombatBonus.DEFENCE_MAGIC, 200).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(250).magicLevel(250).rangedLevel(250).defenceLevel(150)
+                .bonus(CombatBonus.ATTACK_MAGIC, 60).bonus(CombatBonus.ATTACK_RANGED, 60)
+                .bonus(CombatBonus.MELEE_DEFENCE, 200).bonus(CombatBonus.DEFENCE_MAGIC, 200)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().disableFollowingOpponent(true).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Chambers of Xeric").sendMessage(true).build());

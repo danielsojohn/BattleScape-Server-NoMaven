@@ -31,7 +31,8 @@ import lombok.var;
 public class Vorkath732Combat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder().underKiller(true).rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256).rolls(2);
+        var drop = NpcCombatDrop.builder().underKiller(true).rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
+                .rolls(2);
         var dropTable = NpcCombatDropTable.builder().chance(0.06).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.JAR_OF_DECAY)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.VORKI)));
@@ -115,7 +116,11 @@ public class Vorkath732Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.VORKATH_732);
         combat.hitpoints(NpcCombatHitpoints.builder().total(750).bar(HitpointsBar.GREEN_RED_120).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(560).magicLevel(150).rangedLevel(308).defenceLevel(214).bonus(CombatBonus.MELEE_ATTACK, 16).bonus(CombatBonus.ATTACK_MAGIC, 150).bonus(CombatBonus.ATTACK_RANGED, 78).bonus(CombatBonus.DEFENCE_STAB, 26).bonus(CombatBonus.DEFENCE_SLASH, 108).bonus(CombatBonus.DEFENCE_CRUSH, 108).bonus(CombatBonus.DEFENCE_MAGIC, 240).bonus(CombatBonus.DEFENCE_RANGED, 26).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(560).magicLevel(150).rangedLevel(308).defenceLevel(214)
+                .bonus(CombatBonus.MELEE_ATTACK, 16).bonus(CombatBonus.ATTACK_MAGIC, 150)
+                .bonus(CombatBonus.ATTACK_RANGED, 78).bonus(CombatBonus.DEFENCE_STAB, 26)
+                .bonus(CombatBonus.DEFENCE_SLASH, 108).bonus(CombatBonus.DEFENCE_CRUSH, 108)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 240).bonus(CombatBonus.DEFENCE_RANGED, 26).build());
         combat.aggression(NpcCombatAggression.builder().range(10).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
@@ -176,7 +181,8 @@ public class Vorkath732Combat extends NpcCombat {
         style.damage(NpcCombatDamage.builder().maximum(115).ignorePrayer(true).build());
         style.animation(7957).attackSpeed(5);
         style.targetGraphic(new Graphic(157));
-        style.projectile(NpcCombatProjectile.builder().id(1481).startHeight(30).curve(32).speedMinimumDistance(10).build());
+        style.projectile(
+                NpcCombatProjectile.builder().id(1481).startHeight(30).curve(32).speedMinimumDistance(10).build());
         var targetTile = NpcCombatTargetTile.builder().adjacentHalfDamage(true);
         style.specialAttack(targetTile.build());
         combat.style(style.build());

@@ -26,7 +26,8 @@ public class EnormousTentacle112Combat extends NpcCombat {
         combat.noclip(true);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(6000).build());
         combat.hitpoints(NpcCombatHitpoints.total(120));
-        combat.stats(NpcCombatStats.builder().rangedLevel(150).bonus(CombatBonus.DEFENCE_MAGIC, -15).bonus(CombatBonus.DEFENCE_RANGED, 270).build());
+        combat.stats(NpcCombatStats.builder().rangedLevel(150).bonus(CombatBonus.DEFENCE_MAGIC, -15)
+                .bonus(CombatBonus.DEFENCE_RANGED, 270).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().bypassMapObjects(true).build());
         combat.combatScript("KrakenTentacleCS").deathAnimation(3620).blockAnimation(3619);

@@ -55,9 +55,11 @@ public class WingmanSkree143Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.WINGMAN_SKREE_143);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.KREEARRA_580).respawnWithId(NpcId.FLOCKLEADER_GEERIN_149).respawnWithId(NpcId.FLIGHT_KILISA_159).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.KREEARRA_580)
+                .respawnWithId(NpcId.FLOCKLEADER_GEERIN_149).respawnWithId(NpcId.FLIGHT_KILISA_159).build());
         combat.hitpoints(NpcCombatHitpoints.total(121));
-        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(150).rangedLevel(100).defenceLevel(160).bonus(CombatBonus.MELEE_ATTACK, 45).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(150).rangedLevel(100).defenceLevel(160)
+                .bonus(CombatBonus.MELEE_ATTACK, 45).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Kree'arra's bodyguard").build());
         combat.combatScript("AviansieMinionCS").deathAnimation(6959).blockAnimation(6958);

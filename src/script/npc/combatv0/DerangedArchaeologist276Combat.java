@@ -70,9 +70,16 @@ public class DerangedArchaeologist276Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DERANGED_ARCHAEOLOGIST_276);
-        combat.phrase("Round and round and round and round!").phrase("The plants! They're alive!").phrase("They came from the ground! They came from the ground!!!").phrase("The doors won't stay closed forever!").phrase("They're cheering! Why are they cheering?").phrase("Time is running out! She will rise again!");
+        combat.phrase("Round and round and round and round!").phrase("The plants! They're alive!")
+                .phrase("They came from the ground! They came from the ground!!!")
+                .phrase("The doors won't stay closed forever!").phrase("They're cheering! Why are they cheering?")
+                .phrase("Time is running out! She will rise again!");
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(280).rangedLevel(320).defenceLevel(280).bonus(CombatBonus.MELEE_ATTACK, 280).bonus(CombatBonus.ATTACK_RANGED, 90).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 20).bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 300).bonus(CombatBonus.DEFENCE_RANGED, 300).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(280).rangedLevel(320).defenceLevel(280)
+                .bonus(CombatBonus.MELEE_ATTACK, 280).bonus(CombatBonus.ATTACK_RANGED, 90)
+                .bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 20)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 300)
+                .bonus(CombatBonus.DEFENCE_RANGED, 300).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.deathAnimation(836).blockAnimation(415);
@@ -98,7 +105,8 @@ public class DerangedArchaeologist276Combat extends NpcCombat {
         style.damage(NpcCombatDamage.maximum(25));
         style.animation(2614).attackSpeed(4);
         style.targetGraphic(new Graphic(157));
-        style.projectile(NpcCombatProjectile.builder().id(1260).speedType(HitType.MAGIC).speedMinimumDistance(8).build());
+        style.projectile(
+                NpcCombatProjectile.builder().id(1260).speedType(HitType.MAGIC).speedMinimumDistance(8).build());
         style.phrase("Learn to Read!");
         var targetTile = NpcCombatTargetTile.builder().radius(1);
         targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(2).distance(2).build());

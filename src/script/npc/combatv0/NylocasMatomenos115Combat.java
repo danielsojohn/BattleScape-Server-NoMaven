@@ -17,7 +17,8 @@ public class NylocasMatomenos115Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.NYLOCAS_MATOMENOS_115);
         combat.hitpoints(NpcCombatHitpoints.total(75));
-        combat.stats(NpcCombatStats.builder().attackLevel(100).magicLevel(100).rangedLevel(100).defenceLevel(100).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(100).magicLevel(100).rangedLevel(100).defenceLevel(100).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).build());
         combat.deathAnimation(8097);

@@ -27,7 +27,11 @@ public class RevenantHellhound90Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_HELLHOUND_90);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(80));
-        combat.stats(NpcCombatStats.builder().attackLevel(76).magicLevel(104).rangedLevel(80).defenceLevel(80).bonus(CombatBonus.MELEE_ATTACK, 38).bonus(CombatBonus.ATTACK_MAGIC, 30).bonus(CombatBonus.DEFENCE_STAB, 138).bonus(CombatBonus.DEFENCE_SLASH, 140).bonus(CombatBonus.DEFENCE_CRUSH, 142).bonus(CombatBonus.DEFENCE_MAGIC, 62).bonus(CombatBonus.DEFENCE_RANGED, 140).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(76).magicLevel(104).rangedLevel(80).defenceLevel(80)
+                .bonus(CombatBonus.MELEE_ATTACK, 38).bonus(CombatBonus.ATTACK_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_STAB, 138).bonus(CombatBonus.DEFENCE_SLASH, 140)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 142).bonus(CombatBonus.DEFENCE_MAGIC, 62)
+                .bonus(CombatBonus.DEFENCE_RANGED, 140).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());

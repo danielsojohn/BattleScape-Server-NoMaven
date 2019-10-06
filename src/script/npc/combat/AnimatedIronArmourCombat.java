@@ -36,7 +36,10 @@ public class AnimatedIronArmourCombat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ANIMATED_IRON_ARMOUR_23);
         combat.hitpoints(NpcCombatHitpoints.total(20));
-        combat.stats(NpcCombatStats.builder().attackLevel(20).defenceLevel(20).bonus(CombatBonus.MELEE_ATTACK, 4).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 25).bonus(CombatBonus.DEFENCE_CRUSH, 19).bonus(CombatBonus.DEFENCE_MAGIC, 400).bonus(CombatBonus.DEFENCE_RANGED, 400).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(20).defenceLevel(20).bonus(CombatBonus.MELEE_ATTACK, 4)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 25)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 19).bonus(CombatBonus.DEFENCE_MAGIC, 400)
+                .bonus(CombatBonus.DEFENCE_RANGED, 400).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.deathAnimation(836).blockAnimation(404);

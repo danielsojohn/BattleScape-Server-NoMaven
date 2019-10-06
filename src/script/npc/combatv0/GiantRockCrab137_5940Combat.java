@@ -94,7 +94,9 @@ public class GiantRockCrab137_5940Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GIANT_ROCK_CRAB_137_5940);
         combat.hitpoints(NpcCombatHitpoints.total(180));
-        combat.stats(NpcCombatStats.builder().attackLevel(50).defenceLevel(200).bonus(CombatBonus.DEFENCE_STAB, 225).bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_CRUSH, 175).bonus(CombatBonus.DEFENCE_MAGIC, -10).bonus(CombatBonus.DEFENCE_RANGED, 250).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(50).defenceLevel(200).bonus(CombatBonus.DEFENCE_STAB, 225)
+                .bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_CRUSH, 175)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -10).bonus(CombatBonus.DEFENCE_RANGED, 250).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(1314).blockAnimation(1313);
         combat.drop(drop.build());

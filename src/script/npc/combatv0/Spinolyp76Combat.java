@@ -26,7 +26,9 @@ public class Spinolyp76Combat extends NpcCombat {
         combat.id(NpcId.SPINOLYP_76);
         combat.noclip(true);
         combat.hitpoints(NpcCombatHitpoints.total(100));
-        combat.stats(NpcCombatStats.builder().attackLevel(10).rangedLevel(2).defenceLevel(10).bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(10).rangedLevel(2).defenceLevel(10)
+                .bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 50)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.focus(NpcCombatFocus.builder().disableFollowingOpponent(true).build());
         combat.combatScript("SpinolypCS").deathAnimation(2866).blockAnimation(2869);

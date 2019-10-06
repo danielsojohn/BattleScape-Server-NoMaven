@@ -22,7 +22,9 @@ public class GreaterSkeletonHellhound281Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GREATER_SKELETON_HELLHOUND_281);
         combat.hitpoints(NpcCombatHitpoints.total(190));
-        combat.stats(NpcCombatStats.builder().attackLevel(220).bonus(CombatBonus.DEFENCE_STAB, 150).bonus(CombatBonus.DEFENCE_SLASH, 163).bonus(CombatBonus.DEFENCE_CRUSH, 20).bonus(CombatBonus.DEFENCE_MAGIC, 210).bonus(CombatBonus.DEFENCE_RANGED, 275).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(220).bonus(CombatBonus.DEFENCE_STAB, 150)
+                .bonus(CombatBonus.DEFENCE_SLASH, 163).bonus(CombatBonus.DEFENCE_CRUSH, 20)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 210).bonus(CombatBonus.DEFENCE_RANGED, 275).build());
         combat.aggression(NpcCombatAggression.builder().range(4).build());
         combat.type(NpcCombatType.UNDEAD).deathAnimation(6576).blockAnimation(6578);
 

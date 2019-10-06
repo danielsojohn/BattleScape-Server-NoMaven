@@ -88,7 +88,8 @@ public class SmokeDevil160Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SMOKE_DEVIL_160);
         combat.hitpoints(NpcCombatHitpoints.total(185));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).rangedLevel(195).defenceLevel(275).bonus(CombatBonus.DEFENCE_MAGIC, 600).bonus(CombatBonus.DEFENCE_RANGED, 44).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).rangedLevel(195).defenceLevel(275)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 600).bonus(CombatBonus.DEFENCE_RANGED, 44).build());
         combat.slayer(NpcCombatSlayer.builder().level(93).superiorId(NpcId.NUCLEAR_SMOKE_DEVIL_280).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("smokedevil").deathAnimation(3849).blockAnimation(3848);

@@ -22,7 +22,10 @@ public class JalImkot240Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_IMKOT_240);
         combat.hitpoints(NpcCombatHitpoints.total(75));
-        combat.stats(NpcCombatStats.builder().attackLevel(210).magicLevel(120).rangedLevel(220).defenceLevel(120).bonus(CombatBonus.ATTACK_STAB, 40).bonus(CombatBonus.ATTACK_SLASH, 40).bonus(CombatBonus.ATTACK_CRUSH, 40).bonus(CombatBonus.MELEE_DEFENCE, 65).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(210).magicLevel(120).rangedLevel(220).defenceLevel(120)
+                .bonus(CombatBonus.ATTACK_STAB, 40).bonus(CombatBonus.ATTACK_SLASH, 40)
+                .bonus(CombatBonus.ATTACK_CRUSH, 40).bonus(CombatBonus.MELEE_DEFENCE, 65)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.combatScript("JalImKotCS").deathAnimation(7599).blockAnimation(7598);

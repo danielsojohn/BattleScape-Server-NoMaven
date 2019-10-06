@@ -22,7 +22,9 @@ public class SkeletonHellhound214Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SKELETON_HELLHOUND_214);
         combat.hitpoints(NpcCombatHitpoints.total(110));
-        combat.stats(NpcCombatStats.builder().attackLevel(110).bonus(CombatBonus.DEFENCE_STAB, 75).bonus(CombatBonus.DEFENCE_SLASH, 82).bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 105).bonus(CombatBonus.DEFENCE_RANGED, 138).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(110).bonus(CombatBonus.DEFENCE_STAB, 75)
+                .bonus(CombatBonus.DEFENCE_SLASH, 82).bonus(CombatBonus.DEFENCE_CRUSH, 10)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 105).bonus(CombatBonus.DEFENCE_RANGED, 138).build());
         combat.aggression(NpcCombatAggression.builder().range(4).build());
         combat.type(NpcCombatType.UNDEAD).deathAnimation(6576).blockAnimation(6578);
 

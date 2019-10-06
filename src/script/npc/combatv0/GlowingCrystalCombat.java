@@ -18,7 +18,8 @@ public class GlowingCrystalCombat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GLOWING_CRYSTAL);
         combat.hitpoints(NpcCombatHitpoints.total(100));
-        combat.stats(NpcCombatStats.builder().magicLevel(100).defenceLevel(100).bonus(CombatBonus.DEFENCE_STAB, -5).bonus(CombatBonus.DEFENCE_SLASH, 180).bonus(CombatBonus.DEFENCE_CRUSH, 180).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(100).defenceLevel(100).bonus(CombatBonus.DEFENCE_STAB, -5)
+                .bonus(CombatBonus.DEFENCE_SLASH, 180).bonus(CombatBonus.DEFENCE_CRUSH, 180).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).build());
 

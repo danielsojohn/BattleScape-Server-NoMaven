@@ -59,7 +59,8 @@ public class SergeantSteelwill142Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SERGEANT_STEELWILL_142);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.GENERAL_GRAARDOR_624).respawnWithId(NpcId.SERGEANT_STRONGSTACK_141).respawnWithId(NpcId.SERGEANT_GRIMSPIKE_142).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.GENERAL_GRAARDOR_624)
+                .respawnWithId(NpcId.SERGEANT_STRONGSTACK_141).respawnWithId(NpcId.SERGEANT_GRIMSPIKE_142).build());
         combat.hitpoints(NpcCombatHitpoints.total(127));
         combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(150).defenceLevel(150).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());

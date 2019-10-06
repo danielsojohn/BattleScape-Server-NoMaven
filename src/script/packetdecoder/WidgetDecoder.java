@@ -82,8 +82,8 @@ public class WidgetDecoder extends PacketDecoder {
                 itemId = player.getEquipment().getId(equipmentSlot);
             }
         }
-        if ((widgetId == WidgetId.INVENTORY || widgetId == WidgetId.EQUIPMENT
-                || widgetId == WidgetId.EQUIPMENT_BONUSES) && player.isLocked()) {
+        if ((widgetId == WidgetId.INVENTORY || widgetId == WidgetId.EQUIPMENT || widgetId == WidgetId.EQUIPMENT_BONUSES)
+                && player.isLocked()) {
             return;
         }
         AchievementDiary.widgetUpdate(player, index, widgetId, childId, slot, itemId);

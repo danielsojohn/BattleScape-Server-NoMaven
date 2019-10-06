@@ -52,7 +52,10 @@ public class ChaosDwarf48Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CHAOS_DWARF_48);
         combat.hitpoints(NpcCombatHitpoints.total(61));
-        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(28).bonus(CombatBonus.MELEE_ATTACK, 13).bonus(CombatBonus.DEFENCE_STAB, 40).bonus(CombatBonus.DEFENCE_SLASH, 34).bonus(CombatBonus.DEFENCE_CRUSH, 25).bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 35).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(28).bonus(CombatBonus.MELEE_ATTACK, 13)
+                .bonus(CombatBonus.DEFENCE_STAB, 40).bonus(CombatBonus.DEFENCE_SLASH, 34)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 25).bonus(CombatBonus.DEFENCE_MAGIC, 10)
+                .bonus(CombatBonus.DEFENCE_RANGED, 35).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(102).blockAnimation(100);
         combat.drop(drop.build());

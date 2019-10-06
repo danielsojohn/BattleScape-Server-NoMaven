@@ -22,7 +22,10 @@ public class Elvarg83Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ELVARG_83);
         combat.hitpoints(NpcCombatHitpoints.total(80));
-        combat.stats(NpcCombatStats.builder().attackLevel(70).magicLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 40).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(70).magicLevel(70).defenceLevel(70)
+                .bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 40)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 40).bonus(CombatBonus.DEFENCE_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 20).build());
         combat.aggression(NpcCombatAggression.builder().range(4).build());
         combat.combatScript("elvarg").deathAnimation(92).blockAnimation(89);
 

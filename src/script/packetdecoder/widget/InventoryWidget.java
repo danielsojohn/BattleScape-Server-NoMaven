@@ -853,8 +853,8 @@ public class InventoryWidget implements Widget {
                 new RandomItem(ItemId.UNCUT_EMERALD, 1, 4).weight(1024),
                 new RandomItem(ItemId.UNCUT_RUBY, 1, 4).weight(1024),
                 new RandomItem(ItemId.UNCUT_DIAMOND, 1, 4).weight(1024),
-                new RandomItem(ItemId.UNCUT_DRAGONSTONE, 1).weight(32),
-                new RandomItem(ItemId.UNCUT_ONYX, 1).weight(8), new RandomItem(ItemId.ZENYTE_SHARD, 1).weight(1)
+                new RandomItem(ItemId.UNCUT_DRAGONSTONE, 1).weight(32), new RandomItem(ItemId.UNCUT_ONYX, 1).weight(8),
+                new RandomItem(ItemId.ZENYTE_SHARD, 1).weight(1)
             };
             for (int i = 0; i < 20; i++) {
                 Item gemItem = RandomItem.getItem(randomItems);
@@ -1365,8 +1365,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(450, 5) /* Adamantite ore (noted) */,
                 new RandomItem(5760, 2) /* Slayer's respite (noted) */, new RandomItem(7208, 1) /* Wild pie */,
                 new RandomItem(5321, 3) /* Watermelon seed */,
-                new RandomItem(2801, 1, 1).weight(4) /* Clue scroll (medium) */,
-                new RandomItem(1601, 1) /* Diamond */
+                new RandomItem(2801, 1, 1).weight(4) /* Clue scroll (medium) */, new RandomItem(1601, 1) /* Diamond */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             break;

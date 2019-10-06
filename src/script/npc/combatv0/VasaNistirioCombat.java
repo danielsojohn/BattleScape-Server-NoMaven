@@ -40,7 +40,10 @@ public class VasaNistirioCombat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.VASA_NISTIRIO);
         combat.hitpoints(NpcCombatHitpoints.total(400));
-        combat.stats(NpcCombatStats.builder().magicLevel(230).rangedLevel(230).defenceLevel(175).bonus(CombatBonus.ATTACK_RANGED, 100).bonus(CombatBonus.DEFENCE_STAB, 170).bonus(CombatBonus.DEFENCE_SLASH, 190).bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 400).bonus(CombatBonus.DEFENCE_RANGED, 60).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(230).rangedLevel(230).defenceLevel(175)
+                .bonus(CombatBonus.ATTACK_RANGED, 100).bonus(CombatBonus.DEFENCE_STAB, 170)
+                .bonus(CombatBonus.DEFENCE_SLASH, 190).bonus(CombatBonus.DEFENCE_CRUSH, 50)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 400).bonus(CombatBonus.DEFENCE_RANGED, 60).build());
         combat.aggression(NpcCombatAggression.builder().range(12).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().disableFacingOpponent(true).disableFollowingOpponent(true).build());

@@ -32,7 +32,9 @@ public class DeadlyRedSpider34Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DEADLY_RED_SPIDER_34);
         combat.hitpoints(NpcCombatHitpoints.total(35));
-        combat.stats(NpcCombatStats.builder().attackLevel(30).defenceLevel(30).bonus(CombatBonus.DEFENCE_STAB, 15).bonus(CombatBonus.DEFENCE_SLASH, 16).bonus(CombatBonus.DEFENCE_CRUSH, 7).bonus(CombatBonus.DEFENCE_MAGIC, 12).bonus(CombatBonus.DEFENCE_RANGED, 16).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(30).defenceLevel(30).bonus(CombatBonus.DEFENCE_STAB, 15)
+                .bonus(CombatBonus.DEFENCE_SLASH, 16).bonus(CombatBonus.DEFENCE_CRUSH, 7)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 12).bonus(CombatBonus.DEFENCE_RANGED, 16).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(5329).blockAnimation(5328);
         combat.drop(drop.build());

@@ -30,7 +30,8 @@ import lombok.var;
 public class Zulrah725Combat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder().underKiller(true).rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_32).rolls(2);
+        var drop =
+                NpcCombatDrop.builder().underKiller(true).rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_32).rolls(2);
         var dropTable = NpcCombatDropTable.builder().chance(0.025).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PET_SNAKELING)));
         drop.table(dropTable.build());
@@ -105,7 +106,9 @@ public class Zulrah725Combat extends NpcCombat {
         combat.id(NpcId.ZULRAH_725);
         combat.spawn(NpcCombatSpawn.builder().lock(6).animation(5071).build());
         combat.hitpoints(NpcCombatHitpoints.builder().total(500).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().magicLevel(300).rangedLevel(300).defenceLevel(300).bonus(CombatBonus.ATTACK_MAGIC, 50).bonus(CombatBonus.ATTACK_RANGED, 50).bonus(CombatBonus.DEFENCE_MAGIC, -45).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(300).rangedLevel(300).defenceLevel(300)
+                .bonus(CombatBonus.ATTACK_MAGIC, 50).bonus(CombatBonus.ATTACK_RANGED, 50)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -45).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.builder().range(20).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().bypassMapObjects(true).build());

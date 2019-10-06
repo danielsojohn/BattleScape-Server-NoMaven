@@ -24,7 +24,8 @@ public class TztokJad702Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TZTOK_JAD_702);
         combat.hitpoints(NpcCombatHitpoints.total(250));
-        combat.stats(NpcCombatStats.builder().attackLevel(640).magicLevel(480).rangedLevel(960).defenceLevel(480).bonus(CombatBonus.ATTACK_MAGIC, 60).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(640).magicLevel(480).rangedLevel(960).defenceLevel(480)
+                .bonus(CombatBonus.ATTACK_MAGIC, 60).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

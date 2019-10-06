@@ -22,7 +22,8 @@ public class TreusDayth95Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TREUS_DAYTH_95);
         combat.hitpoints(NpcCombatHitpoints.total(100));
-        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(100).bonus(CombatBonus.MELEE_DEFENCE, 5).bonus(CombatBonus.DEFENCE_RANGED, 5).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(100).bonus(CombatBonus.MELEE_DEFENCE, 5)
+                .bonus(CombatBonus.DEFENCE_RANGED, 5).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.focus(NpcCombatFocus.builder().bypassMapObjects(true).build());
         combat.combatScript("treusdayth").deathAnimation(5542).blockAnimation(5541);

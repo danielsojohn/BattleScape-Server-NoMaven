@@ -31,7 +31,9 @@ public class SanTojalon106Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SAN_TOJALON_106);
         combat.hitpoints(NpcCombatHitpoints.total(120));
-        combat.stats(NpcCombatStats.builder().attackLevel(86).defenceLevel(86).bonus(CombatBonus.MELEE_ATTACK, 16).bonus(CombatBonus.DEFENCE_STAB, 18).bonus(CombatBonus.DEFENCE_SLASH, 22).bonus(CombatBonus.DEFENCE_CRUSH, 20).bonus(CombatBonus.DEFENCE_RANGED, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(86).defenceLevel(86).bonus(CombatBonus.MELEE_ATTACK, 16)
+                .bonus(CombatBonus.DEFENCE_STAB, 18).bonus(CombatBonus.DEFENCE_SLASH, 22)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 20).bonus(CombatBonus.DEFENCE_RANGED, 20).build());
         combat.deathAnimation(5491).blockAnimation(5489);
         combat.drop(drop.build());
 

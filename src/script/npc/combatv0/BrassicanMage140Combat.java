@@ -45,7 +45,8 @@ public class BrassicanMage140Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BRASSICAN_MAGE_140);
         combat.hitpoints(NpcCombatHitpoints.total(150));
-        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(170).rangedLevel(140).defenceLevel(80).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(80).magicLevel(170).rangedLevel(140).defenceLevel(80).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(836).blockAnimation(1156);
         combat.drop(drop.build());

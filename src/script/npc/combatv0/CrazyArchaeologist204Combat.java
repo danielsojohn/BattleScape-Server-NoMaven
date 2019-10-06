@@ -71,9 +71,15 @@ public class CrazyArchaeologist204Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CRAZY_ARCHAEOLOGIST_204);
-        combat.phrase("I'm Bellock - respect me!").phrase("Get off my site!").phrase("No-one messes with Bellock's dig!").phrase("These ruins are mine!").phrase("Taste my knowledge!").phrase("You belong in a museum!");
+        combat.phrase("I'm Bellock - respect me!").phrase("Get off my site!")
+                .phrase("No-one messes with Bellock's dig!").phrase("These ruins are mine!")
+                .phrase("Taste my knowledge!").phrase("You belong in a museum!");
         combat.hitpoints(NpcCombatHitpoints.total(225));
-        combat.stats(NpcCombatStats.builder().attackLevel(160).rangedLevel(180).defenceLevel(240).bonus(CombatBonus.MELEE_ATTACK, 250).bonus(CombatBonus.ATTACK_RANGED, 75).bonus(CombatBonus.DEFENCE_STAB, 5).bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, 30).bonus(CombatBonus.DEFENCE_MAGIC, 250).bonus(CombatBonus.DEFENCE_RANGED, 250).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(160).rangedLevel(180).defenceLevel(240)
+                .bonus(CombatBonus.MELEE_ATTACK, 250).bonus(CombatBonus.ATTACK_RANGED, 75)
+                .bonus(CombatBonus.DEFENCE_STAB, 5).bonus(CombatBonus.DEFENCE_SLASH, 5)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 30).bonus(CombatBonus.DEFENCE_MAGIC, 250)
+                .bonus(CombatBonus.DEFENCE_RANGED, 250).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("wildernessdemiboss").deathAnimation(836).blockAnimation(415);
@@ -99,7 +105,8 @@ public class CrazyArchaeologist204Combat extends NpcCombat {
         style.damage(NpcCombatDamage.maximum(23));
         style.animation(2614).attackSpeed(4);
         style.targetGraphic(new Graphic(157));
-        style.projectile(NpcCombatProjectile.builder().id(1260).speedType(HitType.MAGIC).speedMinimumDistance(8).build());
+        style.projectile(
+                NpcCombatProjectile.builder().id(1260).speedType(HitType.MAGIC).speedMinimumDistance(8).build());
         style.phrase("Rain of knowledge!");
         var targetTile = NpcCombatTargetTile.builder().radius(1);
         targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(2).distance(2).build());

@@ -32,7 +32,10 @@ public class Flambeed149Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.FLAMBEED_149);
         combat.hitpoints(NpcCombatHitpoints.total(210));
-        combat.stats(NpcCombatStats.builder().attackLevel(120).defenceLevel(75).bonus(CombatBonus.MELEE_ATTACK, 100).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(120).defenceLevel(75).bonus(CombatBonus.MELEE_ATTACK, 100)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("FlambeedCS").deathAnimation(1752).blockAnimation(1751);
         combat.drop(drop.build());

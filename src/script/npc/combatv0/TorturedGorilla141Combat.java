@@ -84,7 +84,9 @@ public class TorturedGorilla141Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TORTURED_GORILLA_141);
         combat.hitpoints(NpcCombatHitpoints.total(210));
-        combat.stats(NpcCombatStats.builder().attackLevel(105).magicLevel(95).rangedLevel(95).defenceLevel(95).bonus(CombatBonus.MELEE_ATTACK, 22).bonus(CombatBonus.ATTACK_MAGIC, 20).bonus(CombatBonus.ATTACK_RANGED, 22).bonus(CombatBonus.DEFENCE_MAGIC, 25).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(105).magicLevel(95).rangedLevel(95).defenceLevel(95)
+                .bonus(CombatBonus.MELEE_ATTACK, 22).bonus(CombatBonus.ATTACK_MAGIC, 20)
+                .bonus(CombatBonus.ATTACK_RANGED, 22).bonus(CombatBonus.DEFENCE_MAGIC, 25).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("TorturedGorillaCS").type(NpcCombatType.DEMON).deathAnimation(7229).blockAnimation(7224);
         combat.drop(drop.build());

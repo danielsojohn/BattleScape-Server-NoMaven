@@ -49,7 +49,8 @@ public class TzhaarXil133Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TZHAAR_XIL_133);
         combat.hitpoints(NpcCombatHitpoints.total(120));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(40).rangedLevel(120).defenceLevel(100).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(140).magicLevel(40).rangedLevel(120).defenceLevel(100).build());
         combat.killCount(NpcCombatKillCount.builder().asName("TzHaar").build());
         combat.deathAnimation(2607).blockAnimation(2605);
         combat.drop(drop.build());

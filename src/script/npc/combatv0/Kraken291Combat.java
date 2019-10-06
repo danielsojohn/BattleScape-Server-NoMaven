@@ -91,7 +91,8 @@ public class Kraken291Combat extends NpcCombat {
         combat.noclip(true);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(14).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().bonus(CombatBonus.DEFENCE_MAGIC, 130).bonus(CombatBonus.DEFENCE_RANGED, 300).build());
+        combat.stats(NpcCombatStats.builder().bonus(CombatBonus.DEFENCE_MAGIC, 130)
+                .bonus(CombatBonus.DEFENCE_RANGED, 300).build());
         combat.slayer(NpcCombatSlayer.builder().level(87).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().bypassMapObjects(true).build());

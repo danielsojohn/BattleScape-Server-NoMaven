@@ -70,7 +70,10 @@ public class GreenDragon79Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GREEN_DRAGON_79);
         combat.hitpoints(NpcCombatHitpoints.total(75));
-        combat.stats(NpcCombatStats.builder().attackLevel(68).magicLevel(68).defenceLevel(68).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 40).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(68).magicLevel(68).defenceLevel(68)
+                .bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 40)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 40).bonus(CombatBonus.DEFENCE_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 20).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Chromatic dragon").build());
         combat.deathAnimation(92).blockAnimation(89);

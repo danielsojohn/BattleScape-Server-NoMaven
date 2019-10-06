@@ -24,7 +24,9 @@ public class Snakeling90Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SNAKELING_90);
         combat.hitpoints(NpcCombatHitpoints.total(1));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).bonus(CombatBonus.MELEE_ATTACK, 120).bonus(CombatBonus.ATTACK_MAGIC, 120).bonus(CombatBonus.MELEE_DEFENCE, -40).bonus(CombatBonus.DEFENCE_MAGIC, -40).bonus(CombatBonus.DEFENCE_RANGED, -40).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).bonus(CombatBonus.MELEE_ATTACK, 120)
+                .bonus(CombatBonus.ATTACK_MAGIC, 120).bonus(CombatBonus.MELEE_DEFENCE, -40)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -40).bonus(CombatBonus.DEFENCE_RANGED, -40).build());
         combat.aggression(NpcCombatAggression.builder().range(20).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().meleeUnlessUnreachable(true).bypassMapObjects(true).build());

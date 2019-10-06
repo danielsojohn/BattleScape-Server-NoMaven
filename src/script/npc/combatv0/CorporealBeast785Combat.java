@@ -98,7 +98,10 @@ public class CorporealBeast785Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CORPOREAL_BEAST_785);
         combat.hitpoints(NpcCombatHitpoints.builder().total(2000).bar(HitpointsBar.GREEN_RED_160).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(320).magicLevel(350).rangedLevel(150).defenceLevel(310).bonus(CombatBonus.MELEE_ATTACK, 50).bonus(CombatBonus.DEFENCE_STAB, 25).bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_CRUSH, 100).bonus(CombatBonus.DEFENCE_MAGIC, 150).bonus(CombatBonus.DEFENCE_RANGED, 230).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(320).magicLevel(350).rangedLevel(150).defenceLevel(310)
+                .bonus(CombatBonus.MELEE_ATTACK, 50).bonus(CombatBonus.DEFENCE_STAB, 25)
+                .bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_CRUSH, 100)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 150).bonus(CombatBonus.DEFENCE_RANGED, 230).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().singleTargetFocus(true).build());
@@ -142,7 +145,8 @@ public class CorporealBeast785Combat extends NpcCombat {
         style.targetGraphic(new Graphic(317));
         style.projectile(NpcCombatProjectile.builder().id(315).speedMinimumDistance(8).build());
         var targetTile = NpcCombatTargetTile.builder();
-        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(4).distance(3).maximumDamage(14).afterTargettedTile(true).build());
+        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(4).distance(3).maximumDamage(14)
+                .afterTargettedTile(true).build());
         style.specialAttack(targetTile.build());
         combat.style(style.build());
 

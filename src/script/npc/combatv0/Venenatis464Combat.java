@@ -91,7 +91,9 @@ public class Venenatis464Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.VENENATIS_464);
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(470).magicLevel(150).defenceLevel(490).bonus(CombatBonus.MELEE_DEFENCE, 260).bonus(CombatBonus.DEFENCE_MAGIC, 850).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(470).magicLevel(150).defenceLevel(490)
+                .bonus(CombatBonus.MELEE_DEFENCE, 260).bonus(CombatBonus.DEFENCE_MAGIC, 850)
+                .bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());

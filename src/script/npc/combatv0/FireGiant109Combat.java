@@ -69,7 +69,8 @@ public class FireGiant109Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.FIRE_GIANT_109);
         combat.hitpoints(NpcCombatHitpoints.total(111));
-        combat.stats(NpcCombatStats.builder().attackLevel(65).defenceLevel(65).bonus(CombatBonus.MELEE_ATTACK, 29).bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 2).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(65).defenceLevel(65).bonus(CombatBonus.MELEE_ATTACK, 29)
+                .bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 2).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(4668).blockAnimation(4664);
         combat.drop(drop.build());

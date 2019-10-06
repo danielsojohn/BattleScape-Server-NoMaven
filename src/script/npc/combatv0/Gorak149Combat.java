@@ -71,7 +71,9 @@ public class Gorak149Combat extends NpcCombat {
         style.damage(NpcCombatDamage.builder().maximum(14).ignorePrayer(true).build());
         style.animation(4300).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
-        style.effect(NpcCombatEffect.builder().statDrain(Skills.ATTACK, 1).statDrain(Skills.DEFENCE, 1).statDrain(Skills.STRENGTH, 1).statDrain(Skills.RANGED, 1).statDrain(Skills.PRAYER, 1).statDrain(Skills.MAGIC, 1).build());
+        style.effect(NpcCombatEffect.builder().statDrain(Skills.ATTACK, 1).statDrain(Skills.DEFENCE, 1)
+                .statDrain(Skills.STRENGTH, 1).statDrain(Skills.RANGED, 1).statDrain(Skills.PRAYER, 1)
+                .statDrain(Skills.MAGIC, 1).build());
         combat.style(style.build());
 
 

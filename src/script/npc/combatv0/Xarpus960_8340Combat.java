@@ -42,7 +42,8 @@ public class Xarpus960_8340Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.XARPUS_960_8340);
         combat.hitpoints(NpcCombatHitpoints.builder().total(400).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().magicLevel(220).defenceLevel(250).bonus(CombatBonus.DEFENCE_RANGED, 160).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(220).defenceLevel(250).bonus(CombatBonus.DEFENCE_RANGED, 160)
+                .build());
         combat.aggression(NpcCombatAggression.builder().range(12).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().disableFollowingOpponent(true).build());
@@ -50,14 +51,16 @@ public class Xarpus960_8340Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).mark(HitMark.POISON).build());
+        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).mark(HitMark.POISON)
+                .build());
         style.damage(NpcCombatDamage.builder().maximum(6).alwaysMaximum(true).ignorePrayer(true).build());
         style.animation(8059).attackSpeed(6);
         style.targetGraphic(new Graphic(1556));
         style.projectile(NpcCombatProjectile.builder().id(1555).speedMinimumDistance(8).build());
         style.effect(NpcCombatEffect.builder().poison(3).build());
         var targetTile = NpcCombatTargetTile.builder().radius(1);
-        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(1).distance(7).maximumDamage(8).afterTargettedTile(true).build());
+        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(1).distance(7).maximumDamage(8)
+                .afterTargettedTile(true).build());
         style.specialAttack(targetTile.build());
         combat.style(style.build());
 

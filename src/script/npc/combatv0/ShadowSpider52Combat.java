@@ -32,7 +32,9 @@ public class ShadowSpider52Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SHADOW_SPIDER_52);
         combat.hitpoints(NpcCombatHitpoints.total(55));
-        combat.stats(NpcCombatStats.builder().attackLevel(44).defenceLevel(44).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 15).bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 15).bonus(CombatBonus.DEFENCE_RANGED, 15).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(44).defenceLevel(44).bonus(CombatBonus.DEFENCE_STAB, 20)
+                .bonus(CombatBonus.DEFENCE_SLASH, 15).bonus(CombatBonus.DEFENCE_CRUSH, 10)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 15).bonus(CombatBonus.DEFENCE_RANGED, 15).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("ShadowSpiderCS").deathAnimation(5329).blockAnimation(5328);
         combat.drop(drop.build());

@@ -69,7 +69,10 @@ public class BronzeDragon143Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BRONZE_DRAGON_143);
         combat.hitpoints(NpcCombatHitpoints.total(122));
-        combat.stats(NpcCombatStats.builder().attackLevel(130).magicLevel(130).defenceLevel(112).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70).bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(130).magicLevel(130).defenceLevel(112)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 90).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Metal dragon").build());
         combat.deathAnimation(92).blockAnimation(89);

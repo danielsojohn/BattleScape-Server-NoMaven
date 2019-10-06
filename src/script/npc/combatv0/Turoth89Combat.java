@@ -77,7 +77,8 @@ public class Turoth89Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TUROTH_89);
         combat.hitpoints(NpcCombatHitpoints.total(81));
-        combat.stats(NpcCombatStats.builder().attackLevel(58).defenceLevel(88).bonus(CombatBonus.DEFENCE_SLASH, 20).bonus(CombatBonus.DEFENCE_CRUSH, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(58).defenceLevel(88).bonus(CombatBonus.DEFENCE_SLASH, 20)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 20).build());
         combat.slayer(NpcCombatSlayer.builder().level(55).build());
         combat.deathAnimation(1597).blockAnimation(1596);
         combat.drop(drop.build());

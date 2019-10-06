@@ -32,7 +32,9 @@ public class CaveLizard37Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CAVE_LIZARD_37);
         combat.hitpoints(NpcCombatHitpoints.total(20));
-        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(35).bonus(CombatBonus.DEFENCE_STAB, 5).bonus(CombatBonus.DEFENCE_SLASH, 15).bonus(CombatBonus.DEFENCE_CRUSH, 15).bonus(CombatBonus.DEFENCE_RANGED, 15).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(35).bonus(CombatBonus.DEFENCE_STAB, 5)
+                .bonus(CombatBonus.DEFENCE_SLASH, 15).bonus(CombatBonus.DEFENCE_CRUSH, 15)
+                .bonus(CombatBonus.DEFENCE_RANGED, 15).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(7326).blockAnimation(3856);
         combat.drop(drop.build());

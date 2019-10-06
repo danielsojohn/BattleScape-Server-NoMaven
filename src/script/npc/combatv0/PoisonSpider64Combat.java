@@ -22,7 +22,9 @@ public class PoisonSpider64Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.POISON_SPIDER_64);
         combat.hitpoints(NpcCombatHitpoints.total(64));
-        combat.stats(NpcCombatStats.builder().attackLevel(50).defenceLevel(58).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 17).bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 14).bonus(CombatBonus.DEFENCE_RANGED, 14).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(50).defenceLevel(58).bonus(CombatBonus.DEFENCE_STAB, 20)
+                .bonus(CombatBonus.DEFENCE_SLASH, 17).bonus(CombatBonus.DEFENCE_CRUSH, 10)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 14).bonus(CombatBonus.DEFENCE_RANGED, 14).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(5329).blockAnimation(5328);
 

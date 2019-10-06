@@ -30,7 +30,8 @@ public class Duck1Combat extends NpcCombat {
         combat.id(NpcId.DUCK_1);
         combat.noclip(true);
         combat.hitpoints(NpcCombatHitpoints.total(3));
-        combat.stats(NpcCombatStats.builder().bonus(CombatBonus.MELEE_DEFENCE, -42).bonus(CombatBonus.DEFENCE_MAGIC, -42).bonus(CombatBonus.DEFENCE_RANGED, -42).build());
+        combat.stats(NpcCombatStats.builder().bonus(CombatBonus.MELEE_DEFENCE, -42)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -42).bonus(CombatBonus.DEFENCE_RANGED, -42).build());
         combat.deathAnimation(6916);
         combat.drop(drop.build());
 

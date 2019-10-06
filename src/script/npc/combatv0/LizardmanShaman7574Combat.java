@@ -36,7 +36,10 @@ public class LizardmanShaman7574Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.LIZARDMAN_SHAMAN_7574);
         combat.hitpoints(NpcCombatHitpoints.total(150));
-        combat.stats(NpcCombatStats.builder().attackLevel(130).magicLevel(130).rangedLevel(130).defenceLevel(210).bonus(CombatBonus.MELEE_ATTACK, 58).bonus(CombatBonus.ATTACK_RANGED, 56).bonus(CombatBonus.DEFENCE_STAB, 102).bonus(CombatBonus.DEFENCE_SLASH, 160).bonus(CombatBonus.DEFENCE_CRUSH, 150).bonus(CombatBonus.DEFENCE_MAGIC, 160).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(130).magicLevel(130).rangedLevel(130).defenceLevel(210)
+                .bonus(CombatBonus.MELEE_ATTACK, 58).bonus(CombatBonus.ATTACK_RANGED, 56)
+                .bonus(CombatBonus.DEFENCE_STAB, 102).bonus(CombatBonus.DEFENCE_SLASH, 160)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 150).bonus(CombatBonus.DEFENCE_MAGIC, 160).build());
         combat.aggression(NpcCombatAggression.builder().range(6).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("LizardmanShamanCS").deathAnimation(7196).blockAnimation(7194);

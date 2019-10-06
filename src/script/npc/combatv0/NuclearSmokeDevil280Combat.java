@@ -95,7 +95,8 @@ public class NuclearSmokeDevil280Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.NUCLEAR_SMOKE_DEVIL_280);
         combat.hitpoints(NpcCombatHitpoints.builder().total(400).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(240).rangedLevel(295).defenceLevel(375).bonus(CombatBonus.DEFENCE_MAGIC, 1200).bonus(CombatBonus.DEFENCE_RANGED, 88).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(240).rangedLevel(295).defenceLevel(375)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 1200).bonus(CombatBonus.DEFENCE_RANGED, 88).build());
         combat.slayer(NpcCombatSlayer.builder().level(93).experience(2400).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Superior Slayer Creature").build());

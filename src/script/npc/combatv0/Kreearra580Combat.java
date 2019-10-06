@@ -76,7 +76,10 @@ public class Kreearra580Combat extends NpcCombat {
         combat.id(NpcId.KREEARRA_580);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(100).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(200).rangedLevel(380).defenceLevel(260).bonus(CombatBonus.MELEE_ATTACK, 136).bonus(CombatBonus.ATTACK_RANGED, 120).bonus(CombatBonus.MELEE_DEFENCE, 180).bonus(CombatBonus.DEFENCE_MAGIC, 200).bonus(CombatBonus.DEFENCE_RANGED, 200).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(200).rangedLevel(380).defenceLevel(260)
+                .bonus(CombatBonus.MELEE_ATTACK, 136).bonus(CombatBonus.ATTACK_RANGED, 120)
+                .bonus(CombatBonus.MELEE_DEFENCE, 180).bonus(CombatBonus.DEFENCE_MAGIC, 200)
+                .bonus(CombatBonus.DEFENCE_RANGED, 200).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

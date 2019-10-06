@@ -73,9 +73,14 @@ public class ChaosFanatic202Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CHAOS_FANATIC_202);
-        combat.phrase("Burn!").phrase("WEUGH!").phrase("Develish Oxen Roll!").phrase("All your wilderness are belong to them!").phrase("AhehHeheuhHhahueHuUEehEahAH").phrase("I shall call him squidgy and he shall be my squidgy!");
+        combat.phrase("Burn!").phrase("WEUGH!").phrase("Develish Oxen Roll!")
+                .phrase("All your wilderness are belong to them!").phrase("AhehHeheuhHhahueHuUEehEahAH")
+                .phrase("I shall call him squidgy and he shall be my squidgy!");
         combat.hitpoints(NpcCombatHitpoints.total(225));
-        combat.stats(NpcCombatStats.builder().magicLevel(200).defenceLevel(220).bonus(CombatBonus.ATTACK_RANGED, 75).bonus(CombatBonus.DEFENCE_STAB, 260).bonus(CombatBonus.DEFENCE_SLASH, 260).bonus(CombatBonus.DEFENCE_CRUSH, 250).bonus(CombatBonus.DEFENCE_MAGIC, 280).bonus(CombatBonus.DEFENCE_RANGED, 80).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(200).defenceLevel(220).bonus(CombatBonus.ATTACK_RANGED, 75)
+                .bonus(CombatBonus.DEFENCE_STAB, 260).bonus(CombatBonus.DEFENCE_SLASH, 260)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 250).bonus(CombatBonus.DEFENCE_MAGIC, 280)
+                .bonus(CombatBonus.DEFENCE_RANGED, 80).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("wildernessdemiboss").deathAnimation(836).blockAnimation(415);

@@ -72,10 +72,16 @@ public class GeneralGraardor624Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GENERAL_GRAARDOR_624);
-        combat.phrase("Death to our enemies!").phrase("Brargh!").phrase("Break their bones!").phrase("For the glory of the Big High War God!").phrase("Split their skulls!").phrase("We feast on the bones of our enemies tonight!").phrase("CHAAARGE!").phrase("Crush them underfoot!");
+        combat.phrase("Death to our enemies!").phrase("Brargh!").phrase("Break their bones!")
+                .phrase("For the glory of the Big High War God!").phrase("Split their skulls!")
+                .phrase("We feast on the bones of our enemies tonight!").phrase("CHAAARGE!")
+                .phrase("Crush them underfoot!");
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(100).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(80).rangedLevel(350).defenceLevel(250).bonus(CombatBonus.MELEE_ATTACK, 120).bonus(CombatBonus.ATTACK_RANGED, 100).bonus(CombatBonus.MELEE_DEFENCE, 90).bonus(CombatBonus.DEFENCE_MAGIC, 298).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(280).magicLevel(80).rangedLevel(350).defenceLevel(250)
+                .bonus(CombatBonus.MELEE_ATTACK, 120).bonus(CombatBonus.ATTACK_RANGED, 100)
+                .bonus(CombatBonus.MELEE_DEFENCE, 90).bonus(CombatBonus.DEFENCE_MAGIC, 298)
+                .bonus(CombatBonus.DEFENCE_RANGED, 90).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());

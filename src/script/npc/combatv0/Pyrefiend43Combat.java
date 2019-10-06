@@ -50,7 +50,8 @@ public class Pyrefiend43Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.PYREFIEND_43);
         combat.hitpoints(NpcCombatHitpoints.total(45));
-        combat.stats(NpcCombatStats.builder().attackLevel(52).defenceLevel(22).bonus(CombatBonus.MELEE_DEFENCE, 10).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(52).defenceLevel(22).bonus(CombatBonus.MELEE_DEFENCE, 10)
+                .bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.slayer(NpcCombatSlayer.builder().level(30).build());
         combat.deathAnimation(1580).blockAnimation(1581);
         combat.drop(drop.build());

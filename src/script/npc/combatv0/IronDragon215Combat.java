@@ -75,7 +75,10 @@ public class IronDragon215Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.IRON_DRAGON_215);
         combat.hitpoints(NpcCombatHitpoints.total(195));
-        combat.stats(NpcCombatStats.builder().attackLevel(185).magicLevel(120).defenceLevel(185).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70).bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(185).magicLevel(120).defenceLevel(185)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 90).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Metal dragon").build());
         combat.deathAnimation(92).blockAnimation(89);

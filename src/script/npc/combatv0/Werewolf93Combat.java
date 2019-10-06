@@ -77,7 +77,8 @@ public class Werewolf93Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.WEREWOLF_93);
         combat.hitpoints(NpcCombatHitpoints.total(100));
-        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_MAGIC, 60).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_MAGIC, 60).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("ZamorakGWDCS").deathAnimation(6537).blockAnimation(6538);
         combat.drop(drop.build());

@@ -31,7 +31,9 @@ public class RanalphDevere92Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.RANALPH_DEVERE_92);
         combat.hitpoints(NpcCombatHitpoints.total(130));
-        combat.stats(NpcCombatStats.builder().attackLevel(66).defenceLevel(66).bonus(CombatBonus.MELEE_ATTACK, 45).bonus(CombatBonus.DEFENCE_STAB, 38).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 36).bonus(CombatBonus.DEFENCE_RANGED, 38).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(66).defenceLevel(66).bonus(CombatBonus.MELEE_ATTACK, 45)
+                .bonus(CombatBonus.DEFENCE_STAB, 38).bonus(CombatBonus.DEFENCE_SLASH, 40)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 36).bonus(CombatBonus.DEFENCE_RANGED, 38).build());
         combat.deathAnimation(5491).blockAnimation(5489);
         combat.drop(drop.build());
 

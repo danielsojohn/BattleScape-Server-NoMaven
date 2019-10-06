@@ -22,7 +22,9 @@ public class DagannothMother100_987Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DAGANNOTH_MOTHER_100_987);
         combat.hitpoints(NpcCombatHitpoints.total(120));
-        combat.stats(NpcCombatStats.builder().attackLevel(78).rangedLevel(50).defenceLevel(81).bonus(CombatBonus.MELEE_DEFENCE, 150).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(78).rangedLevel(50).defenceLevel(81)
+                .bonus(CombatBonus.MELEE_DEFENCE, 150).bonus(CombatBonus.DEFENCE_MAGIC, 50)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("dagannothmother").deathAnimation(1342).blockAnimation(1340);

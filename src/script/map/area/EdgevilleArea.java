@@ -347,10 +347,8 @@ public class EdgevilleArea extends Area {
             player.getInventory().deleteItem(ItemId.CRYSTAL_KEY);
             player.getInventory().addOrDropItem(ItemId.UNCUT_DRAGONSTONE_NOTED);
             var clueItems = new RandomItem[] {
-                new RandomItem(ItemId.CLUE_SCROLL_EASY).weight(8),
-                new RandomItem(ItemId.CLUE_SCROLL_MEDIUM).weight(6),
-                new RandomItem(ItemId.CLUE_SCROLL_HARD).weight(4),
-                new RandomItem(ItemId.CLUE_SCROLL_ELITE).weight(2),
+                new RandomItem(ItemId.CLUE_SCROLL_EASY).weight(8), new RandomItem(ItemId.CLUE_SCROLL_MEDIUM).weight(6),
+                new RandomItem(ItemId.CLUE_SCROLL_HARD).weight(4), new RandomItem(ItemId.CLUE_SCROLL_ELITE).weight(2),
                 new RandomItem(ItemId.CLUE_SCROLL_MASTER).weight(1)
             };
             if (Utils.randomE(4) == 0) {

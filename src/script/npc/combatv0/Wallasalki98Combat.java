@@ -95,7 +95,9 @@ public class Wallasalki98Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.WALLASALKI_98);
         combat.hitpoints(NpcCombatHitpoints.total(120));
-        combat.stats(NpcCombatStats.builder().magicLevel(100).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 100).bonus(CombatBonus.DEFENCE_SLASH, 150).bonus(CombatBonus.DEFENCE_CRUSH, 175).bonus(CombatBonus.DEFENCE_MAGIC, 250).bonus(CombatBonus.DEFENCE_RANGED, -10).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(100).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 100)
+                .bonus(CombatBonus.DEFENCE_SLASH, 150).bonus(CombatBonus.DEFENCE_CRUSH, 175)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 250).bonus(CombatBonus.DEFENCE_RANGED, -10).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(2367).blockAnimation(2366);
         combat.drop(drop.build());

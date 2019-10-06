@@ -97,7 +97,9 @@ public class SpittingWyvern139Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SPITTING_WYVERN_139);
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(125).magicLevel(125).rangedLevel(125).defenceLevel(120).bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 140).bonus(CombatBonus.DEFENCE_RANGED, 120).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(125).magicLevel(125).rangedLevel(125).defenceLevel(120)
+                .bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 140)
+                .bonus(CombatBonus.DEFENCE_RANGED, 120).build());
         combat.slayer(NpcCombatSlayer.builder().level(66).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Fossil Island wyvern").build());

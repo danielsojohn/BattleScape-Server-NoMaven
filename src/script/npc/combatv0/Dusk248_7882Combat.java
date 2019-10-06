@@ -25,7 +25,8 @@ public class Dusk248_7882Combat extends NpcCombat {
         combat.id(NpcId.DUSK_248_7882);
         combat.spawn(NpcCombatSpawn.builder().lock(16).direction(4).animation(7778).build());
         combat.hitpoints(NpcCombatHitpoints.total(450));
-        combat.stats(NpcCombatStats.builder().attackLevel(200).magicLevel(140).rangedLevel(140).defenceLevel(100).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(200).magicLevel(140).rangedLevel(140).defenceLevel(100).build());
         combat.slayer(NpcCombatSlayer.builder().level(75).build());
         combat.aggression(NpcCombatAggression.builder().range(20).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

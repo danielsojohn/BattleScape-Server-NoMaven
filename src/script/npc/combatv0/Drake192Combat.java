@@ -82,7 +82,10 @@ public class Drake192Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DRAKE_192);
         combat.hitpoints(NpcCombatHitpoints.total(250));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(112).rangedLevel(140).defenceLevel(120).bonus(CombatBonus.MELEE_ATTACK, 40).bonus(CombatBonus.ATTACK_RANGED, 40).bonus(CombatBonus.MELEE_DEFENCE, 60).bonus(CombatBonus.DEFENCE_MAGIC, 20).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(112).rangedLevel(140).defenceLevel(120)
+                .bonus(CombatBonus.MELEE_ATTACK, 40).bonus(CombatBonus.ATTACK_RANGED, 40)
+                .bonus(CombatBonus.MELEE_DEFENCE, 60).bonus(CombatBonus.DEFENCE_MAGIC, 20)
+                .bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.slayer(NpcCombatSlayer.builder().level(84).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

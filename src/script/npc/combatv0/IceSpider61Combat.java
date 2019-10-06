@@ -21,7 +21,9 @@ public class IceSpider61Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ICE_SPIDER_61);
         combat.hitpoints(NpcCombatHitpoints.total(65));
-        combat.stats(NpcCombatStats.builder().attackLevel(50).defenceLevel(43).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 17).bonus(CombatBonus.DEFENCE_CRUSH, 12).bonus(CombatBonus.DEFENCE_MAGIC, 13).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(50).defenceLevel(43).bonus(CombatBonus.DEFENCE_STAB, 20)
+                .bonus(CombatBonus.DEFENCE_SLASH, 17).bonus(CombatBonus.DEFENCE_CRUSH, 12)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 13).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(5329).blockAnimation(5328);
 

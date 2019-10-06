@@ -22,7 +22,8 @@ public class Kolodion112Combat extends NpcCombat {
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KOLODION_112);
-        combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("Aaaaaaaarrgghhhh! The power!").animation(4681).graphic(new Graphic(86, 100)).build());
+        combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("Aaaaaaaarrgghhhh! The power!").animation(4681)
+                .graphic(new Graphic(86, 100)).build());
         combat.hitpoints(NpcCombatHitpoints.total(107));
         combat.stats(NpcCombatStats.builder().magicLevel(60).bonus(CombatBonus.ATTACK_MAGIC, 16).build());
         combat.aggression(NpcCombatAggression.PLAYERS);

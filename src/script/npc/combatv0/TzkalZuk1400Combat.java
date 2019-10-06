@@ -26,7 +26,10 @@ public class TzkalZuk1400Combat extends NpcCombat {
         combat.id(NpcId.TZKAL_ZUK_1400);
         combat.spawn(NpcCombatSpawn.builder().lock(8).animation(7563).build());
         combat.hitpoints(NpcCombatHitpoints.builder().total(1200).bar(HitpointsBar.GREEN_RED_160).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(350).magicLevel(150).rangedLevel(400).defenceLevel(260).bonus(CombatBonus.ATTACK_CRUSH, 300).bonus(CombatBonus.ATTACK_MAGIC, 550).bonus(CombatBonus.ATTACK_RANGED, 550).bonus(CombatBonus.DEFENCE_MAGIC, 350).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(350).magicLevel(150).rangedLevel(400).defenceLevel(260)
+                .bonus(CombatBonus.ATTACK_CRUSH, 300).bonus(CombatBonus.ATTACK_MAGIC, 550)
+                .bonus(CombatBonus.ATTACK_RANGED, 550).bonus(CombatBonus.DEFENCE_MAGIC, 350)
+                .bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().disableFacingOpponent(true).disableFollowingOpponent(true).build());
