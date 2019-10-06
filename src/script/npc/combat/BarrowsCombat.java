@@ -34,15 +34,15 @@ import com.palidino.util.Utils;
 import lombok.var;
 
 public class BarrowsCombat extends NpcCombat {
-    public static final NpcCombatStyle AHRIM_STUN = NpcCombatStyle.builder().type(NpcCombatStyleType.MAGIC)
+    private static final NpcCombatStyle AHRIM_STUN = NpcCombatStyle.builder().type(NpcCombatStyleType.MAGIC)
             .damage(NpcCombatDamage.builder().maximum(0).ignorePrayer(true).splashOnMiss(true).build()).animation(729)
             .attackSpeed(5).castGraphic(new Graphic(173, 92)).targetGraphic(new Graphic(254, 124))
             .projectile(NpcCombatProjectile.id(174)).build();
-    public static final NpcCombatStyle AHRIM_ENFEEBLE = NpcCombatStyle.builder().type(NpcCombatStyleType.MAGIC)
+    private static final NpcCombatStyle AHRIM_ENFEEBLE = NpcCombatStyle.builder().type(NpcCombatStyleType.MAGIC)
             .damage(NpcCombatDamage.builder().maximum(0).ignorePrayer(true).splashOnMiss(true).build()).animation(729)
             .attackSpeed(5).castGraphic(new Graphic(170, 92)).targetGraphic(new Graphic(172, 124))
             .projectile(NpcCombatProjectile.id(171)).build();
-    public static final NpcCombatStyle AHRIM_VULNERABILITY = NpcCombatStyle.builder().type(NpcCombatStyleType.MAGIC)
+    private static final NpcCombatStyle AHRIM_VULNERABILITY = NpcCombatStyle.builder().type(NpcCombatStyleType.MAGIC)
             .damage(NpcCombatDamage.builder().maximum(0).ignorePrayer(true).splashOnMiss(true).build()).animation(729)
             .attackSpeed(5).castGraphic(new Graphic(167, 92)).targetGraphic(new Graphic(169, 124))
             .projectile(NpcCombatProjectile.id(168)).build();

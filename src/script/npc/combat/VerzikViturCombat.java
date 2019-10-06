@@ -27,23 +27,23 @@ import lombok.Getter;
 import lombok.var;
 
 public class VerzikViturCombat extends NpcCombat {
-    private static final VerzikPillar[] PILLARS = {
-        new VerzikPillar(new Tile(3161, 4318), new Tile[] {
+    private static final Pillar[] PILLARS = {
+        new Pillar(new Tile(3161, 4318), new Tile[] {
             new Tile(3160, 4318), new Tile(3159, 4317), new Tile(3160, 4317), new Tile(3161, 4317),
             new Tile(3162, 4317), new Tile(3159, 4316), new Tile(3160, 4316)
-        }), new VerzikPillar(new Tile(3161, 4312), new Tile[] {
+        }), new Pillar(new Tile(3161, 4312), new Tile[] {
             new Tile(3160, 4313), new Tile(3160, 4312), new Tile(3160, 4311), new Tile(3161, 4311),
             new Tile(3162, 4311), new Tile(3160, 4310), new Tile(3161, 4310)
-        }), new VerzikPillar(new Tile(3161, 4306), new Tile[] {
+        }), new Pillar(new Tile(3161, 4306), new Tile[] {
             new Tile(3160, 4306), new Tile(3160, 4305), new Tile(3161, 4305), new Tile(3162, 4305),
             new Tile(3160, 4304), new Tile(3161, 4304)
-        }), new VerzikPillar(new Tile(3173, 4318), new Tile[] {
+        }), new Pillar(new Tile(3173, 4318), new Tile[] {
             new Tile(3176, 4318), new Tile(3177, 4317), new Tile(3176, 4317), new Tile(3175, 4317),
             new Tile(3174, 4317), new Tile(3177, 4316), new Tile(3176, 4316)
-        }), new VerzikPillar(new Tile(3173, 4312), new Tile[] {
+        }), new Pillar(new Tile(3173, 4312), new Tile[] {
             new Tile(3176, 4313), new Tile(3176, 4312), new Tile(3176, 4311), new Tile(3175, 4311),
             new Tile(3174, 4311), new Tile(3176, 4310), new Tile(3175, 4310)
-        }), new VerzikPillar(new Tile(3173, 4306), new Tile[] {
+        }), new Pillar(new Tile(3173, 4306), new Tile[] {
             new Tile(3176, 4306), new Tile(3176, 4305), new Tile(3175, 4305), new Tile(3174, 4305),
             new Tile(3176, 4304), new Tile(3175, 4304)
         })
@@ -216,22 +216,21 @@ public class VerzikViturCombat extends NpcCombat {
             }
         }
     }
-}
 
+    @AllArgsConstructor
+    @Getter
+    private static class Pillar {
+        private Tile tile;
+        private Tile[] safeTiles;
 
-@AllArgsConstructor
-@Getter
-class VerzikPillar {
-    private Tile tile;
-    private Tile[] safeTiles;
-
-    public boolean isSafe(Tile tile) {
-        for (var safeTile : safeTiles) {
-            if (!tile.matchesTile(safeTile)) {
-                continue;
+        public boolean isSafe(Tile tile) {
+            for (var safeTile : safeTiles) {
+                if (!tile.matchesTile(safeTile)) {
+                    continue;
+                }
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
     }
 }

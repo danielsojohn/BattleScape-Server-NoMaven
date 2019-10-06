@@ -486,20 +486,20 @@ public class InventoryWidget implements Widget {
             break;
         case 5073: // Bird nest
             randomItems = new RandomItem[] {
-                new RandomItem(5312, 1).setWeight(200), // Acorn
-                new RandomItem(5283, 1).setWeight(150), // Apple tree seed
-                new RandomItem(5313, 1).setWeight(150), // Willow seed
-                new RandomItem(5284, 1).setWeight(100), // Banana tree seed
-                new RandomItem(5285, 1).setWeight(80), // Orange tree seed
-                new RandomItem(5286, 1).setWeight(70), // Curry tree seed
-                new RandomItem(5314, 1).setWeight(60), // Maple seed
-                new RandomItem(5287, 1).setWeight(50), // Pineapple seed
-                new RandomItem(5288, 1).setWeight(40), // Papaya tree seed
-                new RandomItem(5289, 1).setWeight(30), // Palm tree seed
-                new RandomItem(5315, 1).setWeight(20), // Yew seed
-                new RandomItem(5290, 1).setWeight(20), // Calquat tree seed
-                new RandomItem(5316, 1).setWeight(10), // Magic seed
-                new RandomItem(5317, 1).setWeight(5) // Spirit seed
+                new RandomItem(5312, 1).weight(200), // Acorn
+                new RandomItem(5283, 1).weight(150), // Apple tree seed
+                new RandomItem(5313, 1).weight(150), // Willow seed
+                new RandomItem(5284, 1).weight(100), // Banana tree seed
+                new RandomItem(5285, 1).weight(80), // Orange tree seed
+                new RandomItem(5286, 1).weight(70), // Curry tree seed
+                new RandomItem(5314, 1).weight(60), // Maple seed
+                new RandomItem(5287, 1).weight(50), // Pineapple seed
+                new RandomItem(5288, 1).weight(40), // Papaya tree seed
+                new RandomItem(5289, 1).weight(30), // Palm tree seed
+                new RandomItem(5315, 1).weight(20), // Yew seed
+                new RandomItem(5290, 1).weight(20), // Calquat tree seed
+                new RandomItem(5316, 1).weight(10), // Magic seed
+                new RandomItem(5317, 1).weight(5) // Spirit seed
             };
             player.getInventory().deleteItem(itemId, 1, slot);
             player.getInventory().addItem(5075, 1, slot);
@@ -507,26 +507,26 @@ public class InventoryWidget implements Widget {
             break;
         case 7413: // Bird nest
             randomItems = new RandomItem[] {
-                new RandomItem(5323, 6).setWeight(125), // Strawberry
-                new RandomItem(5320, 6).setWeight(125), // Sweetcorn
-                new RandomItem(5312, 1).setWeight(100), // Acorn
-                new RandomItem(5100, 2).setWeight(100), // Limpwurt
-                new RandomItem(5321, 2).setWeight(50), // Watermelon
-                new RandomItem(5302, 1).setWeight(40), // Lantadyme
-                new RandomItem(5303, 1).setWeight(40), // Dwarf weed
-                new RandomItem(5301, 1).setWeight(30), // Cadantine
-                new RandomItem(5313, 1).setWeight(20), // Willow
-                new RandomItem(5287, 1).setWeight(20), // Pineapple
-                new RandomItem(5288, 1).setWeight(15), // Papaya
-                new RandomItem(5290, 1).setWeight(15), // Calquat
-                new RandomItem(5304, 1).setWeight(5), // Torstol
-                new RandomItem(5317, 1).setWeight(5), // Spirit seed
-                new RandomItem(5314, 1).setWeight(5), // Maple
-                new RandomItem(5295, 1).setWeight(5), // Ranarr
-                new RandomItem(5300, 1).setWeight(3), // Snapdragon
-                new RandomItem(5315, 1).setWeight(3), // Yew seed
-                new RandomItem(5289, 1).setWeight(2), // Palm
-                new RandomItem(5316, 1).setWeight(2) // Magic
+                new RandomItem(5323, 6).weight(125), // Strawberry
+                new RandomItem(5320, 6).weight(125), // Sweetcorn
+                new RandomItem(5312, 1).weight(100), // Acorn
+                new RandomItem(5100, 2).weight(100), // Limpwurt
+                new RandomItem(5321, 2).weight(50), // Watermelon
+                new RandomItem(5302, 1).weight(40), // Lantadyme
+                new RandomItem(5303, 1).weight(40), // Dwarf weed
+                new RandomItem(5301, 1).weight(30), // Cadantine
+                new RandomItem(5313, 1).weight(20), // Willow
+                new RandomItem(5287, 1).weight(20), // Pineapple
+                new RandomItem(5288, 1).weight(15), // Papaya
+                new RandomItem(5290, 1).weight(15), // Calquat
+                new RandomItem(5304, 1).weight(5), // Torstol
+                new RandomItem(5317, 1).weight(5), // Spirit seed
+                new RandomItem(5314, 1).weight(5), // Maple
+                new RandomItem(5295, 1).weight(5), // Ranarr
+                new RandomItem(5300, 1).weight(3), // Snapdragon
+                new RandomItem(5315, 1).weight(3), // Yew seed
+                new RandomItem(5289, 1).weight(2), // Palm
+                new RandomItem(5316, 1).weight(2) // Magic
             };
             player.getInventory().deleteItem(itemId, 1, slot);
             player.getInventory().addItem(5075, 1, slot);
@@ -747,11 +747,11 @@ public class InventoryWidget implements Widget {
         case 12789: // Clue box
             player.getInventory().deleteItem(itemId, 1, slot);
             randomItems = new RandomItem[] {
-                new RandomItem(2677, 1).setWeight(8) /* Clue scroll (easy) */,
-                new RandomItem(2801, 1).setWeight(6) /* Clue scroll (medium) */,
-                new RandomItem(2722, 1).setWeight(4) /* Clue scroll (hard) */,
-                new RandomItem(12073, 1).setWeight(2) /* Clue scroll (elite) */,
-                new RandomItem(19835, 1).setWeight(1) /* Clue scroll (master) */
+                new RandomItem(2677, 1).weight(8) /* Clue scroll (easy) */,
+                new RandomItem(2801, 1).weight(6) /* Clue scroll (medium) */,
+                new RandomItem(2722, 1).weight(4) /* Clue scroll (hard) */,
+                new RandomItem(12073, 1).weight(2) /* Clue scroll (elite) */,
+                new RandomItem(19835, 1).weight(1) /* Clue scroll (master) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             if (Utils.randomE(4) == 0) {
@@ -846,15 +846,15 @@ public class InventoryWidget implements Widget {
         case ItemId.BAG_FULL_OF_GEMS:
             player.getInventory().deleteItem(itemId, 1, slot);
             randomItems = new RandomItem[] {
-                new RandomItem(ItemId.UNCUT_OPAL, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_JADE, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_RED_TOPAZ, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_SAPPHIRE, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_EMERALD, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_RUBY, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_DIAMOND, 1, 4).setWeight(1024),
-                new RandomItem(ItemId.UNCUT_DRAGONSTONE, 1).setWeight(32),
-                new RandomItem(ItemId.UNCUT_ONYX, 1).setWeight(8), new RandomItem(ItemId.ZENYTE_SHARD, 1).setWeight(1)
+                new RandomItem(ItemId.UNCUT_OPAL, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_JADE, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_RED_TOPAZ, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_SAPPHIRE, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_EMERALD, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_RUBY, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_DIAMOND, 1, 4).weight(1024),
+                new RandomItem(ItemId.UNCUT_DRAGONSTONE, 1).weight(32),
+                new RandomItem(ItemId.UNCUT_ONYX, 1).weight(8), new RandomItem(ItemId.ZENYTE_SHARD, 1).weight(1)
             };
             for (int i = 0; i < 20; i++) {
                 Item gemItem = RandomItem.getItem(randomItems);
@@ -1285,7 +1285,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(1438, 1) /* Air talisman */, new RandomItem(2355, 1) /* Silver bar */,
                 new RandomItem(1607, 1) /* Sapphire */, new RandomItem(1743, 1) /* Hard leather */,
                 new RandomItem(379, 1) /* Lobster */, new RandomItem(1761, 1) /* Soft clay */,
-                new RandomItem(2677, 1, 1).setWeight(4) /* Clue scroll (easy) */
+                new RandomItem(2677, 1, 1).weight(4) /* Clue scroll (easy) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             break;
@@ -1298,7 +1298,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(1777, 1) /* Bow string */, new RandomItem(1353, 1) /* Steel axe */,
                 new RandomItem(1157, 1) /* Steel full helm */, new RandomItem(1097, 1) /* Studded chaps */,
                 new RandomItem(2293, 1) /* Meat pizza */, new RandomItem(247, 1) /* Jangerberries */,
-                new RandomItem(2677, 1, 1).setWeight(4) /* Clue scroll (easy) */,
+                new RandomItem(2677, 1, 1).weight(4) /* Clue scroll (easy) */,
                 new RandomItem(2359, 1) /* Mithril bar */, new RandomItem(231, 1) /* Snape grass */,
                 new RandomItem(2432, 1) /* Defence potion(4) */, new RandomItem(855, 1) /* Yew longbow */
             };
@@ -1311,7 +1311,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(2011, 1) /* Curry */, new RandomItem(2327, 1) /* Meat pie */,
                 new RandomItem(1897, 1) /* Chocolate cake */, new RandomItem(5004, 1) /* Frog spawn */,
                 new RandomItem(2007, 1) /* Spice */, new RandomItem(5970, 1) /* Curry leaf */,
-                new RandomItem(2677, 1, 1).setWeight(4) /* Clue scroll (easy) */,
+                new RandomItem(2677, 1, 1).weight(4) /* Clue scroll (easy) */,
                 new RandomItem(1883, 1) /* Ugthanki kebab */, new RandomItem(380, 4) /* Lobster (noted) */,
                 new RandomItem(386, 3) /* Shark (noted) */, new RandomItem(7188, 1) /* Fish pie */,
                 new RandomItem(7754, 1) /* Chef's delight */, new RandomItem(10137, 5) /* Rainbow fish (noted) */,
@@ -1332,7 +1332,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(1784, 4) /* Bucket of sand (noted) */, new RandomItem(5294, 2) /* Harralander seed */,
                 new RandomItem(454, 2) /* Coal (noted) */, new RandomItem(444, 1) /* Gold ore */,
                 new RandomItem(1622, 2) /* Uncut emerald (noted) */, new RandomItem(1606, 2) /* Emerald (noted) */,
-                new RandomItem(1603, 1) /* Ruby */, new RandomItem(2801, 1, 1).setWeight(4) /* Clue scroll (medium) */
+                new RandomItem(1603, 1) /* Ruby */, new RandomItem(2801, 1, 1).weight(4) /* Clue scroll (medium) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             break;
@@ -1348,7 +1348,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(564, 4) /* Cosmic rune */, new RandomItem(560, 13) /* Death rune */,
                 new RandomItem(563, 13) /* Law rune */, new RandomItem(565, 7) /* Blood rune */,
                 new RandomItem(566, 11) /* Soul rune */, new RandomItem(561, 13) /* Nature rune */,
-                new RandomItem(2801, 1, 1).setWeight(4) /* Clue scroll (medium) */
+                new RandomItem(2801, 1, 1).weight(4) /* Clue scroll (medium) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             break;
@@ -1365,7 +1365,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(450, 5) /* Adamantite ore (noted) */,
                 new RandomItem(5760, 2) /* Slayer's respite (noted) */, new RandomItem(7208, 1) /* Wild pie */,
                 new RandomItem(5321, 3) /* Watermelon seed */,
-                new RandomItem(2801, 1, 1).setWeight(4) /* Clue scroll (medium) */,
+                new RandomItem(2801, 1, 1).weight(4) /* Clue scroll (medium) */,
                 new RandomItem(1601, 1) /* Diamond */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
@@ -1382,7 +1382,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(5299, 1) /* Kwuarm seed */, new RandomItem(5298, 5) /* Avantoe seed */,
                 new RandomItem(5313, 1) /* Willow seed */, new RandomItem(5304, 1) /* Torstol seed */,
                 new RandomItem(5295, 1) /* Ranarr seed */,
-                new RandomItem(2722, 1, 1).setWeight(4) /* Clue scroll (hard) */,
+                new RandomItem(2722, 1, 1).weight(4) /* Clue scroll (hard) */,
                 new RandomItem(220, 2) /* Grimy Torstol (noted) */, new RandomItem(5303, 1) /* Dwarf weed seed */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
@@ -1398,7 +1398,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(2571, 4) /* Ring of life (noted) */, new RandomItem(1185, 1) /* Rune sq shield */,
                 new RandomItem(1215, 1) /* Dragon dagger */, new RandomItem(5541, 1) /* Nature tiara */,
                 new RandomItem(1748, 6) /* Black dragonhide (noted) */,
-                new RandomItem(2722, 1, 1).setWeight(4) /* Clue scroll (hard) */,
+                new RandomItem(2722, 1, 1).weight(4) /* Clue scroll (hard) */,
                 new RandomItem(2364, 2) /* Runite bar (noted) */, new RandomItem(1602, 4) /* Diamond (noted) */,
                 new RandomItem(5287, 1) /* Pineapple seed */, new RandomItem(987, 1) /* Loop half of key */,
                 new RandomItem(985, 1) /* Tooth half of key */, new RandomItem(993, 1) /* Sinister key */,
@@ -1421,7 +1421,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(140, 4) /* Prayer potion(3) (noted) */,
                 new RandomItem(5941, 4) /* Weapon poison(++) (noted) */,
                 new RandomItem(6156, 3) /* Dagannoth hide (noted) */,
-                new RandomItem(2722, 1, 1).setWeight(4) /* Clue scroll (hard) */,
+                new RandomItem(2722, 1, 1).weight(4) /* Clue scroll (hard) */,
                 new RandomItem(2364, 4) /* Runite bar (noted) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
@@ -1433,32 +1433,32 @@ public class InventoryWidget implements Widget {
                 new RandomItem(11237, 100, 500) /* Dragon arrowtips */,
                 new RandomItem(9193, 10, 49) /* Dragon bolt tips */,
                 new RandomItem(19582, 25, 35) /* Dragon javelin heads */,
-                new RandomItem(11212, 100, 500).setWeight(4) /* Dragon arrow */,
-                new RandomItem(9244, 3, 40).setWeight(4) /* Dragon bolts (e) */,
-                new RandomItem(11230, 100, 350).setWeight(4) /* Dragon dart */,
-                new RandomItem(4093, 1, 1).setWeight(2) /* Mystic robe bottom */,
-                new RandomItem(1713, 2, 3).setWeight(2) /* Amulet of glory(4) (noted) */,
-                new RandomItem(1703, 2, 3).setWeight(2) /* Dragonstone amulet (noted) */,
-                new RandomItem(1305, 1, 1).setWeight(2) /* Dragon longsword */,
-                new RandomItem(5699, 3, 3).setWeight(2) /* Dragon dagger(p++) (noted) */,
-                new RandomItem(535, 100, 300).setWeight(2) /* Babydragon bones (noted) */,
-                new RandomItem(5316, 1, 1).setWeight(2) /* Magic seed */,
-                new RandomItem(537, 50, 100).setWeight(2) /* Dragon bones (noted) */,
-                new RandomItem(1616, 3, 6).setWeight(2) /* Dragonstone (noted) */,
-                new RandomItem(5300, 5, 5).setWeight(2) /* Snapdragon seed */,
-                new RandomItem(7219, 15, 15).setWeight(2) /* Summer pie (noted) */,
-                new RandomItem(12073, 1, 1).setWeight(2) /* Clue scroll (elite) */
+                new RandomItem(11212, 100, 500).weight(4) /* Dragon arrow */,
+                new RandomItem(9244, 3, 40).weight(4) /* Dragon bolts (e) */,
+                new RandomItem(11230, 100, 350).weight(4) /* Dragon dart */,
+                new RandomItem(4093, 1, 1).weight(2) /* Mystic robe bottom */,
+                new RandomItem(1713, 2, 3).weight(2) /* Amulet of glory(4) (noted) */,
+                new RandomItem(1703, 2, 3).weight(2) /* Dragonstone amulet (noted) */,
+                new RandomItem(1305, 1, 1).weight(2) /* Dragon longsword */,
+                new RandomItem(5699, 3, 3).weight(2) /* Dragon dagger(p++) (noted) */,
+                new RandomItem(535, 100, 300).weight(2) /* Babydragon bones (noted) */,
+                new RandomItem(5316, 1, 1).weight(2) /* Magic seed */,
+                new RandomItem(537, 50, 100).weight(2) /* Dragon bones (noted) */,
+                new RandomItem(1616, 3, 6).weight(2) /* Dragonstone (noted) */,
+                new RandomItem(5300, 5, 5).weight(2) /* Snapdragon seed */,
+                new RandomItem(7219, 15, 15).weight(2) /* Summer pie (noted) */,
+                new RandomItem(12073, 1, 1).weight(2) /* Clue scroll (elite) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             break;
         case 19732: // Lucky impling jar
             player.getInventory().deleteItem(itemId, 1, slot);
             randomItems = new RandomItem[] {
-                new RandomItem(2677, 1, 1).setWeight(8) /* Clue scroll (easy) */,
-                new RandomItem(2801, 1, 1).setWeight(6) /* Clue scroll (medium) */,
-                new RandomItem(2722, 1, 1).setWeight(4) /* Clue scroll (hard) */,
-                new RandomItem(12073, 1, 1).setWeight(2) /* Clue scroll (elite) */,
-                new RandomItem(19835, 1, 1).setWeight(1) /* Clue scroll (master) */
+                new RandomItem(2677, 1, 1).weight(8) /* Clue scroll (easy) */,
+                new RandomItem(2801, 1, 1).weight(6) /* Clue scroll (medium) */,
+                new RandomItem(2722, 1, 1).weight(4) /* Clue scroll (hard) */,
+                new RandomItem(12073, 1, 1).weight(2) /* Clue scroll (elite) */,
+                new RandomItem(19835, 1, 1).weight(1) /* Clue scroll (master) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             break;

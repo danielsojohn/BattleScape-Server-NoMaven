@@ -159,25 +159,22 @@ public class AberrantSpectreCombat extends NpcCombat {
 
 	@Override
 	public void deathDropItemsHook(Player player, int index, Tile dropTile) {
-		if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-			SUPERIOR_DROP_TABLE.dropItems(npc, player, dropTile);
-		}
 		if (npc.getArea().matches(CatacombsOfKourendArea.class)) {
-			if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253 || TOTEM_DROP_TABLE.canDrop(npc, player)) {
-				TOTEM_DROP_TABLE.dropItems(npc, player, dropTile);
-			} else if (SHARD_DROP_TABLE.canDrop(npc, player)) {
-				SHARD_DROP_TABLE.dropItems(npc, player, dropTile);
-			}
-		}
+            if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253 || TOTEM_DROP_TABLE.canDrop(npc, player)) {
+                TOTEM_DROP_TABLE.dropItems(npc, player, dropTile);
+            }
+            if (SHARD_DROP_TABLE.canDrop(npc, player)) {
+                SHARD_DROP_TABLE.dropItems(npc, player, dropTile);
+            }
+        }
 	}
 
 	@Override
-	public Item dropTableGetItem(Player player, Tile tile, int dropRateDivider, int roll, Item item,
-			NpcCombatDropTable table) {
-		if (roll == 0 && npc.getId() == NpcId.ABHORRENT_SPECTRE_253 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-			SUPERIOR_DROP_TABLE.dropItems(npc, player, tile);
-			return null;
-		}
-		return item;
-	}
+    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
+            NpcCombatDropTable table, List<Item> items) {
+        if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
+            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+        }
+        return items;
+    }
 }

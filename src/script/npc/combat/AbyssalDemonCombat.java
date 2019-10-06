@@ -45,6 +45,10 @@ public class AbyssalDemonCombat extends NpcCombat {
             .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DARK_TOTEM_TOP))).build();
     private static final NpcCombatDropTable SHARD_DROP_TABLE = NpcCombatDropTable.builder().chance(0.43)
             .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ANCIENT_SHARD))).build();
+    private static final NpcCombatDropTable CURSED_DROP_TABLE =
+            NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_400).log(true)
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ABYSSAL_DAGGER_P_PLUS_PLUS).weight(10)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ABYSSAL_BLUDGEON).weight(8))).build();
 
     private Npc npc;
     private boolean usingSpecialAttack;
@@ -54,7 +58,7 @@ public class AbyssalDemonCombat extends NpcCombat {
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
-                .clue(NpcCombatDrop.ClueScroll.ELITE, 0.084)
+                .clue(NpcCombatDrop.ClueScroll.ELITE, NpcCombatDropTable.CHANCE_1_IN_1200)
                 .clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_128);
         var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_32768).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ABYSSAL_DAGGER_P_PLUS_PLUS)));
@@ -140,6 +144,23 @@ public class AbyssalDemonCombat extends NpcCombat {
         catacombsCombat.style(style.build());
 
 
+        var cursedCombat = NpcCombatDefinition.builder();
+        cursedCombat.id(NpcId.CURSED_ABYSSAL_DEMON_342_16010);
+        cursedCombat.hitpoints(NpcCombatHitpoints.builder().total(400).bar(HitpointsBar.GREEN_RED_60).build());
+        cursedCombat.stats(NpcCombatStats.builder().attackLevel(300).defenceLevel(240)
+                .bonus(CombatBonus.MELEE_DEFENCE, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        cursedCombat.slayer(NpcCombatSlayer.builder().level(85).build());
+        cursedCombat.type(NpcCombatType.DEMON).deathAnimation(1538).blockAnimation(2309);
+        cursedCombat.drop(drop.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.damage(NpcCombatDamage.maximum(31));
+        style.animation(1537).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        cursedCombat.style(style.build());
+
+
         var superiorCombat = NpcCombatDefinition.builder();
         superiorCombat.id(NpcId.GREATER_ABYSSAL_DEMON_342);
         superiorCombat.hitpoints(NpcCombatHitpoints.builder().total(400).bar(HitpointsBar.GREEN_RED_60).build());
@@ -158,12 +179,17 @@ public class AbyssalDemonCombat extends NpcCombat {
         superiorCombat.style(style.build());
 
 
-        return Arrays.asList(normalCombat.build(), catacombsCombat.build(), superiorCombat.build());
+        return Arrays.asList(normalCombat.build(), catacombsCombat.build(), cursedCombat.build(),
+                superiorCombat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
     }
 
     @Override
     public void restoreHook() {
-        npc = getNpc();
         usingSpecialAttack = false;
         specialAttackCount = 0;
         specialAttackTile = null;
@@ -171,8 +197,8 @@ public class AbyssalDemonCombat extends NpcCombat {
 
     @Override
     public void tickStartHook() {
-        if (npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 && npc.isAttacking() && !usingSpecialAttack
-                && Utils.randomE(20) == 0) {
+        if ((npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 || npc.getId() == NpcId.CURSED_ABYSSAL_DEMON_342_16010)
+                && npc.isAttacking() && !usingSpecialAttack && Utils.randomE(20) == 0) {
             usingSpecialAttack = true;
             specialAttackTile = new Tile(npc);
         }
@@ -214,25 +240,41 @@ public class AbyssalDemonCombat extends NpcCombat {
 
     @Override
     public void deathDropItemsHook(Player player, int index, Tile dropTile) {
-        if (npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-            SUPERIOR_DROP_TABLE.dropItems(npc, player, dropTile);
-        }
         if (npc.getArea().matches(CatacombsOfKourendArea.class)) {
             if (npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 || TOTEM_DROP_TABLE.canDrop(npc, player)) {
                 TOTEM_DROP_TABLE.dropItems(npc, player, dropTile);
-            } else if (SHARD_DROP_TABLE.canDrop(npc, player)) {
+            }
+            if (SHARD_DROP_TABLE.canDrop(npc, player)) {
                 SHARD_DROP_TABLE.dropItems(npc, player, dropTile);
             }
         }
     }
 
     @Override
-    public Item dropTableGetItem(Player player, Tile tile, int dropRateDivider, int roll, Item item,
-            NpcCombatDropTable table) {
-        if (roll == 0 && npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-            SUPERIOR_DROP_TABLE.dropItems(npc, player, tile);
-            return null;
+    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
+            NpcCombatDropTable table, List<Item> items) {
+        if (npc.getId() == NpcId.CURSED_ABYSSAL_DEMON_342_16010) {
+            if (!player.getSkills().isWildernessSlayerTask(npc)) {
+                player.getGameEncoder().sendMessage("Without an assigned task, the loot turns to dust...");
+                return null;
+            }
+            if (CURSED_DROP_TABLE.canDrop(npc, player)) {
+                return CURSED_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+            }
         }
-        return item;
+        if ((npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 || npc.getId() == NpcId.CURSED_ABYSSAL_DEMON_342_16010)
+                && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
+            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+        }
+        return items;
+    }
+
+    @Override
+    public double dropTableChanceHook(Player player, int dropRateDivider, int roll, NpcCombatDropTable table) {
+        var chance = table.getChance();
+        if (npc.getId() == NpcId.CURSED_ABYSSAL_DEMON_342_16010 && table == SUPERIOR_DROP_TABLE) {
+            chance /= 32;
+        }
+        return chance;
     }
 }

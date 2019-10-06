@@ -53,7 +53,7 @@ public class EdgevilleArea extends Area {
                     new RandomItem(ItemId.DRAGON_ARROWTIPS, 1, 30), new RandomItem(ItemId.DRAGON_JAVELIN_HEADS, 1, 30),
                     new RandomItem(ItemId.MAGIC_STOCK), new RandomItem(ItemId.RUNITE_LIMBS),
                     new RandomItem(ItemId.ONYX_BOLT_TIPS, 1, 12), new RandomItem(ItemId.PURE_ESSENCE, 3000, 6000),
-                    new RandomItem(ItemId.UNCUT_ONYX).setWeight(1), new RandomItem(ItemId.ZENYTE_SHARD).setWeight(1));
+                    new RandomItem(ItemId.UNCUT_ONYX).weight(1), new RandomItem(ItemId.ZENYTE_SHARD).weight(1));
 
     public EdgevilleArea() {
         super(12342, 12441, 12442);
@@ -347,11 +347,11 @@ public class EdgevilleArea extends Area {
             player.getInventory().deleteItem(ItemId.CRYSTAL_KEY);
             player.getInventory().addOrDropItem(ItemId.UNCUT_DRAGONSTONE_NOTED);
             var clueItems = new RandomItem[] {
-                new RandomItem(ItemId.CLUE_SCROLL_EASY).setWeight(8),
-                new RandomItem(ItemId.CLUE_SCROLL_MEDIUM).setWeight(6),
-                new RandomItem(ItemId.CLUE_SCROLL_HARD).setWeight(4),
-                new RandomItem(ItemId.CLUE_SCROLL_ELITE).setWeight(2),
-                new RandomItem(ItemId.CLUE_SCROLL_MASTER).setWeight(1)
+                new RandomItem(ItemId.CLUE_SCROLL_EASY).weight(8),
+                new RandomItem(ItemId.CLUE_SCROLL_MEDIUM).weight(6),
+                new RandomItem(ItemId.CLUE_SCROLL_HARD).weight(4),
+                new RandomItem(ItemId.CLUE_SCROLL_ELITE).weight(2),
+                new RandomItem(ItemId.CLUE_SCROLL_MASTER).weight(1)
             };
             if (Utils.randomE(4) == 0) {
                 player.getInventory().addOrDropItem(RandomItem.getItem(clueItems));

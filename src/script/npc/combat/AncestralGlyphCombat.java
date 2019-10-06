@@ -65,6 +65,7 @@ public class AncestralGlyphCombat extends NpcCombat {
         }
     }
 
+    @Override
     public boolean canBeAttackedHook(Entity opponent, boolean sendMessage, HitType hitType) {
         return opponent instanceof Npc && opponent.getId() == NpcId.TZKAL_ZUK_1400;
     }

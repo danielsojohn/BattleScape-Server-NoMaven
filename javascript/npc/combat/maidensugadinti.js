@@ -98,7 +98,7 @@ cs = new NCombatScript() {
                     event.stop();
                     bloodSpots.remove(event);
                     if (Utils.randomE(4) == 0) {
-                        var npc2 = new Npc(npc.getController(), 8367, event.getAttachment());
+                        var npc2 = new Npc(npc.getController(), NpcId.BLOOD_SPAWN_55, event.getAttachment());
                         npc2.getController().setMultiCombatFlag(true);
                         npc2.setMoveDistance(32);
                         spawns.add(npc2);

@@ -121,6 +121,7 @@ public class BattleMageCombat extends NpcCombat {
         npc = getNpc();
     }
 
+    @Override
     public boolean canBeAggressiveHook(Entity opponent) {
         if (!(opponent instanceof Player)) {
             return true;
