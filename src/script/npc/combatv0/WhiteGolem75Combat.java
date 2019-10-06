@@ -21,7 +21,9 @@ public class WhiteGolem75Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.WHITE_GOLEM_75);
         combat.hitpoints(NpcCombatHitpoints.total(80));
-        combat.stats(NpcCombatStats.builder().attackLevel(80).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 1).bonus(CombatBonus.DEFENCE_SLASH, 300).bonus(CombatBonus.DEFENCE_CRUSH, 300).bonus(CombatBonus.DEFENCE_MAGIC, 300).bonus(CombatBonus.DEFENCE_RANGED, 300).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(80).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 1)
+                .bonus(CombatBonus.DEFENCE_SLASH, 300).bonus(CombatBonus.DEFENCE_CRUSH, 300)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 300).bonus(CombatBonus.DEFENCE_RANGED, 300).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(2919).blockAnimation(2918);
 

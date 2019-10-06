@@ -119,18 +119,18 @@ var BOSS_ROOMS = Utils.toList(ROOM_VASA_NISTIRIO, ROOM_TEKTON, ROOM_VANGUARDS, R
 Collections.shuffle(BOSS_ROOMS);
 
 var UNIQUE_REWARDS = [
-    new RandomItem(ItemId.DEXTEROUS_PRAYER_SCROLL, 1).setWeight(20),
-    new RandomItem(ItemId.ARCANE_PRAYER_SCROLL, 1).setWeight(20),
-    new RandomItem(ItemId.TWISTED_BUCKLER, 1).setWeight(4),
-    new RandomItem(ItemId.DRAGON_HUNTER_CROSSBOW, 1).setWeight(4),
-    new RandomItem(ItemId.DINHS_BULWARK, 1).setWeight(3),
-    new RandomItem(ItemId.ANCESTRAL_HAT, 1).setWeight(3),
-    new RandomItem(ItemId.ANCESTRAL_ROBE_TOP, 1).setWeight(3),
-    new RandomItem(ItemId.ANCESTRAL_ROBE_BOTTOM, 1).setWeight(3),
-    new RandomItem(ItemId.DRAGON_CLAWS, 1).setWeight(3),
-    new RandomItem(ItemId.ELDER_MAUL, 1).setWeight(2),
-    new RandomItem(ItemId.KODAI_INSIGNIA, 1).setWeight(2),
-    new RandomItem(ItemId.TWISTED_BOW, 1).setWeight(2)
+    new RandomItem(ItemId.DEXTEROUS_PRAYER_SCROLL, 1).weight(20),
+    new RandomItem(ItemId.ARCANE_PRAYER_SCROLL, 1).weight(20),
+    new RandomItem(ItemId.TWISTED_BUCKLER, 1).weight(4),
+    new RandomItem(ItemId.DRAGON_HUNTER_CROSSBOW, 1).weight(4),
+    new RandomItem(ItemId.DINHS_BULWARK, 1).weight(3),
+    new RandomItem(ItemId.ANCESTRAL_HAT, 1).weight(3),
+    new RandomItem(ItemId.ANCESTRAL_ROBE_TOP, 1).weight(3),
+    new RandomItem(ItemId.ANCESTRAL_ROBE_BOTTOM, 1).weight(3),
+    new RandomItem(ItemId.DRAGON_CLAWS, 1).weight(3),
+    new RandomItem(ItemId.ELDER_MAUL, 1).weight(2),
+    new RandomItem(ItemId.KODAI_INSIGNIA, 1).weight(2),
+    new RandomItem(ItemId.TWISTED_BOW, 1).weight(2)
 ];
 var REWARDS = [
     new RandomItem(ItemId.DEATH_RUNE, 3100), new RandomItem(ItemId.BLOOD_RUNE, 4095),

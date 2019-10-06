@@ -92,7 +92,10 @@ public class BrutalBlackDragon318Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BRUTAL_BLACK_DRAGON_318);
         combat.hitpoints(NpcCombatHitpoints.total(315));
-        combat.stats(NpcCombatStats.builder().attackLevel(330).magicLevel(250).defenceLevel(258).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70).bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 60).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(330).magicLevel(250).defenceLevel(258)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 60)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.slayer(NpcCombatSlayer.builder().level(77).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

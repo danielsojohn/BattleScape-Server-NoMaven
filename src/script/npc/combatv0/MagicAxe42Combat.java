@@ -32,7 +32,9 @@ public class MagicAxe42Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MAGIC_AXE_42);
         combat.hitpoints(NpcCombatHitpoints.total(45));
-        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(29).bonus(CombatBonus.DEFENCE_STAB, 10).bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, 15).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(29).bonus(CombatBonus.DEFENCE_STAB, 10)
+                .bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, 15)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(188).blockAnimation(193);
         combat.drop(drop.build());

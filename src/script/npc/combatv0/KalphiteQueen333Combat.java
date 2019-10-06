@@ -28,7 +28,10 @@ public class KalphiteQueen333Combat extends NpcCombat {
         combat.id(NpcId.KALPHITE_QUEEN_333);
         combat.spawn(NpcCombatSpawn.builder().respawnId(NpcId.KALPHITE_QUEEN_333_965).deathDelay(6).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 100)
+                .bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());

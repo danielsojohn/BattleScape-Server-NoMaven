@@ -48,7 +48,8 @@ public class DarkWizard20Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DARK_WIZARD_20);
         combat.hitpoints(NpcCombatHitpoints.total(24));
-        combat.stats(NpcCombatStats.builder().magicLevel(6).defenceLevel(5).bonus(CombatBonus.DEFENCE_MAGIC, 3).build());
+        combat.stats(
+                NpcCombatStats.builder().magicLevel(6).defenceLevel(5).bonus(CombatBonus.DEFENCE_MAGIC, 3).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(836).blockAnimation(424);
         combat.drop(drop.build());

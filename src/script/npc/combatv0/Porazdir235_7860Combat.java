@@ -25,7 +25,9 @@ public class Porazdir235_7860Combat extends NpcCombat {
         combat.id(NpcId.PORAZDIR_235_7860);
         combat.spawn(NpcCombatSpawn.builder().lock(8).animation(7842).build());
         combat.hitpoints(NpcCombatHitpoints.total(320));
-        combat.stats(NpcCombatStats.builder().attackLevel(250).magicLevel(80).defenceLevel(100).bonus(CombatBonus.ATTACK_MAGIC, 80).bonus(CombatBonus.MELEE_DEFENCE, 200).bonus(CombatBonus.DEFENCE_MAGIC, -60).bonus(CombatBonus.DEFENCE_RANGED, 200).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(250).magicLevel(80).defenceLevel(100)
+                .bonus(CombatBonus.ATTACK_MAGIC, 80).bonus(CombatBonus.MELEE_DEFENCE, 200)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -60).bonus(CombatBonus.DEFENCE_RANGED, 200).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.combatScript("magearenademon").deathAnimation(7843).blockAnimation(7838);

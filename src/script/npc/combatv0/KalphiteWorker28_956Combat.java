@@ -63,7 +63,9 @@ public class KalphiteWorker28_956Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KALPHITE_WORKER_28_956);
         combat.hitpoints(NpcCombatHitpoints.total(40));
-        combat.stats(NpcCombatStats.builder().attackLevel(20).defenceLevel(20).bonus(CombatBonus.DEFENCE_STAB, 5).bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, 1).bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(20).defenceLevel(20).bonus(CombatBonus.DEFENCE_STAB, 5)
+                .bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, 1)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.deathAnimation(6228).blockAnimation(6227);
         combat.drop(drop.build());

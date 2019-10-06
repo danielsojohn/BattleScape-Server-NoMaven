@@ -22,7 +22,9 @@ public class JalAkrekKet70Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_AKREK_KET_70);
         combat.hitpoints(NpcCombatHitpoints.total(15));
-        combat.stats(NpcCombatStats.builder().attackLevel(120).defenceLevel(95).bonus(CombatBonus.ATTACK_STAB, 25).bonus(CombatBonus.ATTACK_SLASH, 25).bonus(CombatBonus.ATTACK_CRUSH, 25).bonus(CombatBonus.MELEE_DEFENCE, 25).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(120).defenceLevel(95).bonus(CombatBonus.ATTACK_STAB, 25)
+                .bonus(CombatBonus.ATTACK_SLASH, 25).bonus(CombatBonus.ATTACK_CRUSH, 25)
+                .bonus(CombatBonus.MELEE_DEFENCE, 25).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.deathAnimation(7584).blockAnimation(7585);

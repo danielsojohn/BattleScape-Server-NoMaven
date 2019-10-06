@@ -115,7 +115,11 @@ public class Vorkath392Combat extends NpcCombat {
         combat.id(NpcId.VORKATH_392);
         combat.spawn(NpcCombatSpawn.builder().deathDelay(5).build());
         combat.hitpoints(NpcCombatHitpoints.builder().total(460).bar(HitpointsBar.GREEN_RED_120).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(560).magicLevel(148).rangedLevel(268).defenceLevel(164).bonus(CombatBonus.MELEE_ATTACK, 14).bonus(CombatBonus.ATTACK_MAGIC, 148).bonus(CombatBonus.ATTACK_RANGED, 96).bonus(CombatBonus.DEFENCE_STAB, 66).bonus(CombatBonus.DEFENCE_SLASH, 126).bonus(CombatBonus.DEFENCE_CRUSH, 126).bonus(CombatBonus.DEFENCE_MAGIC, 204).bonus(CombatBonus.DEFENCE_RANGED, 80).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(560).magicLevel(148).rangedLevel(268).defenceLevel(164)
+                .bonus(CombatBonus.MELEE_ATTACK, 14).bonus(CombatBonus.ATTACK_MAGIC, 148)
+                .bonus(CombatBonus.ATTACK_RANGED, 96).bonus(CombatBonus.DEFENCE_STAB, 66)
+                .bonus(CombatBonus.DEFENCE_SLASH, 126).bonus(CombatBonus.DEFENCE_CRUSH, 126)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 204).bonus(CombatBonus.DEFENCE_RANGED, 80).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("vorkath").type(NpcCombatType.UNDEAD).deathAnimation(7949);
@@ -174,7 +178,8 @@ public class Vorkath392Combat extends NpcCombat {
         style.damage(NpcCombatDamage.maximum(80));
         style.animation(7957).attackSpeed(5);
         style.targetGraphic(new Graphic(157));
-        style.projectile(NpcCombatProjectile.builder().id(1481).startHeight(30).curve(32).speedMinimumDistance(8).build());
+        style.projectile(
+                NpcCombatProjectile.builder().id(1481).startHeight(30).curve(32).speedMinimumDistance(8).build());
         var targetTile = NpcCombatTargetTile.builder().adjacentHalfDamage(true);
         style.specialAttack(targetTile.build());
         combat.style(style.build());

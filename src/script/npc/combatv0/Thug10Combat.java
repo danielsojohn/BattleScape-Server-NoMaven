@@ -63,7 +63,9 @@ public class Thug10Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.THUG_10);
         combat.hitpoints(NpcCombatHitpoints.total(18));
-        combat.stats(NpcCombatStats.builder().attackLevel(7).defenceLevel(9).bonus(CombatBonus.MELEE_ATTACK, 5).bonus(CombatBonus.DEFENCE_STAB, 2).bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 3).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(7).defenceLevel(9).bonus(CombatBonus.MELEE_ATTACK, 5)
+                .bonus(CombatBonus.DEFENCE_STAB, 2).bonus(CombatBonus.DEFENCE_SLASH, 3)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 3).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(836).blockAnimation(404);
         combat.drop(drop.build());

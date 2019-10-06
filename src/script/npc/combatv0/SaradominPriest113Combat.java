@@ -36,7 +36,10 @@ public class SaradominPriest113Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SARADOMIN_PRIEST_113);
         combat.hitpoints(NpcCombatHitpoints.total(89));
-        combat.stats(NpcCombatStats.builder().attackLevel(120).magicLevel(125).defenceLevel(120).bonus(CombatBonus.MELEE_ATTACK, 9).bonus(CombatBonus.DEFENCE_STAB, 12).bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 13).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(120).magicLevel(125).defenceLevel(120)
+                .bonus(CombatBonus.MELEE_ATTACK, 9).bonus(CombatBonus.DEFENCE_STAB, 12)
+                .bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 13)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("SaradominGWDCS").deathAnimation(836).blockAnimation(404);
         combat.drop(drop.build());

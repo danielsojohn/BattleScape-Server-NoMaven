@@ -69,7 +69,8 @@ public class Imp7Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.IMP_7);
         combat.hitpoints(NpcCombatHitpoints.total(10));
-        combat.stats(NpcCombatStats.builder().attackLevel(5).defenceLevel(6).bonus(CombatBonus.DEFENCE_MAGIC, -42).bonus(CombatBonus.DEFENCE_RANGED, -42).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(5).defenceLevel(6).bonus(CombatBonus.DEFENCE_MAGIC, -42)
+                .bonus(CombatBonus.DEFENCE_RANGED, -42).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("ZamorakGWDCS").type(NpcCombatType.DEMON).deathAnimation(172);
         combat.drop(drop.build());

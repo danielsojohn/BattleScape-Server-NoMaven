@@ -39,7 +39,8 @@ public class Rocks7565Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ROCKS_7565);
         combat.hitpoints(NpcCombatHitpoints.total(1600));
-        combat.stats(NpcCombatStats.builder().attackLevel(272).magicLevel(272).rangedLevel(272).defenceLevel(272).bonus(CombatBonus.MELEE_DEFENCE, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(272).magicLevel(272).rangedLevel(272).defenceLevel(272)
+                .bonus(CombatBonus.MELEE_DEFENCE, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().disableFacingOpponent(true).disableFollowingOpponent(true).build());
         combat.combatScript("VasaNistirioCS").deathAnimation(7415);

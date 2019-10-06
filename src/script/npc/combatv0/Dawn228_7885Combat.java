@@ -21,7 +21,8 @@ public class Dawn228_7885Combat extends NpcCombat {
         combat.id(NpcId.DAWN_228_7885);
         combat.spawn(NpcCombatSpawn.builder().lock(16).direction(3).animation(7766).build());
         combat.hitpoints(NpcCombatHitpoints.total(450));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(100).rangedLevel(140).defenceLevel(100).bonus(CombatBonus.DEFENCE_MAGIC, 80).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(100).rangedLevel(140).defenceLevel(100)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 80).build());
         combat.slayer(NpcCombatSlayer.builder().level(75).build());
         combat.aggression(NpcCombatAggression.builder().range(20).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

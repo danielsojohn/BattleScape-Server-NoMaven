@@ -22,7 +22,8 @@ public class JalNib32Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_NIB_32);
         combat.hitpoints(NpcCombatHitpoints.total(15));
-        combat.stats(NpcCombatStats.builder().magicLevel(15).defenceLevel(15).bonus(CombatBonus.MELEE_DEFENCE, -20).bonus(CombatBonus.DEFENCE_MAGIC, -20).bonus(CombatBonus.DEFENCE_RANGED, -20).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(15).defenceLevel(15).bonus(CombatBonus.MELEE_DEFENCE, -20)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -20).bonus(CombatBonus.DEFENCE_RANGED, -20).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.deathAnimation(7576).blockAnimation(7575);

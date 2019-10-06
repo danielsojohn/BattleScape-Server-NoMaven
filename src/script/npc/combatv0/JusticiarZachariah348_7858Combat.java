@@ -27,7 +27,9 @@ public class JusticiarZachariah348_7858Combat extends NpcCombat {
         combat.id(NpcId.JUSTICIAR_ZACHARIAH_348_7858);
         combat.spawn(NpcCombatSpawn.builder().lock(4).animation(7964).build());
         combat.hitpoints(NpcCombatHitpoints.total(320));
-        combat.stats(NpcCombatStats.builder().attackLevel(500).magicLevel(180).defenceLevel(100).bonus(CombatBonus.ATTACK_MAGIC, 80).bonus(CombatBonus.MELEE_DEFENCE, 200).bonus(CombatBonus.DEFENCE_MAGIC, -60).bonus(CombatBonus.DEFENCE_RANGED, 200).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(500).magicLevel(180).defenceLevel(100)
+                .bonus(CombatBonus.ATTACK_MAGIC, 80).bonus(CombatBonus.MELEE_DEFENCE, 200)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -60).bonus(CombatBonus.DEFENCE_RANGED, 200).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.combatScript("magearenademon").deathAnimation(7854).blockAnimation(7965);

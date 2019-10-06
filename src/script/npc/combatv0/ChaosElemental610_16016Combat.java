@@ -43,7 +43,9 @@ public class ChaosElemental610_16016Combat extends NpcCombat {
         combat.id(NpcId.CHAOS_ELEMENTAL_610_16016);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(36000).build());
         combat.hitpoints(NpcCombatHitpoints.builder().total(2500).bar(HitpointsBar.GREEN_RED_120).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(270).magicLevel(270).rangedLevel(270).defenceLevel(270).bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 70).bonus(CombatBonus.DEFENCE_RANGED, 70).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(270).magicLevel(270).rangedLevel(270).defenceLevel(270)
+                .bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 70)
+                .bonus(CombatBonus.DEFENCE_RANGED, 70).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

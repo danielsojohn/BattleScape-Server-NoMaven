@@ -23,7 +23,8 @@ public class Nezikchened187Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.NEZIKCHENED_187);
         combat.hitpoints(NpcCombatHitpoints.total(150));
-        combat.stats(NpcCombatStats.builder().attackLevel(165).magicLevel(160).rangedLevel(160).defenceLevel(167).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(165).magicLevel(160).rangedLevel(160).defenceLevel(167).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("nezikchened").type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
 

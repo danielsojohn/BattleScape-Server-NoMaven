@@ -57,9 +57,11 @@ public class SergeantGrimspike142Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SERGEANT_GRIMSPIKE_142);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.GENERAL_GRAARDOR_624).respawnWithId(NpcId.SERGEANT_STRONGSTACK_141).respawnWithId(NpcId.SERGEANT_STEELWILL_142).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.GENERAL_GRAARDOR_624)
+                .respawnWithId(NpcId.SERGEANT_STRONGSTACK_141).respawnWithId(NpcId.SERGEANT_STEELWILL_142).build());
         combat.hitpoints(NpcCombatHitpoints.total(146));
-        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(50).rangedLevel(150).defenceLevel(132).bonus(CombatBonus.ATTACK_RANGED, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(50).rangedLevel(150).defenceLevel(132)
+                .bonus(CombatBonus.ATTACK_RANGED, 20).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.killCount(NpcCombatKillCount.builder().asName("General Graardor's bodyguard").build());
         combat.deathAnimation(6156).blockAnimation(6155);

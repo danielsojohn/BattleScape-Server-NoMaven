@@ -21,7 +21,8 @@ public class ScorpiasOffspring15Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SCORPIAS_OFFSPRING_15);
         combat.hitpoints(NpcCombatHitpoints.total(2));
-        combat.stats(NpcCombatStats.builder().rangedLevel(30).bonus(CombatBonus.ATTACK_RANGED, 900).bonus(CombatBonus.DEFENCE_RANGED, -40).build());
+        combat.stats(NpcCombatStats.builder().rangedLevel(30).bonus(CombatBonus.ATTACK_RANGED, 900)
+                .bonus(CombatBonus.DEFENCE_RANGED, -40).build());
         combat.deathAnimation(6260).blockAnimation(6259);
 
         var style = NpcCombatStyle.builder();

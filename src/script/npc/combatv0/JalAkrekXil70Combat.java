@@ -22,7 +22,8 @@ public class JalAkrekXil70Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_AKREK_XIL_70);
         combat.hitpoints(NpcCombatHitpoints.total(15));
-        combat.stats(NpcCombatStats.builder().rangedLevel(120).defenceLevel(95).bonus(CombatBonus.ATTACK_RANGED, 25).bonus(CombatBonus.DEFENCE_RANGED, 25).build());
+        combat.stats(NpcCombatStats.builder().rangedLevel(120).defenceLevel(95).bonus(CombatBonus.ATTACK_RANGED, 25)
+                .bonus(CombatBonus.DEFENCE_RANGED, 25).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.deathAnimation(7584).blockAnimation(7585);

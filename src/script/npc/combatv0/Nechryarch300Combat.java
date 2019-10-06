@@ -74,7 +74,8 @@ public class Nechryarch300Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.NECHRYARCH_300);
         combat.hitpoints(NpcCombatHitpoints.builder().total(320).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(310).defenceLevel(140).bonus(CombatBonus.MELEE_DEFENCE, 30).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(310).defenceLevel(140).bonus(CombatBonus.MELEE_DEFENCE, 30)
+                .bonus(CombatBonus.DEFENCE_RANGED, 30).build());
         combat.slayer(NpcCombatSlayer.builder().level(80).experience(3068).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Superior Slayer Creature").build());
         combat.combatScript("SuperiorSlayerCS").deathAnimation(6369).blockAnimation(6370);

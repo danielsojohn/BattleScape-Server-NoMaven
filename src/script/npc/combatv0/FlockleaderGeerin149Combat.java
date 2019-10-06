@@ -54,9 +54,11 @@ public class FlockleaderGeerin149Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.FLOCKLEADER_GEERIN_149);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.KREEARRA_580).respawnWithId(NpcId.WINGMAN_SKREE_143).respawnWithId(NpcId.FLIGHT_KILISA_159).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.KREEARRA_580)
+                .respawnWithId(NpcId.WINGMAN_SKREE_143).respawnWithId(NpcId.FLIGHT_KILISA_159).build());
         combat.hitpoints(NpcCombatHitpoints.total(132));
-        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(50).rangedLevel(150).defenceLevel(175).bonus(CombatBonus.ATTACK_RANGED, 60).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(50).rangedLevel(150).defenceLevel(175)
+                .bonus(CombatBonus.ATTACK_RANGED, 60).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Kree'arra's bodyguard").build());
         combat.combatScript("AviansieMinionCS").deathAnimation(6959).blockAnimation(6958);

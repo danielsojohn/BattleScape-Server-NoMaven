@@ -27,11 +27,16 @@ public class RevenantDemon98Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_DEMON_98);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(80));
-        combat.stats(NpcCombatStats.builder().attackLevel(83).magicLevel(120).rangedLevel(80).defenceLevel(80).bonus(CombatBonus.MELEE_ATTACK, 30).bonus(CombatBonus.ATTACK_MAGIC, 50).bonus(CombatBonus.ATTACK_RANGED, 40).bonus(CombatBonus.DEFENCE_STAB, 124).bonus(CombatBonus.DEFENCE_SLASH, 118).bonus(CombatBonus.DEFENCE_CRUSH, 130).bonus(CombatBonus.DEFENCE_MAGIC, 85).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(83).magicLevel(120).rangedLevel(80).defenceLevel(80)
+                .bonus(CombatBonus.MELEE_ATTACK, 30).bonus(CombatBonus.ATTACK_MAGIC, 50)
+                .bonus(CombatBonus.ATTACK_RANGED, 40).bonus(CombatBonus.DEFENCE_STAB, 124)
+                .bonus(CombatBonus.DEFENCE_SLASH, 118).bonus(CombatBonus.DEFENCE_CRUSH, 130)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 85).bonus(CombatBonus.DEFENCE_RANGED, 90).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());
-        combat.combatScript("revenant").type(NpcCombatType.UNDEAD).type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
+        combat.combatScript("revenant").type(NpcCombatType.UNDEAD).type(NpcCombatType.DEMON).deathAnimation(67)
+                .blockAnimation(65);
 
         var style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));

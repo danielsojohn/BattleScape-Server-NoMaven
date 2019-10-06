@@ -94,7 +94,8 @@ public class IceGiant53_2089Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ICE_GIANT_53_2089);
         combat.hitpoints(NpcCombatHitpoints.total(70));
-        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.MELEE_ATTACK, 29).bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 2).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.MELEE_ATTACK, 29)
+                .bonus(CombatBonus.DEFENCE_SLASH, 3).bonus(CombatBonus.DEFENCE_CRUSH, 2).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(4673).blockAnimation(4671);
         combat.drop(drop.build());

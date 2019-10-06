@@ -59,7 +59,8 @@ public class Pirate26Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.PIRATE_26);
         combat.hitpoints(NpcCombatHitpoints.total(20));
-        combat.stats(NpcCombatStats.builder().attackLevel(20).defenceLevel(20).bonus(CombatBonus.MELEE_ATTACK, 12).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(20).defenceLevel(20).bonus(CombatBonus.MELEE_ATTACK, 12).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(836).blockAnimation(404);
         combat.drop(drop.build());

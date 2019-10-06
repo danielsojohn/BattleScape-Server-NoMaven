@@ -70,7 +70,10 @@ public class Scorpia225Combat extends NpcCombat {
         combat.id(NpcId.SCORPIA_225);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(15).build());
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(250).defenceLevel(180).bonus(CombatBonus.MELEE_ATTACK, 60).bonus(CombatBonus.DEFENCE_STAB, 246).bonus(CombatBonus.DEFENCE_SLASH, 284).bonus(CombatBonus.DEFENCE_CRUSH, 284).bonus(CombatBonus.DEFENCE_MAGIC, 44).bonus(CombatBonus.DEFENCE_RANGED, 284).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(250).defenceLevel(180).bonus(CombatBonus.MELEE_ATTACK, 60)
+                .bonus(CombatBonus.DEFENCE_STAB, 246).bonus(CombatBonus.DEFENCE_SLASH, 284)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 284).bonus(CombatBonus.DEFENCE_MAGIC, 44)
+                .bonus(CombatBonus.DEFENCE_RANGED, 284).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("wildernessdemiboss").deathAnimation(6256).blockAnimation(6255);

@@ -23,7 +23,9 @@ public class JungleDemon195Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JUNGLE_DEMON_195);
         combat.hitpoints(NpcCombatHitpoints.total(170));
-        combat.stats(NpcCombatStats.builder().attackLevel(170).magicLevel(170).defenceLevel(170).bonus(CombatBonus.MELEE_ATTACK, 50).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(170).magicLevel(170).defenceLevel(170)
+                .bonus(CombatBonus.MELEE_ATTACK, 50).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("jungledemon").type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
 

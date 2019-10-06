@@ -92,7 +92,10 @@ public class Wyrm99Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.WYRM_99);
         combat.hitpoints(NpcCombatHitpoints.total(130));
-        combat.stats(NpcCombatStats.builder().attackLevel(85).magicLevel(80).rangedLevel(80).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(85).magicLevel(80).rangedLevel(80).defenceLevel(80)
+                .bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50)
+                .bonus(CombatBonus.DEFENCE_RANGED, 20).build());
         combat.slayer(NpcCombatSlayer.builder().level(62).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).build());

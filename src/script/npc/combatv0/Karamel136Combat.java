@@ -25,7 +25,10 @@ public class Karamel136Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KARAMEL_136);
         combat.hitpoints(NpcCombatHitpoints.total(250));
-        combat.stats(NpcCombatStats.builder().rangedLevel(100).defenceLevel(100).bonus(CombatBonus.ATTACK_STAB, 50).bonus(CombatBonus.ATTACK_SLASH, 50).bonus(CombatBonus.ATTACK_CRUSH, 50).bonus(CombatBonus.ATTACK_RANGED, 134).bonus(CombatBonus.MELEE_DEFENCE, 150).bonus(CombatBonus.DEFENCE_MAGIC, 150).bonus(CombatBonus.DEFENCE_RANGED, 150).build());
+        combat.stats(NpcCombatStats.builder().rangedLevel(100).defenceLevel(100).bonus(CombatBonus.ATTACK_STAB, 50)
+                .bonus(CombatBonus.ATTACK_SLASH, 50).bonus(CombatBonus.ATTACK_CRUSH, 50)
+                .bonus(CombatBonus.ATTACK_RANGED, 134).bonus(CombatBonus.MELEE_DEFENCE, 150)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 150).bonus(CombatBonus.DEFENCE_RANGED, 150).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("KaramelCS").deathAnimation(836).blockAnimation(424);
@@ -34,7 +37,8 @@ public class Karamel136Combat extends NpcCombat {
         style.damage(NpcCombatDamage.maximum(20));
         style.animation(2075).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));
-        style.effect(NpcCombatEffect.builder().statDrain(Skills.ATTACK, 1).statDrain(Skills.DEFENCE, 1).statDrain(Skills.STRENGTH, 1).statDrain(Skills.RANGED, 1).statDrain(Skills.MAGIC, 1).build());
+        style.effect(NpcCombatEffect.builder().statDrain(Skills.ATTACK, 1).statDrain(Skills.DEFENCE, 1)
+                .statDrain(Skills.STRENGTH, 1).statDrain(Skills.RANGED, 1).statDrain(Skills.MAGIC, 1).build());
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
@@ -43,7 +47,8 @@ public class Karamel136Combat extends NpcCombat {
         style.animation(1979).attackSpeed(3);
         style.targetGraphic(new Graphic(369));
         style.projectile(NpcCombatProjectile.id(335));
-        style.effect(NpcCombatEffect.builder().magicBind(34).statDrain(Skills.ATTACK, 1).statDrain(Skills.DEFENCE, 1).statDrain(Skills.STRENGTH, 1).statDrain(Skills.RANGED, 1).statDrain(Skills.MAGIC, 1).build());
+        style.effect(NpcCombatEffect.builder().magicBind(34).statDrain(Skills.ATTACK, 1).statDrain(Skills.DEFENCE, 1)
+                .statDrain(Skills.STRENGTH, 1).statDrain(Skills.RANGED, 1).statDrain(Skills.MAGIC, 1).build());
         style.phrase("Semolina-Go!").attackCount(2);
         combat.style(style.build());
 

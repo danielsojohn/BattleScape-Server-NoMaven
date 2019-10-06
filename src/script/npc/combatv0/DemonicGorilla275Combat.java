@@ -88,7 +88,10 @@ public class DemonicGorilla275Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.DEMONIC_GORILLA_275);
         combat.hitpoints(NpcCombatHitpoints.total(380));
-        combat.stats(NpcCombatStats.builder().attackLevel(205).magicLevel(195).rangedLevel(195).defenceLevel(200).bonus(CombatBonus.MELEE_ATTACK, 43).bonus(CombatBonus.ATTACK_MAGIC, 40).bonus(CombatBonus.ATTACK_RANGED, 43).bonus(CombatBonus.MELEE_DEFENCE, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(205).magicLevel(195).rangedLevel(195).defenceLevel(200)
+                .bonus(CombatBonus.MELEE_ATTACK, 43).bonus(CombatBonus.ATTACK_MAGIC, 40)
+                .bonus(CombatBonus.ATTACK_RANGED, 43).bonus(CombatBonus.MELEE_DEFENCE, 50)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.combatScript("DemonicGorillaCS").type(NpcCombatType.DEMON).deathAnimation(7229).blockAnimation(7224);

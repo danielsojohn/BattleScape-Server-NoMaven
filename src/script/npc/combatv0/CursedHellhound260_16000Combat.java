@@ -49,7 +49,11 @@ public class CursedHellhound260_16000Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CURSED_HELLHOUND_260_16000);
         combat.hitpoints(NpcCombatHitpoints.builder().total(300).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(110).magicLevel(110).rangedLevel(110).defenceLevel(50).bonus(CombatBonus.ATTACK_SLASH, 25).bonus(CombatBonus.ATTACK_MAGIC, 25).bonus(CombatBonus.ATTACK_RANGED, 25).bonus(CombatBonus.DEFENCE_STAB, 25).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(110).magicLevel(110).rangedLevel(110).defenceLevel(50)
+                .bonus(CombatBonus.ATTACK_SLASH, 25).bonus(CombatBonus.ATTACK_MAGIC, 25)
+                .bonus(CombatBonus.ATTACK_RANGED, 25).bonus(CombatBonus.DEFENCE_STAB, 25)
+                .bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 50)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.slayer(NpcCombatSlayer.builder().level(91).build());
         combat.combatScript("cursedmonster").deathAnimation(6564).blockAnimation(6563);
         combat.drop(drop.build());

@@ -22,7 +22,8 @@ public class KetZek360_3126Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KET_ZEK_360_3126);
         combat.hitpoints(NpcCombatHitpoints.total(160));
-        combat.stats(NpcCombatStats.builder().attackLevel(320).magicLevel(240).rangedLevel(480).defenceLevel(240).bonus(CombatBonus.ATTACK_MAGIC, 60).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(320).magicLevel(240).rangedLevel(480).defenceLevel(240)
+                .bonus(CombatBonus.ATTACK_MAGIC, 60).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(2646).blockAnimation(2645);
 

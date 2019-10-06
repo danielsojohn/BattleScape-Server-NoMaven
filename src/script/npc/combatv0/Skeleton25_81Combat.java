@@ -82,7 +82,9 @@ public class Skeleton25_81Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SKELETON_25_81);
         combat.hitpoints(NpcCombatHitpoints.total(29));
-        combat.stats(NpcCombatStats.builder().attackLevel(15).defenceLevel(17).bonus(CombatBonus.DEFENCE_STAB, 5).bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, -5).bonus(CombatBonus.DEFENCE_RANGED, 5).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(15).defenceLevel(17).bonus(CombatBonus.DEFENCE_STAB, 5)
+                .bonus(CombatBonus.DEFENCE_SLASH, 5).bonus(CombatBonus.DEFENCE_CRUSH, -5)
+                .bonus(CombatBonus.DEFENCE_RANGED, 5).build());
         combat.type(NpcCombatType.UNDEAD).deathAnimation(5491).blockAnimation(5489);
         combat.drop(drop.build());
 

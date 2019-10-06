@@ -94,7 +94,8 @@ public class Mogre60Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MOGRE_60);
         combat.hitpoints(NpcCombatHitpoints.total(48));
-        combat.stats(NpcCombatStats.builder().attackLevel(58).defenceLevel(48).bonus(CombatBonus.MELEE_ATTACK, 22).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(58).defenceLevel(48).bonus(CombatBonus.MELEE_ATTACK, 22).build());
         combat.slayer(NpcCombatSlayer.builder().level(32).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

@@ -60,9 +60,11 @@ public class ZaklnGritch142Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ZAKLN_GRITCH_142);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.KRIL_TSUTSAROTH_650).respawnWithId(NpcId.TSTANON_KARLAK_145).respawnWithId(NpcId.BALFRUG_KREEYATH_151).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.KRIL_TSUTSAROTH_650)
+                .respawnWithId(NpcId.TSTANON_KARLAK_145).respawnWithId(NpcId.BALFRUG_KREEYATH_151).build());
         combat.hitpoints(NpcCombatHitpoints.total(150));
-        combat.stats(NpcCombatStats.builder().attackLevel(83).magicLevel(50).rangedLevel(150).defenceLevel(127).bonus(CombatBonus.ATTACK_RANGED, 20).bonus(CombatBonus.DEFENCE_MAGIC, -5).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(83).magicLevel(50).rangedLevel(150).defenceLevel(127)
+                .bonus(CombatBonus.ATTACK_RANGED, 20).bonus(CombatBonus.DEFENCE_MAGIC, -5).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.killCount(NpcCombatKillCount.builder().asName("K'ril Tsutsaroth's bodyguard").build());
         combat.type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);

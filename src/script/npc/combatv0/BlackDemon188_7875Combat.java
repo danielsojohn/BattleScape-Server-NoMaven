@@ -69,7 +69,8 @@ public class BlackDemon188_7875Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BLACK_DEMON_188_7875);
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(145).defenceLevel(152).bonus(CombatBonus.DEFENCE_MAGIC, -10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(145).defenceLevel(152).bonus(CombatBonus.DEFENCE_MAGIC, -10)
+                .build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
         combat.drop(drop.build());

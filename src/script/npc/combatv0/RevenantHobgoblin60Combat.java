@@ -27,7 +27,11 @@ public class RevenantHobgoblin60Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_HOBGOBLIN_60);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(72));
-        combat.stats(NpcCombatStats.builder().attackLevel(50).magicLevel(55).rangedLevel(60).defenceLevel(41).bonus(CombatBonus.MELEE_ATTACK, 20).bonus(CombatBonus.ATTACK_MAGIC, 5).bonus(CombatBonus.ATTACK_RANGED, 25).bonus(CombatBonus.DEFENCE_STAB, 65).bonus(CombatBonus.DEFENCE_SLASH, 60).bonus(CombatBonus.DEFENCE_CRUSH, 68).bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(50).magicLevel(55).rangedLevel(60).defenceLevel(41)
+                .bonus(CombatBonus.MELEE_ATTACK, 20).bonus(CombatBonus.ATTACK_MAGIC, 5)
+                .bonus(CombatBonus.ATTACK_RANGED, 25).bonus(CombatBonus.DEFENCE_STAB, 65)
+                .bonus(CombatBonus.DEFENCE_SLASH, 60).bonus(CombatBonus.DEFENCE_CRUSH, 68)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 30).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());

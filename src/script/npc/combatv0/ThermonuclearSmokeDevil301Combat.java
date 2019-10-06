@@ -102,7 +102,10 @@ public class ThermonuclearSmokeDevil301Combat extends NpcCombat {
         combat.id(NpcId.THERMONUCLEAR_SMOKE_DEVIL_301);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(14).build());
         combat.hitpoints(NpcCombatHitpoints.total(240));
-        combat.stats(NpcCombatStats.builder().attackLevel(230).rangedLevel(310).defenceLevel(360).bonus(CombatBonus.DEFENCE_STAB, 11).bonus(CombatBonus.DEFENCE_SLASH, 4).bonus(CombatBonus.DEFENCE_CRUSH, 9).bonus(CombatBonus.DEFENCE_MAGIC, 800).bonus(CombatBonus.DEFENCE_RANGED, 900).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(230).rangedLevel(310).defenceLevel(360)
+                .bonus(CombatBonus.DEFENCE_STAB, 11).bonus(CombatBonus.DEFENCE_SLASH, 4)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 9).bonus(CombatBonus.DEFENCE_MAGIC, 800)
+                .bonus(CombatBonus.DEFENCE_RANGED, 900).build());
         combat.slayer(NpcCombatSlayer.builder().level(93).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

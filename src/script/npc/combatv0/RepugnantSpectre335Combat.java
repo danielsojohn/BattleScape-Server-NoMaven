@@ -83,7 +83,8 @@ public class RepugnantSpectre335Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.REPUGNANT_SPECTRE_335);
         combat.hitpoints(NpcCombatHitpoints.builder().total(390).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().magicLevel(380).defenceLevel(220).bonus(CombatBonus.MELEE_DEFENCE, 120).bonus(CombatBonus.DEFENCE_RANGED, 115).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(380).defenceLevel(220).bonus(CombatBonus.MELEE_DEFENCE, 120)
+                .bonus(CombatBonus.DEFENCE_RANGED, 115).build());
         combat.slayer(NpcCombatSlayer.builder().level(60).experience(4085).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Superior Slayer Creature").build());

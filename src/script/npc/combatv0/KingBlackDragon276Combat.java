@@ -77,7 +77,10 @@ public class KingBlackDragon276Combat extends NpcCombat {
         combat.id(NpcId.KING_BLACK_DRAGON_276);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(16).build());
         combat.hitpoints(NpcCombatHitpoints.total(240));
-        combat.stats(NpcCombatStats.builder().attackLevel(240).magicLevel(240).defenceLevel(240).bonus(CombatBonus.DEFENCE_STAB, 70).bonus(CombatBonus.DEFENCE_SLASH, 90).bonus(CombatBonus.DEFENCE_CRUSH, 90).bonus(CombatBonus.DEFENCE_MAGIC, 80).bonus(CombatBonus.DEFENCE_RANGED, 70).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(240).magicLevel(240).defenceLevel(240)
+                .bonus(CombatBonus.DEFENCE_STAB, 70).bonus(CombatBonus.DEFENCE_SLASH, 90)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 90).bonus(CombatBonus.DEFENCE_MAGIC, 80)
+                .bonus(CombatBonus.DEFENCE_RANGED, 70).build());
         combat.aggression(NpcCombatAggression.builder().range(15).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("KingBlackDragonCS").deathAnimation(92).blockAnimation(89);

@@ -58,9 +58,13 @@ public class Starlight149Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.STARLIGHT_149);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.COMMANDER_ZILYANA_596).respawnWithId(NpcId.GROWLER_139).respawnWithId(NpcId.BREE_146).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.COMMANDER_ZILYANA_596)
+                .respawnWithId(NpcId.GROWLER_139).respawnWithId(NpcId.BREE_146).build());
         combat.hitpoints(NpcCombatHitpoints.total(160));
-        combat.stats(NpcCombatStats.builder().attackLevel(120).magicLevel(125).defenceLevel(120).bonus(CombatBonus.MELEE_ATTACK, 60).bonus(CombatBonus.DEFENCE_STAB, 12).bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 13).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(120).magicLevel(125).defenceLevel(120)
+                .bonus(CombatBonus.MELEE_ATTACK, 60).bonus(CombatBonus.DEFENCE_STAB, 12)
+                .bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 13)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Commander Zilyana's bodyguard").build());
         combat.deathAnimation(6377).blockAnimation(6375);

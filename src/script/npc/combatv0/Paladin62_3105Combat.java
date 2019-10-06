@@ -59,7 +59,10 @@ public class Paladin62_3105Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.PALADIN_62_3105);
-        combat.stats(NpcCombatStats.builder().attackLevel(54).defenceLevel(54).bonus(CombatBonus.MELEE_ATTACK, 20).bonus(CombatBonus.DEFENCE_STAB, 87).bonus(CombatBonus.DEFENCE_SLASH, 84).bonus(CombatBonus.DEFENCE_CRUSH, 76).bonus(CombatBonus.DEFENCE_MAGIC, -10).bonus(CombatBonus.DEFENCE_RANGED, 79).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(54).defenceLevel(54).bonus(CombatBonus.MELEE_ATTACK, 20)
+                .bonus(CombatBonus.DEFENCE_STAB, 87).bonus(CombatBonus.DEFENCE_SLASH, 84)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 76).bonus(CombatBonus.DEFENCE_MAGIC, -10)
+                .bonus(CombatBonus.DEFENCE_RANGED, 79).build());
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();

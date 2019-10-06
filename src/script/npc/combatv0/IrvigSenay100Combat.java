@@ -31,7 +31,9 @@ public class IrvigSenay100Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.IRVIG_SENAY_100);
         combat.hitpoints(NpcCombatHitpoints.total(125));
-        combat.stats(NpcCombatStats.builder().attackLevel(76).defenceLevel(81).bonus(CombatBonus.MELEE_ATTACK, 29).bonus(CombatBonus.DEFENCE_STAB, 27).bonus(CombatBonus.DEFENCE_SLASH, 31).bonus(CombatBonus.DEFENCE_CRUSH, 29).bonus(CombatBonus.DEFENCE_RANGED, 29).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(76).defenceLevel(81).bonus(CombatBonus.MELEE_ATTACK, 29)
+                .bonus(CombatBonus.DEFENCE_STAB, 27).bonus(CombatBonus.DEFENCE_SLASH, 31)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 29).bonus(CombatBonus.DEFENCE_RANGED, 29).build());
         combat.deathAnimation(5491).blockAnimation(5489);
         combat.drop(drop.build());
 

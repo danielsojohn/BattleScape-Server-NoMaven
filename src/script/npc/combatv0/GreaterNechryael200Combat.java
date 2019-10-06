@@ -94,7 +94,8 @@ public class GreaterNechryael200Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GREATER_NECHRYAEL_200);
         combat.hitpoints(NpcCombatHitpoints.total(205));
-        combat.stats(NpcCombatStats.builder().attackLevel(197).defenceLevel(85).bonus(CombatBonus.MELEE_DEFENCE, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(197).defenceLevel(85).bonus(CombatBonus.MELEE_DEFENCE, 50)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.slayer(NpcCombatSlayer.builder().level(80).superiorId(NpcId.NECHRYARCH_300).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Nechryael").build());
         combat.type(NpcCombatType.DEMON).deathAnimation(1530).blockAnimation(1531);

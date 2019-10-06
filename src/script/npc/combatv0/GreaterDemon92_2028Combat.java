@@ -66,7 +66,8 @@ public class GreaterDemon92_2028Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GREATER_DEMON_92_2028);
         combat.hitpoints(NpcCombatHitpoints.total(79));
-        combat.stats(NpcCombatStats.builder().attackLevel(68).defenceLevel(71).bonus(CombatBonus.DEFENCE_MAGIC, -10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(68).defenceLevel(71).bonus(CombatBonus.DEFENCE_MAGIC, -10)
+                .build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
         combat.drop(drop.build());

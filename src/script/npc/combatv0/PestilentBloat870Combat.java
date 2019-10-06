@@ -19,7 +19,11 @@ public class PestilentBloat870Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.PESTILENT_BLOAT_870);
         combat.hitpoints(NpcCombatHitpoints.builder().total(2000).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(250).magicLevel(150).rangedLevel(180).defenceLevel(100).bonus(CombatBonus.MELEE_ATTACK, 150).bonus(CombatBonus.ATTACK_RANGED, 180).bonus(CombatBonus.DEFENCE_STAB, 40).bonus(CombatBonus.DEFENCE_SLASH, 20).bonus(CombatBonus.DEFENCE_CRUSH, 40).bonus(CombatBonus.DEFENCE_MAGIC, 600).bonus(CombatBonus.DEFENCE_RANGED, 800).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(250).magicLevel(150).rangedLevel(180).defenceLevel(100)
+                .bonus(CombatBonus.MELEE_ATTACK, 150).bonus(CombatBonus.ATTACK_RANGED, 180)
+                .bonus(CombatBonus.DEFENCE_STAB, 40).bonus(CombatBonus.DEFENCE_SLASH, 20)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 40).bonus(CombatBonus.DEFENCE_MAGIC, 600)
+                .bonus(CombatBonus.DEFENCE_RANGED, 800).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).build());
         combat.combatScript("pestilentbloat");

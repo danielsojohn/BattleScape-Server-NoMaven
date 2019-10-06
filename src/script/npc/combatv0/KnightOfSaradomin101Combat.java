@@ -35,7 +35,10 @@ public class KnightOfSaradomin101Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KNIGHT_OF_SARADOMIN_101);
         combat.hitpoints(NpcCombatHitpoints.total(108));
-        combat.stats(NpcCombatStats.builder().attackLevel(75).magicLevel(60).defenceLevel(82).bonus(CombatBonus.MELEE_ATTACK, 13).bonus(CombatBonus.DEFENCE_STAB, 12).bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 13).bonus(CombatBonus.DEFENCE_RANGED, 13).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(75).magicLevel(60).defenceLevel(82)
+                .bonus(CombatBonus.MELEE_ATTACK, 13).bonus(CombatBonus.DEFENCE_STAB, 12)
+                .bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 13)
+                .bonus(CombatBonus.DEFENCE_RANGED, 13).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("SaradominGWDCS").deathAnimation(836).blockAnimation(410);
         combat.drop(drop.build());

@@ -19,7 +19,11 @@ public class ZombifiedSpawn64Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ZOMBIFIED_SPAWN_64);
         combat.hitpoints(NpcCombatHitpoints.total(38));
-        combat.stats(NpcCombatStats.builder().attackLevel(82).defenceLevel(6).bonus(CombatBonus.ATTACK_STAB, 1).bonus(CombatBonus.ATTACK_SLASH, 1).bonus(CombatBonus.ATTACK_CRUSH, 1).bonus(CombatBonus.ATTACK_MAGIC, 1).bonus(CombatBonus.ATTACK_RANGED, 1).bonus(CombatBonus.MELEE_DEFENCE, 3).bonus(CombatBonus.DEFENCE_MAGIC, -100).bonus(CombatBonus.DEFENCE_RANGED, 3).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(82).defenceLevel(6).bonus(CombatBonus.ATTACK_STAB, 1)
+                .bonus(CombatBonus.ATTACK_SLASH, 1).bonus(CombatBonus.ATTACK_CRUSH, 1)
+                .bonus(CombatBonus.ATTACK_MAGIC, 1).bonus(CombatBonus.ATTACK_RANGED, 1)
+                .bonus(CombatBonus.MELEE_DEFENCE, 3).bonus(CombatBonus.DEFENCE_MAGIC, -100)
+                .bonus(CombatBonus.DEFENCE_RANGED, 3).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).build());
         combat.combatScript("vorkathspawn").type(NpcCombatType.UNDEAD).deathAnimation(7891);

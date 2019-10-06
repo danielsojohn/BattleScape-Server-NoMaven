@@ -27,7 +27,8 @@ public class TheMaidenOfSugadinti940_8362Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.THE_MAIDEN_OF_SUGADINTI_940_8362);
         combat.hitpoints(NpcCombatHitpoints.builder().total(3500).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(350).magicLevel(350).rangedLevel(350).defenceLevel(200).bonus(CombatBonus.ATTACK_MAGIC, 300).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(350).magicLevel(350).rangedLevel(350).defenceLevel(200)
+                .bonus(CombatBonus.ATTACK_MAGIC, 300).build());
         combat.aggression(NpcCombatAggression.builder().range(25).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().attackClosest(true).disableFollowingOpponent(true).build());
@@ -48,7 +49,8 @@ public class TheMaidenOfSugadinti940_8362Combat extends NpcCombat {
         style.projectile(NpcCombatProjectile.builder().id(1578).speedMinimumDistance(8).build());
         style.multiTarget(true);
         var targetTile = NpcCombatTargetTile.builder();
-        targetTile.breakOff(NpcCombatTargetTile.BreakOff.builder().count(2).onlyFocusedOpponent(true).distance(3).build());
+        targetTile.breakOff(
+                NpcCombatTargetTile.BreakOff.builder().count(2).onlyFocusedOpponent(true).distance(3).build());
         style.specialAttack(targetTile.build());
         combat.style(style.build());
 

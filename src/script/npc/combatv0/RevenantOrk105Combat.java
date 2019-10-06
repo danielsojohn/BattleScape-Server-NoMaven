@@ -29,7 +29,10 @@ public class RevenantOrk105Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_ORK_105);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(105));
-        combat.stats(NpcCombatStats.builder().attackLevel(99).magicLevel(110).rangedLevel(130).defenceLevel(60).bonus(CombatBonus.MELEE_ATTACK, 60).bonus(CombatBonus.DEFENCE_STAB, 148).bonus(CombatBonus.DEFENCE_SLASH, 150).bonus(CombatBonus.DEFENCE_CRUSH, 146).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 148).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(99).magicLevel(110).rangedLevel(130).defenceLevel(60)
+                .bonus(CombatBonus.MELEE_ATTACK, 60).bonus(CombatBonus.DEFENCE_STAB, 148)
+                .bonus(CombatBonus.DEFENCE_SLASH, 150).bonus(CombatBonus.DEFENCE_CRUSH, 146)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 148).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());

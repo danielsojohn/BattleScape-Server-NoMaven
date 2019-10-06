@@ -40,7 +40,10 @@ public class Vanguard7529Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.VANGUARD_7529);
         combat.hitpoints(NpcCombatHitpoints.builder().total(400).alwaysShow(true).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(150).magicLevel(150).rangedLevel(150).defenceLevel(210).bonus(CombatBonus.ATTACK_MAGIC, 40).bonus(CombatBonus.DEFENCE_STAB, 315).bonus(CombatBonus.DEFENCE_SLASH, 340).bonus(CombatBonus.DEFENCE_CRUSH, 400).bonus(CombatBonus.DEFENCE_MAGIC, 110).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(150).magicLevel(150).rangedLevel(150).defenceLevel(210)
+                .bonus(CombatBonus.ATTACK_MAGIC, 40).bonus(CombatBonus.DEFENCE_STAB, 315)
+                .bonus(CombatBonus.DEFENCE_SLASH, 340).bonus(CombatBonus.DEFENCE_CRUSH, 400)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 110).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.builder().range(6).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.combatScript("VanguardCS").deathAnimation(7432);

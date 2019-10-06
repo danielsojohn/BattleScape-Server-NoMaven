@@ -67,7 +67,8 @@ public class Nechryael115Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.NECHRYAEL_115);
         combat.hitpoints(NpcCombatHitpoints.total(105));
-        combat.stats(NpcCombatStats.builder().attackLevel(97).defenceLevel(105).bonus(CombatBonus.MELEE_DEFENCE, 20).bonus(CombatBonus.DEFENCE_RANGED, 20).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(97).defenceLevel(105).bonus(CombatBonus.MELEE_DEFENCE, 20)
+                .bonus(CombatBonus.DEFENCE_RANGED, 20).build());
         combat.slayer(NpcCombatSlayer.builder().level(80).superiorId(NpcId.NECHRYARCH_300).build());
         combat.type(NpcCombatType.DEMON).deathAnimation(1530).blockAnimation(1531);
         combat.drop(drop.build());

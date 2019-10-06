@@ -26,7 +26,8 @@ public class Dusk328_7889Combat extends NpcCombat {
         var dropTable = NpcCombatDropTable.builder().chance(0.02).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.JAR_OF_STONE)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.033).order(NpcCombatDropTable.Order.RANDOM_UNIQUE).broadcast(true).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(0.033).order(NpcCombatDropTable.Order.RANDOM_UNIQUE)
+                .broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.NOON)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(0.15).broadcast(true).log(true);
@@ -66,7 +67,8 @@ public class Dusk328_7889Combat extends NpcCombat {
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_DART_TIP, 15, 25)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DIAMOND_BOLT_TIPS, 105, 147)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGONSTONE_BOLT_TIPS, 19, 28)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SUPER_COMBAT_POTION_2_NOTED), new RandomItem(ItemId.RANGING_POTION_2_NOTED), new RandomItem(ItemId.MAGIC_POTION_2_NOTED)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SUPER_COMBAT_POTION_2_NOTED),
+                new RandomItem(ItemId.RANGING_POTION_2_NOTED), new RandomItem(ItemId.MAGIC_POTION_2_NOTED)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PRAYER_POTION_4_NOTED, 1, 2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SARADOMIN_BREW_4_NOTED, 2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CRYSTAL_KEY)));
@@ -86,7 +88,8 @@ public class Dusk328_7889Combat extends NpcCombat {
         combat.id(NpcId.DUSK_328_7889);
         combat.spawn(NpcCombatSpawn.builder().lock(16).direction(4).animation(7778).build());
         combat.hitpoints(NpcCombatHitpoints.total(450));
-        combat.stats(NpcCombatStats.builder().attackLevel(200).magicLevel(140).rangedLevel(140).defenceLevel(100).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(200).magicLevel(140).rangedLevel(140).defenceLevel(100).build());
         combat.slayer(NpcCombatSlayer.builder().level(75).build());
         combat.aggression(NpcCombatAggression.builder().range(20).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

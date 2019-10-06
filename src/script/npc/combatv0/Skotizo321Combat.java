@@ -78,7 +78,9 @@ public class Skotizo321Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SKOTIZO_321);
         combat.hitpoints(NpcCombatHitpoints.total(450));
-        combat.stats(NpcCombatStats.builder().attackLevel(240).magicLevel(280).defenceLevel(200).bonus(CombatBonus.MELEE_ATTACK, 160).bonus(CombatBonus.MELEE_DEFENCE, 80).bonus(CombatBonus.DEFENCE_MAGIC, 130).bonus(CombatBonus.DEFENCE_RANGED, 130).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(240).magicLevel(280).defenceLevel(200)
+                .bonus(CombatBonus.MELEE_ATTACK, 160).bonus(CombatBonus.MELEE_DEFENCE, 80)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 130).bonus(CombatBonus.DEFENCE_RANGED, 130).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

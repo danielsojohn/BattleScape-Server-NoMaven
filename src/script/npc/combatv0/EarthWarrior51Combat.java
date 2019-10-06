@@ -76,7 +76,9 @@ public class EarthWarrior51Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.EARTH_WARRIOR_51);
         combat.hitpoints(NpcCombatHitpoints.total(54));
-        combat.stats(NpcCombatStats.builder().attackLevel(42).defenceLevel(42).bonus(CombatBonus.DEFENCE_STAB, 30).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 20).bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(42).defenceLevel(42).bonus(CombatBonus.DEFENCE_STAB, 30)
+                .bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 20)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 10).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(836).blockAnimation(404);
         combat.drop(drop.build());

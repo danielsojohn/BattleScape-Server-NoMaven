@@ -67,7 +67,10 @@ public class GiantMole230Combat extends NpcCombat {
         combat.id(NpcId.GIANT_MOLE_230);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(15).build());
         combat.hitpoints(NpcCombatHitpoints.total(200));
-        combat.stats(NpcCombatStats.builder().attackLevel(200).magicLevel(200).defenceLevel(200).bonus(CombatBonus.DEFENCE_STAB, 60).bonus(CombatBonus.DEFENCE_SLASH, 80).bonus(CombatBonus.DEFENCE_CRUSH, 100).bonus(CombatBonus.DEFENCE_MAGIC, 80).bonus(CombatBonus.DEFENCE_RANGED, 60).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(200).magicLevel(200).defenceLevel(200)
+                .bonus(CombatBonus.DEFENCE_STAB, 60).bonus(CombatBonus.DEFENCE_SLASH, 80)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 100).bonus(CombatBonus.DEFENCE_MAGIC, 80)
+                .bonus(CombatBonus.DEFENCE_RANGED, 60).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
         combat.combatScript("GiantMoleCS").deathAnimation(3310).blockAnimation(3311);

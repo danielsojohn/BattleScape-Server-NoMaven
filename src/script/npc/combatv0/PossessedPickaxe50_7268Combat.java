@@ -52,7 +52,9 @@ public class PossessedPickaxe50_7268Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.POSSESSED_PICKAXE_50_7268);
         combat.hitpoints(NpcCombatHitpoints.total(40));
-        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.DEFENCE_STAB, 15).bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.DEFENCE_STAB, 15)
+                .bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_CRUSH, 5)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.deathAnimation(188).blockAnimation(193);
         combat.drop(drop.build());
 

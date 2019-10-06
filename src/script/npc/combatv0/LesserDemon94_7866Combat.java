@@ -67,7 +67,8 @@ public class LesserDemon94_7866Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.LESSER_DEMON_94_7866);
         combat.hitpoints(NpcCombatHitpoints.total(110));
-        combat.stats(NpcCombatStats.builder().attackLevel(80).defenceLevel(85).bonus(CombatBonus.DEFENCE_MAGIC, -10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(80).defenceLevel(85).bonus(CombatBonus.DEFENCE_MAGIC, -10)
+                .build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
         combat.drop(drop.build());

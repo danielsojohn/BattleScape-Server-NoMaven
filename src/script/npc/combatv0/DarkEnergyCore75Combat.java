@@ -31,7 +31,8 @@ public class DarkEnergyCore75Combat extends NpcCombat {
         combat.id(NpcId.DARK_ENERGY_CORE_75);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(6000).build());
         combat.hitpoints(NpcCombatHitpoints.total(25));
-        combat.stats(NpcCombatStats.builder().defenceLevel(20).bonus(CombatBonus.MELEE_DEFENCE, 10).bonus(CombatBonus.DEFENCE_MAGIC, -5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().defenceLevel(20).bonus(CombatBonus.MELEE_DEFENCE, 10)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.aggression(NpcCombatAggression.builder().range(16).always(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).disableFollowingOpponent(true).build());
         combat.combatScript("DarkEnergyCoreCS");

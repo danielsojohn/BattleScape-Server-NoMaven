@@ -20,7 +20,8 @@ public class MossGiant84Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MOSS_GIANT_84);
         combat.hitpoints(NpcCombatHitpoints.total(120));
-        combat.stats(NpcCombatStats.builder().attackLevel(60).defenceLevel(60).bonus(CombatBonus.MELEE_ATTACK, 66).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(60).defenceLevel(60).bonus(CombatBonus.MELEE_ATTACK, 66).build());
         combat.deathAnimation(4659).blockAnimation(4657);
 
         var style = NpcCombatStyle.builder();

@@ -27,7 +27,8 @@ public class RevenantImp7Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_IMP_7);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(10));
-        combat.stats(NpcCombatStats.builder().attackLevel(5).magicLevel(9).rangedLevel(5).defenceLevel(4).bonus(CombatBonus.ATTACK_MAGIC, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(5).magicLevel(9).rangedLevel(5).defenceLevel(4)
+                .bonus(CombatBonus.ATTACK_MAGIC, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());

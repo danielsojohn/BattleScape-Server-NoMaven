@@ -82,7 +82,8 @@ public class HillGiant28_2102Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.HILL_GIANT_28_2102);
         combat.hitpoints(NpcCombatHitpoints.total(35));
-        combat.stats(NpcCombatStats.builder().attackLevel(18).defenceLevel(26).bonus(CombatBonus.MELEE_ATTACK, 18).build());
+        combat.stats(
+                NpcCombatStats.builder().attackLevel(18).defenceLevel(26).bonus(CombatBonus.MELEE_ATTACK, 18).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(4653).blockAnimation(4651);
         combat.drop(drop.build());

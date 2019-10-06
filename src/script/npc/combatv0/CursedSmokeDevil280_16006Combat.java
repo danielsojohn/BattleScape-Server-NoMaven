@@ -101,7 +101,8 @@ public class CursedSmokeDevil280_16006Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CURSED_SMOKE_DEVIL_280_16006);
         combat.hitpoints(NpcCombatHitpoints.builder().total(400).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(240).rangedLevel(295).defenceLevel(375).bonus(CombatBonus.DEFENCE_MAGIC, 1200).bonus(CombatBonus.DEFENCE_RANGED, 88).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(240).rangedLevel(295).defenceLevel(375)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 1200).bonus(CombatBonus.DEFENCE_RANGED, 88).build());
         combat.slayer(NpcCombatSlayer.builder().level(93).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("cursedmonster").deathAnimation(3849).blockAnimation(3848);

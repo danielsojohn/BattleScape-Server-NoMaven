@@ -22,7 +22,8 @@ public class JalXil370Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_XIL_370);
         combat.hitpoints(NpcCombatHitpoints.total(130));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(90).rangedLevel(250).defenceLevel(60).bonus(CombatBonus.ATTACK_RANGED, 40).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(90).rangedLevel(250).defenceLevel(60)
+                .bonus(CombatBonus.ATTACK_RANGED, 40).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.deathAnimation(7606).blockAnimation(7607);

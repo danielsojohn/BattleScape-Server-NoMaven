@@ -65,7 +65,9 @@ public class CaveCrawler23Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CAVE_CRAWLER_23);
         combat.hitpoints(NpcCombatHitpoints.total(24));
-        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(18).bonus(CombatBonus.DEFENCE_STAB, 10).bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(18).bonus(CombatBonus.DEFENCE_STAB, 10)
+                .bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_CRUSH, 5)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.slayer(NpcCombatSlayer.builder().level(10).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(228);

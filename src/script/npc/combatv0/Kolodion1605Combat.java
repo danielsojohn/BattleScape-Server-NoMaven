@@ -22,7 +22,8 @@ public class Kolodion1605Combat extends NpcCombat {
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KOLODION_1605);
-        combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("You must prove yourself... now!").graphic(new Graphic(86, 100)).respawnId(NpcId.KOLODION_1606).deathDelay(8).build());
+        combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("You must prove yourself... now!")
+                .graphic(new Graphic(86, 100)).respawnId(NpcId.KOLODION_1606).deathDelay(8).build());
         combat.hitpoints(NpcCombatHitpoints.total(3));
         combat.stats(NpcCombatStats.builder().magicLevel(60).bonus(CombatBonus.ATTACK_MAGIC, 16).build());
         combat.aggression(NpcCombatAggression.PLAYERS);

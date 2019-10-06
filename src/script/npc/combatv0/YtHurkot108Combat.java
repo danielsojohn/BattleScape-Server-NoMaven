@@ -20,7 +20,8 @@ public class YtHurkot108Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.YT_HURKOT_108);
         combat.hitpoints(NpcCombatHitpoints.total(60));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(120).rangedLevel(120).defenceLevel(60).bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(120).rangedLevel(120).defenceLevel(60)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.combatScript("YtHurKotCS").deathAnimation(2638).blockAnimation(2635);
 
         var style = NpcCombatStyle.builder();

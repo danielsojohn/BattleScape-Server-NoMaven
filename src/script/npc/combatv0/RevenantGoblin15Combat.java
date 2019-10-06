@@ -27,7 +27,11 @@ public class RevenantGoblin15Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_GOBLIN_15);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(14));
-        combat.stats(NpcCombatStats.builder().attackLevel(13).magicLevel(12).rangedLevel(15).defenceLevel(14).bonus(CombatBonus.MELEE_ATTACK, 6).bonus(CombatBonus.ATTACK_MAGIC, 37).bonus(CombatBonus.ATTACK_RANGED, 21).bonus(CombatBonus.DEFENCE_STAB, 25).bonus(CombatBonus.DEFENCE_SLASH, 28).bonus(CombatBonus.DEFENCE_CRUSH, 31).bonus(CombatBonus.DEFENCE_MAGIC, 1).bonus(CombatBonus.DEFENCE_RANGED, 31).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(13).magicLevel(12).rangedLevel(15).defenceLevel(14)
+                .bonus(CombatBonus.MELEE_ATTACK, 6).bonus(CombatBonus.ATTACK_MAGIC, 37)
+                .bonus(CombatBonus.ATTACK_RANGED, 21).bonus(CombatBonus.DEFENCE_STAB, 25)
+                .bonus(CombatBonus.DEFENCE_SLASH, 28).bonus(CombatBonus.DEFENCE_CRUSH, 31)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 1).bonus(CombatBonus.DEFENCE_RANGED, 31).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());

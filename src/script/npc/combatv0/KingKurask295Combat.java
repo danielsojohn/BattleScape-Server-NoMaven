@@ -96,7 +96,8 @@ public class KingKurask295Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KING_KURASK_295);
         combat.hitpoints(NpcCombatHitpoints.builder().total(420).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(190).defenceLevel(250).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(190).defenceLevel(250).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 50).build());
         combat.slayer(NpcCombatSlayer.builder().level(70).experience(2767).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).build());

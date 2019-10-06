@@ -84,7 +84,9 @@ public class MountainTroll69_937Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MOUNTAIN_TROLL_69_937);
         combat.hitpoints(NpcCombatHitpoints.total(90));
-        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.MELEE_ATTACK, 20).bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 200).bonus(CombatBonus.DEFENCE_RANGED, 200).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(40).defenceLevel(40).bonus(CombatBonus.MELEE_ATTACK, 20)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 200)
+                .bonus(CombatBonus.DEFENCE_RANGED, 200).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(287).blockAnimation(285);
         combat.drop(drop.build());

@@ -51,7 +51,8 @@ public class InfernalMage66Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.INFERNAL_MAGE_66);
         combat.hitpoints(NpcCombatHitpoints.total(60));
-        combat.stats(NpcCombatStats.builder().magicLevel(75).defenceLevel(60).bonus(CombatBonus.DEFENCE_MAGIC, 40).build());
+        combat.stats(
+                NpcCombatStats.builder().magicLevel(75).defenceLevel(60).bonus(CombatBonus.DEFENCE_MAGIC, 40).build());
         combat.slayer(NpcCombatSlayer.builder().level(45).build());
         combat.deathAnimation(836).blockAnimation(1429);
         combat.drop(drop.build());

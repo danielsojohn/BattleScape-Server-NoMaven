@@ -35,7 +35,10 @@ public class TektonEnragedCombat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TEKTON_ENRAGED);
         combat.hitpoints(NpcCombatHitpoints.total(400));
-        combat.stats(NpcCombatStats.builder().attackLevel(390).magicLevel(205).defenceLevel(205).bonus(CombatBonus.MELEE_ATTACK, 64).bonus(CombatBonus.DEFENCE_STAB, 280).bonus(CombatBonus.DEFENCE_SLASH, 290).bonus(CombatBonus.DEFENCE_CRUSH, 180).bonus(CombatBonus.DEFENCE_MAGIC, 600).bonus(CombatBonus.DEFENCE_RANGED, 600).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(390).magicLevel(205).defenceLevel(205)
+                .bonus(CombatBonus.MELEE_ATTACK, 64).bonus(CombatBonus.DEFENCE_STAB, 280)
+                .bonus(CombatBonus.DEFENCE_SLASH, 290).bonus(CombatBonus.DEFENCE_CRUSH, 180)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 600).bonus(CombatBonus.DEFENCE_RANGED, 600).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).bind(true).build());
         combat.focus(NpcCombatFocus.builder().retaliationDisabled(true).build());
         combat.combatScript("TektonCS").deathAnimation(7495);

@@ -77,10 +77,15 @@ public class KrilTsutsaroth650Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KRIL_TSUTSAROTH_650);
-        combat.phrase("Attack them, you dogs!").phrase("Forward!").phrase("Death to Saradomin's dogs!").phrase("Kill them, you cowards!").phrase("The Dark One will have their souls!").phrase("Zamorak curse them!").phrase("Rend them limb from limb!").phrase("No retreat!").phrase("Flay them all!");
+        combat.phrase("Attack them, you dogs!").phrase("Forward!").phrase("Death to Saradomin's dogs!")
+                .phrase("Kill them, you cowards!").phrase("The Dark One will have their souls!")
+                .phrase("Zamorak curse them!").phrase("Rend them limb from limb!").phrase("No retreat!")
+                .phrase("Flay them all!");
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(100).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(340).magicLevel(200).defenceLevel(270).bonus(CombatBonus.MELEE_ATTACK, 160).bonus(CombatBonus.MELEE_DEFENCE, 80).bonus(CombatBonus.DEFENCE_MAGIC, 130).bonus(CombatBonus.DEFENCE_RANGED, 80).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(340).magicLevel(200).defenceLevel(270)
+                .bonus(CombatBonus.MELEE_ATTACK, 160).bonus(CombatBonus.MELEE_DEFENCE, 80)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 130).bonus(CombatBonus.DEFENCE_RANGED, 80).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).singleTargetFocus(true).build());

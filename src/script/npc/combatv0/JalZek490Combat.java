@@ -22,7 +22,8 @@ public class JalZek490Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_ZEK_490);
         combat.hitpoints(NpcCombatHitpoints.total(220));
-        combat.stats(NpcCombatStats.builder().attackLevel(370).magicLevel(300).rangedLevel(510).defenceLevel(260).bonus(CombatBonus.ATTACK_MAGIC, 80).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(370).magicLevel(300).rangedLevel(510).defenceLevel(260)
+                .bonus(CombatBonus.ATTACK_MAGIC, 80).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.combatScript("JalZekCS").deathAnimation(7613);

@@ -88,7 +88,8 @@ public class TwistedBanshee89Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TWISTED_BANSHEE_89);
         combat.hitpoints(NpcCombatHitpoints.total(100));
-        combat.stats(NpcCombatStats.builder().attackLevel(75).defenceLevel(50).bonus(CombatBonus.MELEE_DEFENCE, 15).bonus(CombatBonus.DEFENCE_RANGED, 15).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(75).defenceLevel(50).bonus(CombatBonus.MELEE_DEFENCE, 15)
+                .bonus(CombatBonus.DEFENCE_RANGED, 15).build());
         combat.slayer(NpcCombatSlayer.builder().level(15).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Banshee").build());

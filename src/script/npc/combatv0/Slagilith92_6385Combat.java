@@ -21,7 +21,10 @@ public class Slagilith92_6385Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SLAGILITH_92_6385);
         combat.hitpoints(NpcCombatHitpoints.total(60));
-        combat.stats(NpcCombatStats.builder().attackLevel(60).defenceLevel(75).bonus(CombatBonus.MELEE_ATTACK, 10).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(60).defenceLevel(75).bonus(CombatBonus.MELEE_ATTACK, 10)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 5)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(1752).blockAnimation(1751);
 

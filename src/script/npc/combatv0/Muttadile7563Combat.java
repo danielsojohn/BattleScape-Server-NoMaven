@@ -39,7 +39,9 @@ public class Muttadile7563Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.MUTTADILE_7563);
         combat.hitpoints(NpcCombatHitpoints.total(400));
-        combat.stats(NpcCombatStats.builder().attackLevel(150).rangedLevel(150).defenceLevel(138).bonus(CombatBonus.MELEE_ATTACK, 71).bonus(CombatBonus.ATTACK_RANGED, 83).bonus(CombatBonus.DEFENCE_MAGIC, 60).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(150).rangedLevel(150).defenceLevel(138)
+                .bonus(CombatBonus.MELEE_ATTACK, 71).bonus(CombatBonus.ATTACK_RANGED, 83)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 60).build());
         combat.aggression(NpcCombatAggression.builder().range(12).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());

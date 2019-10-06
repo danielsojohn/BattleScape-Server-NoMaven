@@ -58,9 +58,13 @@ public class Bree146Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BREE_146);
-        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.COMMANDER_ZILYANA_596).respawnWithId(NpcId.STARLIGHT_149).respawnWithId(NpcId.GROWLER_139).build());
+        combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).respawnWithId(NpcId.COMMANDER_ZILYANA_596)
+                .respawnWithId(NpcId.STARLIGHT_149).respawnWithId(NpcId.GROWLER_139).build());
         combat.hitpoints(NpcCombatHitpoints.total(162));
-        combat.stats(NpcCombatStats.builder().attackLevel(162).magicLevel(80).rangedLevel(150).defenceLevel(130).bonus(CombatBonus.MELEE_ATTACK, 10).bonus(CombatBonus.DEFENCE_STAB, 12).bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 14).bonus(CombatBonus.DEFENCE_MAGIC, 18).bonus(CombatBonus.DEFENCE_RANGED, 5).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(162).magicLevel(80).rangedLevel(150).defenceLevel(130)
+                .bonus(CombatBonus.MELEE_ATTACK, 10).bonus(CombatBonus.DEFENCE_STAB, 12)
+                .bonus(CombatBonus.DEFENCE_SLASH, 14).bonus(CombatBonus.DEFENCE_CRUSH, 14)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 18).bonus(CombatBonus.DEFENCE_RANGED, 5).build());
         combat.aggression(NpcCombatAggression.builder().range(16).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Commander Zilyana's bodyguard").build());
         combat.deathAnimation(7028).blockAnimation(7027);

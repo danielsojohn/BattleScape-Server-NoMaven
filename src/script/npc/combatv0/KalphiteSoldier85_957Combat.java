@@ -72,7 +72,9 @@ public class KalphiteSoldier85_957Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KALPHITE_SOLDIER_85_957);
         combat.hitpoints(NpcCombatHitpoints.total(90));
-        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_STAB, 25).bonus(CombatBonus.DEFENCE_SLASH, 25).bonus(CombatBonus.DEFENCE_CRUSH, 5).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_STAB, 25)
+                .bonus(CombatBonus.DEFENCE_SLASH, 25).bonus(CombatBonus.DEFENCE_CRUSH, 5)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.deathAnimation(6228).blockAnimation(6227);
         combat.drop(drop.build());

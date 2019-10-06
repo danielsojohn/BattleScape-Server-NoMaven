@@ -69,7 +69,9 @@ public class TyrasGuard110_3433Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.TYRAS_GUARD_110_3433);
         combat.hitpoints(NpcCombatHitpoints.total(110));
-        combat.stats(NpcCombatStats.builder().attackLevel(85).defenceLevel(100).bonus(CombatBonus.MELEE_ATTACK, 20).bonus(CombatBonus.DEFENCE_STAB, 87).bonus(CombatBonus.DEFENCE_SLASH, 84).bonus(CombatBonus.DEFENCE_CRUSH, 76).bonus(CombatBonus.DEFENCE_RANGED, 79).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(85).defenceLevel(100).bonus(CombatBonus.MELEE_ATTACK, 20)
+                .bonus(CombatBonus.DEFENCE_STAB, 87).bonus(CombatBonus.DEFENCE_SLASH, 84)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 76).bonus(CombatBonus.DEFENCE_RANGED, 79).build());
         combat.deathAnimation(836).blockAnimation(435);
         combat.drop(drop.build());
 

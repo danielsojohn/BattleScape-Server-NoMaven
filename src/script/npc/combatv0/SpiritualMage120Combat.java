@@ -51,7 +51,9 @@ public class SpiritualMage120Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SPIRITUAL_MAGE_120);
         combat.hitpoints(NpcCombatHitpoints.total(85));
-        combat.stats(NpcCombatStats.builder().magicLevel(160).defenceLevel(86).bonus(CombatBonus.DEFENCE_STAB, 8).bonus(CombatBonus.DEFENCE_SLASH, 7).bonus(CombatBonus.DEFENCE_CRUSH, 3).bonus(CombatBonus.DEFENCE_MAGIC, 16).bonus(CombatBonus.DEFENCE_RANGED, 2).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(160).defenceLevel(86).bonus(CombatBonus.DEFENCE_STAB, 8)
+                .bonus(CombatBonus.DEFENCE_SLASH, 7).bonus(CombatBonus.DEFENCE_CRUSH, 3)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 16).bonus(CombatBonus.DEFENCE_RANGED, 2).build());
         combat.slayer(NpcCombatSlayer.builder().level(83).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.combatScript("SaradominGWDCS").deathAnimation(836).blockAnimation(404);

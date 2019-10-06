@@ -30,7 +30,9 @@ public class KnightOfArdougne46_3111Combat extends NpcCombat {
 
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KNIGHT_OF_ARDOUGNE_46_3111);
-        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(41).bonus(CombatBonus.MELEE_ATTACK, 8).bonus(CombatBonus.DEFENCE_STAB, 39).bonus(CombatBonus.DEFENCE_SLASH, 40).bonus(CombatBonus.DEFENCE_CRUSH, 36).bonus(CombatBonus.DEFENCE_RANGED, 36).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(38).defenceLevel(41).bonus(CombatBonus.MELEE_ATTACK, 8)
+                .bonus(CombatBonus.DEFENCE_STAB, 39).bonus(CombatBonus.DEFENCE_SLASH, 40)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 36).bonus(CombatBonus.DEFENCE_RANGED, 36).build());
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();

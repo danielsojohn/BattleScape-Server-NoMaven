@@ -99,7 +99,9 @@ public class CursedWyvern210_16011Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.CURSED_WYVERN_210_16011);
         combat.hitpoints(NpcCombatHitpoints.builder().total(300).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(150).magicLevel(90).rangedLevel(90).defenceLevel(220).bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 170).bonus(CombatBonus.DEFENCE_RANGED, 120).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(150).magicLevel(90).rangedLevel(90).defenceLevel(220)
+                .bonus(CombatBonus.MELEE_DEFENCE, 70).bonus(CombatBonus.DEFENCE_MAGIC, 170)
+                .bonus(CombatBonus.DEFENCE_RANGED, 120).build());
         combat.slayer(NpcCombatSlayer.builder().level(66).build());
         combat.combatScript("WyvernCS").deathAnimation(7652).blockAnimation(7659);
         combat.drop(drop.build());

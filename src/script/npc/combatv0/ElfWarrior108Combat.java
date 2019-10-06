@@ -87,7 +87,9 @@ public class ElfWarrior108Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ELF_WARRIOR_108);
         combat.hitpoints(NpcCombatHitpoints.total(105));
-        combat.stats(NpcCombatStats.builder().attackLevel(95).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 70).bonus(CombatBonus.DEFENCE_CRUSH, 70).bonus(CombatBonus.DEFENCE_MAGIC, 60).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(95).defenceLevel(80).bonus(CombatBonus.DEFENCE_STAB, 50)
+                .bonus(CombatBonus.DEFENCE_SLASH, 70).bonus(CombatBonus.DEFENCE_CRUSH, 70)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 60).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.deathAnimation(836).blockAnimation(435);
         combat.drop(drop.build());
 

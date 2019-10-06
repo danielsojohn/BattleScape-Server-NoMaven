@@ -91,7 +91,9 @@ public class DagannothPrime303Combat extends NpcCombat {
         combat.id(NpcId.DAGANNOTH_PRIME_303);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(75).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(255).magicLevel(255).defenceLevel(255).bonus(CombatBonus.MELEE_DEFENCE, 255).bonus(CombatBonus.DEFENCE_MAGIC, 255).bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(255).magicLevel(255).defenceLevel(255)
+                .bonus(CombatBonus.MELEE_DEFENCE, 255).bonus(CombatBonus.DEFENCE_MAGIC, 255)
+                .bonus(CombatBonus.DEFENCE_RANGED, 10).build());
         combat.aggression(NpcCombatAggression.builder().range(4).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

@@ -22,7 +22,8 @@ public class Kolodion1608Combat extends NpcCombat {
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.KOLODION_1608);
-        combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("Now you feel it... The dark energy.").animation(715).graphic(new Graphic(86, 100)).respawnId(NpcId.KOLODION_112).deathDelay(8).build());
+        combat.spawn(NpcCombatSpawn.builder().lock(4).phrase("Now you feel it... The dark energy.").animation(715)
+                .graphic(new Graphic(86, 100)).respawnId(NpcId.KOLODION_112).deathDelay(8).build());
         combat.hitpoints(NpcCombatHitpoints.total(78));
         combat.stats(NpcCombatStats.builder().magicLevel(60).bonus(CombatBonus.ATTACK_MAGIC, 16).build());
         combat.aggression(NpcCombatAggression.PLAYERS);

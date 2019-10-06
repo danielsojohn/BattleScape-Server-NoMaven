@@ -261,6 +261,10 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     @Override
     public void spawnHook() {
         npc = getNpc();
+    }
+
+    @Override
+    public void restoreHook() {
         var respawns = new int[] {
             NpcId.WINGMAN_SKREE_143, NpcId.FLOCKLEADER_GEERIN_149, NpcId.FLIGHT_KILISA_159
         };
@@ -273,7 +277,7 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     }
 
     @Override
-    public HitType attackTickHitTypeHook(Entity opponent, HitType hitType) {
+    public HitType attackTickHitTypeHook(HitType hitType, Entity opponent) {
         if (hitType == HitType.MELEE && !opponent.isAttacking() && opponent.getHitDelay() <= -2) {
             return hitType;
         }

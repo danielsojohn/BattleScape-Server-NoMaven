@@ -33,7 +33,9 @@ public class BabyDragon83Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.BABY_DRAGON_83);
         combat.hitpoints(NpcCombatHitpoints.total(80));
-        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_STAB, 30).bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 50).bonus(CombatBonus.DEFENCE_MAGIC, 40).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(70).defenceLevel(70).bonus(CombatBonus.DEFENCE_STAB, 30)
+                .bonus(CombatBonus.DEFENCE_SLASH, 50).bonus(CombatBonus.DEFENCE_CRUSH, 50)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 40).bonus(CombatBonus.DEFENCE_RANGED, 30).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.killCount(NpcCombatKillCount.builder().asName("Baby chromatic dragon").build());
         combat.deathAnimation(28).blockAnimation(26);

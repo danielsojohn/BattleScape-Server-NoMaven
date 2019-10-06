@@ -66,7 +66,9 @@ public class Rogue15Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.ROGUE_15);
         combat.hitpoints(NpcCombatHitpoints.total(17));
-        combat.stats(NpcCombatStats.builder().attackLevel(13).defenceLevel(13).bonus(CombatBonus.MELEE_ATTACK, 5).bonus(CombatBonus.DEFENCE_STAB, 6).bonus(CombatBonus.DEFENCE_SLASH, 9).bonus(CombatBonus.DEFENCE_CRUSH, 11).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(13).defenceLevel(13).bonus(CombatBonus.MELEE_ATTACK, 5)
+                .bonus(CombatBonus.DEFENCE_STAB, 6).bonus(CombatBonus.DEFENCE_SLASH, 9)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 11).build());
         combat.deathAnimation(836).blockAnimation(404);
         combat.drop(drop.build());
 

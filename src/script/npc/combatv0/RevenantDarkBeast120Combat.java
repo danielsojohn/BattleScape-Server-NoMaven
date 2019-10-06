@@ -29,7 +29,11 @@ public class RevenantDarkBeast120Combat extends NpcCombat {
         combat.id(NpcId.REVENANT_DARK_BEAST_120);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(50).build());
         combat.hitpoints(NpcCombatHitpoints.total(140));
-        combat.stats(NpcCombatStats.builder().attackLevel(93).magicLevel(130).rangedLevel(135).defenceLevel(80).bonus(CombatBonus.MELEE_ATTACK, 65).bonus(CombatBonus.ATTACK_RANGED, 45).bonus(CombatBonus.DEFENCE_STAB, 153).bonus(CombatBonus.DEFENCE_SLASH, 152).bonus(CombatBonus.DEFENCE_CRUSH, 155).bonus(CombatBonus.DEFENCE_MAGIC, 70).bonus(CombatBonus.DEFENCE_RANGED, 158).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(93).magicLevel(130).rangedLevel(135).defenceLevel(80)
+                .bonus(CombatBonus.MELEE_ATTACK, 65).bonus(CombatBonus.ATTACK_RANGED, 45)
+                .bonus(CombatBonus.DEFENCE_STAB, 153).bonus(CombatBonus.DEFENCE_SLASH, 152)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 155).bonus(CombatBonus.DEFENCE_MAGIC, 70)
+                .bonus(CombatBonus.DEFENCE_RANGED, 158).build());
         combat.aggression(NpcCombatAggression.builder().always(true).build());
         combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
         combat.killCount(NpcCombatKillCount.builder().asName("Revenant").build());

@@ -22,7 +22,9 @@ public class GelatinnothMother130_4887Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.GELATINNOTH_MOTHER_130_4887);
         combat.hitpoints(NpcCombatHitpoints.total(240));
-        combat.stats(NpcCombatStats.builder().attackLevel(78).rangedLevel(50).defenceLevel(81).bonus(CombatBonus.MELEE_DEFENCE, 150).bonus(CombatBonus.DEFENCE_MAGIC, 50).bonus(CombatBonus.DEFENCE_RANGED, 50).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(78).rangedLevel(50).defenceLevel(81)
+                .bonus(CombatBonus.MELEE_DEFENCE, 150).bonus(CombatBonus.DEFENCE_MAGIC, 50)
+                .bonus(CombatBonus.DEFENCE_RANGED, 50).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("GelatinnothMotherCS").deathAnimation(1342).blockAnimation(1340);

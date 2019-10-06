@@ -73,7 +73,8 @@ public class Cockatrice37Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.COCKATRICE_37);
         combat.hitpoints(NpcCombatHitpoints.total(37));
-        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(37).bonus(CombatBonus.DEFENCE_STAB, 10).bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 10).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(22).defenceLevel(37).bonus(CombatBonus.DEFENCE_STAB, 10)
+                .bonus(CombatBonus.DEFENCE_SLASH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 10).build());
         combat.slayer(NpcCombatSlayer.builder().level(25).build());
         combat.deathAnimation(1563).blockAnimation(1560);
         combat.drop(drop.build());

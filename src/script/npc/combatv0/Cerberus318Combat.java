@@ -89,7 +89,11 @@ public class Cerberus318Combat extends NpcCombat {
         combat.id(NpcId.CERBERUS_318);
         combat.spawn(NpcCombatSpawn.builder().respawnDelay(14).build());
         combat.hitpoints(NpcCombatHitpoints.builder().total(600).bar(HitpointsBar.GREEN_RED_100).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(220).magicLevel(220).rangedLevel(220).defenceLevel(100).bonus(CombatBonus.MELEE_ATTACK, 50).bonus(CombatBonus.ATTACK_MAGIC, 50).bonus(CombatBonus.ATTACK_RANGED, 50).bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 100).bonus(CombatBonus.DEFENCE_CRUSH, 25).bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(220).magicLevel(220).rangedLevel(220).defenceLevel(100)
+                .bonus(CombatBonus.MELEE_ATTACK, 50).bonus(CombatBonus.ATTACK_MAGIC, 50)
+                .bonus(CombatBonus.ATTACK_RANGED, 50).bonus(CombatBonus.DEFENCE_STAB, 50)
+                .bonus(CombatBonus.DEFENCE_SLASH, 100).bonus(CombatBonus.DEFENCE_CRUSH, 25)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 100).bonus(CombatBonus.DEFENCE_RANGED, 100).build());
         combat.slayer(NpcCombatSlayer.builder().level(91).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());

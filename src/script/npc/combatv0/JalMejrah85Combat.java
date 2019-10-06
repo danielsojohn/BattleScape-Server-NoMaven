@@ -23,7 +23,9 @@ public class JalMejrah85Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.JAL_MEJRAH_85);
         combat.hitpoints(NpcCombatHitpoints.total(25));
-        combat.stats(NpcCombatStats.builder().magicLevel(120).rangedLevel(120).defenceLevel(55).bonus(CombatBonus.ATTACK_RANGED, 30).bonus(CombatBonus.MELEE_DEFENCE, 30).bonus(CombatBonus.DEFENCE_MAGIC, -20).bonus(CombatBonus.DEFENCE_RANGED, 45).build());
+        combat.stats(NpcCombatStats.builder().magicLevel(120).rangedLevel(120).defenceLevel(55)
+                .bonus(CombatBonus.ATTACK_RANGED, 30).bonus(CombatBonus.MELEE_DEFENCE, 30)
+                .bonus(CombatBonus.DEFENCE_MAGIC, -20).bonus(CombatBonus.DEFENCE_RANGED, 45).build());
         combat.aggression(NpcCombatAggression.builder().range(8).always(true).sameTarget(true).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.deathAnimation(7580).blockAnimation(7579);

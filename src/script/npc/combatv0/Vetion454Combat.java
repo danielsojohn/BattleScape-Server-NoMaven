@@ -99,7 +99,9 @@ public class Vetion454Combat extends NpcCombat {
         combat.id(NpcId.VETION_454);
         combat.spawn(NpcCombatSpawn.builder().respawnId(NpcId.VETION_REBORN_454).deathDelay(8).build());
         combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(430).magicLevel(300).defenceLevel(395).bonus(CombatBonus.DEFENCE_STAB, 201).bonus(CombatBonus.DEFENCE_SLASH, 200).bonus(CombatBonus.DEFENCE_MAGIC, 250).bonus(CombatBonus.DEFENCE_RANGED, 270).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(430).magicLevel(300).defenceLevel(395)
+                .bonus(CombatBonus.DEFENCE_STAB, 201).bonus(CombatBonus.DEFENCE_SLASH, 200)
+                .bonus(CombatBonus.DEFENCE_MAGIC, 250).bonus(CombatBonus.DEFENCE_RANGED, 270).build());
         combat.aggression(NpcCombatAggression.builder().range(8).build());
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());

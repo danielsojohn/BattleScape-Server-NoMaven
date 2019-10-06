@@ -39,7 +39,11 @@ public class SkeletalMystic7605Combat extends NpcCombat {
         var combat = NpcCombatDefinition.builder();
         combat.id(NpcId.SKELETAL_MYSTIC_7605);
         combat.hitpoints(NpcCombatHitpoints.total(150));
-        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(140).defenceLevel(187).bonus(CombatBonus.MELEE_ATTACK, 85).bonus(CombatBonus.ATTACK_MAGIC, 40).bonus(CombatBonus.DEFENCE_STAB, 155).bonus(CombatBonus.DEFENCE_SLASH, 155).bonus(CombatBonus.DEFENCE_CRUSH, 115).bonus(CombatBonus.DEFENCE_MAGIC, 140).bonus(CombatBonus.DEFENCE_RANGED, 115).build());
+        combat.stats(NpcCombatStats.builder().attackLevel(140).magicLevel(140).defenceLevel(187)
+                .bonus(CombatBonus.MELEE_ATTACK, 85).bonus(CombatBonus.ATTACK_MAGIC, 40)
+                .bonus(CombatBonus.DEFENCE_STAB, 155).bonus(CombatBonus.DEFENCE_SLASH, 155)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 115).bonus(CombatBonus.DEFENCE_MAGIC, 140)
+                .bonus(CombatBonus.DEFENCE_RANGED, 115).build());
         combat.aggression(NpcCombatAggression.builder().range(12).always(true).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.combatScript("SkeletalMysticCS").type(NpcCombatType.UNDEAD).deathAnimation(5491).blockAnimation(5489);
