@@ -12,6 +12,8 @@ lines.add("Battlefield of Khazard");
 actions.add("close|script");
 lines.add("Grand Exchange");
 actions.add("close|script");
+lines.add("Cabbage Patch");
+actions.add("close|script");
 lines.add("Myths' Guild");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
@@ -37,12 +39,14 @@ instance = new DialogueScript() {
             } else if (slot == 3) {
                 tile = new Tile(3185, 3508);
             } else if (slot == 4) {
+                tile = new Tile(3053, 3291);
+            } else if (slot == 5) {
                 tile = new Tile(2488, 2850);
             }
             if (tile == null) {
                 return;
             }
-            if (slot >= 4) {
+            if (slot >= 5) {
                 player.getGameEncoder().sendMessage("You need to grow a spirit tree here first.");
                 return;
             }
