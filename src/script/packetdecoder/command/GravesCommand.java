@@ -21,7 +21,7 @@ public class GravesCommand implements Command {
                     "Yes, teleport me to the wilderness!", "No!");
             DialogueScript script = (p, index, childId, slot) -> {
                 if (slot == 0) {
-                    player.getMagic().standardTeleport(3150, 3760, 0);
+                    player.getMagic().standardTeleport(3150, 3670, 0);
                     player.getGameEncoder().sendMessage("You teleport to the Graveyard..");
                 } else {
                     return;
