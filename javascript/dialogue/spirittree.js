@@ -46,10 +46,6 @@ instance = new DialogueScript() {
             if (tile == null) {
                 return;
             }
-            if (slot >= 5) {
-                player.getGameEncoder().sendMessage("You need to grow a spirit tree here first.");
-                return;
-            }
             player.getMovement().animatedTeleport(tile, Magic.NORMAL_MAGIC_ANIMATION_START,
                     Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
             player.getController().stopWithTeleport();
