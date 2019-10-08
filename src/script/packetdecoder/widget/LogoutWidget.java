@@ -49,7 +49,7 @@ public class LogoutWidget implements Widget {
                                     player.setVisible(false);
                                 }
                             });
-                } else if (Time.milliToHour(player.getCreationTime()) < 2) {
+                } else if (Time.milliToHour(player.getCreationTime()) < 4) {
                     new FeedbackDialogue(player);
                 } else {
                     player.getGameEncoder().sendLogout();
