@@ -1,43 +1,49 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.HitpointsBar;
+import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.item.Item;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.HitpointsBar;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
+import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
 import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.player.Player;
 import lombok.var;
 
-public class CursedCaveHorror206_16005Combat extends NpcCombat {
+public class CaveHorrorCombat extends NpcCombat {
+    private static final NpcCombatDropTable SUPERIOR_DROP_TABLE = NpcCombatDropTable.builder().chance(1.03).log(true)
+            .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.IMBUED_HEART, 1, 1, 1)))
+            .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ETERNAL_GEM, 1, 1, 1)))
+            .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DUST_BATTLESTAFF, 1, 1, 3)))
+            .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MIST_BATTLESTAFF, 1, 1, 3))).build();
+
+    private Npc npc;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
-        var dropTable = NpcCombatDropTable.builder().chance(0.12).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.IMBUED_HEART)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ETERNAL_GEM)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DUST_BATTLESTAFF)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MIST_BATTLESTAFF)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_128);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_HARD)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.79).log(true);
+        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
+                .clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_128);
+        var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_512).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.BLACK_MASK_10)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(3.3);
+        dropTable = NpcCombatDropTable.builder().chance(3.34);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ENSOULED_HORROR_HEAD_13487)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
@@ -91,21 +97,86 @@ public class CursedCaveHorror206_16005Combat extends NpcCombat {
 
 
         var combat = NpcCombatDefinition.builder();
-        combat.id(NpcId.CURSED_CAVE_HORROR_206_16005);
-        combat.hitpoints(NpcCombatHitpoints.builder().total(130).bar(HitpointsBar.GREEN_RED_60).build());
-        combat.stats(NpcCombatStats.builder().attackLevel(230).magicLevel(230).defenceLevel(142).build());
-        combat.slayer(NpcCombatSlayer.builder().level(58).build());
-        combat.combatScript("cursedmonster").deathAnimation(4233).blockAnimation(4232);
+        combat.id(NpcId.CAVE_HORROR_80);
+        combat.hitpoints(NpcCombatHitpoints.total(55));
+        combat.stats(NpcCombatStats.builder().attackLevel(80).magicLevel(80).defenceLevel(62).build());
+        combat.slayer(NpcCombatSlayer.builder().level(58).superiorId(NpcId.CAVE_ABOMINATION_206).build());
+        combat.aggression(NpcCombatAggression.PLAYERS);
+        combat.deathAnimation(4233).blockAnimation(4232);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.builder().type(HitType.MELEE).subType(HitType.MAGIC).build());
-        style.damage(NpcCombatDamage.maximum(24));
+        style.damage(NpcCombatDamage.maximum(9));
         style.animation(4234).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
         combat.style(style.build());
 
 
-        return Arrays.asList(combat.build());
+        var cursedCombat = NpcCombatDefinition.builder();
+        cursedCombat.id(NpcId.CURSED_CAVE_HORROR_206_16005);
+        cursedCombat.hitpoints(NpcCombatHitpoints.builder().total(130).bar(HitpointsBar.GREEN_RED_60).build());
+        cursedCombat.stats(NpcCombatStats.builder().attackLevel(230).magicLevel(230).defenceLevel(142).build());
+        cursedCombat.slayer(NpcCombatSlayer.builder().level(58).build());
+        cursedCombat.deathAnimation(4233).blockAnimation(4232);
+        cursedCombat.drop(drop.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.builder().type(HitType.MELEE).subType(HitType.MAGIC).build());
+        style.damage(NpcCombatDamage.maximum(24));
+        style.animation(4234).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        cursedCombat.style(style.build());
+
+
+        var superiorCombat = NpcCombatDefinition.builder();
+        superiorCombat.id(NpcId.CAVE_ABOMINATION_206);
+        superiorCombat.hitpoints(NpcCombatHitpoints.builder().total(130).bar(HitpointsBar.GREEN_RED_60).build());
+        superiorCombat.stats(NpcCombatStats.builder().attackLevel(230).magicLevel(230).defenceLevel(142).build());
+        superiorCombat.slayer(NpcCombatSlayer.builder().level(58).experience(1300).build());
+        superiorCombat.aggression(NpcCombatAggression.PLAYERS);
+        superiorCombat.killCount(NpcCombatKillCount.builder().asName("Superior Slayer Creature").build());
+        superiorCombat.deathAnimation(4233).blockAnimation(4232);
+        superiorCombat.drop(drop.rolls(3).build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.builder().type(HitType.MELEE).subType(HitType.MAGIC).build());
+        style.damage(NpcCombatDamage.maximum(24));
+        style.animation(4234).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        superiorCombat.style(style.build());
+
+
+        return Arrays.asList(combat.build(), cursedCombat.build(), superiorCombat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
+            NpcCombatDropTable table, List<Item> items) {
+        if (npc.getId() == NpcId.CURSED_CAVE_HORROR_206_16005) {
+            if (!player.getSkills().isWildernessSlayerTask(npc)) {
+                player.getGameEncoder().sendMessage("Without an assigned task, the loot turns to dust...");
+                return null;
+            }
+        }
+        if ((npc.getId() == NpcId.CAVE_ABOMINATION_206 || npc.getId() == NpcId.CURSED_CAVE_HORROR_206_16005)
+                && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
+            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+        }
+        return items;
+    }
+
+    @Override
+    public double dropTableChanceHook(Player player, int dropRateDivider, int roll, NpcCombatDropTable table) {
+        var chance = table.getChance();
+        if (npc.getId() == NpcId.CURSED_CAVE_HORROR_206_16005 && table == SUPERIOR_DROP_TABLE) {
+            chance /= 32;
+        }
+        return chance;
     }
 }
