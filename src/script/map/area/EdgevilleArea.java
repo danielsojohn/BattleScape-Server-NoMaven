@@ -17,6 +17,7 @@ import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.player.Magic;
 import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
+import com.palidino.osrs.model.player.Smithing;
 import com.palidino.osrs.model.player.controller.ClanWarsFreeForAllPC;
 import com.palidino.util.Utils;
 import lombok.var;
@@ -213,6 +214,9 @@ public class EdgevilleArea extends Area {
     public boolean mapObjectOptionHook(int index, MapObject mapObject) {
         var player = getPlayer();
         switch (mapObject.getId()) {
+        case 16469: // Furnace
+            Smithing.openSmelt(player);
+            break;
         case 172: // Closed chest: crystal chest
             openCrystalChest(player);
             return true;
