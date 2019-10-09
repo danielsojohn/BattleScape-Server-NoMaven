@@ -1901,7 +1901,7 @@ public class MapObject1 {
 
     // Furnace
     public static void mapObject26300(Player player, int index, MapObject mapObject) {
-        player.getGameEncoder().sendMessage("Perhaps I should use this to forge something...");
+        Smithing.openSmelt(player);
     }
 
     // Free-for-all portal
