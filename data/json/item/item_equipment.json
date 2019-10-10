@@ -40033,7 +40033,7 @@
     "id": "ItemId.SWIFT_BLADE",
     "equipSlot": "WEAPON",
     "weaponType": "TYPE_9",
-    "attackSpeed": "7"
+    "attackSpeed": "3"
   },
   {
     "id": "ItemId.AVAS_ASSEMBLER_L",
