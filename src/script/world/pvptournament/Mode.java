@@ -915,8 +915,8 @@ public class Mode {
         mode.loadout(new Loadout.Entry("Load-out #1", new Item[] {
             new Item(ItemId.GREEN_HALLOWEEN_MASK), new Item(ItemId.BLACK_CAPE), new Item(ItemId.STRENGTH_AMULET_T),
             new Item(ItemId.RUNE_SCIMITAR), new Item(ItemId.MONKS_ROBE_TOP), null, null,
-            new Item(ItemId.GREEN_DHIDE_CHAPS_G), null, new Item(ItemId.GREEN_DHIDE_VAMB),
-            new Item(ItemId.LEATHER_BOOTS), null, null, new Item(ItemId.ADAMANT_ARROW, 8000)
+            new Item(ItemId.GREEN_DHIDE_CHAPS_G), null, new Item(ItemId.LEATHER_GLOVES), new Item(ItemId.LEATHER_BOOTS),
+            null, null, new Item(ItemId.ADAMANT_ARROW, 8000)
         }, new Item[] {
             new Item(ItemId.SWORDFISH), new Item(ItemId.RUNE_2H_SWORD), new Item(ItemId.STRENGTH_POTION_4),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
@@ -932,11 +932,11 @@ public class Mode {
         mode.loadout(new Loadout.Entry("Load-out #2", new Item[] {
             new Item(ItemId.GREEN_HALLOWEEN_MASK), new Item(ItemId.BLACK_CAPE), new Item(ItemId.STRENGTH_AMULET_T),
             new Item(ItemId.MAPLE_SHORTBOW), new Item(ItemId.MONKS_ROBE_TOP), null, null,
-            new Item(ItemId.GREEN_DHIDE_CHAPS_G), null, new Item(ItemId.LEATHER_GLOVES), new Item(ItemId.LEATHER_BOOTS),
-            null, null, new Item(ItemId.ADAMANT_ARROW, 8000)
+            new Item(ItemId.GREEN_DHIDE_CHAPS_G), null, new Item(ItemId.GREEN_DHIDE_VAMB),
+            new Item(ItemId.LEATHER_BOOTS), null, null, new Item(ItemId.ADAMANT_ARROW, 8000)
         }, new Item[] {
             new Item(ItemId.SWORDFISH), new Item(ItemId.RUNE_2H_SWORD), new Item(ItemId.STRENGTH_POTION_4),
-            new Item(ItemId.PRAYER_POTION_4), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.ANCHOVY_PIZZA),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
@@ -1057,7 +1057,7 @@ public class Mode {
             new Item(ItemId.ADAMANT_ARROW, 8000)
         }, new Item[] {
             new Item(ItemId.SWORDFISH), new Item(ItemId.RUNE_2H_SWORD), new Item(ItemId.STRENGTH_POTION_4),
-            new Item(ItemId.PRAYER_POTION_4), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
+            new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
             new Item(ItemId.SWORDFISH), new Item(ItemId.ANCHOVY_PIZZA), new Item(ItemId.ANCHOVY_PIZZA),
             new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH), new Item(ItemId.SWORDFISH),
