@@ -24,11 +24,11 @@ public class StaffCommand implements Command {
                 rank = "Administrator";
             } else if (staff.isUsergroup(SqlUserRank.COMMUNITY_MANAGER)) {
                 rank = "Community Manager";
-            } else if (staff.isUsergroup(SqlUserRank.HEAD_MODERATOR)) {
+            } else if (staff.isUsergroup(SqlUserRank.SENIOR_MODERATOR)) {
                 rank = "Head Moderator";
             } else if (staff.isUsergroup(SqlUserRank.MODERATOR)) {
                 rank = "Moderator";
-            } else if (staff.isUsergroup(SqlUserRank.SUPPORT)) {
+            } else if (staff.isUsergroup(SqlUserRank.TRIAL_MODERATOR)) {
                 rank = "Junior Moderator";
             }
             lines.add(staff.getMessaging().getIconImage() + staff.getUsername() + " - " + rank);

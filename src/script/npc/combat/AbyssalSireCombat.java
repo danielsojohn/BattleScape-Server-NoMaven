@@ -408,7 +408,7 @@ public class AbyssalSireCombat extends NpcCombat {
         if (!npc.isDead() && npc.isVisible() && npc.withinDistance(combatWith, 32)) {
             npc.setAttacking(true);
             npc.setEngagingEntity(combatWith);
-            if (npc.isLocked() || !npc.getDef().hasAttack()) {
+            if (npc.isLocked() || !npc.getDef().getCombat().hasAttack()) {
                 npc.setFaceEntity(null);
             }
             for (var spawnedNpc : tentacles) {
@@ -568,7 +568,7 @@ public class AbyssalSireCombat extends NpcCombat {
         phase = 2;
         npc.clearHits();
         npc.setTransformationId(NpcId.ABYSSAL_SIRE_350_5890);
-        npc.setHitpoints(npc.getDef().getHitpoints());
+        npc.setHitpoints(npc.getDef().getCombat().getHitpoints().getTotal());
         npc.setAnimation(4532);
         npc.setLock(19);
         npc.getMovement().setImmobile(false);

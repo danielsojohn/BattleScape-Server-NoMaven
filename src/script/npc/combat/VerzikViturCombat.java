@@ -182,8 +182,7 @@ public class VerzikViturCombat extends NpcCombat {
         }
         for (var entity : hitEntities) {
             var projectile = Graphic.Projectile.builder().id(1580).entity(entity).startTile(npc)
-                    .projectileSpeed(npc.getCombat().getSpeed(null, entity, HitType.MAGIC, 10)).hitType(HitType.MAGIC)
-                    .build();
+                    .projectileSpeed(npc.getCombat().getSpeed(null, entity, HitType.MAGIC, 10)).build();
             npc.getCombat().sendMapProjectile(projectile);
             entity.addHit(new HitEvent(projectile.getEventDelay(), entity, npc, new Hit(Utils.randomI(104))));
             if (entity instanceof Player) {

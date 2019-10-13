@@ -546,7 +546,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                 new Tile(1362, 10263));
         var initialTile = Utils.listRandom(tiles).randomize(2);
         var projectile = Graphic.Projectile.builder().id(1664).startTile(npc).endTile(initialTile)
-                .projectileSpeed(getProjectileSpeed(10)).hitType(HitType.MAGIC).build();
+                .projectileSpeed(getProjectileSpeed(10)).build();
         sendMapProjectile(projectile);
         lightningCastEvent = new Event(projectile.getEventDelay() - 1) {
             private Tile tile;
@@ -565,7 +565,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                 var lastTile = tile != null ? tile : initialTile;
                 tile = tiles.remove(Utils.randomE(tiles.size()));
                 var projectile = Graphic.Projectile.builder().id(1665).startTile(lastTile).endTile(tile)
-                        .projectileSpeed(getProjectileSpeed(2)).hitType(HitType.MAGIC).build();
+                        .projectileSpeed(getProjectileSpeed(2)).build();
                 sendMapProjectile(projectile);
 
                 setTick(projectile.getEventDelay() - 1);
@@ -686,7 +686,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                     npc.setAnimation(8248);
                     npc.setFaceTile(followTile);
                     var projectile = Graphic.Projectile.builder().id(1667).startTile(npc).endTile(followTile)
-                            .projectileSpeed(getProjectileSpeed(2)).hitType(HitType.MAGIC).endHeight(0).build();
+                            .projectileSpeed(getProjectileSpeed(2)).endHeight(0).build();
                     sendMapProjectile(projectile);
                     npc.getController().sendMapGraphic(followTile, new Graphic(1668, 0, projectile.getContactDelay()));
                     npc.attackUnlock();
@@ -748,7 +748,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                 continue;
             }
             var projectile = Graphic.Projectile.builder().id(1667).startTile(npc).endTile(tile)
-                    .projectileSpeed(getProjectileSpeed(2)).hitType(HitType.MAGIC).endHeight(0).build();
+                    .projectileSpeed(getProjectileSpeed(2)).endHeight(0).build();
             sendMapProjectile(projectile);
         }
         for (var i = 0; i < 16; i++) {
