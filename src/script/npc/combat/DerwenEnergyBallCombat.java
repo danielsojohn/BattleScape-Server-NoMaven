@@ -7,7 +7,6 @@ import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.Hit;
 import com.palidino.osrs.model.HitEvent;
 import com.palidino.osrs.model.HitMark;
-import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
@@ -55,7 +54,7 @@ public class DerwenEnergyBallCombat extends NpcCombat {
             return;
         }
         var projectile = Graphic.Projectile.builder().id(1513).startTile(npc).endTile(derwen)
-                .projectileSpeed(getProjectileSpeed(derwen)).hitType(HitType.MAGIC).build();
+                .projectileSpeed(getProjectileSpeed(derwen)).build();
         sendMapProjectile(projectile);
         derwen.addHit(new HitEvent(projectile.getEventDelay(), derwen, npc, new Hit(5, HitMark.HEAL)));
     }

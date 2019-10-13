@@ -108,7 +108,7 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
     public void tickStartHook() {
         if (!npc.isDead() && npc.isVisible() && npc.getId() == NpcId.SPAWN_60 && transformTimer++ == 20) {
             npc.setTransformationId(NpcId.SCION_100);
-            npc.setHitpoints(npc.getDef().getHitpoints());
+            npc.setHitpoints(npc.getDef().getCombat().getHitpoints().getTotal());
             npc.setAnimation(7123);
             npc.setLock(5);
         }

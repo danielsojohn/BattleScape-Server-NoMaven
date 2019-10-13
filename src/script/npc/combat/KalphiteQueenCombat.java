@@ -1,50 +1,64 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
-import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
-import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
+import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
+import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
+import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
+import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
 import lombok.var;
 
-public class KalphiteQueen333_965Combat extends NpcCombat {
+public class KalphiteQueenCombat extends NpcCombat {
+    private static final NpcCombatDropTable SUPPLIES_DROP_TABLE =
+            NpcCombatDropTable.builder().drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MONKFISH, 3)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SHARK, 2)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SUPER_COMBAT_POTION_2)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.RANGING_POTION_3)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SUPERANTIPOISON_2)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DARK_CRAB, 2)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SARADOMIN_BREW_4)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SUPER_RESTORE_4)))
+                    .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PRAYER_POTION_4, 2))).build();
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
-        var dropTable = NpcCombatDropTable.builder().chance(0.033).broadcast(true).log(true);
+        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
+                .clue(NpcCombatDrop.ClueScroll.ELITE, NpcCombatDropTable.CHANCE_1_IN_100);
+        var dropTable =
+                NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_3000).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.KALPHITE_PRINCESS)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.05).broadcast(true).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_2000).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.JAR_OF_SAND)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.58).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_256).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_2H_SWORD)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(1.0);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_ELITE)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(2.34).broadcast(true).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_128).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_CHAINBODY)));
+        drop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_128).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.KQ_HEAD)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
@@ -56,7 +70,7 @@ public class KalphiteQueen333_965Combat extends NpcCombat {
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PAPAYA_TREE_SEED, 2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PALM_TREE_SEED, 2)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(5.25);
+        dropTable = NpcCombatDropTable.builder().chance(5);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ENSOULED_KALPHITE_HEAD_13490)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_UNCOMMON);
@@ -89,26 +103,65 @@ public class KalphiteQueen333_965Combat extends NpcCombat {
         drop.table(dropTable.build());
 
 
-        var combat = NpcCombatDefinition.builder();
-        combat.id(NpcId.KALPHITE_QUEEN_333_965);
-        combat.spawn(NpcCombatSpawn.builder().lock(12).animation(6270).graphic(new Graphic(1055)).build());
-        combat.hitpoints(NpcCombatHitpoints.total(255));
-        combat.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300)
-                .bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 10)
-                .bonus(CombatBonus.DEFENCE_RANGED, 10).build());
-        combat.aggression(NpcCombatAggression.PLAYERS);
-        combat.immunity(NpcCombatImmunity.builder().venom(true).build());
-        combat.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
-        combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
-        combat.combatScript("kalphitequeen").deathAnimation(6233).blockAnimation(6237);
-        combat.drop(drop.build());
+        var combat1 = NpcCombatDefinition.builder();
+        combat1.id(NpcId.KALPHITE_QUEEN_333);
+        combat1.spawn(NpcCombatSpawn.builder().respawnId(NpcId.KALPHITE_QUEEN_333_965).deathDelay(6).build());
+        combat1.hitpoints(NpcCombatHitpoints.total(255));
+        combat1.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300)
+                .bonus(CombatBonus.DEFENCE_STAB, 50).bonus(CombatBonus.DEFENCE_SLASH, 50)
+                .bonus(CombatBonus.DEFENCE_CRUSH, 10).bonus(CombatBonus.DEFENCE_MAGIC, 100)
+                .bonus(CombatBonus.DEFENCE_RANGED, 100).build());
+        combat1.aggression(NpcCombatAggression.builder().range(8).build());
+        combat1.immunity(NpcCombatImmunity.builder().venom(true).build());
+        combat1.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
+        combat1.deathAnimation(6242).blockAnimation(6232);
 
         var style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
         style.damage(NpcCombatDamage.maximum(31));
+        style.animation(6241).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        combat1.style(style.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.RANGED);
+        style.damage(NpcCombatDamage.builder().maximum(31).ignoreDefence(true).build());
+        style.animation(6231).attackSpeed(4);
+        style.projectile(NpcCombatProjectile.id(335));
+        style.effect(NpcCombatEffect.builder().statDrain(Skills.PRAYER, 1).includeMiss(true).build());
+        style.multiNearTarget(1);
+        combat1.style(style.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.MAGIC);
+        style.damage(NpcCombatDamage.builder().maximum(31).ignoreDefence(true).build());
+        style.animation(6231).attackSpeed(4);
+        style.castGraphic(new Graphic(278)).targetGraphic(new Graphic(281));
+        style.projectile(NpcCombatProjectile.id(335));
+        style.multiTarget(true);
+        combat1.style(style.build());
+
+
+        var combat2 = NpcCombatDefinition.builder();
+        combat2.id(NpcId.KALPHITE_QUEEN_333_965);
+        combat2.spawn(NpcCombatSpawn.builder().lock(12).animation(6270).graphic(new Graphic(1055)).build());
+        combat2.hitpoints(NpcCombatHitpoints.total(255));
+        combat2.stats(NpcCombatStats.builder().attackLevel(300).magicLevel(150).defenceLevel(300)
+                .bonus(CombatBonus.MELEE_DEFENCE, 100).bonus(CombatBonus.DEFENCE_MAGIC, 10)
+                .bonus(CombatBonus.DEFENCE_RANGED, 10).build());
+        combat2.aggression(NpcCombatAggression.PLAYERS);
+        combat2.immunity(NpcCombatImmunity.builder().venom(true).build());
+        combat2.focus(NpcCombatFocus.builder().keepWithinDistance(1).build());
+        combat2.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
+        combat2.deathAnimation(6233).blockAnimation(6237);
+        combat2.drop(drop.build());
+
+        style = NpcCombatStyle.builder();
+        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.damage(NpcCombatDamage.maximum(31));
         style.animation(6235).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
-        combat.style(style.build());
+        combat2.style(style.build());
 
         style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.RANGED);
@@ -117,7 +170,7 @@ public class KalphiteQueen333_965Combat extends NpcCombat {
         style.projectile(NpcCombatProjectile.id(335));
         style.effect(NpcCombatEffect.builder().statDrain(Skills.PRAYER, 1).includeMiss(true).build());
         style.multiNearTarget(1);
-        combat.style(style.build());
+        combat2.style(style.build());
 
         style = NpcCombatStyle.builder();
         style.type(NpcCombatStyleType.MAGIC);
@@ -126,9 +179,14 @@ public class KalphiteQueen333_965Combat extends NpcCombat {
         style.castGraphic(new Graphic(279)).targetGraphic(new Graphic(281));
         style.projectile(NpcCombatProjectile.id(335));
         style.multiTarget(true);
-        combat.style(style.build());
+        combat2.style(style.build());
 
 
-        return Arrays.asList(combat.build());
+        return Arrays.asList(combat1.build(), combat2.build());
+    }
+
+    @Override
+    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+        SUPPLIES_DROP_TABLE.dropItems(getNpc(), player, dropTile);
     }
 }

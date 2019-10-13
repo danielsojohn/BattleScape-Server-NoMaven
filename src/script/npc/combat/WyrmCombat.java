@@ -1,42 +1,43 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.npc.combat.NpcCombatSlayer;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.player.Player;
 import lombok.var;
 
-public class Wyrm99_8611Combat extends NpcCombat {
+public class WyrmCombat extends NpcCombat {
+    private Npc npc;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder();
-        var dropTable = NpcCombatDropTable.builder().chance(0.15).log(true);
+        var drop = NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_256);
+        var dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_5000).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_KNIFE, 75, 150)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_THROWNAXE, 75, 150)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.16).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_5000).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_HARPOON)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_SWORD)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_128);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_HARD)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SNAPDRAGON_SEED)));
@@ -90,7 +91,7 @@ public class Wyrm99_8611Combat extends NpcCombat {
 
 
         var combat = NpcCombatDefinition.builder();
-        combat.id(NpcId.WYRM_99_8611);
+        combat.id(NpcId.WYRM_99).id(NpcId.WYRM_99_8611);
         combat.hitpoints(NpcCombatHitpoints.total(130));
         combat.stats(NpcCombatStats.builder().attackLevel(85).magicLevel(80).rangedLevel(80).defenceLevel(80)
                 .bonus(CombatBonus.DEFENCE_STAB, 20).bonus(CombatBonus.DEFENCE_SLASH, 50)
@@ -99,7 +100,7 @@ public class Wyrm99_8611Combat extends NpcCombat {
         combat.slayer(NpcCombatSlayer.builder().level(62).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).build());
-        combat.combatScript("wyrm").deathAnimation(8272);
+        combat.deathAnimation(8272);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
@@ -119,5 +120,33 @@ public class Wyrm99_8611Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public void tickStartHook() {
+        if (npc.isLocked()) {
+            return;
+        }
+        if (npc.getId() != NpcId.WYRM_99 && npc.getInCombatDelay() == 0 && !npc.isAttacking()) {
+            npc.setTransformationId(NpcId.WYRM_99);
+            npc.setAnimation(8269);
+        } else if (npc.getId() != NpcId.WYRM_99_8611 && (npc.getInCombatDelay() > 0 || npc.isAttacking())) {
+            npc.setTransformationId(NpcId.WYRM_99_8611);
+            npc.setAnimation(8268);
+        }
+    }
+
+    @Override
+    public double dropTableChanceHook(Player player, int dropRateDivider, int roll, NpcCombatDropTable table) {
+        var chance = table.getChance();
+        if (chance < 1 && player.getSkills().isAnySlayerTask(npc)) {
+            chance *= 5;
+        }
+        return chance;
     }
 }

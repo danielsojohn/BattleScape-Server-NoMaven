@@ -1,43 +1,52 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Entity;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.Hit;
+import com.palidino.osrs.model.HitMark;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.map.route.Route;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.HitType;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.player.Player;
+import com.palidino.util.Utils;
 import lombok.var;
 
-public class RuneDragon380_8031Combat extends NpcCombat {
+public class RuneDragonCombat extends NpcCombat {
+    private Npc npc;
+    private boolean boltEffect;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder();
-        var dropTable = NpcCombatDropTable.builder().chance(0.018).broadcast(true).log(true);
+        var drop = NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.ELITE, NpcCombatDropTable.CHANCE_1_IN_300);
+        var dropTable =
+                NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_8000).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRACONIC_VISAGE)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.03).broadcast(true).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_5000).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_METAL_LUMP)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.18).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_800).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_LIMBS)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.33);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_ELITE)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_PLATELEGS)));
@@ -84,7 +93,7 @@ public class RuneDragon380_8031Combat extends NpcCombat {
                 .bonus(CombatBonus.DEFENCE_RANGED, 95).build());
         combat.aggression(NpcCombatAggression.PLAYERS);
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
-        combat.combatScript("runedragon").deathAnimation(92).blockAnimation(89);
+        combat.deathAnimation(92).blockAnimation(89);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
@@ -118,5 +127,51 @@ public class RuneDragon380_8031Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public void tickStartHook() {
+        if (!npc.isLocked() && npc.getHitDelay() == 0 && npc.isAttacking() && npc.getEngagingEntity() instanceof Player
+                && Utils.randomE(4) == 0 && npc.withinDistance(npc.getEngagingEntity(), 10)) {
+            npc.setAnimation(81);
+            npc.setHitDelay(4);
+            var tiles = new Tile[] {
+                new Tile(npc.getEngagingEntity()).randomize(4), new Tile(npc.getEngagingEntity()).randomize(4)
+            };
+            for (var tile : tiles) {
+                if (!Route.canMove(npc.getEngagingEntity(), tile)) {
+                    continue;
+                }
+                var spawn = new Npc(npc.getController(), 8032, tile);
+                spawn.getMovement().setFollowing(npc.getEngagingEntity());
+            }
+        }
+    }
+
+    @Override
+    public void applyAttackStartHook(NpcCombatStyle combatStyle, Entity opponent, int count) {
+        boltEffect = combatStyle.getType().getType() == HitType.RANGED && Utils.randomE(10) == 0;
+    }
+
+    @Override
+    public double damageInflictedHook(NpcCombatStyle combatStyle, Entity opponent, double damage) {
+        if (boltEffect) {
+            damage *= 1.2;
+            npc.applyHit(new Hit((int) (damage * 0.25), HitMark.HEAL));
+        }
+        return damage;
+    }
+
+    @Override
+    public Graphic applyAttackTargetGraphicHook(NpcCombatStyle combatStyle, Entity opponent) {
+        if (boltEffect) {
+            return new Graphic(753);
+        }
+        return combatStyle.getTargetGraphic();
     }
 }

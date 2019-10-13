@@ -1,51 +1,85 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Entity;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.Hit;
+import com.palidino.osrs.model.HitEvent;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.HitpointsBar;
+import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.item.Item;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.map.MapObject;
+import com.palidino.osrs.model.map.TempMapObject;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.HitpointsBar;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatType;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.Graphic;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
-import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.player.Player;
+import com.palidino.util.Utils;
+import com.palidino.util.event.Event;
 import lombok.var;
 
-public class Vorkath732Combat extends NpcCombat {
+public class VorkathCombat extends NpcCombat {
+    private static final NpcCombatStyle POISON_ATTACK = NpcCombatStyle.builder()
+            .type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build())
+            .damage(NpcCombatDamage.builder().maximum(30).ignorePrayer(true).build())
+            .projectile(NpcCombatProjectile.builder().id(1482).speedMinimumDistance(8).startHeight(30).build())
+            .attackSpeed(1).targetTileGraphic(new Graphic(131)).specialAttack(NpcCombatTargetTile.builder().build())
+            .build();
+    private static final NpcCombatStyle FREEZE_ATTACK = NpcCombatStyle.builder()
+            .type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build())
+            .damage(NpcCombatDamage.builder().ignorePrayer(true).build())
+            .projectile(NpcCombatProjectile.builder().id(395).startHeight(30).build()).attackSpeed(10)
+            .targetGraphic(new Graphic(369)).effect(NpcCombatEffect.builder().magicBind(15).build()).build();
+
+    private Npc npc;
+    private NpcCombatStyle lastCombatStyle;
+    private int autoAttacks;
+    private int specialAttack;
+    private List<Tile> poisonTiles = new ArrayList<>();
+    private int poisonFireballs;
+    private Npc spawn;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
         var drop = NpcCombatDrop.builder().underKiller(true).rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
-                .rolls(2);
-        var dropTable = NpcCombatDropTable.builder().chance(0.06).broadcast(true).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.JAR_OF_DECAY)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.VORKI)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.15).broadcast(true).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGONBONE_NECKLACE)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.16).broadcast(true).log(true);
+                .clue(NpcCombatDrop.ClueScroll.ELITE, NpcCombatDropTable.CHANCE_1_IN_65).rolls(2);
+        var dropTable =
+                NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_2500).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRACONIC_VISAGE)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SKELETAL_VISAGE)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(1.53);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_ELITE)));
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_1500).broadcast(true).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.JAR_OF_DECAY)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.VORKI)));
+        drop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_2500).broadcast(true).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRACONIC_VISAGE)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SKELETAL_VISAGE)));
+        drop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_1000).broadcast(true).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGONBONE_NECKLACE)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.VORKATHS_HEAD_21907)));
@@ -58,6 +92,9 @@ public class Vorkath732Combat extends NpcCombat {
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MAHOGANY_SEED)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PALM_TREE_SEED)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.YEW_SEED)));
+        drop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(5.34);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_BOLTS_UNF, 50, 100)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_UNCOMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_BATTLEAXE)));
@@ -88,9 +125,6 @@ public class Vorkath732Combat extends NpcCombat {
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CALQUAT_TREE_SEED)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.WRATH_TALISMAN)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_BONES_NOTED, 7, 28)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(40.0);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_BOLTS_UNF, 50, 100)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_COMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.RUNE_LONGSWORD, 2, 3)));
@@ -124,7 +158,7 @@ public class Vorkath732Combat extends NpcCombat {
         combat.aggression(NpcCombatAggression.builder().range(10).build());
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
-        combat.combatScript("vorkath").type(NpcCombatType.UNDEAD).deathAnimation(7949);
+        combat.type(NpcCombatType.UNDEAD).deathAnimation(7949);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
@@ -189,5 +223,151 @@ public class Vorkath732Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public void restoreHook() {
+        lastCombatStyle = null;
+        autoAttacks = 6;
+        specialAttack = Utils.randomE(2);
+        poisonTiles.clear();
+        poisonFireballs = 0;
+        npc.getWorld().removeNpc(spawn);
+    }
+
+    @Override
+    public void tickStartHook() {
+        if (lastCombatStyle != null && lastCombatStyle.getProjectile().getId() == 1481 && npc.getHitDelay() == 1) {
+            npc.setAnimation(-1);
+        }
+        if (npc.getEngagingEntity() != null
+                && npc.getController().getMapObject(32000, npc.getEngagingEntity()) != null) {
+            npc.getEngagingEntity().addHit(new HitEvent(0, npc.getEngagingEntity(), new Hit(Utils.randomI(10))));
+        }
+        if (specialAttack == 0 && npc.isAttacking() && npc.getHitDelay() == 0 && autoAttacks == 0) {
+            autoAttacks = 6;
+            specialAttack = 1;
+            poisonFireballs = 25;
+            var speed = getProjectileSpeed(10);
+            for (var i = 0; i < 64; i++) {
+                var tile = new Tile(2261 + Utils.randomI(22), 4054 + Utils.randomI(22));
+                if (tile.within(2270, 4062, 2274, 4067) || tile.within(2269, 4063, 2275, 4067)) {
+                    continue;
+                }
+                poisonTiles.add(tile);
+                var projectile = Graphic.Projectile.builder().id(1483).startTile(npc).endTile(tile)
+                        .projectileSpeed(speed).build();
+                sendMapProjectile(projectile);
+            }
+            var event = new Event(speed.getEventDelay()) {
+                @Override
+                public void execute() {
+                    stop();
+                    if (npc.isLocked()) {
+                        return;
+                    }
+                    for (var tile : poisonTiles) {
+                        var poison = new MapObject(32000, tile, 10, Utils.randomI(3));
+                        npc.getWorld()
+                                .addEvent(new TempMapObject(25 - speed.getEventDelay(), npc.getController(), poison));
+                    }
+                }
+            };
+            npc.getWorld().addEvent(event);
+            npc.setAnimation(7957);
+            npc.setHitDelay(2);
+        }
+    }
+
+    @Override
+    public NpcCombatStyle attackTickCombatStyleHook(NpcCombatStyle combatStyle, Entity opponent) {
+        return (specialAttack == 1 && autoAttacks == 0) ? FREEZE_ATTACK
+                : (poisonFireballs > 0 ? POISON_ATTACK : combatStyle);
+    }
+
+    @Override
+    public NpcCombatStyle applyAttackCombatStyleHook(NpcCombatStyle combatStyle, Entity opponent) {
+        return (opponent.getController().isMagicBound() && combatStyle.getIdentifier() == 1) ? null : combatStyle;
+    }
+
+    @Override
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
+        lastCombatStyle = combatStyle;
+        if (combatStyle.getProjectile().getId() == 1471 && opponent instanceof Player) {
+            var player = (Player) opponent;
+            player.getPrayer().deactivateAll();
+            player.getGameEncoder().sendMessage("<col=ff0000>Your prayers have been disabled!");
+        } else if (combatStyle == FREEZE_ATTACK) {
+            var event = new Event(hitEvent.getTick()) {
+                @Override
+                public void execute() {
+                    stop();
+                    if (npc.isLocked()) {
+                        return;
+                    }
+                    npc.getWorld().removeNpc(spawn);
+                    var tile = Utils.randomI(1) == 0 ? new Tile(2265, 4057) : new Tile(2278, 4069);
+                    spawn = new Npc(npc.getController(), 8063, tile);
+                    spawn.getMovement().setFollowing(npc.getEngagingEntity());
+                }
+            };
+            npc.getWorld().addEvent(event);
+        }
+    }
+
+    @Override
+    public void attackTickEndHook() {
+        if (lastCombatStyle == POISON_ATTACK) {
+            if (--poisonFireballs == 0) {
+                npc.setHitDelay(10);
+            }
+        } else if (lastCombatStyle == FREEZE_ATTACK) {
+            autoAttacks = 6;
+            specialAttack = 0;
+        } else {
+            autoAttacks--;
+        }
+    }
+
+    @Override
+    public double damageReceivedHook(Entity opponent, double damage, HitType hitType, HitType defenceType) {
+        if (poisonFireballs > 0) {
+            damage *= 0.5;
+        }
+        return damage;
+    }
+
+    @Override
+    public int dragonfireDamageHook(NpcCombatStyle combatStyle, Entity opponent, int damage) {
+        if (opponent instanceof Player) {
+            var player = (Player) opponent;
+            if (player.getSkills().getSuperAntifireTime() > 0) {
+                damage *= 0.6;
+            } else if (player.getSkills().getAntifireTime() > 0) {
+                damage *= 0.8;
+            }
+            if (player.getEquipment().wearingDragonfireShield() || player.getPrayer().hasActive("protect from magic")) {
+                damage *= 0.4;
+            }
+            if (player.getSkills().getSuperAntifireTime() > 0 && player.getEquipment().wearingDragonfireShield()) {
+                damage = 0;
+            }
+        }
+        return damage;
+    }
+
+    @Override
+    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+        if ((player.getCombat().getNPCKillCount(npc.getDef().getCombat().getKillCountName(npc.getId())) % 50) != 0) {
+            return;
+        }
+        npc.getController().addMapItem(new Item(ItemId.VORKATHS_HEAD_21907, 1), dropTile, player);
+        player.getCombat().logNPCItem(npc.getDef().getCombat().getKillCountName(npc.getId()),
+                ItemId.VORKATHS_HEAD_21907, 1);
     }
 }
