@@ -23,6 +23,7 @@ public class ChinsCommand implements Command {
 
                     player.getMagic().standardTeleport(3137, 3784, 0);
                     player.getGameEncoder().sendMessage("You teleport to Chinchompas..");
+                    player.getController().stopWithTeleport();
 
                 } else {
                     return;

@@ -14,6 +14,7 @@ public class MbCommand implements Command {
         if (player.getController().canTeleport(true)) {
             player.getMagic().standardTeleport(2539, 4718, 0);
             player.getGameEncoder().sendMessage("You teleport to Mage bank..");
+            player.getController().stopWithTeleport();
         } else {
             return;
         }

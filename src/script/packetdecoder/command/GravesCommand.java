@@ -23,6 +23,7 @@ public class GravesCommand implements Command {
                 if (slot == 0) {
                     player.getMagic().standardTeleport(3150, 3670, 0);
                     player.getGameEncoder().sendMessage("You teleport to the Graveyard..");
+                    player.getController().stopWithTeleport();
                 } else {
                     return;
                 }

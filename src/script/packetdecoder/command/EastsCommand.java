@@ -22,6 +22,7 @@ public class EastsCommand implements Command {
                 if (slot == 0) {
                     player.getMagic().standardTeleport(3342, 3664, 0);
                     player.getGameEncoder().sendMessage("You teleport to East dragons..");
+                    player.getController().stopWithTeleport();
                 } else {
                     return;
                 }

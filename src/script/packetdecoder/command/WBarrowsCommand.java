@@ -22,6 +22,7 @@ public class WBarrowsCommand implements Command {
                 if (slot == 0) {
                     player.getMagic().standardTeleport(2967, 3765, 0);
                     player.getGameEncoder().sendMessage("You teleport to Wilderness barrows..");
+                    player.getController().stopWithTeleport();
                 } else {
                     return;
                 }

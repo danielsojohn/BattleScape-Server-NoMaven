@@ -22,6 +22,7 @@ public class WestsCommand implements Command {
                 if (slot == 0) {
                     player.getMagic().standardTeleport(2976, 3604, 0);
                     player.getGameEncoder().sendMessage("You teleport to West dragons..");
+                    player.getController().stopWithTeleport();
                 } else {
                     return;
                 }
