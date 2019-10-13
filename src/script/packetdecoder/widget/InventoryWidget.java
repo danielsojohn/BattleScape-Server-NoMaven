@@ -1674,6 +1674,17 @@ public class InventoryWidget implements Widget {
             } else {
                 break;
             }
+        case 9780:
+        case 9781:
+            if (!player.getController().canTeleport(20, true)) {
+                return;
+            }
+            Tile craftingGuildTeleport = new Tile(2935, 3283);
+            player.getMovement().animatedTeleport(craftingGuildTeleport, Magic.NORMAL_MAGIC_ANIMATION_START,
+                    Magic.NORMAL_MAGIC_ANIMATION_END, Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+            player.getController().stopWithTeleport();
+            player.clearHits();
+            break;
         case 22481: // Sanguinesti staff (uncharged)
             player.getGameEncoder().sendMessage("This is charged with blood runes.");
             break;

@@ -70,6 +70,20 @@ public class EquipmentWidget implements Widget {
                         player.getController().stopWithTeleport();
                         player.clearHits();
                         break;
+                    case ItemId.CRAFTING_CAPE:
+                    case ItemId.CRAFTING_CAPE_T:
+                        if (index == 2) {
+                            if (!player.getController().canTeleport(20, true)) {
+                                return;
+                            }
+                            Tile craftingGuildTeleport = new Tile(2935, 3283);
+                            player.getMovement().animatedTeleport(craftingGuildTeleport,
+                                    Magic.NORMAL_MAGIC_ANIMATION_START, Magic.NORMAL_MAGIC_ANIMATION_END,
+                                    Magic.NORMAL_MAGIC_GRAPHIC, null, 2);
+                            player.getController().stopWithTeleport();
+                            player.clearHits();
+                        }
+                        break;
                     case ItemId.ARDOUGNE_CLOAK_1:
                         if (!player.getController().canTeleport(30, true)) {
                             break;
