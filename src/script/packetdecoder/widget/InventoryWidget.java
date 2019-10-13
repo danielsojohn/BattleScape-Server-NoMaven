@@ -78,8 +78,9 @@ public class InventoryWidget implements Widget {
         if (index == 0 && Herblore.cleanHerb(player, itemId, slot)) {
             return;
         }
-        if (item.getDef().getEquipSlot() != null && (item.getDef().isOption(index, "wear")
-                || item.getDef().isOption(index, "wield") || item.getDef().isOption(index, "equip"))) {
+        if (item.getDef().getEquipSlot() != null
+                && (item.getDef().isOption(index, "wear") || item.getDef().isOption(index, "wield")
+                        || item.getDef().isOption(index, "equip") || item.getDef().isOption(index, "ride"))) {
             player.getEquipment().equip(itemId, slot);
             return;
         }
