@@ -1661,15 +1661,19 @@ public class InventoryWidget implements Widget {
             break;
         case 13280: // Max cape
         case 13342: // Max cape
-            if (!player.getController().canTeleport(30, true)) {
+            if (player.getEquipment().meetsMaxCapeRequirements(true)) {
+                if (!player.getController().canTeleport(30, true)) {
+                    break;
+                }
+                if (index == 2) {
+                    new MaxCapeDialogue(player);
+                } else if (index == 3) {
+                    player.getGameEncoder().sendMessage("There are currently no features. Feel free to suggest some!");
+                }
+                break;
+            } else {
                 break;
             }
-            if (index == 2) {
-                new MaxCapeDialogue(player);
-            } else if (index == 3) {
-                player.getGameEncoder().sendMessage("There are currently no features. Feel free to suggest some!");
-            }
-            break;
         case 22481: // Sanguinesti staff (uncharged)
             player.getGameEncoder().sendMessage("This is charged with blood runes.");
             break;
