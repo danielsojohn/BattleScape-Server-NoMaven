@@ -1674,8 +1674,8 @@ public class InventoryWidget implements Widget {
             } else {
                 break;
             }
-        case 9780:
-        case 9781:
+        case 9780: // Crafting cape
+        case 9781: // Crafting cape
             if (!player.getController().canTeleport(20, true)) {
                 return;
             }
