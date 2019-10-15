@@ -731,7 +731,7 @@ public class NpcOptions {
         if (index == 0) {
             Teleports.open(player);
         } else if (index == 2) {
-            int[] teleportIndices = player.getWidgetManager().getLastTeleport(2);
+            int[] teleportIndices = player.getWidgetManager().getLastTeleport(0);
             Teleports.destinationWidgetPressed(player, teleportIndices[0], teleportIndices[1]);
         }
     }
