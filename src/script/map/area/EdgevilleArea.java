@@ -11,8 +11,8 @@ import com.palidino.osrs.model.guide.Guide;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.MysteryBox;
 import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.map.Area;
+import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.player.Magic;
 import com.palidino.osrs.model.player.PCombat;
@@ -298,16 +298,20 @@ public class EdgevilleArea extends Area {
             } else if (index == 1) {
                 if (player.getMagic().getSpellbook() == Magic.STANDARD_MAGIC) {
                     player.getMagic().setSpellbook(Magic.ANCIENT_MAGIC);
+                    player.getGameEncoder().sendMessage("You switch your spellbook to Ancient magic.");
                 } else if (player.getMagic().getSpellbook() == Magic.ANCIENT_MAGIC
                         || player.getMagic().getSpellbook() == Magic.LUNAR_MAGIC) {
                     player.getMagic().setSpellbook(Magic.STANDARD_MAGIC);
+                    player.getGameEncoder().sendMessage("You switch your spellbook to normal magic.");
                 }
             } else if (index == 2) {
                 if (player.getMagic().getSpellbook() == Magic.STANDARD_MAGIC
                         || player.getMagic().getSpellbook() == Magic.ANCIENT_MAGIC) {
                     player.getMagic().setSpellbook(Magic.LUNAR_MAGIC);
+                    player.getGameEncoder().sendMessage("You switch your spellbook to Lunar magic.");
                 } else if (player.getMagic().getSpellbook() == Magic.LUNAR_MAGIC) {
                     player.getMagic().setSpellbook(Magic.ANCIENT_MAGIC);
+                    player.getGameEncoder().sendMessage("You switch your spellbook to Ancient magic.");
                 }
             }
             return true;

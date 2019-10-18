@@ -2439,16 +2439,20 @@ public class MapObject1 {
         } else if (index == 1) {
             if (player.getMagic().getSpellbook() == Magic.STANDARD_MAGIC) {
                 player.getMagic().setSpellbook(Magic.ANCIENT_MAGIC);
+                player.getGameEncoder().sendMessage("You switch your spellbook to Ancient magic.");
             } else if (player.getMagic().getSpellbook() == Magic.ANCIENT_MAGIC
                     || player.getMagic().getSpellbook() == Magic.LUNAR_MAGIC) {
                 player.getMagic().setSpellbook(Magic.STANDARD_MAGIC);
+                player.getGameEncoder().sendMessage("You switch your spellbook to Normal magic.");
             }
         } else if (index == 2) {
             if (player.getMagic().getSpellbook() == Magic.STANDARD_MAGIC
                     || player.getMagic().getSpellbook() == Magic.ANCIENT_MAGIC) {
                 player.getMagic().setSpellbook(Magic.LUNAR_MAGIC);
+                player.getGameEncoder().sendMessage("You switch your spellbook to Lunar magic.");
             } else if (player.getMagic().getSpellbook() == Magic.LUNAR_MAGIC) {
                 player.getMagic().setSpellbook(Magic.ANCIENT_MAGIC);
+                player.getGameEncoder().sendMessage("You switch your spellbook to Ancient magic.");
             }
         }
     }
