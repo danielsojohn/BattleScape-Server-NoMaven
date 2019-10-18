@@ -185,8 +185,9 @@ public class UseWidgetAction {
                 } else {
                     DialogueOld.setText(player,
                             item.getName() + " x" + Utils.formatNumber(item.getAmount()) + ": "
-                                    + Utils.formatNumber(Utils.multiplyInt(item.getDef().getConfiguredExchangePrice(),
-                                            item.getAmount(), Item.MAX_AMOUNT)),
+                                    + Utils.formatNumber(
+                                            Utils.multiplyInt(item.getDef().getConfiguredExchangePrice() * 2,
+                                                    item.getAmount(), Item.MAX_AMOUNT)),
                             (String[]) null);
                 }
                 player.putAttribute("wishing_well_item_id", itemId);
