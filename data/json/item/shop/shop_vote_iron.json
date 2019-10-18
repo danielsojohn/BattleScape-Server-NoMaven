@@ -68,50 +68,17 @@
       "price": 8,
       "costItems": [
         [
-          {
-            "id": "ItemId.BLACK_MASK_10",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_9",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_8",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_7",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_6",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_5",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_4",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_3",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_2",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK_1",
-            "amount": 1
-          },
-          {
-            "id": "ItemId.BLACK_MASK",
-            "amount": 1
-          }
+          { "id": "ItemId.BLACK_MASK_10", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_9", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_8", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_7", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_6", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_5", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_4", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_3", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_2", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK_1", "amount": 1 },
+          { "id": "ItemId.BLACK_MASK", "amount": 1 }
         ]
       ]
     },
