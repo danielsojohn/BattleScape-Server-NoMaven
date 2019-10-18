@@ -13,6 +13,7 @@
     { "id": "ItemId._50_DROP_BOOST_SCROLL_16_HOURS_32317", "price": 410 },
     { "id": "ItemId.PERMANENT_TZHAAR_WAVE_BOOST_32300", "price": 240 },
     { "id": "ItemId.MITHRIL_SEEDS", "price": 20, "stack": 20 },
+    { "id": "ItemId.COMBAT_LAMP_LEVEL_99_32337", "price": 40 },
     { "id": "ItemId.RING_OF_WEALTH_I", "price": 40 },
     { "id": "ItemId.HERB_SACK", "price": 90 },
     { "id": "ItemId.SEED_BOX", "price": 90 },
