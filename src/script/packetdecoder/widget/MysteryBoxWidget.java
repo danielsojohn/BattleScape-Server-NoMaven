@@ -36,7 +36,7 @@ public class MysteryBoxWidget implements Widget {
                 player.getGameEncoder().sendMessage("You need a " + ItemDef.getName(boxId) + " to spin.");
                 break;
             }
-            player.getInventory().deleteItem(boxId, 1);
+            player.getInventory().deleteItem(boxId);
             final List<Item> mysteryBoxItems = new ArrayList<>();
             for (int i = 0; i < 5; i++) {
                 mysteryBoxItems.add(MysteryBox.getRandomItem(player, boxId));
