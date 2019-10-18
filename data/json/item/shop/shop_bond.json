@@ -132,6 +132,7 @@
     { "id": "ItemId.RANGERS_TUNIC", "price": 60 },
     { "id": "ItemId.RANGERS_TIGHTS", "price": 10 },
     { "id": "ItemId.RANGER_BOOTS", "price": 40 },
-    { "id": "ItemId.FREMENNIK_KILT", "price": 60 }
+    { "id": "ItemId.FREMENNIK_KILT", "price": 60 },
+    { "id": "ItemId.CRYSTAL_SHARD", "price": 20, "stack": 80 }
   ]
 }
