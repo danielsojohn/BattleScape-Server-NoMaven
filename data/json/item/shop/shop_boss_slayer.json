@@ -17,6 +17,7 @@
     },
     { "id": "ItemId.KERIS_P_PLUS_PLUS", "price": 500 },
     { "id": "ItemId.CORPOREAL_BEAST_TASKS_32301", "price": 200 },
+    { "id": "ItemId.WILDERNESS_BOSS_TASKS_32336", "price": 200 },
     { "id": "ItemId.RAIDS_TASKS_32329", "price": 200 },
     {
       "id": "ItemId.SLAYER_RING_8",

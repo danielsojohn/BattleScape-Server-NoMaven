@@ -277,10 +277,19 @@ public class SlayerPlugin extends PlayerPlugin {
             case ItemId.RAIDS_TASKS_32329:
                 if (isUnlocked(SlayerUnlock.RAIDS)) {
                     lock(SlayerUnlock.RAIDS);
-                    player.getGameEncoder().sendMessage("You can no longer be assigned Raids boss tasks.");
+                    player.getGameEncoder().sendMessage("You can no longer be assigned raids boss tasks.");
                 } else {
                     unlock(SlayerUnlock.RAIDS);
-                    player.getGameEncoder().sendMessage("You can now be assigned Raids boss tasks.");
+                    player.getGameEncoder().sendMessage("You can now be assigned raids boss tasks.");
+                }
+                return true;
+            case ItemId.WILDERNESS_BOSS_TASKS_32336:
+                if (isUnlocked(SlayerUnlock.WILDERNESS_BOSS)) {
+                    lock(SlayerUnlock.WILDERNESS_BOSS);
+                    player.getGameEncoder().sendMessage("You can now be assigned wilderness boss tasks.");
+                } else {
+                    unlock(SlayerUnlock.WILDERNESS_BOSS);
+                    player.getGameEncoder().sendMessage("You can no longer be assigned wilderness boss tasks.");
                 }
                 return true;
             case ItemId.SLAYER_RING_8:
@@ -729,6 +738,9 @@ public class SlayerPlugin extends PlayerPlugin {
                 continue;
             }
             if (aTask.getName().equals("Grotesque Guardians") && !isUnlocked(SlayerUnlock.GROTESQUE_GUARDIANS)) {
+                continue;
+            }
+            if (isBoss && aTask.isWilderness() && isUnlocked(SlayerUnlock.WILDERNESS_BOSS)) {
                 continue;
             }
             if (assignedSlayerTask != null

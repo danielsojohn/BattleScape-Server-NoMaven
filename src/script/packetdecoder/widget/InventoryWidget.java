@@ -667,7 +667,11 @@ public class InventoryWidget implements Widget {
         case ItemId.MYSTERY_BOX:
         case ItemId.SUPER_MYSTERY_BOX_32286:
         case ItemId.PET_MYSTERY_BOX_32311:
-            MysteryBox.open(player, itemId);
+            if (index == 0) {
+                MysteryBox.open(player, itemId);
+            } else if (index == 1) {
+                MysteryBox.quickOpen(player, itemId);
+            }
             break;
         case 19564: // Royal seed pod
             if (!player.getController().canTeleport(30, true)) {
