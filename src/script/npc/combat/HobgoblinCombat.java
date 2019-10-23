@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
@@ -86,7 +85,7 @@ public class HobgoblinCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(6));
         style.animation(164).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

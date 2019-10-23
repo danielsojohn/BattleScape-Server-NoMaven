@@ -32,7 +32,7 @@ public class JalAk165Combat extends NpcCombat {
         combat.combatScript("JalAkCS").deathAnimation(7584).blockAnimation(7585);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(29));
         style.animation(7587).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

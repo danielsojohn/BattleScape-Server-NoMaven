@@ -87,7 +87,7 @@ public class ChaosFanatic202Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(8).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(8).build());
         style.damage(NpcCombatDamage.builder().maximum(31).splashOnMiss(true).build());
         style.animation(811).attackSpeed(2);
         style.targetGraphic(new Graphic(305));
@@ -95,7 +95,7 @@ public class ChaosFanatic202Combat extends NpcCombat {
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.maximum(31));
         style.animation(811).attackSpeed(2);
         style.targetGraphic(new Graphic(157));

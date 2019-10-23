@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
@@ -37,7 +36,7 @@ public class BanditCombat extends NpcCombat {
         combat22.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(3));
         style.animation(386).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -96,7 +95,7 @@ public class BanditCombat extends NpcCombat {
         combat130.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(412).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

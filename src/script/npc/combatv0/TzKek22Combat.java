@@ -9,7 +9,6 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -26,7 +25,7 @@ public class TzKek22Combat extends NpcCombat {
         combat.deathAnimation(2627).blockAnimation(2626);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(4));
         style.animation(2625).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

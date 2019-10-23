@@ -8,8 +8,6 @@ import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.Entity;
 import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.HitpointsBar;
-import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -45,7 +43,7 @@ public class GargoyleCombat extends NpcCombat {
                     .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GRANITE_HAMMER).weight(3)))
                     .drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.BLACK_TOURMALINE_CORE).weight(2))).build();
     private static final NpcCombatStyle SPECIAL_ATTACK = NpcCombatStyle.builder()
-            .type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build())
+            .type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build())
             .damage(NpcCombatDamage.builder().maximum(38).ignorePrayer(true).build()).animation(7815).attackSpeed(4)
             .projectile(NpcCombatProjectile.builder().id(1453).speedMinimumDistance(8).build())
             .effect(NpcCombatEffect.builder().magicBind(6).build()).specialAttack(NpcCombatTargetTile.builder().build())
@@ -174,22 +172,22 @@ public class GargoyleCombat extends NpcCombat {
     }
 
     @Override
-    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
-            NpcCombatDropTable table, List<Item> items) {
+    public NpcCombatDropTable deathDropItemsTableHook(Npc npc, Player player, int dropRateDivider, int roll,
+            NpcCombatDropTable table) {
         if (npc.getId() == NpcId.CURSED_GARGOYLE_349_16007) {
             if (!player.getSkills().isWildernessSlayerTask(npc)) {
                 player.getGameEncoder().sendMessage("Without an assigned task, the loot turns to dust...");
                 return null;
             }
-            if (CURSED_DROP_TABLE.canDrop(npc, player)) {
-                return CURSED_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+            if (CURSED_DROP_TABLE.canDrop(npc, player, dropRateDivider, roll)) {
+                return CURSED_DROP_TABLE;
             }
         }
         if ((npc.getId() == NpcId.MARBLE_GARGOYLE_349 || npc.getId() == NpcId.CURSED_GARGOYLE_349_16007)
-                && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+                && SUPERIOR_DROP_TABLE.canDrop(npc, player, dropRateDivider, roll)) {
+            return SUPERIOR_DROP_TABLE;
         }
-        return items;
+        return table;
     }
 
     @Override

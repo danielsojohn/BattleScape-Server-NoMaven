@@ -34,7 +34,7 @@ public class JaltokJad900_7704Combat extends NpcCombat {
         combat.combatScript("TzTokJadCS").deathAnimation(7594);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(113));
         style.animation(7590).attackSpeed(9);
         style.projectile(NpcCombatProjectile.id(335));

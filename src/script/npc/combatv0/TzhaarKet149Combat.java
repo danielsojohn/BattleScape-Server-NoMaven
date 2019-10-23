@@ -14,7 +14,6 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -62,7 +61,7 @@ public class TzhaarKet149Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(2610).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

@@ -11,7 +11,7 @@ import com.palidino.osrs.io.PacketDecoder;
 import com.palidino.osrs.model.dialogue.Scroll;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 
 public class CommandDecoder extends PacketDecoder {

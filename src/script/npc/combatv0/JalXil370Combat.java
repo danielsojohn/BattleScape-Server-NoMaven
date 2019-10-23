@@ -29,7 +29,7 @@ public class JalXil370Combat extends NpcCombat {
         combat.deathAnimation(7606).blockAnimation(7607);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(46));
         style.animation(7604).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

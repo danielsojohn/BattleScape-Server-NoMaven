@@ -92,7 +92,7 @@ public class ZygomiteCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MELEE).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MELEE).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.maximum(10));
         style.animation(3326).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

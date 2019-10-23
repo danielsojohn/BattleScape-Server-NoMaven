@@ -2,7 +2,7 @@ package script.packetdecoder.command;
 
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.rs.RSPlayer;
+import com.palidino.rs.RsGameMode;
 import lombok.var;
 
 public class ToHardCommand implements Command {
@@ -23,7 +23,7 @@ public class ToHardCommand implements Command {
             player.getGameEncoder().sendMessage("Unable to find user " + username + ".");
             return;
         }
-        player2.setGameMode(RSPlayer.GAME_MODE_HARD);
+        player2.setGameMode(RsGameMode.HARD.ordinal());
         player2.getGameEncoder().sendMessage("Your gamemode has been set to Hard mode by " + player.getUsername());
         player.getGameEncoder().sendMessage("Success");
     }

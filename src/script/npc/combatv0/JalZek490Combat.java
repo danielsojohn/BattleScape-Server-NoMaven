@@ -29,7 +29,7 @@ public class JalZek490Combat extends NpcCombat {
         combat.combatScript("JalZekCS").deathAnimation(7613);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(70));
         style.animation(7612).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

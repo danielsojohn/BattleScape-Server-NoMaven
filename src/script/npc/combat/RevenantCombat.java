@@ -81,7 +81,7 @@ public class RevenantCombat extends NpcCombat {
         impCombat.type(NpcCombatType.UNDEAD).deathAnimation(172).blockAnimation(170);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(2));
         style.animation(169).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -118,7 +118,7 @@ public class RevenantCombat extends NpcCombat {
         goblinCombat.type(NpcCombatType.UNDEAD).deathAnimation(6182).blockAnimation(6183);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(3));
         style.animation(6185).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -154,7 +154,7 @@ public class RevenantCombat extends NpcCombat {
         pyrefiendCombat.type(NpcCombatType.UNDEAD).deathAnimation(1580).blockAnimation(1581);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(1582).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -191,7 +191,7 @@ public class RevenantCombat extends NpcCombat {
         hobgoblinCombat.type(NpcCombatType.UNDEAD).deathAnimation(167).blockAnimation(165);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(164).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -227,7 +227,7 @@ public class RevenantCombat extends NpcCombat {
         cyclopsCombat.type(NpcCombatType.UNDEAD).deathAnimation(4653).blockAnimation(4651);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(16));
         style.animation(4652).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -264,7 +264,7 @@ public class RevenantCombat extends NpcCombat {
         hellhoundCombat.type(NpcCombatType.UNDEAD).deathAnimation(6576).blockAnimation(6578);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(14));
         style.animation(6581).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -301,7 +301,7 @@ public class RevenantCombat extends NpcCombat {
         demonCombat.type(NpcCombatType.UNDEAD).type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(18));
         style.animation(64).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -337,7 +337,7 @@ public class RevenantCombat extends NpcCombat {
         orkCombat.type(NpcCombatType.UNDEAD).deathAnimation(4321).blockAnimation(4322);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(20));
         style.animation(4320).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -351,7 +351,7 @@ public class RevenantCombat extends NpcCombat {
         orkCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(32).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(32).build());
         style.damage(NpcCombatDamage.builder().maximum(20).splashOnMiss(true).build());
         style.animation(4320).attackSpeed(5);
         style.targetGraphic(new Graphic(1454, 124));
@@ -383,7 +383,7 @@ public class RevenantCombat extends NpcCombat {
         darkBeastCombat.type(NpcCombatType.UNDEAD).deathAnimation(2733).blockAnimation(2732);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(23));
         style.animation(2731).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -397,7 +397,7 @@ public class RevenantCombat extends NpcCombat {
         darkBeastCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(32).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(32).build());
         style.damage(NpcCombatDamage.builder().maximum(23).splashOnMiss(true).build());
         style.animation(2731).attackSpeed(5);
         style.targetGraphic(new Graphic(1454, 124));
@@ -429,7 +429,7 @@ public class RevenantCombat extends NpcCombat {
         knightCombat.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(404);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(27));
         style.animation(390).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -443,7 +443,7 @@ public class RevenantCombat extends NpcCombat {
         knightCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(32).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(32).build());
         style.damage(NpcCombatDamage.builder().maximum(27).splashOnMiss(true).build());
         style.animation(727).attackSpeed(5);
         style.targetGraphic(new Graphic(1454, 124));
@@ -475,7 +475,7 @@ public class RevenantCombat extends NpcCombat {
         dragonCombat.type(NpcCombatType.UNDEAD).deathAnimation(92).blockAnimation(89);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(80).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -489,7 +489,7 @@ public class RevenantCombat extends NpcCombat {
         dragonCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(32).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(32).build());
         style.damage(NpcCombatDamage.builder().maximum(30).splashOnMiss(true).build());
         style.animation(6722).attackSpeed(5);
         style.targetGraphic(new Graphic(1454, 124));
@@ -544,7 +544,7 @@ public class RevenantCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         var total = player.getSkills().isWildernessSlayerTask(npc) ? 2 : 1;
         for (var i = 0; i < total; i++) {
             Item item = null;
@@ -599,7 +599,8 @@ public class RevenantCombat extends NpcCombat {
             if (item != null) {
                 npc.getController().addMapItem(item, dropTile, player);
                 if (logDrop) {
-                    player.getCombat().logNPCItem(npc.getDef().getCombat().getKillCountName(npc.getId()), item.getId(), item.getAmount());
+                    player.getCombat().logNPCItem(npc.getDef().getCombat().getKillCountName(npc.getId()), item.getId(),
+                            item.getAmount());
                     npc.getWorld().sendRevenantCavesMessage("<col=005500>" + player.getUsername() + " received a drop: "
                             + (item.getAmount() > 1 ? item.getAmount() + " x " : "") + item.getName());
                 }
@@ -608,7 +609,8 @@ public class RevenantCombat extends NpcCombat {
                     / Math.sqrt(clampedLevel) / playerMultiplier)) == 0) {
                 var pvpItem = RandomItem.getItem(ANCIENT_WARRIOR_DROP_TABLE);
                 npc.getController().addMapItem(pvpItem, dropTile, player);
-                player.getCombat().logNPCItem(npc.getDef().getCombat().getKillCountName(npc.getId()), pvpItem.getId(), pvpItem.getAmount());
+                player.getCombat().logNPCItem(npc.getDef().getCombat().getKillCountName(npc.getId()), pvpItem.getId(),
+                        pvpItem.getAmount());
                 npc.getWorld().sendItemDropNews(player, pvpItem.getId(), " a revenant");
             }
             var etherCount = (1 + Utils.randomE((int) Math.sqrt(clampedLevel))) * 2;

@@ -155,7 +155,7 @@ public class AbyssalSireCombat extends NpcCombat {
         combat2.type(NpcCombatType.DEMON);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.builder().maximum(8).prayerEffectiveness(0.4).build());
         style.animation(5751).attackSpeed(7);
         style.projectile(NpcCombatProjectile.id(335));
@@ -163,7 +163,7 @@ public class AbyssalSireCombat extends NpcCombat {
         combat2.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.builder().maximum(18).prayerEffectiveness(0.4).build());
         style.animation(5369).attackSpeed(7);
         style.projectile(NpcCombatProjectile.id(335));
@@ -171,7 +171,7 @@ public class AbyssalSireCombat extends NpcCombat {
         combat2.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.builder().maximum(36).prayerEffectiveness(0.4).build());
         style.animation(5755).attackSpeed(7);
         style.projectile(NpcCombatProjectile.id(335));
@@ -481,7 +481,7 @@ public class AbyssalSireCombat extends NpcCombat {
                 && (phase != 1 || disorientingDelay == 0) && Utils.randomE(5) == 0) {
             fumeDelay = 6;
             fumeTile = new Tile(combatWith);
-            npc.getWorld().sendMapGraphic(npc.getController(), fumeTile, 1275, 0, 0);
+            npc.getController().sendMapGraphic(fumeTile, new Graphic(1275));
         }
     }
 

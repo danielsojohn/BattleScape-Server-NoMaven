@@ -29,7 +29,7 @@ public class AgrithNaNaCombat extends NpcCombat {
         combat.deathAnimation(3503).blockAnimation(3500);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(16));
         style.animation(3501).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

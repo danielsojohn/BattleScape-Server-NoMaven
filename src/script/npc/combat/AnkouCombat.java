@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
@@ -92,7 +91,7 @@ public class AnkouCombat extends NpcCombat {
         combat75.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(422).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -108,7 +107,7 @@ public class AnkouCombat extends NpcCombat {
         combat86.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(422).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -124,7 +123,7 @@ public class AnkouCombat extends NpcCombat {
         combat95.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(422).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -140,7 +139,7 @@ public class AnkouCombat extends NpcCombat {
         combat98.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(10));
         style.animation(422).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

@@ -111,7 +111,7 @@ public class DagannothRex303Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(26));
         style.animation(2853).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

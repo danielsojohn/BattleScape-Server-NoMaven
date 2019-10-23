@@ -31,7 +31,7 @@ public class Dessourt121Combat extends NpcCombat {
         combat.deathAnimation(3509).blockAnimation(3505);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MELEE).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MELEE).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.maximum(19));
         style.animation(3508).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));

@@ -9,7 +9,6 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -27,7 +26,7 @@ public class YtMejkot180Combat extends NpcCombat {
         combat.combatScript("YtMejKotCS").deathAnimation(2638).blockAnimation(2635);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(25));
         style.animation(2637).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

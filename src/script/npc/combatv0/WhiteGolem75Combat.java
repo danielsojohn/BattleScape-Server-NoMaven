@@ -28,7 +28,7 @@ public class WhiteGolem75Combat extends NpcCombat {
         combat.deathAnimation(2919).blockAnimation(2918);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(4));
         style.animation(2917).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

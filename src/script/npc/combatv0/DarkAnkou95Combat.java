@@ -11,7 +11,6 @@ import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatType;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -29,7 +28,7 @@ public class DarkAnkou95Combat extends NpcCombat {
         combat.type(NpcCombatType.UNDEAD).deathAnimation(836).blockAnimation(424);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(422).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

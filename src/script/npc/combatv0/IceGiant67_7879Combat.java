@@ -101,7 +101,7 @@ public class IceGiant67_7879Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(10));
         style.animation(4672).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));

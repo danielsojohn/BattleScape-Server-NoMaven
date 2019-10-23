@@ -10,7 +10,7 @@ import com.palidino.osrs.model.map.route.Route;
 import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 
 public class MapItemOptionDecoder extends PacketDecoder {

@@ -102,7 +102,7 @@ public class GiantRockCrab137_5940Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(9));
         style.animation(1312).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

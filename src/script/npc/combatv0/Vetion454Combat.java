@@ -109,14 +109,14 @@ public class Vetion454Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(5499).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(5499).attackSpeed(4);
         style.targetGraphic(new Graphic(749));

@@ -107,7 +107,7 @@ public class CursedWyvern210_16011Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(16));
         style.animation(7658).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));

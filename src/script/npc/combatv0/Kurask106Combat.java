@@ -97,7 +97,7 @@ public class Kurask106Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(11));
         style.animation(1512).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

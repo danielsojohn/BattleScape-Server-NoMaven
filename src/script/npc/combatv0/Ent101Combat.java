@@ -30,7 +30,7 @@ public class Ent101Combat extends NpcCombat {
         combat.deathAnimation(7146).blockAnimation(7144);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(10));
         style.animation(7145).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

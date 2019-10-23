@@ -84,7 +84,7 @@ public class Werewolf93Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(6536).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

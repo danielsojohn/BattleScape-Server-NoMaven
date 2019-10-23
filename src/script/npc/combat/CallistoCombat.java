@@ -1,33 +1,45 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Entity;
+import com.palidino.osrs.model.ForceMovement;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.Hit;
+import com.palidino.osrs.model.HitEvent;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.map.route.Route;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
-import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
-import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
+import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
+import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.HitType;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.player.Player;
+import com.palidino.util.Utils;
 import lombok.var;
 
-public class Callisto470Combat extends NpcCombat {
+public class CallistoCombat extends NpcCombat {
+    private Npc npc;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder();
+        var drop = NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.ELITE, NpcCombatDropTable.CHANCE_1_IN_100);
         var dropTable =
                 NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_4096).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.VESTAS_LONGSWORD)));
@@ -37,20 +49,17 @@ public class Callisto470Combat extends NpcCombat {
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MORRIGANS_THROWING_AXE, 100)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ZURIELS_STAFF)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.05).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_2000).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CALLISTO_CUB)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.29).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_512).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.TYRANNICAL_RING)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.58).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_256).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_2H_SWORD)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.87).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(0.59).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.DRAGON_PICKAXE)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(1.0);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_ELITE)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.YEW_SEED)));
@@ -101,18 +110,18 @@ public class Callisto470Combat extends NpcCombat {
         combat.immunity(NpcCombatImmunity.builder().venom(true).build());
         combat.focus(NpcCombatFocus.builder().disableFollowingOpponent(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
-        combat.combatScript("CallistoCS").deathAnimation(4929).blockAnimation(4928);
+        combat.deathAnimation(4929).blockAnimation(4928);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(60));
         style.animation(4925).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.builder().maximum(3).alwaysMaximum(true).build());
         style.animation(4925).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -120,5 +129,79 @@ public class Callisto470Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public void tickStartHook() {
+        var entity = npc.getEngagingEntity();
+        if (!npc.isAttacking() || !npc.withinDistance(entity, 10) || entity.isLocked()) {
+            return;
+        }
+        var shockwaveChance = Math.max(32 - npc.getDistance(entity), 1);
+        if (Utils.randomE(shockwaveChance) == 0) {
+            entity.setLock(1);
+            var projectile = Graphic.Projectile.builder().id(395).startTile(npc).entity(entity)
+                    .projectileSpeed(getProjectileSpeed(entity)).build();
+            sendMapProjectile(projectile);
+            entity.setGraphic(245, 100);
+            var hitEvent = new HitEvent(0, entity, npc, new Hit(Utils.randomI(60)));
+            entity.addHit(hitEvent);
+            if (entity instanceof Player) {
+                var player = (Player) entity;
+                player.getGameEncoder().sendMessage("Callisto's fury sends an almighty shockwave through you.");
+            }
+        }
+    }
+
+    @Override
+    public HitType attackTickHitTypeHook(HitType hitType, Entity opponent) {
+        var withinDistance = npc.withinDistance(npc.getEngagingEntity(), 1);
+        if (withinDistance && Utils.randomE(4) != 0 || !withinDistance && Utils.randomE(8) != 0) {
+            return HitType.MELEE;
+        }
+        return hitType;
+    }
+
+    @Override
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
+        if (combatStyle.getType().getHitType() == HitType.MAGIC) {
+            var projectile = Graphic.Projectile.builder().id(1256).startTile(npc).entity(opponent)
+                    .projectileSpeed(getProjectileSpeed(opponent)).build();
+            sendMapProjectile(projectile);
+            npc.getController().sendMapGraphic(opponent, new Graphic(1255));
+            if (opponent instanceof Player) {
+                Player player = (Player) opponent;
+                player.getGameEncoder().sendMessage("Callisto's roar throws you backwards.");
+            }
+            var distance = 4;
+            Tile tile;
+            var direction = 0;
+            if (opponent.getY() < npc.getY()) {
+                tile = new Tile(opponent.getX(), opponent.getY() - distance);
+                while (!Route.canMove(opponent, tile) && distance > 0) {
+                    tile = new Tile(opponent.getX(), opponent.getY() - (--distance));
+                }
+                direction = Tile.NORTH;
+            } else {
+                tile = new Tile(opponent.getX(), opponent.getY() + distance);
+                while (!Route.canMove(opponent, tile) && distance > 0) {
+                    tile = new Tile(opponent.getX(), opponent.getY() + --distance);
+                }
+                direction = Tile.SOUTH;
+            }
+            var fm = new ForceMovement(tile, 1, direction);
+            opponent.setLock(4);
+            opponent.setForceMovementTeleport(fm, 734, 1, null);
+        }
+        if (Utils.randomE(8) == 0) {
+            npc.setGraphic(157);
+            npc.adjustHitpoints(Math.min(hitEvent.getDamage(), 10), 0);
+        }
     }
 }

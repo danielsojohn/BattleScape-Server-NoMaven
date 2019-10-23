@@ -51,7 +51,7 @@ public class VasaNistirio7567Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.builder().maximum(30).prayerEffectiveness(0.5).build());
         style.attackSpeed(2).attackRange(7);
         style.targetGraphic(new Graphic(1330));

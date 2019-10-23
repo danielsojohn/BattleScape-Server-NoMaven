@@ -35,7 +35,7 @@ public class TreeSpiritCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getCombat().setLostCity(true);
         player.getMovement().teleport(3109, 3514);
         player.getGameEncoder().sendMessage("<col=ff0000>You have completed Lost City!");

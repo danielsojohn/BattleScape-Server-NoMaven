@@ -49,7 +49,7 @@ public class MageArena2DemonCombat extends NpcCombat {
         justiciarCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(6).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(6).build());
         style.damage(NpcCombatDamage.builder().maximum(43).prayerEffectiveness(0.5).splashOnMiss(true).build());
         style.animation(7962).attackSpeed(6);
         style.targetGraphic(new Graphic(1518, 100));
@@ -57,7 +57,7 @@ public class MageArena2DemonCombat extends NpcCombat {
         justiciarCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.builder().maximum(43).ignorePrayer(true).build());
         style.animation(7962).attackSpeed(6);
         style.targetGraphic(new Graphic(137));
@@ -85,7 +85,7 @@ public class MageArena2DemonCombat extends NpcCombat {
         derwenCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(6).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(6).build());
         style.damage(NpcCombatDamage.builder().maximum(43).prayerEffectiveness(0.5).splashOnMiss(true).build());
         style.animation(7849).attackSpeed(6);
         style.targetGraphic(new Graphic(1511, 100));
@@ -93,7 +93,7 @@ public class MageArena2DemonCombat extends NpcCombat {
         derwenCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.builder().maximum(43).ignorePrayer(true).build());
         style.animation(7849).attackSpeed(6);
         style.projectile(NpcCombatProjectile.builder().id(1512).speedMinimumDistance(8).build());

@@ -2,7 +2,7 @@ package script.packetdecoder.command;
 
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.rs.RSPlayer;
+import com.palidino.rs.RsGameMode;
 import lombok.var;
 
 public class ToNormalCommand implements Command {
@@ -23,7 +23,7 @@ public class ToNormalCommand implements Command {
             player.getGameEncoder().sendMessage("Unable to find user " + username + ".");
             return;
         }
-        player2.setGameMode(RSPlayer.GAME_MODE_NORMAL);
+        player2.setGameMode(RsGameMode.NORMAL.ordinal());
         player2.getGameEncoder().sendMessage("Your gamemode has been set to Normal mode by " + player.getUsername());
         player.getGameEncoder().sendMessage("Success");
     }

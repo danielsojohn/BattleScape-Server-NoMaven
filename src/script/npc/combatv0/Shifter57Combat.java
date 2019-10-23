@@ -10,7 +10,6 @@ import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -28,7 +27,7 @@ public class Shifter57Combat extends NpcCombat {
         combat.combatScript("PestControlCS").deathAnimation(3903).blockAnimation(3902);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(6));
         style.animation(3901).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

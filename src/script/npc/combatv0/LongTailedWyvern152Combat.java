@@ -108,7 +108,7 @@ public class LongTailedWyvern152Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(13));
         style.animation(7654).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));

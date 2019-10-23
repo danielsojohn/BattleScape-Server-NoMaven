@@ -192,15 +192,15 @@ public class ArmadylGodWarsCombat extends NpcCombat {
     }
 
     @Override
-    public Item dropTableGetItem(Player player, Tile tile, int dropRateDivider, int roll, Item item,
-            NpcCombatDropTable table) {
+    public Item dropTableDropGetItemHook(Player player, Tile tile, int dropRateDivider, int roll,
+            NpcCombatDropTable table, NpcCombatDropTableDrop drop, Item item) {
         if (npc.getController().inWilderness() && item.getId() == ItemId.ADAMANTITE_BAR) {
             item = new Item(item.getNotedId(), item);
         }
         return item;
     }
 
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getArea().script("increase_armadyl_killcount");
     }
 

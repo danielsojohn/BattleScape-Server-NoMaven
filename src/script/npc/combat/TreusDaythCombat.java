@@ -41,7 +41,7 @@ public class TreusDaythCombat extends NpcCombat {
         combat.deathAnimation(5542).blockAnimation(5541);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(5540).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -78,7 +78,7 @@ public class TreusDaythCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         if (player.getCombat().getHauntedMine() == 2) {
             player.getCombat().setHauntedMine(3);
         }

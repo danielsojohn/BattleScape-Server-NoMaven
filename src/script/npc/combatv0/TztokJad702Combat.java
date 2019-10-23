@@ -32,7 +32,7 @@ public class TztokJad702Combat extends NpcCombat {
         combat.combatScript("TzTokJadCS").deathAnimation(2654);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(97));
         style.animation(2655).attackSpeed(7);
         style.projectile(NpcCombatProjectile.id(335));

@@ -71,7 +71,7 @@ public class BronzeDragon131Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(12));
         style.animation(91).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

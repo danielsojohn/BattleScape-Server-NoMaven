@@ -44,14 +44,14 @@ public class KnightOfSaradomin103Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(11));
         style.animation(406).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(11));
         style.animation(407).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

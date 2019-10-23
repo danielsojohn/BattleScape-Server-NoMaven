@@ -29,7 +29,7 @@ public class Slagilith92_6385Combat extends NpcCombat {
         combat.deathAnimation(1752).blockAnimation(1751);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(13));
         style.animation(1750).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

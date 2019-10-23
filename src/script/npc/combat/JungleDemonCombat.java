@@ -33,7 +33,7 @@ public class JungleDemonCombat extends NpcCombat {
         combat.type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(32));
         style.animation(64).attackSpeed(6).attackRange(2);
         style.projectile(NpcCombatProjectile.id(335));
@@ -76,7 +76,7 @@ public class JungleDemonCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getCombat().setMonkeyMadness(true);
         player.getMovement().teleport(3109, 3514);
         player.getGameEncoder().sendMessage("<col=ff0000>You have completed Monkey Madness!");

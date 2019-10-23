@@ -11,7 +11,6 @@ import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -30,7 +29,7 @@ public class TheInadequacy343Combat extends NpcCombat {
         combat.deathAnimation(6322).blockAnimation(6324);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(18));
         style.animation(6318).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

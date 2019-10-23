@@ -6,6 +6,7 @@ import com.palidino.osrs.io.cache.CacheManager;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.rs.Clan;
+import com.palidino.rs.RsClanRank;
 import lombok.var;
 import script.world.pvptournament.PvpTournament;
 
@@ -37,11 +38,11 @@ public class MessagingDecoder extends PacketDecoder {
             player.getMessaging().setPrivateChatStatus(privateChat);
         } else if (index == 2) {
             var username = stream.getString();
-            RequestManager.addUserPacketLog(player, "[Messaging-Add Friend] username=" + username);
+            RequestManager.addUserPacketLog(player, "[Messaging-Add RsFriend] username=" + username);
             player.getMessaging().addFriend(username);
         } else if (index == 3) {
             var username = stream.getString();
-            RequestManager.addUserPacketLog(player, "[Messaging-Remove Friend] username=" + username);
+            RequestManager.addUserPacketLog(player, "[Messaging-Remove RsFriend] username=" + username);
             player.getMessaging().removeFriend(username);
         } else if (index == 4) {
             var username = stream.getString();
@@ -72,28 +73,28 @@ public class MessagingDecoder extends PacketDecoder {
             var rankId = stream.getUByte();
             RequestManager.addUserPacketLog(player,
                     "[Messaging-Clan Rank] username=" + username + "; rankId=" + rankId);
-            var rank = 0;
+            var rank = RsClanRank.NOT_IN_CLAN;
             switch (rankId) {
             case 0:
-                rank = Clan.NOT_IN_CLAN;
+                rank = RsClanRank.NOT_IN_CLAN;
                 break;
             case 1:
-                rank = Clan.RECRUIT;
+                rank = RsClanRank.RECRUIT;
                 break;
             case 2:
-                rank = Clan.CORPORAL;
+                rank = RsClanRank.CORPORAL;
                 break;
             case 3:
-                rank = Clan.SERGEANT;
+                rank = RsClanRank.SERGEANT;
                 break;
             case 4:
-                rank = Clan.LIEUTENANT;
+                rank = RsClanRank.LIEUTENANT;
                 break;
             case 5:
-                rank = Clan.CAPTAIN;
+                rank = RsClanRank.CAPTAIN;
                 break;
             case 6:
-                rank = Clan.GENERAL;
+                rank = RsClanRank.GENERAL;
                 break;
             }
             player.getMessaging().setFriendClanRank(username, rank);

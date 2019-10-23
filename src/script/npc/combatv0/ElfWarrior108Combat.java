@@ -94,7 +94,7 @@ public class ElfWarrior108Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(10));
         style.animation(440).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

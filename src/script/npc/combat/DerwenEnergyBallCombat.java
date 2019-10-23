@@ -53,7 +53,7 @@ public class DerwenEnergyBallCombat extends NpcCombat {
             timedDeath();
             return;
         }
-        var projectile = Graphic.Projectile.builder().id(1513).startTile(npc).endTile(derwen)
+        var projectile = Graphic.Projectile.builder().id(1513).startTile(npc).entity(derwen)
                 .projectileSpeed(getProjectileSpeed(derwen)).build();
         sendMapProjectile(projectile);
         derwen.addHit(new HitEvent(projectile.getEventDelay(), derwen, npc, new Hit(5, HitMark.HEAL)));

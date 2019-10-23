@@ -33,7 +33,7 @@ public class Snakeling90Combat extends NpcCombat {
         combat.deathAnimation(2408).blockAnimation(1742);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(1741).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

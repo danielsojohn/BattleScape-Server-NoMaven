@@ -33,7 +33,7 @@ public class ElvargCombat extends NpcCombat {
         combat.deathAnimation(92).blockAnimation(89);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(80).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -52,7 +52,7 @@ public class ElvargCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getCombat().setDragonSlayer(true);
         player.getMovement().teleport(3109, 3514);
         player.getGameEncoder().sendMessage("<col=ff0000>You have completed Dragon Slayer!");

@@ -106,7 +106,7 @@ public class SkeletalWyvernCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(13));
         style.animation(2986).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
@@ -138,8 +138,9 @@ public class SkeletalWyvernCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
-        if (!(opponent instanceof Player) || combatStyle.getType().getType() != HitType.DRAGONFIRE
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
+        if (!(opponent instanceof Player) || combatStyle.getType().getHitType() != HitType.DRAGONFIRE
                 || Utils.randomE(5) != 0) {
             return;
         }

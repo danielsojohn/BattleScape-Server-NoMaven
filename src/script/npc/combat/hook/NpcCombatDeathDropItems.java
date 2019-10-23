@@ -63,16 +63,16 @@ public class NpcCombatDeathDropItems implements NpcCombatGlobalHooks {
             if (hasRowCharge && player.getInventory().canAddItem(keyHalfId, 1)) {
                 player.getInventory().addItem(keyHalfId, 1);
             } else {
-                npc.getController().addMapItem(new Item(keyHalfId, 1), dropTile, player);
+                npc.getController().addMapItem(new Item(keyHalfId), dropTile, player);
             }
         }
         if (npc.getController().inWilderness() && npc.getDef().getCombat().getKillCount().isSendMessage()
                 && Utils.randomE(5) == 0) {
-            npc.getController().addMapItem(new Item(ItemId.MYSTERIOUS_EMBLEM, 1), dropTile, player);
+            npc.getController().addMapItem(new Item(ItemId.MYSTERIOUS_EMBLEM), dropTile, player);
         }
         if (npc.getController().inWilderness() && (npc.getDef().getCombat().getKillCount().isSendMessage()
                 || isWildernessSlayerTask || npc.getDef().getName().contains("Revenant")) && Utils.randomE(300) == 0) {
-            npc.getController().addMapItem(new Item(ItemId.MYSTERIOUS_EMBLEM_TIER_5, 1), dropTile, player);
+            npc.getController().addMapItem(new Item(ItemId.MYSTERIOUS_EMBLEM_TIER_5), dropTile, player);
         }
         if (isWildernessSlayerTask || npc.getDef().getName().contains("Revenant")) {
             if (player.getCombat().getBountyHunter().hasEmblem()) {
@@ -81,20 +81,20 @@ public class NpcCombatDeathDropItems implements NpcCombatGlobalHooks {
                 }
                 if (Utils.randomE(8) == 0) {
                     npc.getController().addMapItem(
-                            new Item(Utils.randomI(1) == 0 ? ItemId.DARK_CRAB : ItemId.PRAYER_POTION_3, 1), dropTile,
+                            new Item(Utils.randomI(1) == 0 ? ItemId.DARK_CRAB : ItemId.PRAYER_POTION_3), dropTile,
                             player);
                 }
             }
             if (npc.getMaxHitpoints() / 2 < 155 && Utils.randomE(155 - npc.getMaxHitpoints() / 2) == 0) {
-                npc.getController().addMapItem(new Item(ItemId.MYSTERIOUS_EMBLEM, 1), dropTile, player);
+                npc.getController().addMapItem(new Item(ItemId.MYSTERIOUS_EMBLEM), dropTile, player);
             }
             if (npc.getMaxHitpoints() * 0.8 < 320
                     && Utils.randomE((int) (320 - npc.getMaxHitpoints() * 0.8) / 4) == 0) {
-                npc.getController().addMapItem(new Item(ItemId.SLAYERS_ENCHANTMENT, 1), dropTile, player);
+                npc.getController().addMapItem(new Item(ItemId.SLAYERS_ENCHANTMENT), dropTile, player);
             }
         }
         if (npc.getController().inWilderness() && Utils.randomE(30) == 0 && !player.hasItem(ItemId.LOOTING_BAG)) {
-            npc.getController().addMapItem(new Item(ItemId.LOOTING_BAG, 1), dropTile, player);
+            npc.getController().addMapItem(new Item(ItemId.LOOTING_BAG), dropTile, player);
         }
     }
 }

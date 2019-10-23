@@ -50,7 +50,7 @@ public class SkeletalMysticCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.builder().maximum(16).prayerEffectiveness(0.5).build());
         style.animation(5485).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

@@ -84,7 +84,7 @@ public class IceWarriorCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(6));
         style.animation(451).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

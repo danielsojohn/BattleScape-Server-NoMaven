@@ -113,7 +113,7 @@ public class ThermonuclearSmokeDevil301Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.builder().maximum(8).prayerEffectiveness(1.0).build());
         style.animation(3847).attackSpeed(2);
         style.projectile(NpcCombatProjectile.id(335));

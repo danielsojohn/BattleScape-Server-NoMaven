@@ -29,7 +29,7 @@ public class Torcher49Combat extends NpcCombat {
         combat.combatScript("PestControlCS").deathAnimation(3881).blockAnimation(3880);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.RANGED).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.RANGED).build());
         style.damage(NpcCombatDamage.builder().maximum(8).splashOnMiss(true).build());
         style.animation(3882).attackSpeed(4);
         style.castGraphic(new Graphic(646)).targetGraphic(new Graphic(648, 124));

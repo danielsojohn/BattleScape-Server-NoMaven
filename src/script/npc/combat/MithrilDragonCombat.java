@@ -115,7 +115,7 @@ public class MithrilDragonCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(28));
         style.animation(80).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -153,8 +153,8 @@ public class MithrilDragonCombat extends NpcCombat {
     }
 
     @Override
-    public Item dropTableGetItem(Player player, Tile tile, int dropRateDivider, int roll, Item item,
-            NpcCombatDropTable table) {
+    public Item dropTableDropGetItemHook(Player player, Tile tile, int dropRateDivider, int roll,
+            NpcCombatDropTable table, NpcCombatDropTableDrop drop, Item item) {
         if (player.getPlugin(SlayerPlugin.class).isUnlocked(SlayerUnlock.DULY_NOTED)
                 && player.getSkills().isAnySlayerTask(npc) && item.getId() == ItemId.MITHRIL_BAR) {
             item = new Item(ItemId.MITHRIL_BAR_NOTED, item);

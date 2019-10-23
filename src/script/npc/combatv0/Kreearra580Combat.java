@@ -87,7 +87,7 @@ public class Kreearra580Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(26));
         style.animation(6981).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));
@@ -102,7 +102,7 @@ public class Kreearra580Combat extends NpcCombat {
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.RANGED).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.RANGED).build());
         style.damage(NpcCombatDamage.maximum(21));
         style.animation(6980).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));

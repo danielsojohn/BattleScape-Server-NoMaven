@@ -16,7 +16,7 @@ import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.osrs.world.WorldEventHooks;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 
 public class MapObjectOptionDecoder extends PacketDecoder {

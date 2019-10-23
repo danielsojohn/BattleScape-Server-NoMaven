@@ -3,7 +3,6 @@ package script.npc.combat;
 import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.NpcId;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.Entity;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -33,7 +32,7 @@ public class LoadingCraneCombat extends NpcCombat {
         combat.focus(NpcCombatFocus.builder().bypassMapObjects(true).disableFollowingOpponent(true).build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(1452).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

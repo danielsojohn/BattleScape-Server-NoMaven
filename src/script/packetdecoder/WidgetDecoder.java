@@ -14,7 +14,7 @@ import com.palidino.osrs.model.player.Equipment;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 
 public class WidgetDecoder extends PacketDecoder {

@@ -59,7 +59,7 @@ public class PossessedPickaxe50_7268Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(6));
         style.animation(191).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

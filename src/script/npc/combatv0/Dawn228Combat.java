@@ -33,7 +33,7 @@ public class Dawn228Combat extends NpcCombat {
         combat.combatScript("GrotesqueGuardianCS");
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(7769).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

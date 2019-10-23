@@ -46,7 +46,7 @@ import lombok.var;
 
 public class AlchemicalHydraCombat extends NpcCombat {
     private static final NpcCombatStyle.NpcCombatStyleBuilder POISON_ATTACK_BUILDER = NpcCombatStyle.builder()
-            .type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).mark(HitMark.POISON)
+            .type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).hitMark(HitMark.POISON)
                     .build())
             .damage(NpcCombatDamage.builder().maximum(12).alwaysMaximum(true).ignorePrayer(true).build())
             .effect(NpcCombatEffect.builder().poison(4).build()).attackSpeed(6).targetGraphic(new Graphic(1645))

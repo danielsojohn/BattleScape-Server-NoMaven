@@ -118,7 +118,7 @@ public class Zulrah725_2043Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.MELEE).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.MELEE).build());
         style.damage(NpcCombatDamage.builder().maximum(41).ignorePrayer(true).build());
         style.animation(5806).attackSpeed(7).attackRange(20);
         style.projectile(NpcCombatProjectile.builder().id(0).speedMinimumDistance(8).build());

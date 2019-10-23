@@ -25,7 +25,7 @@ public class MossGiant84Combat extends NpcCombat {
         combat.deathAnimation(4659).blockAnimation(4657);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(14));
         style.animation(4658).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

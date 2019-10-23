@@ -86,7 +86,7 @@ public class BandosGodWarsCombat extends NpcCombat {
         jogreCombat.drop(jogreDrop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(7));
         style.animation(2935).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
@@ -156,7 +156,7 @@ public class BandosGodWarsCombat extends NpcCombat {
         cyclopsCombat.drop(cyclopsDrop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(8));
         style.animation(4652).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -202,7 +202,7 @@ public class BandosGodWarsCombat extends NpcCombat {
         orkCombat.drop(orkDrop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(12));
         style.animation(4320).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -274,7 +274,7 @@ public class BandosGodWarsCombat extends NpcCombat {
         hobgoblinCombat.drop(hobgoblinOrk.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(6));
         style.animation(164).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -332,7 +332,7 @@ public class BandosGodWarsCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getArea().script("increase_bandos_killcount");
         if (npc.getController().inWilderness() && Utils.randomE(60) == 0) {
             npc.getController().addMapItem(new Item(ItemId.ECUMENICAL_KEY, 1), dropTile, player);

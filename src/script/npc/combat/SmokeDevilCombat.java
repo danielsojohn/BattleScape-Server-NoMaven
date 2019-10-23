@@ -9,8 +9,6 @@ import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.Entity;
 import com.palidino.osrs.model.HitType;
 import com.palidino.osrs.model.HitpointsBar;
-import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -111,7 +109,7 @@ public class SmokeDevilCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.maximum(20));
         style.animation(3847).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -129,7 +127,7 @@ public class SmokeDevilCombat extends NpcCombat {
         cursedCombat.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(3847).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -148,7 +146,7 @@ public class SmokeDevilCombat extends NpcCombat {
         superiorCombat.drop(drop.rolls(3).build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(3847).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -179,21 +177,22 @@ public class SmokeDevilCombat extends NpcCombat {
     }
 
     @Override
-    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
-            NpcCombatDropTable table, List<Item> items) {
+    public NpcCombatDropTable deathDropItemsTableHook(Npc npc, Player player, int dropRateDivider, int roll,
+            NpcCombatDropTable table) {
         if (npc.getId() == NpcId.CURSED_SMOKE_DEVIL_280_16006) {
             if (!player.getSkills().isWildernessSlayerTask(npc)) {
                 player.getGameEncoder().sendMessage("Without an assigned task, the loot turns to dust...");
                 return null;
             }
-            if (CURSED_DROP_TABLE.canDrop(npc, player)) {
-                return CURSED_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+            if (CURSED_DROP_TABLE.canDrop(npc, player, dropRateDivider, roll)) {
+                return CURSED_DROP_TABLE;
             }
         }
-        if (npc.getId() == NpcId.CURSED_SMOKE_DEVIL_280_16006 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+        if (npc.getId() == NpcId.CURSED_SMOKE_DEVIL_280_16006
+                && SUPERIOR_DROP_TABLE.canDrop(npc, player, dropRateDivider, roll)) {
+            return SUPERIOR_DROP_TABLE;
         }
-        return items;
+        return table;
     }
 
     @Override

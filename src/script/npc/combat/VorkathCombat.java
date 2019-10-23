@@ -42,13 +42,13 @@ import lombok.var;
 
 public class VorkathCombat extends NpcCombat {
     private static final NpcCombatStyle POISON_ATTACK = NpcCombatStyle.builder()
-            .type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build())
+            .type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build())
             .damage(NpcCombatDamage.builder().maximum(30).ignorePrayer(true).build())
             .projectile(NpcCombatProjectile.builder().id(1482).speedMinimumDistance(8).startHeight(30).build())
             .attackSpeed(1).targetTileGraphic(new Graphic(131)).specialAttack(NpcCombatTargetTile.builder().build())
             .build();
     private static final NpcCombatStyle FREEZE_ATTACK = NpcCombatStyle.builder()
-            .type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build())
+            .type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build())
             .damage(NpcCombatDamage.builder().ignorePrayer(true).build())
             .projectile(NpcCombatProjectile.builder().id(395).startHeight(30).build()).attackSpeed(10)
             .targetGraphic(new Graphic(369)).effect(NpcCombatEffect.builder().magicBind(15).build()).build();
@@ -162,7 +162,7 @@ public class VorkathCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(16));
         style.animation(7951).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -211,7 +211,7 @@ public class VorkathCombat extends NpcCombat {
 
         style = NpcCombatStyle.builder();
         style.identifier(1);
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.builder().maximum(115).ignorePrayer(true).build());
         style.animation(7957).attackSpeed(5);
         style.targetGraphic(new Graphic(157));
@@ -296,7 +296,8 @@ public class VorkathCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
         lastCombatStyle = combatStyle;
         if (combatStyle.getProjectile().getId() == 1471 && opponent instanceof Player) {
             var player = (Player) opponent;
@@ -312,7 +313,7 @@ public class VorkathCombat extends NpcCombat {
                     }
                     npc.getWorld().removeNpc(spawn);
                     var tile = Utils.randomI(1) == 0 ? new Tile(2265, 4057) : new Tile(2278, 4069);
-                    spawn = new Npc(npc.getController(), 8063, tile);
+                    spawn = new Npc(npc.getController(), NpcId.ZOMBIFIED_SPAWN_64, tile);
                     spawn.getMovement().setFollowing(npc.getEngagingEntity());
                 }
             };
@@ -362,7 +363,7 @@ public class VorkathCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         if ((player.getCombat().getNPCKillCount(npc.getDef().getCombat().getKillCountName(npc.getId())) % 50) != 0) {
             return;
         }

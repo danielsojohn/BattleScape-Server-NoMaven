@@ -108,7 +108,7 @@ public class Dagannoth90Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(15));
         style.animation(1341).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -32,7 +31,7 @@ public class NezikchenedCombat extends NpcCombat {
         combat.type(NpcCombatType.DEMON).deathAnimation(67).blockAnimation(65);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(18));
         style.animation(64).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -51,7 +50,7 @@ public class NezikchenedCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         if (player.getCombat().getLegendsQuest() == 0) {
             player.getGameEncoder().sendMessage("The demon's body falls to the floor in a pile of ashes.");
             player.getGameEncoder().sendMessage("It's time to move deeper into the dungeon...");

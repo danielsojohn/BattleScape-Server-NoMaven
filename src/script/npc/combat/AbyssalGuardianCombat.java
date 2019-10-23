@@ -63,7 +63,7 @@ public class AbyssalGuardianCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(11));
         style.animation(2187).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

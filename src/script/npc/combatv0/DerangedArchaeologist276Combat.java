@@ -86,14 +86,14 @@ public class DerangedArchaeologist276Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(28));
         style.animation(423).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).weight(8).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).weight(8).build());
         style.damage(NpcCombatDamage.maximum(28));
         style.animation(2614).attackSpeed(4);
         style.targetGraphic(new Graphic(305));
@@ -101,7 +101,7 @@ public class DerangedArchaeologist276Combat extends NpcCombat {
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.maximum(25));
         style.animation(2614).attackSpeed(4);
         style.targetGraphic(new Graphic(157));

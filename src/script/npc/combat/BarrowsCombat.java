@@ -120,14 +120,14 @@ public class BarrowsCombat extends NpcCombat {
         dharok.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(29));
         style.animation(2066).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
         dharok.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(29));
         style.animation(2067).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
@@ -148,21 +148,21 @@ public class BarrowsCombat extends NpcCombat {
         guthan.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(24));
         style.animation(2080).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
         guthan.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(24));
         style.animation(2081).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
         guthan.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(24));
         style.animation(2082).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -203,7 +203,7 @@ public class BarrowsCombat extends NpcCombat {
         torag.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(23));
         style.animation(2068).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -223,7 +223,7 @@ public class BarrowsCombat extends NpcCombat {
         verac.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(23));
         style.animation(2062).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -272,7 +272,8 @@ public class BarrowsCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
         if (!(opponent instanceof Player)) {
             return;
         }
@@ -317,7 +318,7 @@ public class BarrowsCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         if (npc.getController().inWilderness()) {
             if (player.getSkills().isWildernessSlayerTask(npc)) {
                 npc.getController().addMapItem(new Item(ItemId.SINISTER_KEY_NOTED, 1), dropTile, player);

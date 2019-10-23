@@ -33,7 +33,7 @@ public class EnormousTentacle112Combat extends NpcCombat {
         combat.combatScript("KrakenTentacleCS").deathAnimation(3620).blockAnimation(3619);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.RANGED).subType(HitType.MAGIC).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.RANGED).subHitType(HitType.MAGIC).build());
         style.damage(NpcCombatDamage.maximum(2));
         style.animation(3618).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

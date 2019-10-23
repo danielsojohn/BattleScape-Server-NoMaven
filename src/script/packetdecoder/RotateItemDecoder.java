@@ -7,7 +7,7 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 
 public class RotateItemDecoder extends PacketDecoder {

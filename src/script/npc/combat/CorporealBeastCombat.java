@@ -1,60 +1,68 @@
-package script.npc.combatv0;
+package script.npc.combat;
 
 import java.util.Arrays;
 import java.util.List;
+import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.NpcId;
+import com.palidino.osrs.model.CombatBonus;
+import com.palidino.osrs.model.Entity;
+import com.palidino.osrs.model.Graphic;
+import com.palidino.osrs.model.Hit;
+import com.palidino.osrs.model.HitType;
+import com.palidino.osrs.model.HitpointsBar;
+import com.palidino.osrs.model.item.RandomItem;
+import com.palidino.osrs.model.map.route.Route;
+import com.palidino.osrs.model.npc.Npc;
+import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatDrop;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTable;
 import com.palidino.osrs.model.npc.combat.NpcCombatDropTableDrop;
-import com.palidino.osrs.model.item.RandomItem;
-import com.palidino.osrs.io.cache.ItemId;
-import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
-import com.palidino.osrs.model.HitpointsBar;
-import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.osrs.model.CombatBonus;
-import com.palidino.osrs.model.npc.combat.NpcCombatAggression;
-import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
+import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
+import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatKillCount;
+import com.palidino.osrs.model.npc.combat.NpcCombatStats;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
+import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
-import com.palidino.osrs.model.npc.combat.style.NpcCombatEffect;
-import com.palidino.osrs.model.player.Skills;
-import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.osrs.model.HitType;
-import com.palidino.osrs.model.npc.combat.NpcCombat;
+import com.palidino.osrs.model.player.Player;
+import com.palidino.osrs.model.player.Skills;
+import com.palidino.util.Utils;
 import lombok.var;
 
-public class CorporealBeast785Combat extends NpcCombat {
+public class CorporealBeastCombat extends NpcCombat {
+    private Npc npc;
+    private Npc darkCore;
+
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
-        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256);
-        var dropTable = NpcCombatDropTable.builder().chance(0.02).broadcast(true).log(true);
+        var drop = NpcCombatDrop.builder().rareDropTableRate(NpcCombatDropTable.CHANCE_1_IN_256)
+                .clue(NpcCombatDrop.ClueScroll.ELITE, NpcCombatDropTable.CHANCE_1_IN_200);
+        var dropTable =
+                NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_5000).broadcast(true).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.PET_DARK_CORE)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.25).broadcast(true).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ELYSIAN_SIGIL)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SPECTRAL_SIGIL)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARCANE_SIGIL)));
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_585).broadcast(true).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ELYSIAN_SIGIL).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SPECTRAL_SIGIL).weight(3)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARCANE_SIGIL).weight(3)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.5);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CLUE_SCROLL_ELITE)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(0.87).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(0.59).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.HOLY_ELIXIR)));
         drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(2.3).log(true);
+        dropTable = NpcCombatDropTable.builder().chance(1.57).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SPIRIT_SHIELD)));
+        drop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(3.91);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ONYX_BOLTS_E, 175)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_RARE);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.CANNONBALL, 2000)));
-        drop.table(dropTable.build());
-        dropTable = NpcCombatDropTable.builder().chance(5.7);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ONYX_BOLTS_E, 175)));
         drop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_COMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.UNCUT_SAPPHIRE_NOTED, 1, 10)));
@@ -106,18 +114,18 @@ public class CorporealBeast785Combat extends NpcCombat {
         combat.immunity(NpcCombatImmunity.builder().poison(true).venom(true).build());
         combat.focus(NpcCombatFocus.builder().singleTargetFocus(true).build());
         combat.killCount(NpcCombatKillCount.builder().sendMessage(true).build());
-        combat.combatScript("CorporealBeastCS").deathAnimation(1676).blockAnimation(1677);
+        combat.deathAnimation(1676).blockAnimation(1677);
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(51));
         style.animation(1682).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(51));
         style.animation(1683).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));
@@ -151,7 +159,7 @@ public class CorporealBeast785Combat extends NpcCombat {
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.UNDERNEATH).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.UNDERNEATH).build());
         style.damage(NpcCombatDamage.maximum(50));
         style.animation(1686).attackSpeed(8);
         style.projectile(NpcCombatProjectile.id(335));
@@ -159,5 +167,84 @@ public class CorporealBeast785Combat extends NpcCombat {
 
 
         return Arrays.asList(combat.build());
+    }
+
+    @Override
+    public void spawnHook() {
+        npc = getNpc();
+    }
+
+    @Override
+    public void restoreHook() {
+        npc.getWorld().removeNpc(darkCore);
+        darkCore = null;
+        for (var player : npc.getController().getPlayers()) {
+            if (player.getHeight() == npc.getHeight()) {
+                player.getCombat().setDamageInflicted(0);
+            }
+        }
+    }
+
+    @Override
+    public void tickStartHook() {
+        if (!npc.isVisible() || npc.isDead()) {
+            return;
+        }
+        if (npc.getHitpoints() < npc.getMaxHitpoints() && npc.getController().getPlayers().isEmpty()) {
+            npc.setHitpoints(npc.getMaxHitpoints());
+        }
+        if (darkCore != null && darkCore.isDead()) {
+            npc.getWorld().removeNpc(darkCore);
+            darkCore = null;
+        }
+        if (!npc.isLocked() && npc.getX() > 2998) { // Why does this happen?
+            npc.getMovement().teleport(npc.getSpawnTile());
+        }
+    }
+
+    @Override
+    public void applyDeadHook() {
+        if (darkCore != null) {
+            npc.getWorld().removeNpc(darkCore);
+            darkCore = null;
+        }
+    }
+
+    @Override
+    public void npcApplyHitStartHook(Hit hit) {
+        if (hit.getDamage() > 100) {
+            hit.setDamage(100);
+        }
+    }
+
+    @Override
+    public double damageReceivedHook(Entity opponent, double damage, HitType hitType, HitType defenceType) {
+        if (opponent instanceof Player) {
+            var player = (Player) opponent;
+            if (!player.getEquipment().getWeaponName().contains("spear")
+                    && !player.getEquipment().getWeaponName().contains("halberd")
+                    || player.getMagic().getActiveSpell() != null) {
+                damage *= 0.5;
+            }
+        }
+        if (damage > 32) {
+            if (npc.getCombat().getPlayerAggressionDelay() == 0) {
+                npc.setFaceEntity(opponent);
+                npc.setEngagingEntity(opponent);
+                npc.getCombat().setFollowing(opponent, 0);
+                npc.getCombat().setPlayerAggressionDelay(2);
+            }
+            if (darkCore == null && Utils.randomE(8) == 0) {
+                if (Route.canMove(npc, npc.getX() - 1, npc.getY())) {
+                    darkCore = new Npc(npc.getController(), NpcId.DARK_ENERGY_CORE_75, npc.getX() - 1, npc.getY(),
+                            npc.getHeight());
+                } else {
+                    darkCore = new Npc(npc.getController(), NpcId.DARK_ENERGY_CORE_75, npc.getX() + npc.getSizeX(),
+                            npc.getY(), npc.getHeight());
+                }
+                darkCore.setRespawns(npc.getRespawns());
+            }
+        }
+        return damage;
     }
 }

@@ -51,7 +51,7 @@ public class Xarpus960_8340Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).mark(HitMark.POISON)
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).hitMark(HitMark.POISON)
                 .build());
         style.damage(NpcCombatDamage.builder().maximum(6).alwaysMaximum(true).ignorePrayer(true).build());
         style.animation(8059).attackSpeed(6);

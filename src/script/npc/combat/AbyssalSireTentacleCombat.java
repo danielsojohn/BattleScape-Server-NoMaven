@@ -28,7 +28,7 @@ public class AbyssalSireTentacleCombat extends NpcCombat {
         combat.focus(NpcCombatFocus.builder().bypassMapObjects(true).disableFollowingOpponent(true).build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.UNDERNEATH).subType(HitType.MELEE)
+        style.type(NpcCombatStyleType.builder().hitType(HitType.UNDERNEATH).subHitType(HitType.MELEE)
                 .meleeAttackStyle(CombatBonus.ATTACK_CRUSH).build());
         style.damage(NpcCombatDamage.maximum(30));
         style.animation(7109).attackSpeed(4);

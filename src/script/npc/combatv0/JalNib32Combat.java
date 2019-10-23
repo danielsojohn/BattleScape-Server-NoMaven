@@ -29,7 +29,7 @@ public class JalNib32Combat extends NpcCombat {
         combat.deathAnimation(7576).blockAnimation(7575);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(2));
         style.animation(7574).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

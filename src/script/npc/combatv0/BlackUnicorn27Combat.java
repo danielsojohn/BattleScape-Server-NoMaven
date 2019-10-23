@@ -12,7 +12,6 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -35,7 +34,7 @@ public class BlackUnicorn27Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(3));
         style.animation(6376).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

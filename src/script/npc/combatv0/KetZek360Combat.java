@@ -28,7 +28,7 @@ public class KetZek360Combat extends NpcCombat {
         combat.deathAnimation(2646).blockAnimation(2645);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(54));
         style.animation(2644).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

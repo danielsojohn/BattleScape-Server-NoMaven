@@ -6,6 +6,8 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.rs.Clan;
+import com.palidino.rs.RsClanRank;
+import lombok.var;
 
 public class ClanChatWidget implements Widget {
     @Override
@@ -31,7 +33,7 @@ public class ClanChatWidget implements Widget {
                 break;
             }
         } else if (widgetId == WidgetId.CLAN_CHAT_OPTIONS) {
-            int settingValue = 0;
+            var settingValue = RsClanRank.NOT_IN_CLAN;
             switch (childId) {
             case 10:
                 if (index == 0) {
@@ -42,81 +44,82 @@ public class ClanChatWidget implements Widget {
                             RequestManager.getInstance().addClanSetting(player, Clan.NAME, value);
                             if (player.getMessaging().getClanChatDisabled()) {
                                 player.getMessaging().setClanChatDisabled(false);
-                                RequestManager.getInstance().addClanSetting(player, Clan.DISABLE, 0);
+                                RequestManager.getInstance().addClanSetting(player, Clan.DISABLE,
+                                        RsClanRank.NOT_IN_CLAN);
                             }
                         }
                     });
                 } else if (index == 1) {
-                    boolean disabled = !player.getMessaging().getClanChatDisabled();
+                    var disabled = !player.getMessaging().getClanChatDisabled();
                     player.getMessaging().setClanChatDisabled(disabled);
-                    String name = player.getMessaging().getMyClanChatName();
+                    var name = player.getMessaging().getMyClanChatName();
                     if (disabled) {
                         name = Clan.DISABLED_NAME;
                     }
                     player.getMessaging().sendClanSetupName(name);
                     RequestManager.getInstance().addClanSetting(player, Clan.DISABLE,
-                            player.getMessaging().getClanChatDisabled() ? 1 : 0);
+                            player.getMessaging().getClanChatDisabled() ? RsClanRank.ANYONE : RsClanRank.NOT_IN_CLAN);
                 }
                 break;
             case 13:
                 if (index == 0) {
-                    settingValue = Clan.ANYONE;
+                    settingValue = RsClanRank.ANYONE;
                 } else if (index == 1) {
-                    settingValue = Clan.ANY_FRIENDS;
+                    settingValue = RsClanRank.ANY_FRIENDS;
                 } else if (index == 2) {
-                    settingValue = Clan.RECRUIT;
+                    settingValue = RsClanRank.RECRUIT;
                 } else if (index == 3) {
-                    settingValue = Clan.CORPORAL;
+                    settingValue = RsClanRank.CORPORAL;
                 } else if (index == 4) {
-                    settingValue = Clan.SERGEANT;
+                    settingValue = RsClanRank.SERGEANT;
                 } else if (index == 5) {
-                    settingValue = Clan.LIEUTENANT;
+                    settingValue = RsClanRank.LIEUTENANT;
                 } else if (index == 6) {
-                    settingValue = Clan.CAPTAIN;
+                    settingValue = RsClanRank.CAPTAIN;
                 } else if (index == 7) {
-                    settingValue = Clan.GENERAL;
+                    settingValue = RsClanRank.GENERAL;
                 } else if (index == 8) {
-                    settingValue = Clan.ONLY_ME;
+                    settingValue = RsClanRank.ONLY_ME;
                 }
                 player.getMessaging().sendClanSetupEnterLimit(settingValue);
                 RequestManager.getInstance().addClanSetting(player, Clan.ENTER_LIMIT, settingValue);
                 break;
             case 16:
                 if (index == 0) {
-                    settingValue = Clan.ANYONE;
+                    settingValue = RsClanRank.ANYONE;
                 } else if (index == 1) {
-                    settingValue = Clan.ANY_FRIENDS;
+                    settingValue = RsClanRank.ANY_FRIENDS;
                 } else if (index == 2) {
-                    settingValue = Clan.RECRUIT;
+                    settingValue = RsClanRank.RECRUIT;
                 } else if (index == 3) {
-                    settingValue = Clan.CORPORAL;
+                    settingValue = RsClanRank.CORPORAL;
                 } else if (index == 4) {
-                    settingValue = Clan.SERGEANT;
+                    settingValue = RsClanRank.SERGEANT;
                 } else if (index == 5) {
-                    settingValue = Clan.LIEUTENANT;
+                    settingValue = RsClanRank.LIEUTENANT;
                 } else if (index == 6) {
-                    settingValue = Clan.CAPTAIN;
+                    settingValue = RsClanRank.CAPTAIN;
                 } else if (index == 7) {
-                    settingValue = Clan.GENERAL;
+                    settingValue = RsClanRank.GENERAL;
                 } else if (index == 8) {
-                    settingValue = Clan.ONLY_ME;
+                    settingValue = RsClanRank.ONLY_ME;
                 }
                 player.getMessaging().sendClanSetupTalkLimit(settingValue);
                 RequestManager.getInstance().addClanSetting(player, Clan.TALK_LIMIT, settingValue);
                 break;
             case 19:
                 if (index == 3) {
-                    settingValue = Clan.CORPORAL;
+                    settingValue = RsClanRank.CORPORAL;
                 } else if (index == 4) {
-                    settingValue = Clan.SERGEANT;
+                    settingValue = RsClanRank.SERGEANT;
                 } else if (index == 5) {
-                    settingValue = Clan.LIEUTENANT;
+                    settingValue = RsClanRank.LIEUTENANT;
                 } else if (index == 6) {
-                    settingValue = Clan.CAPTAIN;
+                    settingValue = RsClanRank.CAPTAIN;
                 } else if (index == 7) {
-                    settingValue = Clan.GENERAL;
+                    settingValue = RsClanRank.GENERAL;
                 } else if (index == 8) {
-                    settingValue = Clan.ONLY_ME;
+                    settingValue = RsClanRank.ONLY_ME;
                 }
                 player.getMessaging().sendClanSetupKickLimit(settingValue);
                 RequestManager.getInstance().addClanSetting(player, Clan.KICK_LIMIT, settingValue);

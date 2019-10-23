@@ -97,7 +97,7 @@ public class RuneDragonCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.builder().maximum(38).prayerEffectiveness(0.6).build());
         style.animation(80).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -111,7 +111,7 @@ public class RuneDragonCombat extends NpcCombat {
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(2).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(2).build());
         style.damage(NpcCombatDamage.builder().maximum(20).prayerEffectiveness(0.6).splashOnMiss(true).build());
         style.animation(6722).attackSpeed(4);
         style.targetGraphic(new Graphic(163, 124));
@@ -154,8 +154,8 @@ public class RuneDragonCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackStartHook(NpcCombatStyle combatStyle, Entity opponent, int count) {
-        boltEffect = combatStyle.getType().getType() == HitType.RANGED && Utils.randomE(10) == 0;
+    public void applyAttackStartHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount) {
+        boltEffect = combatStyle.getType().getHitType() == HitType.RANGED && Utils.randomE(10) == 0;
     }
 
     @Override

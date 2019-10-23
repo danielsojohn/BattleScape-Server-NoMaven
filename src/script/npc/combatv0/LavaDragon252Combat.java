@@ -92,7 +92,7 @@ public class LavaDragon252Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(23));
         style.animation(80).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

@@ -94,7 +94,7 @@ public class KrilTsutsaroth650Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(47));
         style.animation(6948).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

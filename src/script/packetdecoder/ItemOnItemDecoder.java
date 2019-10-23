@@ -8,7 +8,7 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 import script.packetdecoder.misc.ItemOnItemAction;
 

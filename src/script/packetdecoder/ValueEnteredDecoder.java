@@ -5,7 +5,7 @@ import com.palidino.osrs.Main;
 import com.palidino.osrs.io.PacketDecoder;
 import com.palidino.osrs.io.ValueEnteredEvent;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Logger;
+import com.palidino.io.Logger;
 import lombok.var;
 
 public class ValueEnteredDecoder extends PacketDecoder {

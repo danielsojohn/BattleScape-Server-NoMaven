@@ -30,7 +30,7 @@ public class JalMejjak250Combat extends NpcCombat {
         combat.combatScript("JalMejJakCS").deathAnimation(2866).blockAnimation(2869);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.HEAL).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.HEAL).build());
         style.damage(NpcCombatDamage.maximum(23));
         style.animation(2868).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));

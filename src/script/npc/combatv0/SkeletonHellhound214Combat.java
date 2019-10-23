@@ -29,7 +29,7 @@ public class SkeletonHellhound214Combat extends NpcCombat {
         combat.type(NpcCombatType.UNDEAD).deathAnimation(6576).blockAnimation(6578);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(26));
         style.animation(6579).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

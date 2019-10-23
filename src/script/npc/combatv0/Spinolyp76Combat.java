@@ -41,7 +41,7 @@ public class Spinolyp76Combat extends NpcCombat {
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.RANGED).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.RANGED).build());
         style.damage(NpcCombatDamage.maximum(10));
         style.animation(2868).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

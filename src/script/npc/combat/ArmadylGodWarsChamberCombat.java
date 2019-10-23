@@ -28,6 +28,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
+import com.palidino.osrs.model.player.Player;
 import com.palidino.util.Utils;
 import lombok.var;
 
@@ -95,7 +96,7 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
         kreearraCombat.drop(kreearraDrop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(26));
         style.animation(6981).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));
@@ -110,7 +111,7 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
         kreearraCombat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.RANGED).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.RANGED).build());
         style.damage(NpcCombatDamage.maximum(21));
         style.animation(6980).attackSpeed(3);
         style.projectile(NpcCombatProjectile.id(335));
@@ -120,16 +121,17 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
 
         var wingmanSkreeDrop =
                 NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_128);
-        dropTable = NpcCombatDropTable.builder().chance(0.019).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_HELMET)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHESTPLATE)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHAINSKIRT)));
-        wingmanSkreeDrop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_508).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_1)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_3)));
         wingmanSkreeDrop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_127).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_HELMET).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHESTPLATE).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHAINSKIRT).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.builder().item(new RandomItem(ItemId.COINS, 1000, 5000, 120))
+                .log(NpcCombatDropTableDrop.Log.NO).build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_UNCOMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.SMOKE_RUNE, 15, 25)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MANTA_RAY, 2)));
@@ -167,16 +169,17 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
 
         var flockleaderGeerinDrop =
                 NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_128);
-        dropTable = NpcCombatDropTable.builder().chance(0.019).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_HELMET)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHESTPLATE)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHAINSKIRT)));
-        flockleaderGeerinDrop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_508).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_1)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_3)));
         flockleaderGeerinDrop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_127).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_HELMET).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHESTPLATE).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHAINSKIRT).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.builder().item(new RandomItem(ItemId.COINS, 1000, 5000, 120))
+                .log(NpcCombatDropTableDrop.Log.NO).build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_UNCOMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MANTA_RAY, 2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MUSHROOM_POTATO, 3)));
@@ -213,15 +216,17 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
 
         var flightKilisaDrop =
                 NpcCombatDrop.builder().clue(NpcCombatDrop.ClueScroll.HARD, NpcCombatDropTable.CHANCE_1_IN_128);
-        dropTable = NpcCombatDropTable.builder().chance(0.019).log(true);
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_HELMET)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHESTPLATE)));
-        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHAINSKIRT)));
-        flightKilisaDrop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_508).log(true);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_1)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_2)));
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.GODSWORD_SHARD_3)));
+        flightKilisaDrop.table(dropTable.build());
+        dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_1_IN_127).log(true);
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_HELMET).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHESTPLATE).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.ARMADYL_CHAINSKIRT).weight(1)));
+        dropTable.drop(NpcCombatDropTableDrop.builder().item(new RandomItem(ItemId.COINS, 1000, 5000, 120))
+                .log(NpcCombatDropTableDrop.Log.NO).build());
         flightKilisaDrop.table(dropTable.build());
         dropTable = NpcCombatDropTable.builder().chance(NpcCombatDropTable.CHANCE_UNCOMMON);
         dropTable.drop(NpcCombatDropTableDrop.items(new RandomItem(ItemId.MANTA_RAY, 2)));
@@ -247,7 +252,7 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
         flightKilisaCombat.drop(flightKilisaDrop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(18));
         style.animation(6957).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -265,11 +270,14 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
 
     @Override
     public void restoreHook() {
+        if (npc.getId() != NpcId.KREEARRA_580) {
+            return;
+        }
         var respawns = new int[] {
             NpcId.WINGMAN_SKREE_143, NpcId.FLOCKLEADER_GEERIN_149, NpcId.FLIGHT_KILISA_159
         };
         for (var id : respawns) {
-            var respawningNpc = npc.getWorld().getNPC(id, npc);
+            var respawningNpc = npc.getController().getNpc(id);
             if (respawningNpc != null && !respawningNpc.isVisible() && respawningNpc.getRespawns()) {
                 respawningNpc.restore();
             }
@@ -278,6 +286,9 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
 
     @Override
     public HitType attackTickHitTypeHook(HitType hitType, Entity opponent) {
+        if (npc.getId() != NpcId.KREEARRA_580) {
+            return hitType;
+        }
         if (hitType == HitType.MELEE && !opponent.isAttacking() && opponent.getHitDelay() <= -2) {
             return hitType;
         }
@@ -286,7 +297,10 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
 
     @Override
     public NpcCombatStyle applyAttackCombatStyleHook(NpcCombatStyle combatStyle, Entity opponent) {
-        if (combatStyle.getType().getType() == HitType.MELEE) {
+        if (npc.getId() != NpcId.KREEARRA_580) {
+            return combatStyle;
+        }
+        if (combatStyle.getType().getHitType() == HitType.MELEE) {
             return combatStyle;
         }
         return Utils.randomI(1) == 0 ? npc.getDef().getCombat().getRangedAttack()
@@ -294,7 +308,11 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
+        if (npc.getId() != NpcId.KREEARRA_580) {
+            return;
+        }
         if (Utils.randomI(4) == 0) {
             var x = opponent.getX();
             var y = opponent.getY();
@@ -320,6 +338,9 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
     @Override
     public Graphic.ProjectileSpeed projectileSpeedHook(NpcCombatStyle combatStyle, Graphic.ProjectileSpeed speed,
             Tile tile, HitType hitType, int minimumDistance) {
+        if (npc.getId() != NpcId.KREEARRA_580) {
+            return speed;
+        }
         var distance = Math.max(minimumDistance, npc.getDistance(tile));
         var eventDelay = 0;
         var clientSpeed = 0;
@@ -335,5 +356,10 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
             clientDelay = 41;
         }
         return new Graphic.ProjectileSpeed(eventDelay, clientDelay, clientSpeed);
+    }
+
+    @Override
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
+        player.getArea().script("increase_armadyl_killcount");
     }
 }

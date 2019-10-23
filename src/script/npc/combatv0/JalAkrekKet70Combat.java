@@ -30,7 +30,7 @@ public class JalAkrekKet70Combat extends NpcCombat {
         combat.deathAnimation(7584).blockAnimation(7585);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(18));
         style.animation(7587).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

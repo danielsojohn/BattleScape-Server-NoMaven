@@ -3,7 +3,6 @@ package script.npc.combat;
 import java.util.Arrays;
 import java.util.List;
 import com.palidino.osrs.io.cache.NpcId;
-import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
 import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
@@ -24,7 +23,7 @@ public class ChinchompaCombat extends NpcCombat {
         combat.deathAnimation(5184);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(1));
         style.animation(5181).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -38,7 +37,7 @@ public class ChinchompaCombat extends NpcCombat {
         carnivorousCombat.deathAnimation(5184);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(1));
         style.animation(5181).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -52,7 +51,7 @@ public class ChinchompaCombat extends NpcCombat {
         blackCombat.deathAnimation(5184);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(1));
         style.animation(5181).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

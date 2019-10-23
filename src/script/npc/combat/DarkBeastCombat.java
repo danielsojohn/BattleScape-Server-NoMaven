@@ -10,7 +10,6 @@ import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.HitEvent;
 import com.palidino.osrs.model.HitpointsBar;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -134,7 +133,7 @@ public class DarkBeastCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(17));
         style.animation(2731).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -163,7 +162,7 @@ public class DarkBeastCombat extends NpcCombat {
         combat2.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(17));
         style.animation(2731).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -191,7 +190,7 @@ public class DarkBeastCombat extends NpcCombat {
         cursedCombat.drop(drop.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(32));
         style.animation(2731).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -221,7 +220,7 @@ public class DarkBeastCombat extends NpcCombat {
         superiorCombat.drop(drop.rolls(3).build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(32));
         style.animation(2731).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -264,7 +263,8 @@ public class DarkBeastCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
         if (!usingSpecialAttack) {
             return;
         }
@@ -280,7 +280,7 @@ public class DarkBeastCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         if (npc.getArea().matches(CatacombsOfKourendArea.class)) {
             if (npc.getId() == NpcId.NIGHT_BEAST_374 || TOTEM_DROP_TABLE.canDrop(npc, player)) {
                 TOTEM_DROP_TABLE.dropItems(npc, player, dropTile);
@@ -292,8 +292,8 @@ public class DarkBeastCombat extends NpcCombat {
     }
 
     @Override
-    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
-            NpcCombatDropTable table, List<Item> items) {
+    public NpcCombatDropTable deathDropItemsTableHook(Npc npc, Player player, int dropRateDivider, int roll,
+            NpcCombatDropTable table) {
         if (npc.getId() == NpcId.CURSED_DARK_BEAST_374_16009) {
             if (!player.getSkills().isWildernessSlayerTask(npc)) {
                 player.getGameEncoder().sendMessage("Without an assigned task, the loot turns to dust...");
@@ -301,10 +301,10 @@ public class DarkBeastCombat extends NpcCombat {
             }
         }
         if ((npc.getId() == NpcId.NIGHT_BEAST_374 || npc.getId() == NpcId.CURSED_DARK_BEAST_374_16009)
-                && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+                && SUPERIOR_DROP_TABLE.canDrop(npc, player, dropRateDivider, roll)) {
+            return SUPERIOR_DROP_TABLE;
         }
-        return items;
+        return table;
     }
 
     @Override

@@ -62,14 +62,14 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
         combat.deathAnimation(8093);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).weight(8).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).weight(8).build());
         style.damage(NpcCombatDamage.builder().maximum(36).prayerEffectiveness(0.6).build());
         style.animation(8092).attackSpeed(8).attackRange(25);
         style.projectile(NpcCombatProjectile.builder().id(1577).startHeight(0).endHeight(0).curve(0).radius(0).build());
         combat.style(style.build());
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.builder().type(HitType.MAGIC).subType(HitType.TYPELESS).build());
+        style.type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).build());
         style.damage(NpcCombatDamage.builder().maximum(15).ignorePrayer(true).build());
         style.animation(8091).attackSpeed(8).attackRange(25);
         style.targetGraphic(new Graphic(1579));
@@ -238,7 +238,7 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
         var playerCount = npc.getController().getPlayers().size();
         for (var i = 0; i < playerCount * 2; i++) {
             var tile = spiderTiles.remove(Utils.randomE(spiderTiles.size()));
-            var npc2 = new Npc(npc.getController(), 8366, tile);
+            var npc2 = new Npc(npc.getController(), NpcId.NYLOCAS_MATOMENOS_115, tile);
             npc2.getController().setMultiCombatFlag(true);
             npc2.getMovement().setFollowing(npc);
             spiders.add(npc2);

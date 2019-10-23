@@ -42,7 +42,7 @@ public class DagannothMotherCombat extends NpcCombat {
         combat.deathAnimation(1342).blockAnimation(1340);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(16));
         style.animation(1341).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -130,7 +130,7 @@ public class DagannothMotherCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getGameEncoder().sendMessage("You have defeated the Dagannoth Mother!");
         player.getCombat().setHorrorFromTheDeep(true);
         player.getGameEncoder().sendMessage("<col=ff0000>You have completed Horror from the Deep!");

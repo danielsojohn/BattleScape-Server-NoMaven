@@ -82,7 +82,7 @@ public class Nechryarch300Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(27));
         style.animation(6368).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

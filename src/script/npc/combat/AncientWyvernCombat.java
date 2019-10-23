@@ -110,7 +110,7 @@ public class AncientWyvernCombat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(16));
         style.animation(7658).attackSpeed(5);
         style.projectile(NpcCombatProjectile.id(335));
@@ -134,8 +134,9 @@ public class AncientWyvernCombat extends NpcCombat {
     }
 
     @Override
-    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int count, HitEvent hitEvent) {
-        if (!(opponent instanceof Player) || combatStyle.getType().getType() != HitType.DRAGONFIRE
+    public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
+            HitEvent hitEvent) {
+        if (!(opponent instanceof Player) || combatStyle.getType().getHitType() != HitType.DRAGONFIRE
                 || Utils.randomE(5) != 0) {
             return;
         }

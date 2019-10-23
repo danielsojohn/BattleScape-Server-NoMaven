@@ -51,7 +51,7 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
         spawn.type(NpcCombatType.DEMON).deathAnimation(4521).blockAnimation(4523);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.builder().maximum(6).prayerEffectiveness(0.4).build());
         style.animation(4522).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
@@ -77,7 +77,7 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
         scion.type(NpcCombatType.DEMON).deathAnimation(7129).blockAnimation(7128);
 
         style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.builder().maximum(15).prayerEffectiveness(0.4).build());
         style.animation(7126).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

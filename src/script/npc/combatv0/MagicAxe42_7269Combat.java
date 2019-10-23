@@ -48,7 +48,7 @@ public class MagicAxe42_7269Combat extends NpcCombat {
         combat.drop(drop.build());
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(5));
         style.animation(191).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

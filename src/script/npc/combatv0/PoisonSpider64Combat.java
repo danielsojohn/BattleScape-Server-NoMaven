@@ -29,7 +29,7 @@ public class PoisonSpider64Combat extends NpcCombat {
         combat.deathAnimation(5329).blockAnimation(5328);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_STAB));
+        style.type(NpcCombatStyleType.MELEE_STAB);
         style.damage(NpcCombatDamage.maximum(7));
         style.animation(5327).attackSpeed(6);
         style.projectile(NpcCombatProjectile.id(335));

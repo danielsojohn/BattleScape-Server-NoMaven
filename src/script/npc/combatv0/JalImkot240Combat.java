@@ -31,7 +31,7 @@ public class JalImkot240Combat extends NpcCombat {
         combat.combatScript("JalImKotCS").deathAnimation(7599).blockAnimation(7598);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_SLASH));
+        style.type(NpcCombatStyleType.MELEE_SLASH);
         style.damage(NpcCombatDamage.maximum(49));
         style.animation(7597).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));

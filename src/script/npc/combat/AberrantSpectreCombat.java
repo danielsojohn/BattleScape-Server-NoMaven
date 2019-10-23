@@ -8,7 +8,6 @@ import com.palidino.osrs.model.CombatBonus;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.HitpointsBar;
 import com.palidino.osrs.model.Tile;
-import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.item.RandomItem;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.npc.combat.NpcCombat;
@@ -158,7 +157,7 @@ public class AberrantSpectreCombat extends NpcCombat {
     }
 
     @Override
-    public void deathDropItemsHook(Player player, int index, Tile dropTile) {
+    public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         if (npc.getArea().matches(CatacombsOfKourendArea.class)) {
             if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253 || TOTEM_DROP_TABLE.canDrop(npc, player)) {
                 TOTEM_DROP_TABLE.dropItems(npc, player, dropTile);
@@ -170,11 +169,12 @@ public class AberrantSpectreCombat extends NpcCombat {
     }
 
     @Override
-    public List<Item> deathDropItemsGetItemsHook(Npc npc, Player player, Tile dropTile, int dropRateDivider, int roll,
-            NpcCombatDropTable table, List<Item> items) {
-        if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253 && SUPERIOR_DROP_TABLE.canDrop(npc, player)) {
-            return SUPERIOR_DROP_TABLE.getItems(npc, player, dropTile, dropRateDivider, roll);
+    public NpcCombatDropTable deathDropItemsTableHook(Npc npc, Player player, int dropRateDivider, int roll,
+            NpcCombatDropTable table) {
+        if (npc.getId() == NpcId.ABHORRENT_SPECTRE_253
+                && SUPERIOR_DROP_TABLE.canDrop(npc, player, dropRateDivider, roll)) {
+            return SUPERIOR_DROP_TABLE;
         }
-        return items;
+        return table;
     }
 }

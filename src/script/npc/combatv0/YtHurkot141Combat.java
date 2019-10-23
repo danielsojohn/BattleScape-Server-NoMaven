@@ -30,7 +30,7 @@ public class YtHurkot141Combat extends NpcCombat {
         combat.combatScript("YtHurKotCS").deathAnimation(2638).blockAnimation(2635);
 
         var style = NpcCombatStyle.builder();
-        style.type(NpcCombatStyleType.melee(CombatBonus.ATTACK_CRUSH));
+        style.type(NpcCombatStyleType.MELEE_CRUSH);
         style.damage(NpcCombatDamage.maximum(18));
         style.animation(2637).attackSpeed(4);
         style.projectile(NpcCombatProjectile.id(335));
