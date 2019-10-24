@@ -20,7 +20,7 @@ import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class PestilentBloatCombat extends NpcCombat {
@@ -152,7 +152,7 @@ public class PestilentBloatCombat extends NpcCombat {
                 continue;
             }
             player.getGameEncoder().setVarp(1575, npc.getHitpoints() + (npc.getMaxHitpoints() * 2048));
-            var hitpointsPercent = (int) Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints());
+            var hitpointsPercent = (int) PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints());
             player.getGameEncoder().sendWidgetText(596, 4, "Health: " + hitpointsPercent + "%");
         }
     }
@@ -181,7 +181,7 @@ public class PestilentBloatCombat extends NpcCombat {
                     .projectileSpeed(getProjectileSpeed(player)).startHeight(0).endHeight(0)
                     .curve(0).radius(0).build();
             sendMapProjectile(projectile);
-            player.addHit(new HitEvent(projectile.getEventDelay(), player, new Hit(npc, 10 + Utils.randomI(10))));
+            player.addHit(new HitEvent(projectile.getEventDelay(), player, new Hit(npc, 10 + PRandom.randomI(10))));
             player.setInCombatDelay(Entity.COMBAT_DELAY);
             for (var i2 = 0; i2 < players.size(); i2++) {
                 var player2 = players.get(i2);
@@ -195,7 +195,7 @@ public class PestilentBloatCombat extends NpcCombat {
                         .projectileSpeed(getProjectileSpeed(player2)).startHeight(0).endHeight(0)
                         .curve(0).radius(0).build();
                 sendMapProjectile(projectile);
-                player2.addHit(new HitEvent(projectile.getEventDelay(), player2, new Hit(npc, 10 + Utils.randomI(10))));
+                player2.addHit(new HitEvent(projectile.getEventDelay(), player2, new Hit(npc, 10 + PRandom.randomI(10))));
                 player2.setInCombatDelay(Entity.COMBAT_DELAY);
             }
         }
@@ -218,11 +218,11 @@ public class PestilentBloatCombat extends NpcCombat {
                 meatDelay = 6;
                 for (var i = 0; i < 14; i++) {
                     var tile = new Tile(3288, 4440);
-                    tile.moveTile(Utils.randomI(15), Utils.randomI(15));
+                    tile.moveTile(PRandom.randomI(15), PRandom.randomI(15));
                     if (npc.getController().getMapClip(tile) != 0) {
                         continue;
                     }
-                    npc.getController().sendMapGraphic(tile, new Graphic(1570 + Utils.randomI(3)));
+                    npc.getController().sendMapGraphic(tile, new Graphic(1570 + PRandom.randomI(3)));
                     var the = new TileHitEvent(4, npc.getController(), tile, 50, HitType.TYPELESS);
                     the.setMinDamage(30);
                     the.setBind(4);

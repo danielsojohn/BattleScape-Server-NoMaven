@@ -52,7 +52,7 @@ cs = new NCombatScript() {
 
     tick: function() {
         if (!npc.isLocked() && npc.getHitpoints() < npc.getMaxHitpoints() / 2 && npc.getHitDelay() == 0
-                && Utils.randomE(4) == 0) {
+                && PRandom.randomE(4) == 0) {
             npc.adjustHitpoints(npc.getMaxHitpoints() * 0.2, 0);
             npc.setHitDelay(npc.getHitDelay() + 2);
             npc.setGraphic(1221);
@@ -83,10 +83,10 @@ cs = new NCombatScript() {
         var multiplier = Main.isSpawn() ? 8 : 4;
         var playerMultiplier = player.getCombat().getDropRateMultiplier(-1, npc.getDef());
         chanceA = chanceA / multiplier / playerMultiplier;
-        var selectedChanceA = Utils.randomE(chanceA);
+        var selectedChanceA = PRandom.randomE(chanceA);
         if (selectedChanceA == 1) {
             logDrop = true;
-            var roll = Utils.randomI(player.getCombat().getPKSkullDelay() > 0 ? 13 : 39);
+            var roll = PRandom.randomI(player.getCombat().getPKSkullDelay() > 0 ? 13 : 39);
             if (roll == 0) {
                 item = RandomItem.getItem(UNIQUE_DROP_TABLE);
             } else if (roll == 1) {
@@ -98,7 +98,7 @@ cs = new NCombatScript() {
             } else if (roll >= 5 && roll <= 8) {
                 item = new Item(ItemId.ANCIENT_STATUETTE, 1);
             } else if (roll >= 9 && roll <= 12) {
-                item = new Item(ItemId.MAGIC_SEED, 5 + Utils.randomI(4));
+                item = new Item(ItemId.MAGIC_SEED, 5 + PRandom.randomI(4));
             } else if (roll >= 13 && roll <= 15) {
                 item = new Item(ItemId.ANCIENT_CRYSTAL, 1);
             } else if (roll >= 16 && roll <= 20) {
@@ -111,16 +111,16 @@ cs = new NCombatScript() {
         } else if (selectedChanceA < chanceB) {
             item = RandomItem.getItem(MEDIOCRE_DROP_TABLE);
         } else if (selectedChanceA < 3000) {
-            item = new Item(ItemId.COINS, 10000 + Utils.randomI(90000));
+            item = new Item(ItemId.COINS, 10000 + PRandom.randomI(90000));
         }
         if (Main.isSpawn()) {
-            if (Utils.inRange(1, 108 * 50)) {
+            if (PRandom.inRange(1, 108 * 50)) {
                 npc.getController().addMapItem(new Item(ItemId.DIAMOND_KEY_32309), dropTile, player);
-            } else if (Utils.inRange(1, 36 * 50)) {
+            } else if (PRandom.inRange(1, 36 * 50)) {
                 npc.getController().addMapItem(new Item(ItemId.GOLD_KEY_32308), dropTile, player);
-            } else if (Utils.inRange(1, 12 * 50)) {
+            } else if (PRandom.inRange(1, 12 * 50)) {
                 npc.getController().addMapItem(new Item(ItemId.SILVER_KEY_32307), dropTile, player);
-            } else if (Utils.inRange(1, 4 * 50)) {
+            } else if (PRandom.inRange(1, 4 * 50)) {
                 npc.getController().addMapItem(new Item(ItemId.BRONZE_KEY_32306), dropTile, player);
             }
         }
@@ -133,14 +133,14 @@ cs = new NCombatScript() {
                         + item.getName());
             }
         }
-        if (Utils.randomE(1048576 / (player.getCombat().getPKSkullDelay() > 0 ? 4 : 1) / Math.sqrt(clampedLevel)
+        if (PRandom.randomE(1048576 / (player.getCombat().getPKSkullDelay() > 0 ? 4 : 1) / Math.sqrt(clampedLevel)
                 / playerMultiplier) == 0) {
             var pvpItem = RandomItem.getItem(ANCIENT_WARRIOR_DROP_TABLE);
             npc.getController().addMapItem(pvpItem, dropTile, player);
             player.getCombat().logNPCItem(npc.getDef().getKillCountName(), pvpItem.getId(), pvpItem.getAmount());
             npc.getWorld().sendItemDropNews(player, pvpItem.getId(), " a revenant");
         }
-        var etherCount = (1 + Utils.randomE(Math.sqrt(clampedLevel))) * 2;
+        var etherCount = (1 + PRandom.randomE(Math.sqrt(clampedLevel))) * 2;
         if (player.getCharges().getEthereumAutoAbsorb()
                 && (player.getEquipment().getHandId() == ItemId.BRACELET_OF_ETHEREUM
                 || player.getEquipment().getHandId() == ItemId.BRACELET_OF_ETHEREUM_UNCHARGED)) {

@@ -5,7 +5,7 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.WidgetManager;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 import script.player.plugin.clanwars.rule.Rule;
 import script.player.plugin.clanwars.rule.RuleOption;
@@ -162,7 +162,7 @@ public class Stages {
             nearbyPlayer.getGameEncoder()
                     .sendMessage("<col=7F007F>Your clan is in battle! Step through the portals to join them.");
         }
-        plugin.startWar(true, Utils.randomI(1) != 0);
+        plugin.startWar(true, PRandom.randomI(1) != 0);
         opponentPlugin.startWar(false, !plugin.isTop());
     }
 

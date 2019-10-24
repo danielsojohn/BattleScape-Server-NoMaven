@@ -73,7 +73,7 @@ public class DerangedArchaeologist276Combat extends NpcCombat {
         combat.phrase("Round and round and round and round!").phrase("The plants! They're alive!")
                 .phrase("They came from the ground! They came from the ground!!!")
                 .phrase("The doors won't stay closed forever!").phrase("They're cheering! Why are they cheering?")
-                .phrase("Time is running out! She will rise again!");
+                .phrase("PTime is running out! She will rise again!");
         combat.hitpoints(NpcCombatHitpoints.total(200));
         combat.stats(NpcCombatStats.builder().attackLevel(280).rangedLevel(320).defenceLevel(280)
                 .bonus(CombatBonus.MELEE_ATTACK, 280).bonus(CombatBonus.ATTACK_RANGED, 90)

@@ -28,7 +28,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class RuneDragonCombat extends NpcCombat {
@@ -137,7 +137,7 @@ public class RuneDragonCombat extends NpcCombat {
     @Override
     public void tickStartHook() {
         if (!npc.isLocked() && npc.getHitDelay() == 0 && npc.isAttacking() && npc.getEngagingEntity() instanceof Player
-                && Utils.randomE(4) == 0 && npc.withinDistance(npc.getEngagingEntity(), 10)) {
+                && PRandom.randomE(4) == 0 && npc.withinDistance(npc.getEngagingEntity(), 10)) {
             npc.setAnimation(81);
             npc.setHitDelay(4);
             var tiles = new Tile[] {
@@ -155,7 +155,7 @@ public class RuneDragonCombat extends NpcCombat {
 
     @Override
     public void applyAttackStartHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount) {
-        boltEffect = combatStyle.getType().getHitType() == HitType.RANGED && Utils.randomE(10) == 0;
+        boltEffect = combatStyle.getType().getHitType() == HitType.RANGED && PRandom.randomE(10) == 0;
     }
 
     @Override

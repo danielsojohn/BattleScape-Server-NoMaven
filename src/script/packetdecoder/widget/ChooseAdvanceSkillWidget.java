@@ -5,7 +5,7 @@ import com.palidino.osrs.io.cache.VarpId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
 
 public class ChooseAdvanceSkillWidget implements Widget {
     @Override
@@ -49,7 +49,7 @@ public class ChooseAdvanceSkillWidget implements Widget {
             xp *= xpMultipler;
             player.getGameEncoder().sendWidgetText(WidgetId.CHOOSE_ADVANCE_SKILL, 2,
                     "Choose the stat you wish to be advanced!<br>Experience that will be given: "
-                            + Utils.formatNumber(xp));
+                            + PNumber.formatNumber(xp));
         } else if (childId == 26) {
             int skillId = player.getAttributeInt("choose_skill_id");
             int minLevel = player.getAttributeInt("choose_min_level");

@@ -63,7 +63,7 @@ instance = new NScript() {
                     player.getY() + Tile.DIRECTION_Y[npc.getMovement().getWalkDir()]);
             var forceMovement = new ForceMovement(tile, 1, Tile.getReverseDirection(npc.getMovement().getWalkDir()));
             player.setForceMovementMove(forceMovement, 1441, 1, null, false);
-            player.applyHit(new Hit(Utils.randomI(9)));
+            player.applyHit(new Hit(PRandom.randomI(9)));
             if (player.isDead()) {
                 player.putAttribute("death_reason", "a haunted mine cart");
             }

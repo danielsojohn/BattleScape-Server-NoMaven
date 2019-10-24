@@ -12,7 +12,7 @@ import com.palidino.osrs.model.npc.combat.NpcCombatDefinition;
 import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class MaidenBloodSpawnCombat extends NpcCombat {
@@ -52,7 +52,7 @@ public class MaidenBloodSpawnCombat extends NpcCombat {
             tempMapObjects.add(tmo);
             npc.getWorld().addEvent(tmo);
         }
-        if (!npc.isLocked() && (Utils.randomE(4) == 0 || !npc.getMovement().isRouting())) {
+        if (!npc.isLocked() && (PRandom.randomE(4) == 0 || !npc.getMovement().isRouting())) {
             npc.getMovement().clear();
             npc.getMovement().generateRandomPath();
         }

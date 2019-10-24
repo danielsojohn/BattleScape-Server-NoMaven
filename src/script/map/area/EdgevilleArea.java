@@ -19,7 +19,7 @@ import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Smithing;
 import com.palidino.osrs.model.player.controller.ClanWarsFreeForAllPC;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 import script.world.pvptournament.PvpTournament;
 
@@ -359,7 +359,7 @@ public class EdgevilleArea extends Area {
                 new RandomItem(ItemId.CLUE_SCROLL_HARD).weight(4), new RandomItem(ItemId.CLUE_SCROLL_ELITE).weight(2),
                 new RandomItem(ItemId.CLUE_SCROLL_MASTER).weight(1)
             };
-            if (Utils.randomE(4) == 0) {
+            if (PRandom.randomE(4) == 0) {
                 player.getInventory().addOrDropItem(RandomItem.getItem(clueItems));
             }
             for (int i = 0; i < 2; i++) {
@@ -390,7 +390,7 @@ public class EdgevilleArea extends Area {
                     }
                     player.getInventory().deleteItem(ItemId.UNUSUAL_FISH, unusualFishCount);
                     player.getInventory().addOrDropItem(ItemId.COINS, value * unusualFishCount);
-                    if (Utils.randomE(156 / unusualFishCount) == 0) {
+                    if (PRandom.randomE(156 / unusualFishCount) == 0) {
                         player.getInventory().addOrDropItem(ItemId.GOLDEN_TENCH);
                         player.getGameEncoder()
                                 .sendMessage("<col=ff0000>The cormorant has brought you a very strange tench.</col>");
@@ -409,7 +409,7 @@ public class EdgevilleArea extends Area {
                     player.getInventory().deleteItem(ItemId.BIRDS_EGG_5078, coloredEggCount);
                     player.getInventory().addOrDropItem(ItemId.COINS, value * coloredEggCount);
                     player.getInventory().addOrDropItem(ItemId.BIRD_NEST_5073, 1 * coloredEggCount);
-                    if (Utils.randomE(132 / coloredEggCount) == 0) {
+                    if (PRandom.randomE(132 / coloredEggCount) == 0) {
                         Item[] evilChickenOutfit = {
                             new Item(ItemId.EVIL_CHICKEN_FEET), new Item(ItemId.EVIL_CHICKEN_WINGS),
                             new Item(ItemId.EVIL_CHICKEN_HEAD), new Item(ItemId.EVIL_CHICKEN_LEGS)
@@ -423,7 +423,7 @@ public class EdgevilleArea extends Area {
                         } else if (!player.hasItem(ItemId.EVIL_CHICKEN_LEGS)) {
                             player.getInventory().addOrDropItem(ItemId.EVIL_CHICKEN_LEGS);
                         } else {
-                            player.getInventory().addOrDropItem(Utils.arrayRandom(evilChickenOutfit));
+                            player.getInventory().addOrDropItem(PRandom.arrayRandom(evilChickenOutfit));
                         }
                     }
                 }

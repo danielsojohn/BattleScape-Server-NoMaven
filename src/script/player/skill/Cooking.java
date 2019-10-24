@@ -13,8 +13,9 @@ import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.model.player.skill.SkillEntry;
 import com.palidino.osrs.model.player.skill.SkillModel;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class Cooking extends SkillContainer {
@@ -33,21 +34,21 @@ public class Cooking extends SkillContainer {
     }
 
     @Override
-    public void actionSuccess(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void actionSuccess(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (entry.getConsume() != null && entry.getConsume().getId() == ItemId.SACRED_EEL) {
-            var scaleCount = 3 + Utils.randomI(6);
+            var scaleCount = 3 + PRandom.randomI(6);
             player.getInventory().addOrDropItem(ItemId.ZULRAHS_SCALES, scaleCount * 2);
             player.getSkills().addXp(getSkillId(), scaleCount * 3);
         } else if (entry.getConsume() != null && entry.getConsume().getId() == ItemId.INFERNAL_EEL) {
-            if (Utils.randomE(16) == 0) {
+            if (PRandom.randomE(16) == 0) {
                 player.getInventory().addOrDropItem(ItemId.ONYX_BOLT_TIPS, 2);
-            } else if (Utils.randomE(12) == 0) {
-                player.getInventory().addOrDropItem(ItemId.LAVA_SCALE_SHARD, 2 + Utils.randomI(8));
+            } else if (PRandom.randomE(12) == 0) {
+                player.getInventory().addOrDropItem(ItemId.LAVA_SCALE_SHARD, 2 + PRandom.randomI(8));
             } else {
-                player.getInventory().addOrDropItem(ItemId.TOKKUL, 20 + Utils.randomI(20));
+                player.getInventory().addOrDropItem(ItemId.TOKKUL, 20 + PRandom.randomI(20));
             }
         } else if (entry.getConsume() != null && entry.getConsume().getId() == ItemId.LEAPING_STURGEON) {
-            if (Utils.randomE(2) == 0) {
+            if (PRandom.randomE(2) == 0) {
                 player.getInventory().addOrDropItem(ItemId.FISH_OFFCUTS);
             } else {
                 player.getInventory().addOrDropItem(ItemId.CAVIAR);
@@ -94,7 +95,7 @@ public class Cooking extends SkillContainer {
     }
 
     @Override
-    public boolean failedActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean failedActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (entry.getFailedCreate() == null) {
             return false;
         }
@@ -130,18 +131,18 @@ public class Cooking extends SkillContainer {
             chance = power / ((failure + 1) * 2.0);
         }
         if (player.getEquipment().getHandId() == ItemId.COOKING_GAUNTLETS) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (player.isPremiumMember()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.getController().inWilderness()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
-        return Utils.randomI(100) < Math.max(0.01, 1 - chance) * 100;
+        return PRandom.randomI(100) < Math.max(0.01, 1 - chance) * 100;
     }
 
     @Override

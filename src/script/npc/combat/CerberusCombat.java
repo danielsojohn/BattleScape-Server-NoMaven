@@ -35,7 +35,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class CerberusCombat extends NpcCombat {
@@ -334,7 +334,7 @@ public class CerberusCombat extends NpcCombat {
     }
 
     private void startSouls() {
-        if (soulsDelay > 0 || npc.getHitpoints() >= 400 || Utils.randomE(20) != 0) {
+        if (soulsDelay > 0 || npc.getHitpoints() >= 400 || PRandom.randomE(20) != 0) {
             return;
         }
         var entity = npc.getEngagingEntity();
@@ -400,7 +400,7 @@ public class CerberusCombat extends NpcCombat {
                     continue;
                 }
                 if (entity.withinDistance(aoe.tile, 0)) {
-                    var hitEvent = new HitEvent(0, entity, new Hit(10 + Utils.randomI(5)));
+                    var hitEvent = new HitEvent(0, entity, new Hit(10 + PRandom.randomI(5)));
                     entity.addHit(hitEvent);
                 } else {
                     if (!entity.withinDistance(aoe.tile, 1)) {
@@ -416,7 +416,7 @@ public class CerberusCombat extends NpcCombat {
     }
 
     private void startAOE() {
-        if (aoeDelay > 0 || npc.getHitpoints() >= 200 || Utils.randomE(20) != 0) {
+        if (aoeDelay > 0 || npc.getHitpoints() >= 200 || PRandom.randomE(20) != 0) {
             return;
         }
         var entity = npc.getEngagingEntity();
@@ -435,7 +435,7 @@ public class CerberusCombat extends NpcCombat {
             aoeAttacks.add(new AoeAttack(tile, projectile.getProjectileSpeed()));
         }
         npc.setForceMessage("Grrrrrrrrrrrrrr");
-        aoeDelay = AOE_DELAY + Utils.randomI(AOE_DELAY);
+        aoeDelay = AOE_DELAY + PRandom.randomI(AOE_DELAY);
     }
 
     private class AoeAttack {

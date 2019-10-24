@@ -4,7 +4,7 @@ import com.palidino.osrs.model.dialogue.DialogueAction;
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
 import lombok.var;
 import script.world.pvptournament.PvpTournament;
 
@@ -33,6 +33,6 @@ public class DonateItemDialogue extends SelectionDialogue {
 
     @Override
     public void sendWidgetTextHook(Player player) {
-        sendWidgetText(player, item.getName() + " x" + Utils.formatNumber(item.getAmount()));
+        sendWidgetText(player, item.getName() + " x" + PNumber.formatNumber(item.getAmount()));
     }
 }

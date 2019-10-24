@@ -2,7 +2,7 @@ package script.packetdecoder.command;
 
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.PString;
 import lombok.var;
 
 public class FakeDropCommand implements Command {
@@ -24,7 +24,7 @@ public class FakeDropCommand implements Command {
         var itemName = split[1];
         var from = split[2];
         String msg = player2.getMessaging().getIconImage() + player2.getUsername() + " has received "
-                + Utils.aOrAn(itemName) + " " + itemName + " drop";
+                + PString.aOrAn(itemName) + " " + itemName + " drop";
         if (from != null) {
             msg += " from " + from;
         }

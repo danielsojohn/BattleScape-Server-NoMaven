@@ -24,7 +24,7 @@ POISON_ATTACK.setTargetTileBreakOff(2);
 POISON_ATTACK.setTargetTileBreakOffDistance(3);
 
 var npc = null;
-var hitStyle = Utils.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
+var hitStyle = PRandom.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
 var hitCount = 0;
 var poisonDelay = 8;
 
@@ -34,7 +34,7 @@ cs = new NCombatScript() {
     },
 
     restore: function() {
-        hitStyle = Utils.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
+        hitStyle = PRandom.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
         hitCount = 0;
         poisonDelay = 8;
     },
@@ -48,12 +48,12 @@ cs = new NCombatScript() {
     },
 
     animationHook: function(combatStyle) {
-        return ANIMATIONS[Utils.randomE(ANIMATIONS.length)];
+        return ANIMATIONS[PRandom.randomE(ANIMATIONS.length)];
     },
 
     targetTileGraphicHook: function(combatStyle) {
         if (combatStyle.getTargetTileGraphic() != null && combatStyle.getTargetTileGraphic().getId() == 1654) {
-            return TILE_GRAPHICS[Utils.randomE(TILE_GRAPHICS.length)];
+            return TILE_GRAPHICS[PRandom.randomE(TILE_GRAPHICS.length)];
         }
         return combatStyle.getTargetTileGraphic();
     },

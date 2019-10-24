@@ -18,7 +18,7 @@ cs = new NCombatScript() {
     },
 
     combatStyleHook: function(combatStyle) {
-        return Utils.randomE(8) == 0 ? SPECIAL_ATTACK : combatStyle;
+        return PRandom.randomE(8) == 0 ? SPECIAL_ATTACK : combatStyle;
     },
 
     dropItemHook: function(player, dropTile, dropForIndex, hasRoWICharge) {
@@ -37,7 +37,7 @@ cs = new NCombatScript() {
             if (!totemTop || hasAll) {
                 totemIds.add(19683);
             }
-            var itemId = totemIds.get(Utils.randomE(totemIds.size()));
+            var itemId = totemIds.get(PRandom.randomE(totemIds.size()));
             npc.getController().addMapItem(new Item(itemId, 1), dropTile, player);
         }
     }

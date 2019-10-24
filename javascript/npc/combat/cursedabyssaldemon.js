@@ -15,7 +15,7 @@ cs = new NCombatScript() {
     },
 
     tick: function() {
-        if (npc.isAttacking() && !usingSpecialAttack && Utils.randomE(20) == 0) {
+        if (npc.isAttacking() && !usingSpecialAttack && PRandom.randomE(20) == 0) {
             usingSpecialAttack = true;
             specialAttackTile = new Tile(npc);
         }
@@ -39,7 +39,7 @@ cs = new NCombatScript() {
             var tries = 0;
             while (tries++ < 8 && (t.matchesTile(entity) || t.matchesTile(npc) || !Route.canMove(npc, t))) {
                 t.setTile(entity);
-                t = (Utils.randomI(1) == 0) ? t.randomizeX(1) : t.randomizeY(1);
+                t = (PRandom.randomI(1) == 0) ? t.randomizeX(1) : t.randomizeY(1);
             }
             if (!Route.canMove(npc, t)) {
                 t = npc;

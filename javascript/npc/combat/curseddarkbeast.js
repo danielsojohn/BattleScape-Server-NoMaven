@@ -25,7 +25,7 @@ cs = new NCombatScript() {
     },
 
     tick: function() {
-        if (npc.isAttacking() && !usingSpecialAttack && Utils.randomE(20) == 0) {
+        if (npc.isAttacking() && !usingSpecialAttack && PRandom.randomE(20) == 0) {
             usingSpecialAttack = true;
         }
     },

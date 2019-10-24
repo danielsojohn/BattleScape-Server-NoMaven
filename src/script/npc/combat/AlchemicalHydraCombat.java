@@ -37,17 +37,18 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Polygon;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PPolygon;
+import com.palidino.util.random.PRandom;
+import com.palidino.util.PCollection;
+import com.palidino.util.PEvent;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.var;
 
 public class AlchemicalHydraCombat extends NpcCombat {
     private static final NpcCombatStyle.NpcCombatStyleBuilder POISON_ATTACK_BUILDER = NpcCombatStyle.builder()
-            .type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS).hitMark(HitMark.POISON)
-                    .build())
+            .type(NpcCombatStyleType.builder().hitType(HitType.MAGIC).subHitType(HitType.TYPELESS)
+                    .hitMark(HitMark.POISON).build())
             .damage(NpcCombatDamage.builder().maximum(12).alwaysMaximum(true).ignorePrayer(true).build())
             .effect(NpcCombatEffect.builder().poison(4).build()).attackSpeed(6).targetGraphic(new Graphic(1645))
             .targetTileGraphic(new Graphic(1654))
@@ -95,38 +96,38 @@ public class AlchemicalHydraCombat extends NpcCombat {
         new Tile(1368, 10264)
     };
     private static final FireAttack NORTH_FIRE =
-            new FireAttack(new Polygon(), FIRE_TILES_NORTH_WEST, FIRE_TILES_NORTH_EAST, new Tile(1366, 10271));
-    private static final FireAttack EAST_FIRE = new FireAttack(new Polygon(new int[] {
+            new FireAttack(new PPolygon(), FIRE_TILES_NORTH_WEST, FIRE_TILES_NORTH_EAST, new Tile(1366, 10271));
+    private static final FireAttack EAST_FIRE = new FireAttack(new PPolygon(new int[] {
         1366, 1377, 1377
     }, new int[] {
         10267, 10278, 10257
     }), FIRE_TILES_NORTH_EAST, FIRE_TILES_SOUTH_EAST, new Tile(1370, 10267));
-    private static final FireAttack SOUTH_FIRE = new FireAttack(new Polygon(new int[] {
+    private static final FireAttack SOUTH_FIRE = new FireAttack(new PPolygon(new int[] {
         1366, 1377, 1356
     }, new int[] {
         10268, 10257, 10257
     }), FIRE_TILES_SOUTH_WEST, FIRE_TILES_SOUTH_EAST, new Tile(1366, 10264));
-    private static final FireAttack WEST_FIRE = new FireAttack(new Polygon(new int[] {
+    private static final FireAttack WEST_FIRE = new FireAttack(new PPolygon(new int[] {
         1367, 1356, 1356
     }, new int[] {
         10267, 10257, 10278
     }), FIRE_TILES_NORTH_WEST, FIRE_TILES_SOUTH_WEST, new Tile(1363, 10267));
-    private static final FireAttack NORTH_EAST_FIRE = new FireAttack(new Polygon(new int[] {
+    private static final FireAttack NORTH_EAST_FIRE = new FireAttack(new PPolygon(new int[] {
         1369, 1369, 1377, 1377
     }, new int[] {
         10270, 10278, 10278, 10270
     }), FIRE_TILES_NORTH, FIRE_TILES_EAST, new Tile(1370, 10271));
-    private static final FireAttack SOUTH_EAST_FIRE = new FireAttack(new Polygon(new int[] {
+    private static final FireAttack SOUTH_EAST_FIRE = new FireAttack(new PPolygon(new int[] {
         1369, 1377, 1377, 1369
     }, new int[] {
         10265, 10265, 10257, 10257
     }), FIRE_TILES_EAST, FIRE_TILES_SOUTH, new Tile(1370, 10271));
-    private static final FireAttack SOUTH_WEST_FIRE = new FireAttack(new Polygon(new int[] {
+    private static final FireAttack SOUTH_WEST_FIRE = new FireAttack(new PPolygon(new int[] {
         1364, 1364, 1356, 1356
     }, new int[] {
         10265, 10257, 10257, 10265
     }), FIRE_TILES_WEST, FIRE_TILES_SOUTH, new Tile(1363, 10264));
-    private static final FireAttack NORTH_WEST_FIRE = new FireAttack(new Polygon(new int[] {
+    private static final FireAttack NORTH_WEST_FIRE = new FireAttack(new PPolygon(new int[] {
         1364, 1356, 1356, 1364
     }, new int[] {
         10270, 10270, 10278, 10278
@@ -141,10 +142,10 @@ public class AlchemicalHydraCombat extends NpcCombat {
     private int hitCount;
     private int specialDelay;
     private boolean damageReduction;
-    private Event lightningCastEvent;
-    private List<Event> lightningEvents = new ArrayList<>();
+    private PEvent lightningCastEvent;
+    private List<PEvent> lightningEvents = new ArrayList<>();
     private int ventDelay;
-    private Event fireBleedEvent;
+    private PEvent fireBleedEvent;
 
     @Override
     public List<NpcCombatDefinition> getCombatDefinitions() {
@@ -387,7 +388,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
     @Override
     public void restoreHook() {
         npc.attackUnlock();
-        hitStyle = Utils.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
+        hitStyle = PRandom.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
         hitCount = 0;
         specialDelay = 3;
         damageReduction = true;
@@ -402,7 +403,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
             return;
         }
         if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426
-                && Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 75) {
+                && PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 75) {
             npc.setLock(2);
             npc.setTransformationId(NpcId.ALCHEMICAL_HYDRA_426_8616);
             npc.setAnimation(8237);
@@ -415,7 +416,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
             damageReduction = true;
             return;
         } else if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8619
-                && Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 50) {
+                && PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 50) {
             npc.setLock(2);
             npc.setTransformationId(NpcId.ALCHEMICAL_HYDRA_426_8617);
             npc.setAnimation(8244);
@@ -429,7 +430,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
             damageReduction = true;
             return;
         } else if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8620
-                && Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 25) {
+                && PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 25) {
             npc.setLock(2);
             npc.setTransformationId(NpcId.ALCHEMICAL_HYDRA_426_8618);
             npc.setAnimation(8251);
@@ -491,7 +492,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
     @Override
     public Graphic applyAttackTargetTileGraphicHook(NpcCombatStyle combatStyle, Entity opponent) {
         if (combatStyle.getTargetTileGraphic() != null && combatStyle.getTargetTileGraphic().getId() == 1654) {
-            return POISON_TILE_GRAPHICS[Utils.randomE(POISON_TILE_GRAPHICS.length)];
+            return POISON_TILE_GRAPHICS[PRandom.randomE(POISON_TILE_GRAPHICS.length)];
         }
         return combatStyle.getTargetTileGraphic();
     }
@@ -542,13 +543,13 @@ public class AlchemicalHydraCombat extends NpcCombat {
         npc.setHitDelay(6);
         specialDelay = 9;
         npc.setAnimation(8241);
-        var tiles = Utils.toList(new Tile(1362, 10272), new Tile(1371, 10272), new Tile(1371, 10263),
+        var tiles = PCollection.toList(new Tile(1362, 10272), new Tile(1371, 10272), new Tile(1371, 10263),
                 new Tile(1362, 10263));
-        var initialTile = Utils.listRandom(tiles).randomize(2);
+        var initialTile = PRandom.listRandom(tiles).randomize(2);
         var projectile = Graphic.Projectile.builder().id(1664).startTile(npc).endTile(initialTile)
                 .projectileSpeed(getProjectileSpeed(10)).build();
         sendMapProjectile(projectile);
-        lightningCastEvent = new Event(projectile.getEventDelay() - 1) {
+        lightningCastEvent = new PEvent(projectile.getEventDelay() - 1) {
             private Tile tile;
 
             @Override
@@ -563,7 +564,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                     return;
                 }
                 var lastTile = tile != null ? tile : initialTile;
-                tile = tiles.remove(Utils.randomE(tiles.size()));
+                tile = tiles.remove(PRandom.randomE(tiles.size()));
                 var projectile = Graphic.Projectile.builder().id(1665).startTile(lastTile).endTile(tile)
                         .projectileSpeed(getProjectileSpeed(2)).build();
                 sendMapProjectile(projectile);
@@ -580,7 +581,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
             return;
         }
         var player = (Player) entity;
-        var event = new Event() {
+        var event = new PEvent() {
             @Override
             public void execute() {
                 if (player.isLocked()) {
@@ -589,7 +590,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                 }
                 if (tile.matchesTile(player)) {
                     player.getGameEncoder().sendMessage("<col=ff0000>The eletricity temporarily paralyzes you!");
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     player.getController().setMagicBind(8);
                     stop();
                 }
@@ -636,7 +637,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
         }
         var player = (Player) entity;
         npc.attackLock();
-        var event = new Event() {
+        var event = new PEvent() {
             @Override
             public void execute() {
                 if (player.isLocked()) {
@@ -670,7 +671,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
         var followTiles = new ArrayList<FollowTile>();
         followTiles.add(new FollowTile(new Tile(followTile), 0));
         var speed = getProjectileSpeed(2);
-        var eventFollow = new Event(1) {
+        var eventFollow = new PEvent(1) {
             private boolean hasCastFollow;
 
             @Override
@@ -703,7 +704,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                     if (!aFollowTile.getTile().matchesTile(player)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     setFireBleed(player);
                 }
                 if (getExecutions() > 15) {
@@ -770,7 +771,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                 break;
             }
         }
-        var eventWall1 = new Event() {
+        var eventWall1 = new PEvent() {
             @Override
             public void execute() {
                 if (player.isLocked()) {
@@ -782,7 +783,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                     if (!tile.matchesTile(player)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     setFireBleed(player);
                 }
                 if (getExecutions() >= 42 + speed.getEventDelay()) {
@@ -791,7 +792,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
             }
         };
         npc.getWorld().addEvent(eventWall1);
-        var wallEvent2 = new Event(1) {
+        var wallEvent2 = new PEvent(1) {
             private boolean hasSecondAttacked;
 
             @Override
@@ -842,7 +843,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                     if (!tile.matchesTile(player)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     setFireBleed(player);
                 }
                 if (getExecutions() >= 43 + speed.getEventDelay()) {
@@ -860,7 +861,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
         if (player == null) {
             return;
         }
-        fireBleedEvent = new Event() {
+        fireBleedEvent = new PEvent() {
             @Override
             public void execute() {
                 if (getExecutions() == 4) {
@@ -888,7 +889,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
             weakness = BLUE_VENT;
         }
         var decidedWeakness = weakness;
-        var event = new Event() {
+        var event = new PEvent() {
             @Override
             public void execute() {
                 if (player.isLocked()) {
@@ -906,7 +907,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
                     if (!player.withinDistance(vent, 1)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     break;
                 }
                 if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8621) {
@@ -944,7 +945,7 @@ public class AlchemicalHydraCombat extends NpcCombat {
     @AllArgsConstructor
     @Getter
     private static class FireAttack {
-        private Polygon polygon;
+        private PPolygon polygon;
         private Tile[] tiles1;
         private Tile[] tiles2;
         private Tile followTile;

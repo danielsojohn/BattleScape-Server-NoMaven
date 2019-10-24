@@ -7,7 +7,7 @@ import com.palidino.osrs.io.cache.WidgetSetting;
 import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 @SuppressWarnings("all")
@@ -20,7 +20,7 @@ public class PnpcLoopCommand implements Command {
     @Override
     public void execute(Player player, String message) {
         var fromId = Integer.parseInt(message);
-        var event = new Event(1) {
+        var event = new PEvent(1) {
             int id = fromId;
             boolean reset = false;
 

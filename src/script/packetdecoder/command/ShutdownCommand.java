@@ -1,11 +1,11 @@
 package script.packetdecoder.command;
 
+import com.palidino.io.Logger;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.world.JavaCord;
-import com.palidino.setting.DiscordChannel;
-import com.palidino.setting.SqlUserRank;
-import com.palidino.io.Logger;
+import com.palidino.rs.setting.DiscordChannel;
+import com.palidino.rs.setting.SqlUserRank;
 import lombok.var;
 
 public class ShutdownCommand implements Command {

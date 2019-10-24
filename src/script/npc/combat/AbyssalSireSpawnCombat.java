@@ -21,7 +21,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class AbyssalSireSpawnCombat extends NpcCombat {
@@ -152,7 +152,7 @@ public class AbyssalSireSpawnCombat extends NpcCombat {
     public double damageReceivedHook(Entity opponent, double damage, HitType hitType, HitType defenceType) {
         var delay = (int) (abyssalSire != null ? abyssalSire.getCombat2().script("disorienting_delay") : 0);
         if (npc.getId() == NpcId.RESPIRATORY_SYSTEM && delay == 0 && damage > 0) {
-            damage = Utils.randomI(3);
+            damage = PRandom.randomI(3);
         }
         return damage;
     }

@@ -3,7 +3,7 @@ package script.packetdecoder.command;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.setting.SqlUserRank;
+import com.palidino.rs.setting.SqlUserRank;
 import lombok.var;
 
 public class XpCommand implements Command {

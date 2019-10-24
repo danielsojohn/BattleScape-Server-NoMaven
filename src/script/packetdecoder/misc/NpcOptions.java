@@ -13,8 +13,8 @@ import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Teleports;
 import com.palidino.rs.GrandExchangeUser;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
 
 public class NpcOptions {
     // Piles
@@ -398,7 +398,7 @@ public class NpcOptions {
                 new Tile(3043, 4854), new Tile(3027, 4851), new Tile(3017, 4840), new Tile(3015, 4826),
                 new Tile(3021, 4813), new Tile(3035, 4809)
             };
-            player.getMovement().animatedTeleport(Utils.arrayRandom(tiles), 1816, 715, new Graphic(342), null, 2);
+            player.getMovement().animatedTeleport(PRandom.arrayRandom(tiles), 1816, 715, new Graphic(342), null, 2);
             player.getController().stopWithTeleport();
             player.clearHits();
         }
@@ -657,9 +657,9 @@ public class NpcOptions {
             int count = Math.min(player.getInventory().getCount(itemId), player.getInventory().getRemainingSlots());
             player.getInventory().deleteItem(itemId, count);
             for (int i = 0; i < count; i++) {
-                if (Utils.randomE(10) == 0) {
+                if (PRandom.randomE(10) == 0) {
                     player.getInventory().addItem(5075, 1);
-                } else if (Utils.randomE(5) == 0) {
+                } else if (PRandom.randomE(5) == 0) {
                     player.getInventory().addItem(5074, 1);
                 } else {
                     player.getInventory().addItem(7413, 1);
@@ -792,7 +792,7 @@ public class NpcOptions {
         if (player.getController().isMagicBound()) {
             player.getGameEncoder()
                     .sendMessage("A magical force stops you from moving for "
-                            + Time.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
+                            + PTime.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
                             + " more seconds.");
             return;
         }

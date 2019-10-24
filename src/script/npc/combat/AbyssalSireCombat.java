@@ -37,8 +37,8 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.setting.SqlUserRank;
-import com.palidino.util.Utils;
+import com.palidino.rs.setting.SqlUserRank;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class AbyssalSireCombat extends NpcCombat {
@@ -478,7 +478,7 @@ public class AbyssalSireCombat extends NpcCombat {
                 }
             }
         } else if (combatWith != null && !combatWith.isLocked() && fumeDelay == 0 && !npc.isLocked()
-                && (phase != 1 || disorientingDelay == 0) && Utils.randomE(5) == 0) {
+                && (phase != 1 || disorientingDelay == 0) && PRandom.randomE(5) == 0) {
             fumeDelay = 6;
             fumeTile = new Tile(combatWith);
             npc.getController().sendMapGraphic(fumeTile, new Graphic(1275));
@@ -617,7 +617,7 @@ public class AbyssalSireCombat extends NpcCombat {
         if (status == 0 && countdown == 0) {
             status = 1;
             if (combatWith != null && npc.withinDistance(combatWith, 1)) {
-                var hitEvent = new HitEvent(0, combatWith, new Hit(Utils.randomI(72)));
+                var hitEvent = new HitEvent(0, combatWith, new Hit(PRandom.randomI(72)));
                 combatWith.addHit(hitEvent);
             }
             summonSpawn(npc.getX(), npc.getY());

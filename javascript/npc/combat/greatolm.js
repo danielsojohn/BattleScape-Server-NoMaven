@@ -25,7 +25,7 @@ var SPAWN_ANIMATIONS = [ 7335, 7354, 7350 ];
 var DESPAWN_ANIMATIONS = [ 7348, 7370, 7352 ];
 var DESPAWN_TIMES = [ 2, 1, 1 ];
 var DEFAULT_ANIMATIONS = [ 7336, 7355, 7351 ];
-var OLM_PHASE_3_ANIMATIONS = Utils.toMap(
+var OLM_PHASE_3_ANIMATIONS = PCollection.toMap(
     7335, 7383,
     7336, 7374,
     7345, 7371
@@ -108,8 +108,8 @@ cs = new NCombatScript() {
         }
         if (npc.isAttacking() && npc.getHitDelay() == 0) {
             if ((attackRotation == 0 || attackRotation == 2) && normalUniqueAttackDelay == 0
-                    && Utils.randomE(4) == 0) {
-                var attack = Utils.randomI(2);
+                    && PRandom.randomE(4) == 0) {
+                var attack = PRandom.randomI(2);
                 if (attack == 0) {
                     this.spheres();
                 } else if (attack == 1) {
@@ -156,16 +156,16 @@ cs = new NCombatScript() {
     damageReceivedHook: function(damage, entity, hitType, defenceType) {
         if (npc.getId() == NPC_IDS[LEFT_HAND] && phase < 3 && !olm[LEFT_HAND].isLocked() && !olm[RIGHT_HAND].isLocked()
                 && !olm[RIGHT_HAND].isDead() && (npc.getHitpoints() * 0.8) <= olm[RIGHT_HAND].getHitpoints()
-                && damage > 0 && Utils.randomE(16) == 0) {
+                && damage > 0 && PRandom.randomE(16) == 0) {
             npc.setLock(44);
             for each (var player in npc.getController().getPlayers()) {
                 player.getGameEncoder().sendMessage("The Great Olm's left claw clenches to protect itself temporarily.");
             }
             this.setAnimation(LEFT_HAND, 7360, false);
             var js = this;
-            var event = new Event(Event.MILLIS_600) {
+            var event = new PEvent(PEvent.MILLIS_600) {
                 execute: function() {
-                    if (event.getExecutions() == Event.SEC_27 || !npc.isVisible()) {
+                    if (event.getExecutions() == PEvent.SEC_27 || !npc.isVisible()) {
                         event.stop();
                     }
                     if (event.getExecutions() == 1) {
@@ -248,7 +248,7 @@ cs = new NCombatScript() {
         if (time != 0) {
             this.setAnimation(index, DESPAWN_ANIMATIONS[index], false);
         }
-        var event = new Event(time) {
+        var event = new PEvent(time) {
             execute: function() {
                 event.stop();
                 var matchesEast = npc.matchesTile(EAST_NPC_TILES[index]);
@@ -305,7 +305,7 @@ cs = new NCombatScript() {
     rotateStart: function() {
         var west = npc.matchesTile(EAST_NPC_TILES[HEAD]);
         if (phase++ == 0) {
-            west = Utils.randomI(1) == 0;
+            west = PRandom.randomI(1) == 0;
         }
         olm[LEFT_HAND].getCombat().getCombatScript().script("phase", phase);
         olm[RIGHT_HAND].getCombat().getCombatScript().script("phase", phase);
@@ -313,7 +313,7 @@ cs = new NCombatScript() {
         npc.setVisible(false);
         npc.lock();
         var js = this;
-        var event = new Event(Event.MILLIS_1200) {
+        var event = new PEvent(PEvent.MILLIS_1200) {
             execute: function() {
                 if (event.getExecutions() == 0) {
                     return;
@@ -323,14 +323,14 @@ cs = new NCombatScript() {
                     npc.unlock();
                     js.rotate(west);
                 }
-                var count = 1 + Utils.randomI(3);
+                var count = 1 + PRandom.randomI(3);
                 for (var i = 0; i < count; i++) {
                     var tile = new Tile(3228, 5730);
-                    tile.moveTile(Utils.randomI(9), Utils.randomI(18));
+                    tile.moveTile(PRandom.randomI(9), PRandom.randomI(18));
                     cs.sendMapProjectile(null, (new Tile(tile)).moveY(1), tile, 1357, 255, 10, 0, 51 + 120, 0, 0);
                     npc.getController().sendMapGraphic(tile, 1358, 0, 51 + 100);
                     npc.getController().sendMapGraphic(tile, 1449, 0, 0);
-                    var the = new TileHitEvent(Event.MILLIS_3600, npc.getController(), tile, 20, HitType.TYPELESS);
+                    var the = new TileHitEvent(PEvent.MILLIS_3600, npc.getController(), tile, 20, HitType.TYPELESS);
                     the.setAdjacentHalfDamage(true);
                     npc.getWorld().addEvent(the);
                 }
@@ -375,7 +375,7 @@ cs = new NCombatScript() {
                         objects[i]), SPAWN_ANIMATIONS[i]);
             }
         }
-        var event = new Event(Event.MILLIS_3000) {
+        var event = new PEvent(PEvent.MILLIS_3000) {
             execute: function() {
                 event.stop();
                 for each (var mapObject in objects) {
@@ -395,17 +395,17 @@ cs = new NCombatScript() {
             crystals.push(crystal);
             npc.getController().addMapObject(crystal);
         }
-        var event = new Event(Event.MILLIS_2400) {
+        var event = new PEvent(PEvent.MILLIS_2400) {
             execute: function() {
                 if (event.getExecutions() == 0) {
-                    event.setTick(Event.MILLIS_1200);
+                    event.setTick(PEvent.MILLIS_1200);
                     var players = npc.getController().getPlayers();
                     for each (var crystal in crystals) {
                         for each (var player in players) {
                             if (player.isLocked() || !crystal.withinDistance(player, 0)) {
                                 continue;
                             }
-                            var hitEvent = new HitEvent(0, player, new Hit(30 + Utils.randomI(15)));
+                            var hitEvent = new HitEvent(0, player, new Hit(30 + PRandom.randomI(15)));
                             player.addHit(hitEvent);
                             player.setInCombatDelay(Entity.COMBAT_DELAY);
                             player.getGameEncoder().sendMessage("The crystal beneath your feet grows rapidly and shunts you to the side.");
@@ -427,7 +427,7 @@ cs = new NCombatScript() {
     lightning: function() {
         npc.setHitDelay(4);
         this.setAnimation(LEFT_HAND, 7358, true);
-        var tiles = Utils.toList(
+        var tiles = PCollection.toList(
             new Tile(3228, 5748), new Tile(3229, 5748), new Tile(3230, 5748), new Tile(3231, 5748),
             new Tile(3232, 5748), new Tile(3233, 5748), new Tile(3234, 5748), new Tile(3235, 5748),
             new Tile(3236, 5748), new Tile(3237, 5747), new Tile(3228, 5731), new Tile(3229, 5731),
@@ -442,7 +442,7 @@ cs = new NCombatScript() {
         for each (var tile in selectedTiles) {
             directions.push((tile.getY() > 5739) ? Tile.SOUTH : Tile.NORTH);
         }
-        var event = new Event(Event.MILLIS_600) {
+        var event = new PEvent(PEvent.MILLIS_600) {
             execute: function() {
                 var stillWorking = false;
                 var players = npc.getController().getPlayers();
@@ -460,7 +460,7 @@ cs = new NCombatScript() {
                         if (player.isLocked() || !tile.withinDistance(player, 0)) {
                             continue;
                         }
-                        var hitEvent = new HitEvent(0, player, new Hit(Utils.randomI(33)));
+                        var hitEvent = new HitEvent(0, player, new Hit(PRandom.randomI(33)));
                         player.addHit(hitEvent);
                         player.setInCombatDelay(Entity.COMBAT_DELAY);
                         player.getPrayer().deactivate("protect from magic");
@@ -495,7 +495,7 @@ cs = new NCombatScript() {
         }
         if (players.size() == 1) {
             var tile = new Tile(3228, 5731);
-            tile.moveTile(Utils.randomI(9), Utils.randomI(16));
+            tile.moveTile(PRandom.randomI(9), PRandom.randomI(16));
             playerMap.put(players.get(0), tile);
             players.get(0).getGameEncoder().sendMessage("You have been paired with <col=ff0000>a random location</col>! The magical power will enact soon.");
         } else {
@@ -510,9 +510,9 @@ cs = new NCombatScript() {
             }
         }
         var graphicIds = [ 1359, 1360, 1361, 1362 ];
-        var event = new Event(Event.MILLIS_600) {
+        var event = new PEvent(PEvent.MILLIS_600) {
             execute: function() {
-                if (event.getExecutions() == Event.MILLIS_5400) {
+                if (event.getExecutions() == PEvent.MILLIS_5400) {
                     event.stop();
                 }
                 var graphicIndex = -1;
@@ -524,7 +524,7 @@ cs = new NCombatScript() {
                             || !npc.withinDistance(value, 32) || key.getY() < 5730 || value.getY() < 5730) {
                         continue;
                     }
-                    if (event.getExecutions() == Event.MILLIS_5400) {
+                    if (event.getExecutions() == PEvent.MILLIS_5400) {
                         if (key.withinDistance(value, 0)) {
                             key.getGameEncoder().sendMessage("The teleport attack has no effect!");
                         } else {
@@ -576,7 +576,7 @@ cs = new NCombatScript() {
         var types = [];
         var projectile = cs.getSpeed(12);
         for each (var player in players) {
-            var index = Utils.arrayRandom(World.MELEE, World.RANGED, World.MAGIC);
+            var index = PRandom.arrayRandom(World.MELEE, World.RANGED, World.MAGIC);
             types.push(index);
             var message = "";
             if (index == World.MELEE) {
@@ -600,7 +600,7 @@ cs = new NCombatScript() {
                     projectile.clientSpeed, 16, 64);
             player.setGraphic(new Graphic(contactIds[index], 124, projectile.getContactDelay()));
         }
-        var event = new Event(projectile.eventDelay) {
+        var event = new PEvent(projectile.eventDelay) {
             execute: function() {
                 event.stop();
                 for (var i = 0; i < players.size(); i++) {
@@ -629,7 +629,7 @@ cs = new NCombatScript() {
         var poolTiles = [];
         for (var i = 0; i < 10; i++) {
             var tile = new Tile(3228, 5730);
-            tile.moveTile(Utils.randomI(9), Utils.randomI(18));
+            tile.moveTile(PRandom.randomI(9), PRandom.randomI(18));
             if (npc.getController().getMapObjectByType(10, tile.getX(), tile.getY(), tile.getHeight()) != null) {
                 continue;
             }
@@ -637,7 +637,7 @@ cs = new NCombatScript() {
             cs.sendMapProjectile(null, npc, tile, 1354, 43, 31, projectile.clientDelay, projectile.clientSpeed,
                     16, 64);
         }
-        var event = new Event(projectile.eventDelay) {
+        var event = new PEvent(projectile.eventDelay) {
             execute: function() {
                 if (event.getExecutions() == 0) {
                     event.setTick(0);
@@ -652,7 +652,7 @@ cs = new NCombatScript() {
                             if (player.isLocked() || !pool.withinDistance(player, 0)) {
                                 continue;
                             }
-                            var hitEvent = new HitEvent(0, player, new Hit(3 + Utils.randomI(3), HitMark.POISON));
+                            var hitEvent = new HitEvent(0, player, new Hit(3 + PRandom.randomI(3), HitMark.POISON));
                             player.addHit(hitEvent);
                             player.setInCombatDelay(Entity.COMBAT_DELAY);
                         }
@@ -690,9 +690,9 @@ cs = new NCombatScript() {
         }
         var pools = [];
         var times = [];
-        var event = new Event(projectile.eventDelay) {
+        var event = new PEvent(projectile.eventDelay) {
             execute: function() {
-                event.setTick(Event.MILLIS_600);
+                event.setTick(PEvent.MILLIS_600);
                 var addedPool = null;
                 var addedPool2 = null;
                 if (event.getExecutions() < 18 && selectedPlayer.isVisible() && !selectedPlayer.isLocked()
@@ -724,7 +724,7 @@ cs = new NCombatScript() {
                                 || !pool.withinDistance(player, 0)) {
                             continue;
                         }
-                        var hitEvent = new HitEvent(0, player, new Hit(3 + Utils.randomI(3), HitMark.POISON));
+                        var hitEvent = new HitEvent(0, player, new Hit(3 + PRandom.randomI(3), HitMark.POISON));
                         player.addHit(hitEvent);
                         player.setInCombatDelay(Entity.COMBAT_DELAY);
                     }
@@ -744,21 +744,21 @@ cs = new NCombatScript() {
 
     fallingCrystals: function() {
         var js = this;
-        var event = new Event(Event.MILLIS_1200) {
+        var event = new PEvent(PEvent.MILLIS_1200) {
             execute: function() {
                 if (olm[HEAD].isDead()) {
                     event.stop();
                     return;
                 }
-                var count = 1 + Utils.randomI(3);
+                var count = 1 + PRandom.randomI(3);
                 for (var i = 0; i < count; i++) {
                     var tile = new Tile(3228, 5730);
-                    tile.moveTile(Utils.randomI(9), Utils.randomI(18));
+                    tile.moveTile(PRandom.randomI(9), PRandom.randomI(18));
                     npc.getController().sendMapProjectile(null, (new Tile(tile)).moveY(1), tile, 1357, 255, 10,
                             0, 51 + 120, 0, 0);
                     npc.getController().sendMapGraphic(tile, 1358, 0, 51 + 100);
                     npc.getController().sendMapGraphic(tile, 1449, 0, 0);
-                    var the = new TileHitEvent(Event.MILLIS_3600, npc.getController(), tile, 20, HitType.TYPELESS);
+                    var the = new TileHitEvent(PEvent.MILLIS_3600, npc.getController(), tile, 20, HitType.TYPELESS);
                     the.setAdjacentHalfDamage(true);
                     npc.getWorld().addEvent(the);
                 }

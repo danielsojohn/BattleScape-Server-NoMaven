@@ -10,7 +10,7 @@ cs = new NCombatScript() {
     /* @Override */
     tick: function() {
         if (!npc.isLocked() && npc.getHitDelay() == 0 && npc.isAttacking()
-                && npc.getEngagingEntity() instanceof Player && Utils.randomE(4) == 0
+                && npc.getEngagingEntity() instanceof Player && PRandom.randomE(4) == 0
                 && npc.withinDistance(npc.getEngagingEntity(), 10)) {
             npc.setAnimation(81);
             npc.setHitDelay(4);
@@ -29,7 +29,7 @@ cs = new NCombatScript() {
 
     /* @Override */
     applyAttackStartHook: function(combatStyle, entity, count) {
-        boltEffect = combatStyle.getType() == HitType.RANGED && Utils.randomE(10) == 0;
+        boltEffect = combatStyle.getType() == HitType.RANGED && PRandom.randomE(10) == 0;
     },
 
     /* @Override */

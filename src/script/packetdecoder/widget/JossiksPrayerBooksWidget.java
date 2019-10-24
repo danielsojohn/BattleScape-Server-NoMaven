@@ -5,7 +5,7 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.item.ItemDef;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
 
 public class JossiksPrayerBooksWidget implements Widget {
     @Override
@@ -50,7 +50,7 @@ public class JossiksPrayerBooksWidget implements Widget {
         }
         if (player.getInventory().getCount(ItemId.COINS) < price) {
             player.getGameEncoder().sendMessage(
-                    ItemDef.getName(bookId) + ": currently costs " + Utils.formatNumber(price) + " coins.");
+                    ItemDef.getName(bookId) + ": currently costs " + PNumber.formatNumber(price) + " coins.");
             return;
         } else if (!player.getInventory().canAddItem(bookId, 1)) {
             player.getInventory().notEnoughSpace();

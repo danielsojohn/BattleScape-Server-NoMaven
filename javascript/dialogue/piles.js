@@ -10,7 +10,7 @@ lines.add("Cancel");
 actions.add("close");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
@@ -26,7 +26,7 @@ instance = new DialogueScript() {
                 }
                 var cost = amount * 50;
                 if (player.getInventory().getCount(ItemId.COINS) < cost) {
-                    player.getGameEncoder().sendMessage("You need " + Utils.formatNumber(cost) + " coins to do this.");
+                    player.getGameEncoder().sendMessage("You need " + PNumber.formatNumber(cost) + " coins to do this.");
                     return;
                 }
                 player.getInventory().deleteItem(itemId, amount);

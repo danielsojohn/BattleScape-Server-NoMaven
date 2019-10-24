@@ -5,7 +5,7 @@ import com.palidino.osrs.io.Widget;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 
 public class WelcomeWidget implements Widget {
     @Override
@@ -22,7 +22,7 @@ public class WelcomeWidget implements Widget {
             player.getWidgetManager().sendGameViewport();
             if (player.isNewAccount()) {
                 player.getWidgetManager().sendInteractiveOverlay(WidgetId.CHARACTER_DESIGN);
-            } else if (!player.isPremiumMember() && Utils.randomE(5) == 0 && !Main.isSpawn()) {
+            } else if (!player.isPremiumMember() && PRandom.randomE(5) == 0 && !Main.isSpawn()) {
                 DialogueOld.openChatboxMessage(player,
                         "<col=ff0000>Bonds</col> can be purchased and used on: trading, membership, mystery boxes, blood money, and other items!");
             }

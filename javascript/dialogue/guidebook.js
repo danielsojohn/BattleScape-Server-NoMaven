@@ -34,7 +34,7 @@ lines.add("Monster Rare Loot Rates");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
@@ -53,7 +53,7 @@ instance = new DialogueScript() {
                 lines.add("You can set your combat levels by selecting them on the skills");
                 lines.add("interface. Please note this is't possible if your game mode is");
                 lines.add("hard or ironman.");
-                Scroll.open(player, "Combat Levels", Utils.toStringArray(lines));
+                Scroll.open(player, "Combat Levels", PString.toStringArray(lines));
             } else if (slot == 3) {
                 var lines = new ArrayList();
                 lines.add("Shops can be located inside the Edgeville General Store.");
@@ -67,7 +67,7 @@ instance = new DialogueScript() {
                 lines.add("Mac: Capes of Accomplishment");
                 lines.add("Skilling Seller: Skills");
                 lines.add("Cap'n Izzy No-Beard: Agility");
-                Scroll.open(player, "Shops", Utils.toStringArray(lines));
+                Scroll.open(player, "Shops", PString.toStringArray(lines));
             } else if (slot == 4) {
                 var lines = new ArrayList();
                 lines.add("The Home teleport spell on your magic spellbook will teleport");
@@ -78,7 +78,7 @@ instance = new DialogueScript() {
                 lines.add("locations, with a few exceptions such as the King Black Dragon.");
                 lines.add("");
                 lines.add("You can also purchase teleport tabs in the General Store.");
-                Scroll.open(player, "Teleporting", Utils.toStringArray(lines));
+                Scroll.open(player, "Teleporting", PString.toStringArray(lines));
             } else if (slot == 5) {
                 var lines = new ArrayList();
                 lines.add("");
@@ -102,7 +102,7 @@ instance = new DialogueScript() {
                 lines.add("Perdu, located in the Edgeville bank, can repair broken");
                 lines.add("untradable items and can also toggle automatic repairing of");
                 lines.add("broken untradable items.");
-                Scroll.open(player, "Untradeable Items", Utils.toStringArray(lines));
+                Scroll.open(player, "Untradeable Items", PString.toStringArray(lines));
             } else if (slot == 6) {
                 var lines = new ArrayList();
                 lines.add("You can vote for " + Main.getName() + " which will reward you with Vote");
@@ -121,7 +121,7 @@ instance = new DialogueScript() {
                 lines.add("inside the main quest tab.");
                 lines.add("");
                 lines.add("Alternatively, please visit: " + Main.getSettings().getVoteUrl());
-                Scroll.open(player, "Voting", Utils.toStringArray(lines));
+                Scroll.open(player, "Voting", PString.toStringArray(lines));
             } else if (slot == 8) {
                 var lines = new ArrayList();
                 lines.add("Bonuses are added together before being multiplied.");
@@ -170,7 +170,7 @@ instance = new DialogueScript() {
                 lines.add("<col=004080>Accuracy:</col> 12.5%");
                 lines.add("<col=004080>Strength:</col> 2.5%");
                 lines.add("<col=004080>Defence:</col> 2.5%");
-                Scroll.open(player, "Maximizing Boosts", Utils.toStringArray(lines));
+                Scroll.open(player, "Maximizing Boosts", PString.toStringArray(lines));
             } else if (slot == 10) {
                 var lines = new ArrayList();
                 lines.add("PvM and Slayer is one of the best money makers in game. Killing");
@@ -194,7 +194,7 @@ instance = new DialogueScript() {
                 lines.add("task, and can also be charged with Slayer points which will note");
                 lines.add("bones monsters drop. It can be combined with an eternal gem to give");
                 lines.add("unlimited teleports.");
-                Scroll.open(player, "PvM/Slayer", Utils.toStringArray(lines));
+                Scroll.open(player, "PvM/Slayer", PString.toStringArray(lines));
             } else if (slot == 12) {
                 player.getCombat().openNPCRareLootList();
             }

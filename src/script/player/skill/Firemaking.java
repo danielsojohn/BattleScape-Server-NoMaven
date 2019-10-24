@@ -18,8 +18,9 @@ import com.palidino.osrs.model.player.WidgetManager;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.model.player.skill.SkillEntry;
 import com.palidino.osrs.model.player.skill.SkillPet;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.random.PRandom;
+import com.palidino.util.PCollection;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 public class Firemaking extends SkillContainer {
@@ -40,9 +41,9 @@ public class Firemaking extends SkillContainer {
     }
 
     @Override
-    public void actionSuccess(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void actionSuccess(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (isLog(entry.getConsume().getId())) {
-            if (Utils.randomE(160 - entry.getLevel()) == 0) {
+            if (PRandom.randomE(160 - entry.getLevel()) == 0) {
                 player.getInventory().addOrDropItem(ItemId.SUPPLY_CRATE);
             }
             if (entry.getAnimation() == START_FIRE_ANIMATION && mapObject != null) {
@@ -57,7 +58,7 @@ public class Firemaking extends SkillContainer {
                 player.lock();
                 var logMapItem = MapItem.getForPacket(entry.getConsume(), player);
                 player.getGameEncoder().sendMapItem(logMapItem);
-                var tempMapObjectEvent = new Event(2) {
+                var tempMapObjectEvent = new PEvent(2) {
                     @Override
                     public void execute() {
                         var fire = new MapObject(FIRE_MAP_OBJECT, player, 10, 0);
@@ -83,7 +84,7 @@ public class Firemaking extends SkillContainer {
     }
 
     @Override
-    public boolean canDoActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean canDoActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (mapObject == null && isLog(entry.getConsume().getId())) {
             if (player.getHeight() != player.getClientHeight() || player.getController().hasSolidMapObject(player)) {
                 player.getGameEncoder().sendMessage("You can't do this here.");
@@ -103,7 +104,7 @@ public class Firemaking extends SkillContainer {
             return false;
         }
         openMakeX(player, mapObject, WidgetManager.MakeX.FIRE, player.getInventory().getCount(itemId),
-                Utils.toList(findEntryFromConsume(itemId)));
+                PCollection.toList(findEntryFromConsume(itemId)));
         return true;
     }
 

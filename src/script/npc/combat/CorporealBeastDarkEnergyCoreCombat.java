@@ -21,7 +21,7 @@ import com.palidino.osrs.model.npc.combat.NpcCombatFocus;
 import com.palidino.osrs.model.npc.combat.NpcCombatHitpoints;
 import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class CorporealBeastDarkEnergyCoreCombat extends NpcCombat {
@@ -92,7 +92,7 @@ public class CorporealBeastDarkEnergyCoreCombat extends NpcCombat {
                 continue;
             }
             playerInRange = true;
-            var damage = 6 + Utils.randomI(4);
+            var damage = 6 + PRandom.randomI(4);
             var hitEvent = new HitEvent(0, player, npc, new Hit(damage));
             player.addHit(hitEvent);
             if (corporealBeast != null && corporealBeast.isVisible() && !corporealBeast.isDead()) {

@@ -28,7 +28,7 @@ cs = new NCombatScript() {
             changeDelay--;
             if (changeDelay == 0) {
                 this.setChangeDelay();
-                npc.setTransformationId(Utils.arrayRandom(NpcId.CURSED_JEWELLED_CRAB_BLUE_180_16004,
+                npc.setTransformationId(PRandom.arrayRandom(NpcId.CURSED_JEWELLED_CRAB_BLUE_180_16004,
                         NpcId.CURSED_JEWELLED_CRAB_GREEN_180_16003, NpcId.CURSED_JEWELLED_CRAB_RED_180_16002));
             }
         }
@@ -66,6 +66,6 @@ cs = new NCombatScript() {
     },
 
     setChangeDelay: function() {
-        changeDelay = 25 + Utils.randomI(4);
+        changeDelay = 25 + PRandom.randomI(4);
     }
 };

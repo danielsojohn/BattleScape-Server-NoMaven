@@ -1,8 +1,8 @@
 package script.world.pvptournament.state;
 
 import com.palidino.osrs.Main;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 import script.player.plugin.clanwars.ClanWarsPlugin;
 import script.world.pvptournament.Mode;
@@ -17,10 +17,10 @@ public class LobbyState implements State {
         this.tournament = tournament;
         var selectedMode = tournament.getMode();
         if (selectedMode == null) {
-            tournament.setPrize(new DefaultPrize(Time.getHour24() == 16));
+            tournament.setPrize(new DefaultPrize(PTime.getHour24() == 16));
             var attempts = 0;
             while (attempts++ < 16 && (selectedMode == null || tournament.getRecentModes().contains(selectedMode))) {
-                selectedMode = Utils.listRandom(Mode.MODES);
+                selectedMode = PRandom.listRandom(Mode.MODES);
             }
             tournament.setMode(selectedMode);
             if (!tournament.getRecentModes().contains(selectedMode)) {
@@ -36,11 +36,11 @@ public class LobbyState implements State {
     @Override
     public String getMessage() {
         var timeRemaining = "";
-        var minutes = (int) Time.tickToMin(countdown);
+        var minutes = (int) PTime.tickToMin(countdown);
         if (minutes > 0) {
             timeRemaining = minutes + (minutes == 1 ? " minute" : " minutes");
         } else {
-            timeRemaining = Time.tickToSec(countdown) + " seconds";
+            timeRemaining = PTime.tickToSec(countdown) + " seconds";
         }
         return "Lobby: " + timeRemaining;
     }
@@ -54,7 +54,7 @@ public class LobbyState implements State {
     public void execute() {
         var isCustom = !(tournament.getPrize() instanceof DefaultPrize);
         if (countdown-- == PvpTournament.LOBBY_JOIN_TIME) {
-            var minutes = (int) Time.tickToMin(countdown + 1);
+            var minutes = (int) PTime.tickToMin(countdown + 1);
             var minutesAsString = Integer.toString(minutes) + " minutes.";
             if (minutes <= 1) {
                 minutesAsString = Integer.toString(minutes) + " minute.";

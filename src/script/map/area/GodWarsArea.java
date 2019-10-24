@@ -8,7 +8,7 @@ import com.palidino.osrs.model.map.Area;
 import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.player.Prayer;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.util.Time;
+import com.palidino.util.PTime;
 import lombok.var;
 
 public class GodWarsArea extends Area {
@@ -144,7 +144,7 @@ public class GodWarsArea extends Area {
             if (index == 0) {
                 if (altarDelay > 0) {
                     var message = "The gods blessed you recently. They will ignore your prayers for another ";
-                    var seconds = Time.tickToSec(altarDelay);
+                    var seconds = PTime.tickToSec(altarDelay);
                     if (seconds > 60) {
                         message += seconds / 60 + " minutes.";
                     } else {
@@ -156,7 +156,7 @@ public class GodWarsArea extends Area {
                 player.getPrayer().adjustPoints(player.getController().getLevelForXP(Skills.PRAYER));
                 player.setAnimation(Prayer.PRAY_ANIMATION);
                 player.getGameEncoder().sendMessage("You recharge your Prayer.");
-                altarDelay = (int) Time.minToTick(10);
+                altarDelay = (int) PTime.minToTick(10);
             } else if (index == 1) {
                 switch (mapObject.getId()) {
                 case 26363: // Zamorak altar

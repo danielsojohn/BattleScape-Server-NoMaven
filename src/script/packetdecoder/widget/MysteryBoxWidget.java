@@ -10,7 +10,7 @@ import com.palidino.osrs.model.item.ItemDef;
 import com.palidino.osrs.model.item.MysteryBox;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.util.RequestManager;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 public class MysteryBoxWidget implements Widget {
@@ -44,7 +44,7 @@ public class MysteryBoxWidget implements Widget {
             player.getGameEncoder().sendItems(WidgetId.CUSTOM_MYSTERY_BOX, 41, 0, mysteryBoxItems);
             player.getGameEncoder().sendHideWidget(WidgetId.CUSTOM_MYSTERY_BOX, 59, true);
             int totalRolls = MysteryBox.getRolls(boxId);
-            var event = new Event(0) {
+            var event = new PEvent(0) {
                 private int rollsComplete = 0;
 
                 @Override

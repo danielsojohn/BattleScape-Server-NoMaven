@@ -17,7 +17,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class TreusDaythCombat extends NpcCombat {
@@ -72,9 +72,9 @@ public class TreusDaythCombat extends NpcCombat {
         hasMoved = true;
         npc.getCombat().clear();
         npc.getMovement().clear();
-        npc.getMovement().addMovement(MOVE_PATHS[Utils.randomE(MOVE_PATHS.length)]);
+        npc.getMovement().addMovement(MOVE_PATHS[PRandom.randomE(MOVE_PATHS.length)]);
         npc.setLock(npc.getMovement().getMoveListSize());
-        moveDelay = npc.getLock() + Utils.randomI(16);
+        moveDelay = npc.getLock() + PRandom.randomI(16);
     }
 
     @Override

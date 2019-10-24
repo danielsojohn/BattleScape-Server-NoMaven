@@ -27,8 +27,9 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PCollection;
+import com.palidino.util.PEvent;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class MaidenOfSugadintiCombat extends NpcCombat {
@@ -41,7 +42,7 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
     private Npc npc;
     private boolean loaded;
     private boolean initialAttackDelay;
-    private List<Event> bloodSpots = new ArrayList<>();
+    private List<PEvent> bloodSpots = new ArrayList<>();
     private int phase;
     private List<Npc> spiders = new ArrayList<>();
     private List<Npc> spawns = new ArrayList<>();
@@ -137,7 +138,7 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
             if (mapObject == null) {
                 continue;
             }
-            var damage = 10 + Utils.randomI(5);
+            var damage = 10 + PRandom.randomI(5);
             player.addHit(new HitEvent(0, player, new Hit(damage)));
             npc.applyHit(new Hit(damage, HitMark.HEAL));
         }
@@ -166,7 +167,7 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
                 return;
             }
         }
-        var event = new Event(projectile.getEventDelay()) {
+        var event = new PEvent(projectile.getEventDelay()) {
             @Override
             public void execute() {
                 if (getExecutions() == 0) {
@@ -174,7 +175,7 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
                 } else if (!npc.isVisible() || getExecutions() == 10) {
                     stop();
                     bloodSpots.remove(this);
-                    if (Utils.randomE(4) == 0) {
+                    if (PRandom.randomE(4) == 0) {
                         var npc2 = new Npc(npc.getController(), NpcId.BLOOD_SPAWN_55, (Tile) getAttachment());
                         npc2.getController().setMultiCombatFlag(true);
                         npc2.setMoveDistance(32);
@@ -185,7 +186,7 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
                         if (!player.matchesTile((Tile) getAttachment())) {
                             continue;
                         }
-                        var damage = 10 + Utils.randomI(5);
+                        var damage = 10 + PRandom.randomI(5);
                         player.addHit(new HitEvent(0, player, new Hit(damage)));
                         npc.applyHit(new Hit(damage, HitMark.HEAL));
                     }
@@ -226,18 +227,18 @@ public class MaidenOfSugadintiCombat extends NpcCombat {
                 continue;
             }
             player.getGameEncoder().setVarp(1575, npc.getHitpoints() + (npc.getMaxHitpoints() * 2048));
-            var hitpointsPercent = (int) Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints());
+            var hitpointsPercent = (int) PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints());
             player.getGameEncoder().sendWidgetText(596, 4, "Health: " + hitpointsPercent + "%");
         }
     }
 
     private void spawnNylocasMatomenos() {
-        var spiderTiles = Utils.toList(new Tile(3173, 4436), new Tile(3177, 4436), new Tile(3181, 4436),
+        var spiderTiles = PCollection.toList(new Tile(3173, 4436), new Tile(3177, 4436), new Tile(3181, 4436),
                 new Tile(3185, 4436), new Tile(3185, 4438), new Tile(3173, 4456), new Tile(3177, 4456),
                 new Tile(3181, 4456), new Tile(3185, 4456), new Tile(3185, 4454));
         var playerCount = npc.getController().getPlayers().size();
         for (var i = 0; i < playerCount * 2; i++) {
-            var tile = spiderTiles.remove(Utils.randomE(spiderTiles.size()));
+            var tile = spiderTiles.remove(PRandom.randomE(spiderTiles.size()));
             var npc2 = new Npc(npc.getController(), NpcId.NYLOCAS_MATOMENOS_115, tile);
             npc2.getController().setMultiCombatFlag(true);
             npc2.getMovement().setFollowing(npc);

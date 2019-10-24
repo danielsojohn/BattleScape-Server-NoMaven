@@ -29,7 +29,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class HydraCombat extends NpcCombat {
@@ -190,7 +190,7 @@ public class HydraCombat extends NpcCombat {
 
     @Override
     public void restoreHook() {
-        hitType = Utils.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
+        hitType = PRandom.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
         hitCount = 0;
         poisonDelay = 8;
     }
@@ -207,13 +207,13 @@ public class HydraCombat extends NpcCombat {
 
     @Override
     public int attackTickAnimationHook(NpcCombatStyle combatStyle, Entity popponent) {
-        return ANIMATIONS[Utils.randomE(ANIMATIONS.length)];
+        return ANIMATIONS[PRandom.randomE(ANIMATIONS.length)];
     }
 
     @Override
     public Graphic applyAttackTargetTileGraphicHook(NpcCombatStyle combatStyle, Entity opponent) {
         if (combatStyle.getTargetTileGraphic() != null && combatStyle.getTargetTileGraphic().getId() == 1654) {
-            return TILE_GRAPHICS[Utils.randomE(TILE_GRAPHICS.length)];
+            return TILE_GRAPHICS[PRandom.randomE(TILE_GRAPHICS.length)];
         }
         return combatStyle.getTargetTileGraphic();
     }

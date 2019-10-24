@@ -13,7 +13,7 @@ import com.palidino.osrs.model.player.Messaging;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.PlayerPlugin;
 import com.palidino.osrs.model.player.controller.ClanWarsPC;
-import com.palidino.util.Time;
+import com.palidino.util.PTime;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.var;
@@ -131,7 +131,7 @@ public class ClanWarsPlugin extends PlayerPlugin {
             if (tournamentFightDelay == 0) {
                 player.setForceMessage("FIGHT!");
             } else if (tournamentFightDelay % 2 == 0) {
-                player.setForceMessage(Time.tickToSec(tournamentFightDelay) + "");
+                player.setForceMessage(PTime.tickToSec(tournamentFightDelay) + "");
             }
         }
     }

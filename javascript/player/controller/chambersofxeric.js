@@ -73,7 +73,7 @@ ROOM_SKELETAL_MYSTICS.npcRefs = [
 ];
 ROOM_SKELETAL_MYSTICS.npcRefs4Players = [ new NPCReference(7604, new Tile(3313, 5266, 1), 4) ];
 
-var NORMAL_ROOMS = Utils.toList(ROOM_LIZARDMAN_SHAMANS, ROOM_SKELETAL_MYSTICS);
+var NORMAL_ROOMS = PCollection.toList(ROOM_LIZARDMAN_SHAMANS, ROOM_SKELETAL_MYSTICS);
 Collections.shuffle(NORMAL_ROOMS);
 
 var ROOM_VASA_NISTIRIO = new Room(new Tile(3311, 5279), new Tile(3311, 5307));
@@ -115,7 +115,7 @@ var ROOM_VERZIK_VITUR = new Room(new Tile(3168, 4298), null);
 ROOM_VERZIK_VITUR.name = "Virzuk Vitur";
 ROOM_VERZIK_VITUR.npcRefs = [ new NPCReference(NpcId.VERZIK_VITUR_1040_8370, new Tile(3166, 4323)) ];
 
-var BOSS_ROOMS = Utils.toList(ROOM_VASA_NISTIRIO, ROOM_TEKTON, ROOM_VANGUARDS, ROOM_MUTTADILE);
+var BOSS_ROOMS = PCollection.toList(ROOM_VASA_NISTIRIO, ROOM_TEKTON, ROOM_VANGUARDS, ROOM_MUTTADILE);
 Collections.shuffle(BOSS_ROOMS);
 
 var UNIQUE_REWARDS = [
@@ -223,7 +223,7 @@ DRINKS.add(new Skills.Drink(20960, 20959, 20958, 20957, Java.to(REVIT_PLUS, "int
 var OVERLOAD_MINUS = new Skills.Drink(20988, 20987, 20986, 20985, null);
 OVERLOAD_MINUS.action = new Skills.ItemAction() {
     execute: function(player) {
-        var event = new Event(0) {
+        var event = new PEvent(0) {
             execute: function() {
                 if (!player.isVisible() || player.isDead()) {
                     event.stop();
@@ -260,7 +260,7 @@ DRINKS.add(OVERLOAD_MINUS);
 var OVERLOAD = new Skills.Drink(20992, 20991, 20990, 20989, null);
 OVERLOAD.action = new Skills.ItemAction() {
     execute: function(player) {
-        var event = new Event(0) {
+        var event = new PEvent(0) {
             execute: function() {
                 if (!player.isVisible() || player.isDead()) {
                     event.stop();
@@ -297,7 +297,7 @@ DRINKS.add(OVERLOAD);
 var OVERLOAD_PLUS = new Skills.Drink(20996, 20995, 20994, 20993, null);
 OVERLOAD_PLUS.action = new Skills.ItemAction() {
     execute: function(player) {
-        var event = new Event(0) {
+        var event = new PEvent(0) {
             execute: function() {
                 if (!player.isVisible() || player.isDead()) {
                     event.stop();
@@ -334,7 +334,7 @@ DRINKS.add(OVERLOAD_PLUS);
 var PRAYER_ENHANCE_MINUS = new Skills.Drink(20964, 20963, 20962, 20961, null);
 PRAYER_ENHANCE_MINUS.action = new Skills.ItemAction() {
     execute: function(player) {
-        var event = new Event(0) {
+        var event = new PEvent(0) {
             execute: function() {
                 if (!player.isVisible() || player.isDead()) {
                     event.stop();
@@ -360,7 +360,7 @@ DRINKS.add(PRAYER_ENHANCE_MINUS);
 var PRAYER_ENHANCE = new Skills.Drink(20968, 20967, 20966, 20965, null);
 PRAYER_ENHANCE.action = new Skills.ItemAction() {
     execute: function(player) {
-        var event = new Event(0) {
+        var event = new PEvent(0) {
             execute: function() {
                 if (!player.isVisible() || player.isDead()) {
                     event.stop();
@@ -386,7 +386,7 @@ DRINKS.add(PRAYER_ENHANCE);
 var PRAYER_ENHANCE_PLUS = new Skills.Drink(20972, 20971, 20970, 20969, null);
 PRAYER_ENHANCE_PLUS.action = new Skills.ItemAction() {
     execute: function(player) {
-        var event = new Event(0) {
+        var event = new PEvent(0) {
             execute: function() {
                 if (!player.isVisible() || player.isDead()) {
                     event.stop();
@@ -570,7 +570,7 @@ pc = new PController() {
                 rooms.add(BOSS_ROOMS.get(0));
                 rooms.add(BOSS_ROOMS.get(1));
             }
-            var resourceOrder = Utils.randomI(1) == 0;
+            var resourceOrder = PRandom.randomI(1) == 0;
             if (!name.equals("load_tob")) {
                 rooms.add(2, resourceOrder ? RESOURCE_ROOM_1 : RESOURCE_ROOM_2);
                 rooms.add(resourceOrder ? RESOURCE_ROOM_2 : RESOURCE_ROOM_1);
@@ -867,7 +867,7 @@ pc = new PController() {
             sharedStorage.sendItems();
             return true;
         case 29889: // Bubbles
-            var event = new Event(1) {
+            var event = new PEvent(1) {
                 execute: function() {
                     if (!player.isVisible()) {
                         event.stop();
@@ -911,7 +911,7 @@ pc = new PController() {
             player.setAction(event);
             return true;
         case 29773: // Weeds
-            var event = new Event(1) {
+            var event = new PEvent(1) {
                 execute: function() {
                     if (!player.isVisible()) {
                         event.stop();
@@ -930,13 +930,13 @@ pc = new PController() {
                         event.setTick(5);
                         return;
                     }
-                    var seed = Utils.randomE(3);
+                    var seed = PRandom.randomE(3);
                     if (seed == 0) {
-                        player.getInventory().addItem(20903, 1 + Utils.randomI(2));
+                        player.getInventory().addItem(20903, 1 + PRandom.randomI(2));
                     } else if (seed == 1) {
-                        player.getInventory().addItem(20906, 1 + Utils.randomI(2));
+                        player.getInventory().addItem(20906, 1 + PRandom.randomI(2));
                     } else if (seed == 2) {
-                        player.getInventory().addItem(20909, 1 + Utils.randomI(2));
+                        player.getInventory().addItem(20909, 1 + PRandom.randomI(2));
                     }
                 }
             };
@@ -1066,7 +1066,7 @@ pc = new PController() {
         switch (mapObject.getId()) {
         case 29878: // Geyser
             if (itemId == 20800) { // Empty gourd vial
-                var event = new Event(0) {
+                var event = new PEvent(0) {
                     execute: function() {
                         if (!player.isVisible() || !player.getInventory().hasItem(itemId)) {
                             event.stop();
@@ -1087,7 +1087,7 @@ pc = new PController() {
                     return;
                 }
                 player.getInventory().deleteItem(itemId, 1);
-                var event = new Event(0) {
+                var event = new PEvent(0) {
                     execute: function() {
                         if (!player.isVisible()) {
                             event.stop();
@@ -1095,7 +1095,7 @@ pc = new PController() {
                         }
                         player.setAnimation(2291);
                         player.getInventory().addOrDropItem(itemId - 2, 1);
-                        if (Utils.randomE(6) == 0) {
+                        if (PRandom.randomE(6) == 0) {
                             event.stop();
                         }
                     }
@@ -1124,7 +1124,7 @@ pc = new PController() {
         var playerEntries = new ArrayList();
         for each (var player2 in players) {
             player2.getGameEncoder().sendMessage("<col=ef20ff>Congratulations - your raid is complete! Duration:</col> "
-                    + "<col=ff0000>" + Time.ticksToDuration(time) + "</col>", Messaging.CHAT_TYPE_CLAN_CHAT_INFO);
+                    + "<col=ff0000>" + PTime.ticksToDuration(time) + "</col>", Messaging.CHAT_TYPE_CLAN_CHAT_INFO);
             for (var i = player2.getController().getVariable("points"); i >= 0; i -= 8675) {
                 playerEntries.add(player2);
             }
@@ -1135,11 +1135,11 @@ pc = new PController() {
         var totalUniques = 0;
         var playersRewarded = [];
         for (var i = totalPoints; i > 0 && totalUniques < 3; i -= 570000) {
-            var selectedPlayer = Utils.listRandom(playerEntries);
+            var selectedPlayer = PRandom.listRandom(playerEntries);
             var percent = selectedPlayer.getCombat().getForcedDropRate(-1, Math.min(i / 4338, 65),
                     NpcDef.getNpcDef(7554));
             selectedPlayer.getCharges().depleteRoWICharge(0);
-            if (Utils.inRange(percent)) {
+            if (PRandom.inRange(percent)) {
                 playersRewarded.push(selectedPlayer.getId());
                 playerEntries.remove(selectedPlayer);
                 totalUniques++;
@@ -1159,7 +1159,7 @@ pc = new PController() {
                 RequestManager.addPlayerLog(selectedPlayer, "raids",selectedPlayer.getLogName() + " received "
                         + item.getLogName() + " from the Chambers of Xeric.");
                 var petItem = new Item(20851, 1);
-                if (Utils.inRange(selectedPlayer.getCombat().getDropRate(petItem.getId(), 0.5))) {
+                if (PRandom.inRange(selectedPlayer.getCombat().getDropRate(petItem.getId(), 0.5))) {
                     selectedPlayer.getInventory().addOrDropItem(petItem);
                     selectedPlayer.getCombat().logNPCItem("Chambers of Xeric", petItem.getId(), petItem.getAmount());
                     player.getWorld().sendItemDropNews(selectedPlayer, petItem.getId(), "the Chambers of Xeric");

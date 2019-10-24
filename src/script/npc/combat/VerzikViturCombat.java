@@ -21,7 +21,7 @@ import com.palidino.osrs.model.npc.combat.NpcCombatImmunity;
 import com.palidino.osrs.model.npc.combat.NpcCombatSpawn;
 import com.palidino.osrs.model.npc.combat.NpcCombatStats;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.var;
@@ -184,7 +184,7 @@ public class VerzikViturCombat extends NpcCombat {
             var projectile = Graphic.Projectile.builder().id(1580).startTile(npc).entity(entity)
                     .projectileSpeed(npc.getCombat().getSpeed(null, entity, HitType.MAGIC, 10)).build();
             npc.getCombat().sendMapProjectile(projectile);
-            entity.addHit(new HitEvent(projectile.getEventDelay(), entity, npc, new Hit(Utils.randomI(104))));
+            entity.addHit(new HitEvent(projectile.getEventDelay(), entity, npc, new Hit(PRandom.randomI(104))));
             if (entity instanceof Player) {
                 entity.setGraphic(new Graphic(1581, 0, projectile.getContactDelay()));
             } else {
@@ -205,7 +205,7 @@ public class VerzikViturCombat extends NpcCombat {
             }
             return;
         }
-        if (Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) < 35) {
+        if (PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) < 35) {
             if (redSpiderDelay-- <= 0) {
                 redSpiderDelay = 25;
                 var redSpider1 = new Npc(npc.getController(), NpcId.NYLOCAS_MATOMENOS_115_8385, new Tile(3163, 4314));

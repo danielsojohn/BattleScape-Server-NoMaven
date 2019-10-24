@@ -3,12 +3,13 @@ package script.world.pvptournament.prize;
 import java.util.ArrayList;
 import java.util.List;
 import com.palidino.osrs.model.item.Item;
-import com.palidino.util.Utils;
+import com.palidino.util.PCollection;
+import com.palidino.util.PNumber;
 import lombok.var;
 
 public class CustomPrize implements Prize {
-    private List<List<Item>> items =
-            Utils.toList(new ArrayList<Item>(), new ArrayList<Item>(), new ArrayList<Item>(), new ArrayList<Item>());
+    private List<List<Item>> items = PCollection.toList(new ArrayList<Item>(), new ArrayList<Item>(),
+            new ArrayList<Item>(), new ArrayList<Item>());
 
     @Override
     public List<Item> getItems(int position) {
@@ -26,7 +27,7 @@ public class CustomPrize implements Prize {
                 value += item.getDef().getConfiguredExchangePrice() * item.getAmount();
             }
         }
-        return value > 0 ? "Prizes include " + Utils.abbreviateNumber(value) + "." : null;
+        return value > 0 ? "Prizes include " + PNumber.abbreviateNumber(value) + "." : null;
     }
 
     @Override

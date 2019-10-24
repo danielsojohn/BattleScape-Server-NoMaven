@@ -11,7 +11,7 @@ import com.palidino.osrs.model.item.clue.ClueChestType;
 import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.PlayerPlugin;
-import com.palidino.util.Utils;
+import com.palidino.util.PCollection;
 import lombok.var;
 import script.player.plugin.cluechest.dialogue.TreasureChestDialogue;
 
@@ -29,28 +29,28 @@ public class ClueChestPlugin extends PlayerPlugin {
     @SuppressWarnings("rawtypes")
     public void loadLegacy(Map<String, Object> map) {
         if (map.containsKey("cluechest.beginnerClueChest")) {
-            beginnerClueChest =
-                    Utils.castMap((Map) map.get("cluechest.beginnerClueChest"), String.class, ClueChestSetEntry.class);
+            beginnerClueChest = PCollection.castMap((Map) map.get("cluechest.beginnerClueChest"), String.class,
+                    ClueChestSetEntry.class);
         }
         if (map.containsKey("cluechest.easyClueChest")) {
-            easyClueChest =
-                    Utils.castMap((Map) map.get("cluechest.easyClueChest"), String.class, ClueChestSetEntry.class);
+            easyClueChest = PCollection.castMap((Map) map.get("cluechest.easyClueChest"), String.class,
+                    ClueChestSetEntry.class);
         }
         if (map.containsKey("cluechest.mediumClueChest")) {
-            mediumClueChest =
-                    Utils.castMap((Map) map.get("cluechest.mediumClueChest"), String.class, ClueChestSetEntry.class);
+            mediumClueChest = PCollection.castMap((Map) map.get("cluechest.mediumClueChest"), String.class,
+                    ClueChestSetEntry.class);
         }
         if (map.containsKey("cluechest.hardClueChest")) {
-            hardClueChest =
-                    Utils.castMap((Map) map.get("cluechest.hardClueChest"), String.class, ClueChestSetEntry.class);
+            hardClueChest = PCollection.castMap((Map) map.get("cluechest.hardClueChest"), String.class,
+                    ClueChestSetEntry.class);
         }
         if (map.containsKey("cluechest.eliteClueChest")) {
-            eliteClueChest =
-                    Utils.castMap((Map) map.get("cluechest.eliteClueChest"), String.class, ClueChestSetEntry.class);
+            eliteClueChest = PCollection.castMap((Map) map.get("cluechest.eliteClueChest"), String.class,
+                    ClueChestSetEntry.class);
         }
         if (map.containsKey("cluechest.masterClueChest")) {
-            masterClueChest =
-                    Utils.castMap((Map) map.get("cluechest.masterClueChest"), String.class, ClueChestSetEntry.class);
+            masterClueChest = PCollection.castMap((Map) map.get("cluechest.masterClueChest"), String.class,
+                    ClueChestSetEntry.class);
         }
     }
 
@@ -126,8 +126,8 @@ public class ClueChestPlugin extends PlayerPlugin {
     }
 
     public boolean hasId(int id) {
-        var chests = Utils.toList(beginnerClueChest, easyClueChest, mediumClueChest, hardClueChest, eliteClueChest,
-                masterClueChest);
+        var chests = PCollection.toList(beginnerClueChest, easyClueChest, mediumClueChest, hardClueChest,
+                eliteClueChest, masterClueChest);
         for (var chest : chests) {
             if (chest == null) {
                 continue;

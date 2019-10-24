@@ -4,7 +4,7 @@ import com.palidino.osrs.Main;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.npc.NpcDef;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.setting.SqlUserRank;
+import com.palidino.rs.setting.SqlUserRank;
 import lombok.var;
 
 public class PnpcCommand implements Command {

@@ -7,6 +7,8 @@ import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.Tile;
+import com.palidino.osrs.model.dialogue.DialogueAction;
+import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.guide.Guide;
 import com.palidino.osrs.model.item.Item;
@@ -32,12 +34,11 @@ import com.palidino.osrs.model.player.combat.DropRateBoost;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.osrs.world.WildernessEvent;
 import com.palidino.osrs.world.World;
-import com.palidino.setting.SqlUserRank;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
+import com.palidino.rs.setting.SqlUserRank;
+import com.palidino.util.PNumber;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
 import lombok.var;
-import com.palidino.osrs.model.dialogue.DialogueAction;
-import com.palidino.osrs.model.dialogue.SelectionDialogue;
 
 // No longer JS woohoo! Need a better solution than a 2K line file and growing.
 // One item id per file would be horid
@@ -152,7 +153,7 @@ public class InventoryWidget implements Widget {
             int[] flowerIds = new int[] {
                 2980, 2981, 2982, 2983, 2984, 2985, 2986, 2987, 2988
             };
-            int flowerId = flowerIds[Utils.randomE(flowerIds.length)];
+            int flowerId = flowerIds[PRandom.randomE(flowerIds.length)];
             player.getInventory().deleteItem(itemId, 1, slot);
             var flower = new MapObject(flowerId, player, 10, MapObject.getRandomDirection());
             player.getWorld().addEvent(new TempMapObject(100, player.getController(), flower));
@@ -220,11 +221,11 @@ public class InventoryWidget implements Widget {
             break;
         case ItemId.COIN_POUCH:
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getInventory().addOrDropItem(ItemId.COINS, 100_000 + Utils.randomI(300_000));
+            player.getInventory().addOrDropItem(ItemId.COINS, 100_000 + PRandom.randomI(300_000));
             break;
         case ItemId.COIN_POUCH_22522:
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getInventory().addOrDropItem(ItemId.COINS, 25_000 + Utils.randomI(75_000));
+            player.getInventory().addOrDropItem(ItemId.COINS, 25_000 + PRandom.randomI(75_000));
             break;
         case ItemId._50_DROP_BOOST_SCROLL_1_HOUR_32314:
             if (player.getCombat().getDropRateBoost() != null) {
@@ -232,7 +233,7 @@ public class InventoryWidget implements Widget {
                 break;
             }
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) Time.hourToTick(1)));
+            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) PTime.hourToTick(1)));
             player.getGameEncoder().sendMessage("A drop rate boost of 50% has been added for 1 hour.");
             break;
         case ItemId._50_DROP_BOOST_SCROLL_4_HOURS_32315:
@@ -241,7 +242,7 @@ public class InventoryWidget implements Widget {
                 break;
             }
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) Time.hourToTick(4)));
+            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) PTime.hourToTick(4)));
             player.getGameEncoder().sendMessage("A drop rate boost of 50% has been added for 4 hours.");
             break;
         case ItemId._50_DROP_BOOST_SCROLL_8_HOURS_32316:
@@ -250,7 +251,7 @@ public class InventoryWidget implements Widget {
                 break;
             }
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) Time.hourToTick(8)));
+            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) PTime.hourToTick(8)));
             player.getGameEncoder().sendMessage("A drop rate boost of 50% has been added for 8 hours.");
             break;
         case ItemId._50_DROP_BOOST_SCROLL_16_HOURS_32317:
@@ -259,7 +260,7 @@ public class InventoryWidget implements Widget {
                 break;
             }
             player.getInventory().deleteItem(itemId, 1, slot);
-            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) Time.hourToTick(16)));
+            player.getCombat().setDropRateBoost(new DropRateBoost(1.5, (int) PTime.hourToTick(16)));
             player.getGameEncoder().sendMessage("A drop rate boost of 50% has been added for 16 hours.");
             break;
         case ItemId.VOID_KNIGHT_SET_32289:
@@ -453,7 +454,7 @@ public class InventoryWidget implements Widget {
                 ItemId.MORRIGANS_THROWING_AXE, ItemId.ZURIELS_STAFF
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            anItem = new Item(items[Utils.randomE(items.length)], 1);
+            anItem = new Item(items[PRandom.randomE(items.length)], 1);
             if (anItem.getId() == ItemId.MORRIGANS_JAVELIN || anItem.getId() == ItemId.MORRIGANS_THROWING_AXE) {
                 anItem.setAmount(100);
             }
@@ -608,19 +609,19 @@ public class InventoryWidget implements Widget {
                 new RandomItem(13574, 3, 19)
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            int supplyCount = 2 + Utils.randomI(2);
+            int supplyCount = 2 + PRandom.randomI(2);
             for (int i = 0; i < supplyCount; i++) {
-                if (Utils.inRange(player.getCombat().getDropRate(6739, 0.01))) {
+                if (PRandom.inRange(player.getCombat().getDropRate(6739, 0.01))) {
                     player.getInventory().addItem(6739, 1, slot);
-                } else if (Utils.inRange(player.getCombat().getDropRate(ItemId.PHOENIX, 0.02))) {
+                } else if (PRandom.inRange(player.getCombat().getDropRate(ItemId.PHOENIX, 0.02))) {
                     player.getInventory().addItem(ItemId.PHOENIX, 1, slot);
                     player.getWorld().sendItemDropNews(player, ItemId.PHOENIX, "a supply crate");
-                } else if (Utils.inRange(player.getCombat().getDropRate(20716, 0.1))) {
+                } else if (PRandom.inRange(player.getCombat().getDropRate(20716, 0.1))) {
                     player.getInventory().addItem(20716, 1, slot);
-                } else if (Utils.inRange(player.getCombat().getDropRate(20720, 0.66))) {
+                } else if (PRandom.inRange(player.getCombat().getDropRate(20720, 0.66))) {
                     player.getInventory().addItem(20720, 1, slot);
-                } else if (Utils.inRange(player.getCombat().getDropRate(20718, 2.2))) {
-                    player.getInventory().addItem(20718, 5 + Utils.randomE(26), slot);
+                } else if (PRandom.inRange(player.getCombat().getDropRate(20718, 2.2))) {
+                    player.getInventory().addItem(20718, 5 + PRandom.randomE(26), slot);
                 } else {
                     player.getInventory().addItem(RandomItem.getItem(randomItems), slot);
                 }
@@ -628,17 +629,17 @@ public class InventoryWidget implements Widget {
             break;
         case 20791: // Extra supply crate
             player.getInventory().deleteItem(itemId, 1, slot);
-            if (Utils.inRange(player.getCombat().getDropRate(6739, 0.01))) {
+            if (PRandom.inRange(player.getCombat().getDropRate(6739, 0.01))) {
                 player.getInventory().addItem(6739, 1, slot);
-            } else if (Utils.inRange(player.getCombat().getDropRate(ItemId.PHOENIX, 0.02))) {
+            } else if (PRandom.inRange(player.getCombat().getDropRate(ItemId.PHOENIX, 0.02))) {
                 player.getInventory().addItem(ItemId.PHOENIX, 1, slot);
                 player.getWorld().sendItemDropNews(player, ItemId.PHOENIX, "an extra supply crate");
-            } else if (Utils.inRange(player.getCombat().getDropRate(20716, 0.1))) {
+            } else if (PRandom.inRange(player.getCombat().getDropRate(20716, 0.1))) {
                 player.getInventory().addItem(20716, 1, slot);
-            } else if (Utils.inRange(player.getCombat().getDropRate(20720, 0.66))) {
+            } else if (PRandom.inRange(player.getCombat().getDropRate(20720, 0.66))) {
                 player.getInventory().addItem(20720, 1, slot);
-            } else if (Utils.inRange(player.getCombat().getDropRate(20718, 2.2))) {
-                player.getInventory().addItem(20718, 5 + Utils.randomE(26), slot);
+            } else if (PRandom.inRange(player.getCombat().getDropRate(20718, 2.2))) {
+                player.getInventory().addItem(20718, 5 + PRandom.randomE(26), slot);
             } else {
                 randomItems = new RandomItem[] {
                     new RandomItem(1522, 13, 148), new RandomItem(1520, 13, 20), new RandomItem(1518, 10, 16),
@@ -738,7 +739,7 @@ public class InventoryWidget implements Widget {
             } else if (index == 2) {
                 int pureEssenceCount = player.getWidgetManager().getRCPouch(itemId).getCount(7936);
                 player.getGameEncoder().sendMessage("Your " + player.getWidgetManager().getRCPouch(itemId).getName()
-                        + " contains " + Utils.formatNumber(pureEssenceCount) + " pure essence.");
+                        + " contains " + PNumber.formatNumber(pureEssenceCount) + " pure essence.");
             }
             break;
         case ItemId.PURPLE_SWEETS_4561:
@@ -759,7 +760,7 @@ public class InventoryWidget implements Widget {
                 new RandomItem(19835, 1).weight(1) /* Clue scroll (master) */
             };
             player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
-            if (Utils.randomE(4) == 0) {
+            if (PRandom.randomE(4) == 0) {
                 player.getInventory().addOrDropItem(RandomItem.getItem(randomItems));
             }
             break;
@@ -1126,8 +1127,8 @@ public class InventoryWidget implements Widget {
             int smithingXP = (int) (12.5 * (player.getController().getLevelForXP(Skills.SMITHING)
                     * player.getController().getLevelForXP(Skills.SMITHING)
                     - player.getController().getLevelForXP(Skills.SMITHING) * 2 + 100) * 2);
-            DialogueOld.setText(player, null, Utils.formatNumber(herbloreXP) + " Herblore XP",
-                    Utils.formatNumber(miningXP) + " Mining XP", Utils.formatNumber(smithingXP) + " Smithing XP");
+            DialogueOld.setText(player, null, PNumber.formatNumber(herbloreXP) + " Herblore XP",
+                    PNumber.formatNumber(miningXP) + " Mining XP", PNumber.formatNumber(smithingXP) + " Smithing XP");
             break;
         case 4447: // Antique lamp
             if (!player.isGameModeNormal()) {
@@ -1975,12 +1976,12 @@ public class InventoryWidget implements Widget {
                 ItemId.LEATHER_BODY_G, ItemId.LEATHER_CHAPS_G
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            int easyItemId = ttEasy[Utils.randomE(ttEasy.length)];
+            int easyItemId = ttEasy[PRandom.randomE(ttEasy.length)];
             player.getInventory().addItem(easyItemId, 1, slot);
-            if (Utils.randomE(5) == 0) {
-                int extraItemId = ttLoot[Utils.randomE(ttLoot.length)];
+            if (PRandom.randomE(5) == 0) {
+                int extraItemId = ttLoot[PRandom.randomE(ttLoot.length)];
                 if (extraItemId == ItemId.PURPLE_SWEETS) {
-                    player.getInventory().addOrDropItem(extraItemId, 8 + Utils.randomI(24));
+                    player.getInventory().addOrDropItem(extraItemId, 8 + PRandom.randomI(24));
                 } else {
                     player.getInventory().addOrDropItem(extraItemId, 1);
                 }
@@ -2035,13 +2036,13 @@ public class InventoryWidget implements Widget {
                 ItemId.PISCARILIUS_BANNER, ItemId.SHAYZIEN_BANNER, ItemId.CABBAGE_ROUND_SHIELD, ItemId.CLUELESS_SCROLL
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            int mediumClueSlot = Utils.randomE(ttMedium.length);
+            int mediumClueSlot = PRandom.randomE(ttMedium.length);
             int mediumItemId = ttMedium[mediumClueSlot];
             player.getInventory().addItem(mediumItemId, 1, slot);
-            if (Utils.randomE(5) == 0) {
-                int extraItemId = ttLoot[Utils.randomE(ttLoot.length)];
+            if (PRandom.randomE(5) == 0) {
+                int extraItemId = ttLoot[PRandom.randomE(ttLoot.length)];
                 if (extraItemId == ItemId.PURPLE_SWEETS) {
-                    player.getInventory().addOrDropItem(extraItemId, 8 + Utils.randomI(24));
+                    player.getInventory().addOrDropItem(extraItemId, 8 + PRandom.randomI(24));
                 } else {
                     player.getInventory().addOrDropItem(extraItemId, 1);
                 }
@@ -2109,22 +2110,22 @@ public class InventoryWidget implements Widget {
                 ItemId._3RD_AGE_ROBE_TOP, ItemId._3RD_AGE_ROBE, ItemId._3RD_AGE_AMULET, ItemId._3RD_AGE_PLATESKIRT
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            if (Utils.inRange(0.1)) {
-                int thirdAgeId = thirdageHard[Utils.randomE(thirdageHard.length)];
+            if (PRandom.inRange(0.1)) {
+                int thirdAgeId = thirdageHard[PRandom.randomE(thirdageHard.length)];
                 player.getInventory().addItem(thirdAgeId, 1, slot);
                 player.getWorld().sendItemDropNews(player, thirdAgeId, "a hard clue scroll");
-            } else if (Utils.inRange(0.5)) {
-                int gildedId = gildedHard[Utils.randomE(gildedHard.length)];
+            } else if (PRandom.inRange(0.5)) {
+                int gildedId = gildedHard[PRandom.randomE(gildedHard.length)];
                 player.getInventory().addItem(gildedId, 1, slot);
                 player.getWorld().sendItemDropNews(player, gildedId, "a hard clue scroll");
             } else {
-                int hardItemId = ttHard[Utils.randomE(ttHard.length)];
+                int hardItemId = ttHard[PRandom.randomE(ttHard.length)];
                 player.getInventory().addItem(hardItemId, 1, slot);
             }
-            if (Utils.randomE(5) == 0) {
-                int extraItemId = ttLoot[Utils.randomE(ttLoot.length)];
+            if (PRandom.randomE(5) == 0) {
+                int extraItemId = ttLoot[PRandom.randomE(ttLoot.length)];
                 if (extraItemId == ItemId.PURPLE_SWEETS) {
-                    player.getInventory().addOrDropItem(extraItemId, 8 + Utils.randomI(24));
+                    player.getInventory().addOrDropItem(extraItemId, 8 + PRandom.randomI(24));
                 } else {
                     player.getInventory().addOrDropItem(extraItemId, 1);
                 }
@@ -2176,22 +2177,22 @@ public class InventoryWidget implements Widget {
                 ItemId._3RD_AGE_PLATESKIRT
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            if (Utils.inRange(0.1)) {
-                int thirdAgeId = thirdageElite[Utils.randomE(thirdageElite.length)];
+            if (PRandom.inRange(0.1)) {
+                int thirdAgeId = thirdageElite[PRandom.randomE(thirdageElite.length)];
                 player.getInventory().addItem(thirdAgeId, 1, slot);
                 player.getWorld().sendItemDropNews(player, thirdAgeId, "an elite clue scroll");
-            } else if (Utils.inRange(0.5)) {
-                int gildedId = gildedElite[Utils.randomE(gildedElite.length)];
+            } else if (PRandom.inRange(0.5)) {
+                int gildedId = gildedElite[PRandom.randomE(gildedElite.length)];
                 player.getInventory().addItem(gildedId, 1, slot);
                 player.getWorld().sendItemDropNews(player, gildedId, "an elite clue scroll");
             } else {
-                int eliteItemId = ttElite[Utils.randomE(ttElite.length)];
+                int eliteItemId = ttElite[PRandom.randomE(ttElite.length)];
                 player.getInventory().addItem(eliteItemId, 1, slot);
             }
-            if (Utils.randomE(5) == 0) {
-                int extraItemId = ttLoot[Utils.randomE(ttLoot.length)];
+            if (PRandom.randomE(5) == 0) {
+                int extraItemId = ttLoot[PRandom.randomE(ttLoot.length)];
                 if (extraItemId == ItemId.PURPLE_SWEETS) {
-                    player.getInventory().addOrDropItem(extraItemId, 8 + Utils.randomI(24));
+                    player.getInventory().addOrDropItem(extraItemId, 8 + PRandom.randomI(24));
                 } else {
                     player.getInventory().addOrDropItem(extraItemId, 1);
                 }
@@ -2242,22 +2243,22 @@ public class InventoryWidget implements Widget {
                 ItemId._3RD_AGE_PLATESKIRT
             };
             player.getInventory().deleteItem(itemId, 1, slot);
-            if (Utils.inRange(0.1)) {
-                int thirdAgeId = thirdageMaster[Utils.randomE(thirdageMaster.length)];
+            if (PRandom.inRange(0.1)) {
+                int thirdAgeId = thirdageMaster[PRandom.randomE(thirdageMaster.length)];
                 player.getInventory().addItem(thirdAgeId, 1, slot);
                 player.getWorld().sendItemDropNews(player, thirdAgeId, "a master clue scroll");
-            } else if (Utils.inRange(0.5)) {
-                int gildedId = gildedMaster[Utils.randomE(gildedMaster.length)];
+            } else if (PRandom.inRange(0.5)) {
+                int gildedId = gildedMaster[PRandom.randomE(gildedMaster.length)];
                 player.getInventory().addItem(gildedId, 1, slot);
                 player.getWorld().sendItemDropNews(player, gildedId, "a master clue scroll");
             } else {
-                int masterItemId = ttMaster[Utils.randomE(ttMaster.length)];
+                int masterItemId = ttMaster[PRandom.randomE(ttMaster.length)];
                 player.getInventory().addItem(masterItemId, 1, slot);
             }
-            if (Utils.randomE(5) == 0) {
-                int extraItemId = ttLoot[Utils.randomE(ttLoot.length)];
+            if (PRandom.randomE(5) == 0) {
+                int extraItemId = ttLoot[PRandom.randomE(ttLoot.length)];
                 if (extraItemId == ItemId.PURPLE_SWEETS) {
-                    player.getInventory().addOrDropItem(extraItemId, 8 + Utils.randomI(24));
+                    player.getInventory().addOrDropItem(extraItemId, 8 + PRandom.randomI(24));
                 } else {
                     player.getInventory().addOrDropItem(extraItemId, 1);
                 }

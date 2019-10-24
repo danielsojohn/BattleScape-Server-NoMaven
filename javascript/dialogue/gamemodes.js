@@ -16,7 +16,7 @@ lines.add("Group Ironman Mode");
 actions.add("dialogue=gamemodes,5");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Normal Mode");
@@ -25,7 +25,7 @@ lines.add("Go Back");
 actions.add("dialogue=gamemodes,0");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Ironman Mode");
@@ -34,7 +34,7 @@ lines.add("Go Back");
 actions.add("dialogue=gamemodes,0");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Hard Mode (Non-Ironman)");
@@ -43,7 +43,7 @@ lines.add("Go Back");
 actions.add("dialogue=gamemodes,0");
 var obj3 = new DialogueEntry();
 entries.add(obj3);
-obj3.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj3.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Hardcore Ironman Mode");
@@ -52,7 +52,7 @@ lines.add("Go Back");
 actions.add("dialogue=gamemodes,0");
 var obj4 = new DialogueEntry();
 entries.add(obj4);
-obj4.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj4.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Group Ironman Mode");
@@ -61,7 +61,7 @@ lines.add("Go Back");
 actions.add("dialogue=gamemodes,0");
 var obj5 = new DialogueEntry();
 entries.add(obj5);
-obj5.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj5.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

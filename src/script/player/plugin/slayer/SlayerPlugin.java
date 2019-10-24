@@ -25,8 +25,10 @@ import com.palidino.osrs.model.player.slayer.SlayerMaster;
 import com.palidino.osrs.model.player.slayer.SlayerTask;
 import com.palidino.osrs.model.player.slayer.SlayerTaskIdentifier;
 import com.palidino.osrs.model.player.slayer.SlayerUnlock;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
+import com.palidino.util.PCollection;
+import com.palidino.util.PNumber;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
 import lombok.Getter;
 import lombok.var;
 import script.packetdecoder.UseWidgetDecoder;
@@ -102,7 +104,7 @@ public class SlayerPlugin extends PlayerPlugin {
         if (!map.containsKey("slayer.wildernessOnly") && map.containsKey("slayer.taskAmount")) {
             task = new AssignedSlayerTask((String) map.get("slayer.taskMaster"),
                     SlayerTaskIdentifier.get((int) map.get("slayer.taskConfig")), (String) map.get("slayer.taskName"),
-                    (int) map.get("slayer.taskAmount"), Time.getSimpleDate());
+                    (int) map.get("slayer.taskAmount"), PTime.getSimpleDate());
         }
         if (map.containsKey("slayer.wildernessTaskAmount")) {
             wildernessTask = new AssignedSlayerTask((String) map.get("slayer.wildernessTaskMaster"),
@@ -127,7 +129,7 @@ public class SlayerPlugin extends PlayerPlugin {
             points = (int) map.get("slayer.points");
         }
         if (map.containsKey("slayer.blockedTasks")) {
-            List<Integer> oldBlockedTasks = Utils.castList((List) map.get("slayer.blockedTasks"), Integer.class);
+            List<Integer> oldBlockedTasks = PCollection.castList((List) map.get("slayer.blockedTasks"), Integer.class);
             blockedTasks = new ArrayList<>();
             for (int blockedTask : oldBlockedTasks) {
                 SlayerTaskIdentifier identifier = SlayerTaskIdentifier.get(blockedTask);
@@ -144,7 +146,7 @@ public class SlayerPlugin extends PlayerPlugin {
             totalBossTasks = (int) map.get("slayer.totalBossTasks");
         }
         if (map.containsKey("slayer.unlocks")) {
-            List<Integer> oldUnlocks = Utils.castList((List) map.get("slayer.unlocks"), Integer.class);
+            List<Integer> oldUnlocks = PCollection.castList((List) map.get("slayer.unlocks"), Integer.class);
             unlocks = new ArrayList<>();
             for (int unlock : oldUnlocks) {
                 SlayerUnlock slayerUnlock = SlayerUnlock.get(unlock);
@@ -200,10 +202,10 @@ public class SlayerPlugin extends PlayerPlugin {
         } else if (name.equals("slayer_send_information")) {
             player.getGameEncoder()
                     .sendMessage("Slayer Task Streaks: " + consecutiveTasks + " / " + consecutiveWildernessTasks);
-            player.getGameEncoder().sendMessage("Slayer Points: " + Utils.formatNumber(points)
-                    + "; Boss Slayer Points: " + Utils.formatNumber(bossPoints));
-            player.getGameEncoder().sendMessage("Total Slayer Tasks: " + Utils.formatNumber(totalTasks)
-                    + "; Total Boss Slayer Tasks: " + Utils.formatNumber(totalBossTasks));
+            player.getGameEncoder().sendMessage("Slayer Points: " + PNumber.formatNumber(points)
+                    + "; Boss Slayer Points: " + PNumber.formatNumber(bossPoints));
+            player.getGameEncoder().sendMessage("Total Slayer Tasks: " + PNumber.formatNumber(totalTasks)
+                    + "; Total Boss Slayer Tasks: " + PNumber.formatNumber(totalBossTasks));
             player.getGameEncoder().sendMessage("Brimstone keys: " + brimstoneKeys);
             sendTask();
         } else if (name.equals("slayer_reset_task")) {
@@ -679,7 +681,7 @@ public class SlayerPlugin extends PlayerPlugin {
         } else if (isBoss) {
             assignedTask = bossTask;
         }
-        if (!assignedTask.isComplete() && (!isBoss || Time.getSimpleDate().equals(assignedTask.getDate()))) {
+        if (!assignedTask.isComplete() && (!isBoss || PTime.getSimpleDate().equals(assignedTask.getDate()))) {
             player.getGameEncoder().sendMessage("You already have a task.");
             return;
         }
@@ -699,11 +701,11 @@ public class SlayerPlugin extends PlayerPlugin {
         }
         SlayerTask selectedTask = null;
         if (assignedSlayerTask != null && player.getEquipment().wearingAccomplishmentCape(Skills.SLAYER)
-                && Utils.randomE(10) == 0) {
+                && PRandom.randomE(10) == 0) {
             selectedTask = assignedSlayerTask;
         }
         for (var i = 0; i < 128 && selectedTask == null; i++) {
-            var aTask = Utils.listRandom(master.getTasks());
+            var aTask = PRandom.listRandom(master.getTasks());
             if (player.getController().getLevelForXP(Skills.SLAYER) < aTask.getSlayerLevel()) {
                 continue;
             }
@@ -809,7 +811,7 @@ public class SlayerPlugin extends PlayerPlugin {
             consecutiveTasks = 0;
         }
         assignedTask = new AssignedSlayerTask(master.getName(), selectedTask.getIdentifier(), selectedTask.getName(),
-                quantity, Time.getSimpleDate());
+                quantity, PTime.getSimpleDate());
         if (isWilderness) {
             wildernessTask = assignedTask;
         } else if (isBoss) {
@@ -848,7 +850,7 @@ public class SlayerPlugin extends PlayerPlugin {
         }
         player.getSkills().addXp(Skills.SLAYER, experience);
         if (npc.getDef().getSuperiorSlayerId() != -1 && isUnlocked(SlayerUnlock.BIGGER_BADDER)
-                && Utils.randomE(100) == 0) {
+                && PRandom.randomE(100) == 0) {
             player.getGameEncoder().sendMessage("<col=ff0000>A superior foe has appeared...");
             var superiorNpc = new Npc(player.getController(), npc.getDef().getSuperiorSlayerId(), npc);
             superiorNpc.getCombat().setTarget(player);
@@ -862,7 +864,7 @@ public class SlayerPlugin extends PlayerPlugin {
         var brimstoneKeyPercent = 100.0 / brimstoneKeyChance;
         boolean hasRoWICharge = player.getCharges().hasRoWICharge(0);
         if (brimstoneKeyChance > 1 && assignedTask != bossTask
-                && Utils.inRange(player.getCombat().getDropRate(ItemId.BRIMSTONE_KEY, brimstoneKeyPercent))) {
+                && PRandom.inRange(player.getCombat().getDropRate(ItemId.BRIMSTONE_KEY, brimstoneKeyPercent))) {
             Tile tile = npc;
             if (npc.getDef().getDropUnderKiller()) {
                 tile = player;
@@ -1159,7 +1161,7 @@ public class SlayerPlugin extends PlayerPlugin {
 
     public void buy(Item item, int cost) {
         if (points < cost) {
-            player.getGameEncoder().sendMessage("You need " + Utils.formatNumber(cost) + " points to buy this.");
+            player.getGameEncoder().sendMessage("You need " + PNumber.formatNumber(cost) + " points to buy this.");
             return;
         }
         if (!player.getInventory().canAddItem(item)) {

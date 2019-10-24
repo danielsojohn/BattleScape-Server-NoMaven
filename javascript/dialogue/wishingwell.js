@@ -10,7 +10,7 @@ lines.add("PK Raffle");
 actions.add("dialogue=wishingwell,3");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("View Stats");
@@ -23,7 +23,7 @@ lines.add("Collect");
 actions.add("close|script");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Donate Directly into Pot");
@@ -32,7 +32,7 @@ lines.add("Donate for Boosts"); // (50% Exchange Rate)
 actions.add("close|script");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("View Stats");
@@ -41,7 +41,7 @@ lines.add("Collect");
 actions.add("close|script");
 var obj3 = new DialogueEntry();
 entries.add(obj3);
-obj3.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj3.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Item Name: Value";
 lines.add("Put item in the well for boosts.");
@@ -50,7 +50,7 @@ lines.add("Nevermind.");
 actions.add("close");
 var obj4 = new DialogueEntry();
 entries.add(obj4);
-obj4.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj4.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

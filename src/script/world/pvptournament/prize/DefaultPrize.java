@@ -3,7 +3,7 @@ package script.world.pvptournament.prize;
 import java.util.List;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.item.Item;
-import com.palidino.util.Utils;
+import com.palidino.util.PCollection;
 
 public class DefaultPrize implements Prize {
     private boolean rewardBonds;
@@ -17,16 +17,16 @@ public class DefaultPrize implements Prize {
         List<Item> items = null;
         switch (position) {
         case 0:
-            items = Utils.toList(new Item(ItemId.COINS, 8_000_000));
+            items = PCollection.toList(new Item(ItemId.COINS, 8_000_000));
             break;
         case 1:
-            items = Utils.toList(new Item(ItemId.COINS, 4_000_000));
+            items = PCollection.toList(new Item(ItemId.COINS, 4_000_000));
             break;
         case 2:
-            items = Utils.toList(new Item(ItemId.COINS, 2_000_000));
+            items = PCollection.toList(new Item(ItemId.COINS, 2_000_000));
             break;
         case 3:
-            items = Utils.toList(new Item(ItemId.COINS, 1_000_000));
+            items = PCollection.toList(new Item(ItemId.COINS, 1_000_000));
             break;
         }
         if (items != null && rewardBonds) {

@@ -8,8 +8,8 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.dialogue.SelectionDialogue;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.world.JavaCord;
-import com.palidino.setting.DiscordChannel;
-import com.palidino.util.Time;
+import com.palidino.rs.setting.DiscordChannel;
+import com.palidino.util.PTime;
 
 public class LogoutWidget implements Widget {
     @Override
@@ -49,7 +49,7 @@ public class LogoutWidget implements Widget {
                                     player.setVisible(false);
                                 }
                             });
-                } else if (Time.milliToHour(player.getCreationTime()) < 4) {
+                } else if (PTime.milliToHour(player.getCreationTime()) < 4) {
                     new FeedbackDialogue(player);
                 } else {
                     player.getGameEncoder().sendLogout();

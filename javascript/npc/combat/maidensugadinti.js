@@ -62,7 +62,7 @@ cs = new NCombatScript() {
             if (mapObject == null) {
                 continue;
             }
-            var damage = 10 + Utils.randomI(5);
+            var damage = 10 + PRandom.randomI(5);
             player.addHit(new HitEvent(0, player, new Hit(damage)));
             npc.applyHit(new Hit(damage, HitMark.HEAL));
         }
@@ -90,14 +90,14 @@ cs = new NCombatScript() {
                 return;
             }
         }
-        var event = new Event(speed.eventDelay) {
+        var event = new PEvent(speed.eventDelay) {
             execute: function() {
                 if (event.getExecutions() == 0) {
                     event.setTick(0);
                 } else if (!npc.isVisible() || event.getExecutions() == 10) {
                     event.stop();
                     bloodSpots.remove(event);
-                    if (Utils.randomE(4) == 0) {
+                    if (PRandom.randomE(4) == 0) {
                         var npc2 = new Npc(npc.getController(), NpcId.BLOOD_SPAWN_55, event.getAttachment());
                         npc2.getController().setMultiCombatFlag(true);
                         npc2.setMoveDistance(32);
@@ -108,7 +108,7 @@ cs = new NCombatScript() {
                         if (!player.matchesTile(event.getAttachment())) {
                             continue;
                         }
-                        var damage = 10 + Utils.randomI(5);
+                        var damage = 10 + PRandom.randomI(5);
                         player.addHit(new HitEvent(0, player, new Hit(damage)));
                         npc.applyHit(new Hit(damage, HitMark.HEAL));
                     }
@@ -150,13 +150,13 @@ cs = new NCombatScript() {
                 continue;
             }
             player.getGameEncoder().setVarp(1575, npc.getHitpoints() + (npc.getMaxHitpoints() * 2048));
-            var hitpointsPercent = Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints())|0;
+            var hitpointsPercent = PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints())|0;
             player.getGameEncoder().sendWidgetText(596, 4, "Health: " + hitpointsPercent + "%");
         }
     },
 
     spawnNylocasMatomenos: function() {
-        var spiderTiles = Utils.toList(
+        var spiderTiles = PCollection.toList(
             new Tile(3173, 4436),
             new Tile(3177, 4436),
             new Tile(3181, 4436),
@@ -170,7 +170,7 @@ cs = new NCombatScript() {
         );
         var playerCount = npc.getController().getPlayers().size()
         for (var i = 0; i < playerCount * 2; i++) {
-            var tile = spiderTiles.remove(Utils.randomE(spiderTiles.size()));
+            var tile = spiderTiles.remove(PRandom.randomE(spiderTiles.size()));
             var npc2 = new Npc(npc.getController(), 8366, tile);
             npc2.getController().setMultiCombatFlag(true);
             npc2.getMovement().setFollowing(npc);

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.dialogue.Scroll;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.setting.SqlUserRank;
-import com.palidino.util.Utils;
+import com.palidino.rs.setting.SqlUserRank;
+import com.palidino.util.PString;
 import lombok.var;
 
 public class StaffCommand implements Command {
@@ -33,6 +33,6 @@ public class StaffCommand implements Command {
             }
             lines.add(staff.getMessaging().getIconImage() + staff.getUsername() + " - " + rank);
         }
-        Scroll.open(player, "Staff Members Online", Utils.toStringArray(lines));
+        Scroll.open(player, "Staff Members Online", PString.toStringArray(lines));
     }
 }

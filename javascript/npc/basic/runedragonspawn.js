@@ -23,7 +23,7 @@ instance = new NScript() {
         var following = npc.getMovement().getFollowing();
         if (npc.withinDistance(following, 1) && following instanceof Player) {
             following.addHit(new HitEvent(0, following, null,
-                    new Hit(Utils.randomI(following.getEquipment().getFootId() == 7159 ? 2 : 8))));
+                    new Hit(PRandom.randomI(following.getEquipment().getFootId() == 7159 ? 2 : 8))));
         }
     }
 };

@@ -9,7 +9,7 @@ lines.add("No");
 actions.add("close");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("View Guide");
@@ -26,14 +26,14 @@ lines.add("Get Skull");
 actions.add("close|script");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 lines.add("Your current KDR is 0 kills and 0 deaths (0) and your best KDR is 0. Your current spree is 0 and your best spree is 0. Your total kills are 0 and your total deaths are 0.");
 continueLine = "Click here to continue";
 actions.add("dialogue=wilderness,3");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setTextContinue(continueLine, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setTextContinue(continueLine, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Announce KDR");
@@ -44,7 +44,7 @@ lines.add("Close");
 actions.add("close");
 var obj3 = new DialogueEntry();
 entries.add(obj3);
-obj3.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj3.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Blood Money");
@@ -61,7 +61,7 @@ lines.add("Special Boosts, Resource Area, and Monsters");
 actions.add("close|script");
 var obj4 = new DialogueEntry();
 entries.add(obj4);
-obj4.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj4.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
@@ -99,8 +99,8 @@ instance = new DialogueScript() {
                 player.openDialogue("wilderness", 2);
                 DialogueOld.setText(player, null, "Your current KDR is " + player.getCombat().getKills()
                         + " kills and " + player.getCombat().getDeaths() + " deaths ("
-                        + Utils.formatDouble2(player.getCombat().getKDR()) + ") and your best KDR is "
-                        + Utils.formatDouble2(player.getCombat().getHighestKDR()) + ". Your current spree is "
+                        + PNumber.formatDouble2(player.getCombat().getKDR()) + ") and your best KDR is "
+                        + PNumber.formatDouble2(player.getCombat().getHighestKDR()) + ". Your current spree is "
                         + player.getCombat().getKillingSpree() + " and your best spree is "
                         + player.getCombat().getHighestKillingSpree() + ". Your total kills are "
                         + player.getCombat().getTotalKills() + " and your total deaths are "
@@ -111,7 +111,7 @@ instance = new DialogueScript() {
         } else if (index == 3) {
             if (slot == 0) {
                 player.setForceMessage("My KDR is " + player.getCombat().getKills() + "/"
-                        + player.getCombat().getDeaths() + " (" + Utils.formatDouble2(player.getCombat().getKDR())
+                        + player.getCombat().getDeaths() + " (" + PNumber.formatDouble2(player.getCombat().getKDR())
                         + ")");
             } else if (slot == 1) {
                 if (!player.inEdgeville()) {
@@ -131,7 +131,7 @@ instance = new DialogueScript() {
                 lines.add("Hunter target kill, an additional 2,500 blood money is rewarded.");
                 lines.add("Any blood money your opponent is carrying is given to you if you");
                 lines.add("kill them.");
-                Scroll.open(player, "Blood Money", Utils.toStringArray(lines));
+                Scroll.open(player, "Blood Money", PString.toStringArray(lines));
             } else if (slot == 1) {
                 var lines = new ArrayList();
                 lines.add("Mysterious emblems are given when you kill a player. A tier 1");
@@ -153,7 +153,7 @@ instance = new DialogueScript() {
                 lines.add("Tier 8: 10M coins and 25K blood money");
                 lines.add("Tier 9: 14M coins and 35K blood money");
                 lines.add("Tier 10: 20M coins and 50K blood money");
-                Scroll.open(player, "Mysterious Emblems", Utils.toStringArray(lines));
+                Scroll.open(player, "Mysterious Emblems", PString.toStringArray(lines));
             } else if (slot == 2) {
                 var lines = new ArrayList();
                 lines.add("You can get a wilderness Slayer task be speaking to Krystilia");
@@ -172,7 +172,7 @@ instance = new DialogueScript() {
                 lines.add("Chance of a dark crab or prayer potion(3)");
                 lines.add("Blood money once a task is completed");
                 lines.add("A carried mysterious emblem upgraded");
-                Scroll.open(player, "Slayer", Utils.toStringArray(lines));
+                Scroll.open(player, "Slayer", PString.toStringArray(lines));
             } else if (slot == 3) {
                 var lines = new ArrayList();
                 lines.add("The Chaos Elemental spawns at 12AM, 6AM, 12PM, and 6PM. The");
@@ -201,7 +201,7 @@ instance = new DialogueScript() {
                 lines.add("Possible loot includes are rare items found in the game. If your");
                 lines.add("game mode isn't normal, the most rare items are removed from the");
                 lines.add("potential loot table.");
-                Scroll.open(player, "Chaos Elemental", Utils.toStringArray(lines));
+                Scroll.open(player, "Chaos Elemental", PString.toStringArray(lines));
             } else if (slot == 4) {
                 var lines = new ArrayList();
                 lines.add("<col=004080>Bosses</col>");
@@ -221,7 +221,7 @@ instance = new DialogueScript() {
                 lines.add("Archaeologist, and Scorpia.");
                 lines.add("");
                 lines.add("All three drop the odium and malediction wards.");
-                Scroll.open(player, "Bosses and Demi-Bosses", Utils.toStringArray(lines));
+                Scroll.open(player, "Bosses and Demi-Bosses", PString.toStringArray(lines));
             } else if (slot == 5) {
                 var lines = new ArrayList();
                 lines.add("<col=004080>Experience</col>");
@@ -239,7 +239,7 @@ instance = new DialogueScript() {
                 lines.add("Piles can be found inside and will note items for 50 coins each.");
                 lines.add("Anglerfish are caught at double the speed, and both anglerfish and");
                 lines.add("dark crabs give two fish per catch.");
-                Scroll.open(player, "Special Boosts, Resource Area, and Monsters", Utils.toStringArray(lines));
+                Scroll.open(player, "Special Boosts, Resource Area, and Monsters", PString.toStringArray(lines));
             }
         }
     },

@@ -10,7 +10,7 @@ lines.add("Nevermind");
 actions.add("close");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Open Bond Pouch");
@@ -21,7 +21,7 @@ lines.add("Donator Options");
 actions.add("close|dialogue=bond,2");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Shop");
@@ -38,7 +38,7 @@ lines.add("Yellow Skin (5000+ total bnonds)");
 actions.add("close|script");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

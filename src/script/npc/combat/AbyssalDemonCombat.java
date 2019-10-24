@@ -27,7 +27,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 import script.map.area.CatacombsOfKourendArea;
 
@@ -197,7 +197,7 @@ public class AbyssalDemonCombat extends NpcCombat {
     @Override
     public void tickStartHook() {
         if ((npc.getId() == NpcId.GREATER_ABYSSAL_DEMON_342 || npc.getId() == NpcId.CURSED_ABYSSAL_DEMON_342_16010)
-                && npc.isAttacking() && !usingSpecialAttack && Utils.randomE(20) == 0) {
+                && npc.isAttacking() && !usingSpecialAttack && PRandom.randomE(20) == 0) {
             usingSpecialAttack = true;
             specialAttackTile = new Tile(npc);
         }
@@ -229,7 +229,7 @@ public class AbyssalDemonCombat extends NpcCombat {
             var tries = 0;
             while (tries++ < 8 && (tile.matchesTile(opponent) || tile.matchesTile(npc) || !Route.canMove(npc, tile))) {
                 tile.setTile(opponent);
-                tile = Utils.randomI(1) == 0 ? tile.randomizeX(1) : tile.randomizeY(1);
+                tile = PRandom.randomI(1) == 0 ? tile.randomizeX(1) : tile.randomizeY(1);
             }
             if (!Route.canMove(npc, tile)) {
                 tile = npc;

@@ -31,7 +31,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class CallistoCombat extends NpcCombat {
@@ -143,13 +143,13 @@ public class CallistoCombat extends NpcCombat {
             return;
         }
         var shockwaveChance = Math.max(32 - npc.getDistance(entity), 1);
-        if (Utils.randomE(shockwaveChance) == 0) {
+        if (PRandom.randomE(shockwaveChance) == 0) {
             entity.setLock(1);
             var projectile = Graphic.Projectile.builder().id(395).startTile(npc).entity(entity)
                     .projectileSpeed(getProjectileSpeed(entity)).build();
             sendMapProjectile(projectile);
             entity.setGraphic(245, 100);
-            var hitEvent = new HitEvent(0, entity, npc, new Hit(Utils.randomI(60)));
+            var hitEvent = new HitEvent(0, entity, npc, new Hit(PRandom.randomI(60)));
             entity.addHit(hitEvent);
             if (entity instanceof Player) {
                 var player = (Player) entity;
@@ -161,7 +161,7 @@ public class CallistoCombat extends NpcCombat {
     @Override
     public HitType attackTickHitTypeHook(HitType hitType, Entity opponent) {
         var withinDistance = npc.withinDistance(npc.getEngagingEntity(), 1);
-        if (withinDistance && Utils.randomE(4) != 0 || !withinDistance && Utils.randomE(8) != 0) {
+        if (withinDistance && PRandom.randomE(4) != 0 || !withinDistance && PRandom.randomE(8) != 0) {
             return HitType.MELEE;
         }
         return hitType;
@@ -199,7 +199,7 @@ public class CallistoCombat extends NpcCombat {
             opponent.setLock(4);
             opponent.setForceMovementTeleport(fm, 734, 1, null);
         }
-        if (Utils.randomE(8) == 0) {
+        if (PRandom.randomE(8) == 0) {
             npc.setGraphic(157);
             npc.adjustHitpoints(Math.min(hitEvent.getDamage(), 10), 0);
         }

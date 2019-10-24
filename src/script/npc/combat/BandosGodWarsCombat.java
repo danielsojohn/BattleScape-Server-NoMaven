@@ -25,7 +25,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class BandosGodWarsCombat extends NpcCombat {
@@ -334,7 +334,7 @@ public class BandosGodWarsCombat extends NpcCombat {
     @Override
     public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
         player.getArea().script("increase_bandos_killcount");
-        if (npc.getController().inWilderness() && Utils.randomE(60) == 0) {
+        if (npc.getController().inWilderness() && PRandom.randomE(60) == 0) {
             npc.getController().addMapItem(new Item(ItemId.ECUMENICAL_KEY, 1), dropTile, player);
         }
     }

@@ -3,7 +3,7 @@ package script.packetdecoder.command;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.setting.SqlUserRank;
+import com.palidino.rs.setting.SqlUserRank;
 
 public class StarterPackCommand implements Command {
     @Override

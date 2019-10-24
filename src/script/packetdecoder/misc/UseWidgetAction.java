@@ -17,7 +17,8 @@ import com.palidino.osrs.model.player.Smithing;
 import com.palidino.osrs.model.player.WidgetManager;
 import com.palidino.osrs.model.player.combat.WarriorsGuild;
 import com.palidino.osrs.world.WishingWell;
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 
 public class UseWidgetAction {
     public static void doActionNpc(Player player, int index, int widgetId, int childId, int slot, Npc npc) {
@@ -32,7 +33,7 @@ public class UseWidgetAction {
                 int inventoryCount = player.getInventory().getCount(itemId);
                 player.openDialogue("piles", 0);
                 DialogueOld.setText(player, "Banknote " + inventoryCount + " x " + ItemDef.getName(itemId),
-                        "Yes - " + Utils.formatNumber(inventoryCount * 50) + " gp", "Cancel");
+                        "Yes - " + PNumber.formatNumber(inventoryCount * 50) + " gp", "Cancel");
                 player.putAttribute("use_item_id", itemId);
                 player.getWidgetManager().addChatboxCloseEvent(new WidgetManager.CloseEvent() {
                     @Override
@@ -51,7 +52,7 @@ public class UseWidgetAction {
                 player.openDialogue("elderchaosdruid", 0);
                 DialogueOld.setText(player, null,
                         "Exchange '" + ItemDef.getName(ItemDef.getUnnotedId(itemId)) + "': 50 coins",
-                        "Exchange 5: 250 coins", "Exchange All: " + Utils.formatNumber(exchangeCount * 50) + " coins",
+                        "Exchange 5: 250 coins", "Exchange All: " + PNumber.formatNumber(exchangeCount * 50) + " coins",
                         "Exchange X", "Cancel");
                 player.putAttribute("use_item_id", itemId);
                 player.getWidgetManager().addChatboxCloseEvent(new WidgetManager.CloseEvent() {
@@ -129,7 +130,7 @@ public class UseWidgetAction {
                     return;
                 }
                 player.setAnimation(player.getCombat().getAttackAnimation());
-                if (Utils.randomE(4) != 0) {
+                if (PRandom.randomE(4) != 0) {
                     player.getGameEncoder().sendMessage("You fail to cut through it.");
                     return;
                 }
@@ -178,15 +179,15 @@ public class UseWidgetAction {
                 }
                 player.openDialogue("wishingwell", 4);
                 if (itemId == ItemId.BOND_32318) {
-                    DialogueOld.setText(player,
-                            item.getName() + " x" + Utils.formatNumber(item.getAmount()) + ": " + Utils.formatNumber(
-                                    Utils.multiplyInt(WishingWell.BOND_VALUE, item.getAmount(), Item.MAX_AMOUNT)),
+                    DialogueOld.setText(player, item.getName() + " x" + PNumber.formatNumber(item.getAmount()) + ": "
+                            + PNumber.formatNumber(
+                                    PNumber.multiplyInt(WishingWell.BOND_VALUE, item.getAmount(), Item.MAX_AMOUNT)),
                             (String[]) null);
                 } else {
                     DialogueOld.setText(player,
-                            item.getName() + " x" + Utils.formatNumber(item.getAmount()) + ": "
-                                    + Utils.formatNumber(
-                                            Utils.multiplyInt(item.getDef().getConfiguredExchangePrice() * 2,
+                            item.getName() + " x" + PNumber.formatNumber(item.getAmount()) + ": "
+                                    + PNumber.formatNumber(
+                                            PNumber.multiplyInt(item.getDef().getConfiguredExchangePrice() * 2,
                                                     item.getAmount(), Item.MAX_AMOUNT)),
                             (String[]) null);
                 }
@@ -349,15 +350,15 @@ public class UseWidgetAction {
                 player.setAnimation(Prayer.PRAY_ANIMATION);
                 player.getWorld().sendMapGraphic(player.getController(), new Tile(3039, 4774), 1276, 0, 0);
                 int droppedId = -1;
-                if (Utils.randomE(128) < 5) {
+                if (PRandom.randomE(128) < 5) {
                     droppedId = 13262; // Abyssal orphan
-                } else if (Utils.randomE(128) < 10) {
+                } else if (PRandom.randomE(128) < 10) {
                     droppedId = 7979; // Abyssal head
-                } else if (Utils.randomE(128) < 12) {
+                } else if (PRandom.randomE(128) < 12) {
                     droppedId = 4151; // Abyssal whip
-                } else if (Utils.randomE(128) < 13) {
+                } else if (PRandom.randomE(128) < 13) {
                     droppedId = 13277; // Jar of miasma
-                } else if (Utils.randomE(128) < 26) {
+                } else if (PRandom.randomE(128) < 26) {
                     droppedId = 13265; // Abyssal dagger
                 } else {
                     if (!player.hasItem(13274)) {
@@ -367,7 +368,7 @@ public class UseWidgetAction {
                     } else if (!player.hasItem(13276)) {
                         droppedId = 13276; // Bludgeon axon
                     } else {
-                        droppedId = 13274 + Utils.randomI(2);
+                        droppedId = 13274 + PRandom.randomI(2);
                     }
                 }
                 int unsiredKillCount = player.getInventory().getAttachment(itemSlot) != null

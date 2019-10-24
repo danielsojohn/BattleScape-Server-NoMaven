@@ -2,7 +2,7 @@ package script.world.pvptournament.state;
 
 import com.palidino.osrs.Main;
 import com.palidino.osrs.world.World;
-import com.palidino.util.Time;
+import com.palidino.util.PTime;
 import lombok.var;
 import script.world.pvptournament.PvpTournament;
 import script.world.pvptournament.prize.DefaultPrize;
@@ -25,12 +25,12 @@ public class IdleState implements State {
         if (PvpTournament.TIME.length == 0 || Main.getWorld().getId() != World.SPECIAL_FEATURES_WORLD_ID) {
             return "Unavailable";
         }
-        var currentHour = Time.getHour24();
-        var currentMinute = Time.getMinute();
-        var dayMinute = (int) Time.hourToMin(currentHour) + currentMinute;
+        var currentHour = PTime.getHour24();
+        var currentMinute = PTime.getMinute();
+        var dayMinute = (int) PTime.hourToMin(currentHour) + currentMinute;
         var nextTime = PvpTournament.getNextTime();
-        var remainingMinutes = Time.getRemainingMinutes(dayMinute, nextTime[0] * 60 + nextTime[1]);
-        return Time.ticksToLongDuration(Time.minToTick(remainingMinutes));
+        var remainingMinutes = PTime.getRemainingMinutes(dayMinute, nextTime[0] * 60 + nextTime[1]);
+        return PTime.ticksToLongDuration(PTime.minToTick(remainingMinutes));
     }
 
     @Override
@@ -49,10 +49,10 @@ public class IdleState implements State {
         if (!isCustom && Main.getWorld().getId() != World.SPECIAL_FEATURES_WORLD_ID) {
             return;
         }
-        var currentHour = Time.getHour24();
-        var currentMinute = Time.getMinute();
-        var dayMinute = (int) Time.hourToMin(currentHour) + currentMinute;
-        var remainingMinutes = Time.getRemainingMinutes(dayMinute, nextTime[0] * 60 + nextTime[1]);
+        var currentHour = PTime.getHour24();
+        var currentMinute = PTime.getMinute();
+        var dayMinute = (int) PTime.hourToMin(currentHour) + currentMinute;
+        var remainingMinutes = PTime.getRemainingMinutes(dayMinute, nextTime[0] * 60 + nextTime[1]);
         if (!isCustom && !announcedStartingSoon) {
             if (remainingMinutes == 4) {
                 announcedStartingSoon = true;

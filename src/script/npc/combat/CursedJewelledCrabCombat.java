@@ -23,7 +23,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class CursedJewelledCrabCombat extends NpcCombat {
@@ -211,7 +211,7 @@ public class CursedJewelledCrabCombat extends NpcCombat {
             changeDelay--;
             if (changeDelay == 0) {
                 setChangeDelay();
-                npc.setTransformationId(Utils.arrayRandom(NpcId.CURSED_JEWELLED_CRAB_BLUE_180_16004,
+                npc.setTransformationId(PRandom.arrayRandom(NpcId.CURSED_JEWELLED_CRAB_BLUE_180_16004,
                         NpcId.CURSED_JEWELLED_CRAB_GREEN_180_16003, NpcId.CURSED_JEWELLED_CRAB_RED_180_16002));
             }
         }
@@ -271,7 +271,7 @@ public class CursedJewelledCrabCombat extends NpcCombat {
     }
 
     private void setChangeDelay() {
-        changeDelay = 25 + Utils.randomI(4);
+        changeDelay = 25 + PRandom.randomI(4);
     }
 
     private boolean isCursed() {

@@ -10,14 +10,14 @@ lines.add("Nevermind");
 actions.add("close");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 lines.add("<col=ff0000>WARNING</col>: Removing your Iron Man status is permanent.");
 continueLine = "Click here to continue";
 actions.add("dialogue=ironadam,2");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setTextContinue(continueLine, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setTextContinue(continueLine, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Are You Sure?";
 lines.add("Remove Iron Man Status");
@@ -26,7 +26,7 @@ lines.add("Nevermind");
 actions.add("close");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

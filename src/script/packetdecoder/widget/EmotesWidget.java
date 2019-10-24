@@ -5,7 +5,7 @@ import com.palidino.osrs.io.cache.ItemId;
 import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.Graphic;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 
 public class EmotesWidget implements Widget {
     @Override
@@ -343,7 +343,7 @@ public class EmotesWidget implements Widget {
             animationId = 7533;
             break;
         case 46: // Crazy Dance
-            animationId = Utils.randomE(2) == 1 ? 7537 : 7536;
+            animationId = PRandom.randomE(2) == 1 ? 7537 : 7536;
             break;
         }
         if (animationId != -1) {

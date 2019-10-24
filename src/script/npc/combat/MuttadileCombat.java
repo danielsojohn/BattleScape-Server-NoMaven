@@ -24,7 +24,8 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatDamage;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class MuttadileCombat extends NpcCombat {
@@ -181,7 +182,7 @@ public class MuttadileCombat extends NpcCombat {
 
     @Override
     public HitType attackTickHitTypeHook(HitType hitType, Entity opponent) {
-        if (hitType == HitType.MAGIC && Utils.randomE(5) != 0) {
+        if (hitType == HitType.MAGIC && PRandom.randomE(5) != 0) {
             return HitType.RANGED;
         }
         return hitType;
@@ -204,7 +205,7 @@ public class MuttadileCombat extends NpcCombat {
         var players = npc.getController().getPlayers();
         for (var player : players) {
             averageHP += player.getMaxHitpoints();
-            playerMultiplier = Utils.addDoubles(playerMultiplier, 0.5);
+            playerMultiplier = PNumber.addDoubles(playerMultiplier, 0.5);
         }
         averageHP /= players.size();
         var hitpoints = (int) ((50 + (players.size() * 25) + (averageHP * 2)) * playerMultiplier);

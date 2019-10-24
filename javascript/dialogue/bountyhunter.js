@@ -8,7 +8,7 @@ continueLine = "Click here to continue";
 actions.add("dialogue=bountyhunter,1");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setTextContinue(continueLine, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setTextContinue(continueLine, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Do you want to skip your target?";
 lines.add("Yes.");
@@ -17,7 +17,7 @@ lines.add("No.");
 actions.add("close");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Username: Single-way, Wilderness level X";
 lines.add("Teleport <col=ff0000>near</col> level X <col=ff0000>single-way</col> Wilderness.");
@@ -26,7 +26,7 @@ lines.add("Cancel.");
 actions.add("close");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

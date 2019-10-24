@@ -25,9 +25,9 @@ cs = new NCombatScript() {
         hasMoved = true;
         npc.getCombat().clear();
         npc.getMovement().clear();
-        npc.getMovement().addMovement(MOVE_PATHS[Utils.randomE(MOVE_PATHS.length)]);
+        npc.getMovement().addMovement(MOVE_PATHS[PRandom.randomE(MOVE_PATHS.length)]);
         npc.setLock(npc.getMovement().getMoveListSize());
-        moveDelay = npc.getLock() + Utils.randomI(16);
+        moveDelay = npc.getLock() + PRandom.randomI(16);
     },
 
     /* @Override */

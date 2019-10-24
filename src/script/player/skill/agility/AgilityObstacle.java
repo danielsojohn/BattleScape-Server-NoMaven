@@ -5,10 +5,10 @@ import java.util.Deque;
 import com.palidino.osrs.model.map.MapObject;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
 import lombok.var;
 
-public class AgilityObstacle extends Event {
+public class AgilityObstacle extends PEvent {
     private Player player;
     private int level;
     private int experience;

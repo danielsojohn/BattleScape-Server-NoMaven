@@ -10,7 +10,7 @@ lines.add("Reclaim Items");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Reclaim Items for 100K");
@@ -19,7 +19,7 @@ lines.add("Nevermind");
 actions.add("close");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
@@ -65,7 +65,7 @@ instance = new DialogueScript() {
                 }
                 player.openDialogue("perdu", 1);
                 DialogueOld.setText(player, null, "Reclaim Items for "
-                        + Utils.abbreviateNumber(player.getCombat().getItemCollection().getCAttachment()),
+                        + PNumber.abbreviateNumber(player.getCombat().getItemCollection().getCAttachment()),
                         "Nevermind");
             }
         } else if (index == 1) {
@@ -73,7 +73,7 @@ instance = new DialogueScript() {
                 if (player.getInventory().getCount(ItemId.COINS)
                         < player.getCombat().getItemCollection().getCAttachment()) {
                     player.getGameEncoder().sendMessage("You need "
-                            + Utils.abbreviateNumber(player.getCombat().getItemCollection().getCAttachment())
+                            + PNumber.abbreviateNumber(player.getCombat().getItemCollection().getCAttachment())
                             + " coins to reclaim your items.");
                     return;
                 }

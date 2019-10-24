@@ -73,28 +73,28 @@ var FIRE_TILES_SOUTH_EAST = [
     new Tile(1370, 10264), new Tile(1370, 10265), new Tile(1370, 10266), new Tile(1369, 10264), new Tile(1368, 10264)
 ];
 
-var NORTH_FIRE = new FireAttack(new Polygon(),
+var NORTH_FIRE = new FireAttack(new PPolygon(),
         FIRE_TILES_NORTH_WEST, FIRE_TILES_NORTH_EAST, new Tile(1366, 10271));
-var EAST_FIRE = new FireAttack(new Polygon([ 1366, 1377, 1377 ], [ 10267, 10278, 10257 ]),
+var EAST_FIRE = new FireAttack(new PPolygon([ 1366, 1377, 1377 ], [ 10267, 10278, 10257 ]),
         FIRE_TILES_NORTH_EAST, FIRE_TILES_SOUTH_EAST, new Tile(1370, 10267));
-var SOUTH_FIRE = new FireAttack(new Polygon([ 1366, 1377, 1356 ], [ 10268, 10257, 10257 ]),
+var SOUTH_FIRE = new FireAttack(new PPolygon([ 1366, 1377, 1356 ], [ 10268, 10257, 10257 ]),
         FIRE_TILES_SOUTH_WEST, FIRE_TILES_SOUTH_EAST, new Tile(1366, 10264));
-var WEST_FIRE = new FireAttack(new Polygon([ 1367, 1356, 1356 ], [ 10267, 10257, 10278 ]),
+var WEST_FIRE = new FireAttack(new PPolygon([ 1367, 1356, 1356 ], [ 10267, 10257, 10278 ]),
         FIRE_TILES_NORTH_WEST, FIRE_TILES_SOUTH_WEST, new Tile(1363, 10267));
-var NORTH_EAST_FIRE = new FireAttack(new Polygon([ 1369, 1369, 1377, 1377 ], [ 10270, 10278, 10278, 10270 ]),
+var NORTH_EAST_FIRE = new FireAttack(new PPolygon([ 1369, 1369, 1377, 1377 ], [ 10270, 10278, 10278, 10270 ]),
         FIRE_TILES_NORTH, FIRE_TILES_EAST, new Tile(1370, 10271));
-var SOUTH_EAST_FIRE = new FireAttack(new Polygon([ 1369, 1377, 1377, 1369 ], [ 10265, 10265, 10257, 10257 ]),
+var SOUTH_EAST_FIRE = new FireAttack(new PPolygon([ 1369, 1377, 1377, 1369 ], [ 10265, 10265, 10257, 10257 ]),
         FIRE_TILES_EAST, FIRE_TILES_SOUTH, new Tile(1370, 10271));
-var SOUTH_WEST_FIRE = new FireAttack(new Polygon([ 1364, 1364, 1356, 1356 ], [ 10265, 10257, 10257, 10265 ]),
+var SOUTH_WEST_FIRE = new FireAttack(new PPolygon([ 1364, 1364, 1356, 1356 ], [ 10265, 10257, 10257, 10265 ]),
         FIRE_TILES_WEST, FIRE_TILES_SOUTH, new Tile(1363, 10264));
-var NORTH_WEST_FIRE = new FireAttack(new Polygon([ 1364, 1356, 1356, 1364 ], [ 10270, 10270, 10278, 10278 ]),
+var NORTH_WEST_FIRE = new FireAttack(new PPolygon([ 1364, 1356, 1356, 1364 ], [ 10270, 10270, 10278, 10278 ]),
         FIRE_TILES_NORTH, FIRE_TILES_WEST, new Tile(1363, 10271));
 var FIRE_ATTACKS = [
     NORTH_EAST_FIRE, SOUTH_EAST_FIRE, SOUTH_WEST_FIRE, NORTH_WEST_FIRE, EAST_FIRE, SOUTH_FIRE, WEST_FIRE
 ];
 
 var npc = null;
-var hitStyle = Utils.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
+var hitStyle = PRandom.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
 var currentCombatStyle;
 var hitCount = 0;
 var specialDelay = 3;
@@ -111,7 +111,7 @@ cs = new NCombatScript() {
 
     restore: function() {
         npc.attackUnlock();
-        hitStyle = Utils.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
+        hitStyle = PRandom.randomE(2) == 0 ? HitType.RANGED : HitType.MAGIC;
         hitCount = 0;
         specialDelay = 3;
         damageReduction = true;
@@ -126,7 +126,7 @@ cs = new NCombatScript() {
             return;
         }
         if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426
-                && Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 75) {
+                && PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 75) {
             npc.setLock(2);
             npc.setTransformationId(NpcId.ALCHEMICAL_HYDRA_426_8616);
             npc.setAnimation(8237);
@@ -139,7 +139,7 @@ cs = new NCombatScript() {
             damageReduction = true;
             return;
         } else if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8619
-                && Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 50) {
+                && PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 50) {
             npc.setLock(2);
             npc.setTransformationId(NpcId.ALCHEMICAL_HYDRA_426_8617);
             npc.setAnimation(8244);
@@ -153,7 +153,7 @@ cs = new NCombatScript() {
             damageReduction = true;
             return;
         } else if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8620
-                && Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 25) {
+                && PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints()) <= 25) {
             npc.setLock(2);
             npc.setTransformationId(NpcId.ALCHEMICAL_HYDRA_426_8618);
             npc.setAnimation(8251);
@@ -210,7 +210,7 @@ cs = new NCombatScript() {
 
     targetTileGraphicHook: function(combatStyle) {
         if (combatStyle.getTargetTileGraphic() != null && combatStyle.getTargetTileGraphic().getId() == 1654) {
-            return POISON_TILE_GRAPHICS[Utils.randomE(POISON_TILE_GRAPHICS.length)];
+            return POISON_TILE_GRAPHICS[PRandom.randomE(POISON_TILE_GRAPHICS.length)];
         }
         return combatStyle.getTargetTileGraphic();
     },
@@ -255,19 +255,19 @@ cs = new NCombatScript() {
         npc.setHitDelay(6);
         specialDelay = 9;
         npc.setAnimation(8241);
-        var tiles = Utils.toList(
+        var tiles = PCollection.toList(
             new Tile(1362, 10272),
             new Tile(1371, 10272),
             new Tile(1371, 10263),
             new Tile(1362, 10263)
         );
-        var initialTile = Utils.listRandom(tiles).randomize(2);
+        var initialTile = PRandom.listRandom(tiles).randomize(2);
         var initialSpeed = cs.getSpeed(10);
         npc.getCombat().sendMapProjectile(null, npc, initialTile, 1664, 43, 31, initialSpeed.clientDelay,
                 initialSpeed.clientSpeed, 16, 64);
         var tile = null;
         var js = this;
-        lightningCastEvent = new Event(initialSpeed.eventDelay - 1) {
+        lightningCastEvent = new PEvent(initialSpeed.eventDelay - 1) {
             execute: function() {
                 if (tile != null) {
                     js.lightningAttack(tile);
@@ -279,7 +279,7 @@ cs = new NCombatScript() {
                     return;
                 }
                 var lastTile = tile != null ? tile : initialTile;
-                tile = tiles.remove(Utils.randomE(tiles.size()));
+                tile = tiles.remove(PRandom.randomE(tiles.size()));
                 var speed = cs.getSpeed(2);
                 npc.getCombat().sendMapProjectile(null, lastTile, tile, 1665, 43, 31, speed.clientDelay,
                         speed.clientSpeed, 16, 64);
@@ -295,7 +295,7 @@ cs = new NCombatScript() {
             return;
         }
         var damageEvent = null;
-        var event = new Event() {
+        var event = new PEvent() {
             execute: function() {
                 if (player.isLocked()) {
                     event.stop();
@@ -303,7 +303,7 @@ cs = new NCombatScript() {
                 }
                 if (tile.matchesTile(player)) {
                     player.getGameEncoder().sendMessage("<col=ff0000>The eletricity temporarily paralyzes you!");
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     player.getController().setMagicBind(8);
                     event.stop();
                 }
@@ -350,7 +350,7 @@ cs = new NCombatScript() {
         }
         npc.attackLock();
         var js = this;
-        var event = new Event() {
+        var event = new PEvent() {
             execute: function() {
                 if (player.isLocked()) {
                     event.stop();
@@ -385,7 +385,7 @@ cs = new NCombatScript() {
         followTiles.add(new FollowTile(new Tile(followTile), 0));
         var speed = cs.getSpeed(2);
         var hasCastFollow = false;
-        var eventFollow = new Event(1) {
+        var eventFollow = new PEvent(1) {
             execute: function() {
                 if (player.isLocked() || followTiles.isEmpty() || npc.isLocked()
                         || npc.getId() != NpcId.ALCHEMICAL_HYDRA_426_8620) {
@@ -414,7 +414,7 @@ cs = new NCombatScript() {
                     if (!aFollowTile.tile.matchesTile(player)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     js.setFireBleed(player);
                 }
                 if (eventFollow.getExecutions() > 15) {
@@ -479,7 +479,7 @@ cs = new NCombatScript() {
                 break;
             }
         }
-        var eventWall1 = new Event() {
+        var eventWall1 = new PEvent() {
             execute: function() {
                 if (player.isLocked()) {
                     eventWall1.stop();
@@ -490,7 +490,7 @@ cs = new NCombatScript() {
                     if (!tile.matchesTile(player)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     js.setFireBleed(player);
                 }
                 if (eventWall1.getExecutions() >= 42 + speed.eventDelay) {
@@ -500,7 +500,7 @@ cs = new NCombatScript() {
         }
         npc.getWorld().addEvent(eventWall1);
         var hasSecondAttacked = false;
-        var wallEvent2 = new Event(1) {
+        var wallEvent2 = new PEvent(1) {
             execute: function() {
                 wallEvent2.setTick(0);
                 if (player.isLocked()) {
@@ -548,7 +548,7 @@ cs = new NCombatScript() {
                     if (!tile.matchesTile(player)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     js.setFireBleed(player);
                 }
                 if (wallEvent2.getExecutions() >= 43 + speed.eventDelay) {
@@ -566,7 +566,7 @@ cs = new NCombatScript() {
         if (player == null) {
             return;
         }
-        fireBleedEvent = new Event() {
+        fireBleedEvent = new PEvent() {
             execute: function() {
                 if (fireBleedEvent.getExecutions() == 4) {
                     fireBleedEvent.stop();
@@ -591,7 +591,7 @@ cs = new NCombatScript() {
         } else if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8620) {
             weakness = BLUE_VENT;
         }
-        var event = new Event() {
+        var event = new PEvent() {
             execute: function() {
                 if (player.isLocked()) {
                     event.stop();
@@ -608,7 +608,7 @@ cs = new NCombatScript() {
                     if (!player.withinDistance(vent, 1)) {
                         continue;
                     }
-                    player.applyHit(new Hit(Utils.randomI(20)));
+                    player.applyHit(new Hit(PRandom.randomI(20)));
                     break;
                 }
                 if (npc.getId() == NpcId.ALCHEMICAL_HYDRA_426_8621) {

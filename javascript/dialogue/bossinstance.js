@@ -10,7 +10,7 @@ lines.add("Nevermind");
 actions.add("close");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Create Instance");
@@ -19,7 +19,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -30,7 +30,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Create Instance");
@@ -39,7 +39,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj3 = new DialogueEntry();
 entries.add(obj3);
-obj3.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj3.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -50,7 +50,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj4 = new DialogueEntry();
 entries.add(obj4);
-obj4.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj4.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -61,7 +61,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj5 = new DialogueEntry();
 entries.add(obj5);
-obj5.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj5.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -72,7 +72,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj6 = new DialogueEntry();
 entries.add(obj6);
-obj6.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj6.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -83,7 +83,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj7 = new DialogueEntry();
 entries.add(obj7);
-obj7.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj7.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -94,7 +94,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj8 = new DialogueEntry();
 entries.add(obj8);
-obj8.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj8.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -105,7 +105,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj9 = new DialogueEntry();
 entries.add(obj9);
-obj9.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj9.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -116,7 +116,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj10 = new DialogueEntry();
 entries.add(obj10);
-obj10.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj10.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Create Instance");
@@ -125,7 +125,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj11 = new DialogueEntry();
 entries.add(obj11);
-obj11.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj11.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -136,7 +136,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj12 = new DialogueEntry();
 entries.add(obj12);
-obj12.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj12.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -147,7 +147,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj13 = new DialogueEntry();
 entries.add(obj13);
-obj13.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj13.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Enter Area");
@@ -158,7 +158,7 @@ lines.add("Join Instance");
 actions.add("close|script");
 var obj14 = new DialogueEntry();
 entries.add(obj14);
-obj14.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj14.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 var NORMAL = 0;
 var LADDER_DOWN = 1;
@@ -220,7 +220,7 @@ instance = new DialogueScript() {
             tile = new Tile(1752, 5236, 0);
             teleportType = LADDER_DOWN;
             if (player.getInventory().hasItem(13119) || player.getInventory().hasItem(13120)) {
-                var event = new Event(10) {
+                var event = new PEvent(10) {
                     execute: function() {
                         if (!player.isVisible()) {
                             event.stop();

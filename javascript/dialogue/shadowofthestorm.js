@@ -10,7 +10,7 @@ lines.add("Nevermind");
 actions.add("close");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
@@ -21,7 +21,7 @@ instance = new DialogueScript() {
             if (slot == 0) {
                 var height = player.getWorld().getUniqueHeight();
                 player.getMovement().teleport(2720, 4888, height + 2);
-                var event = new Event(5) {
+                var event = new PEvent(5) {
                     execute: function() {
                         event.stop();
                         if (!player.isVisible()) {

@@ -24,7 +24,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class AdamantDragonCombat extends NpcCombat {
@@ -140,7 +140,7 @@ public class AdamantDragonCombat extends NpcCombat {
 
     @Override
     public void applyAttackStartHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount) {
-        boltEffect = combatStyle.getType().getHitType() == HitType.RANGED && Utils.randomE(20) == 0;
+        boltEffect = combatStyle.getType().getHitType() == HitType.RANGED && PRandom.randomE(20) == 0;
     }
 
     @Override

@@ -14,8 +14,9 @@ import com.palidino.osrs.model.player.skill.SkillEntry;
 import com.palidino.osrs.model.player.skill.SkillModel;
 import com.palidino.osrs.model.player.skill.SkillPet;
 import com.palidino.osrs.model.player.skill.SkillTemporaryMapObject;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 import lombok.Getter;
 import lombok.var;
 
@@ -47,49 +48,49 @@ public class Mining extends SkillContainer {
     }
 
     @Override
-    public int getEventTick(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public int getEventTick(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         return 5;
     }
 
     @Override
-    public void eventStarted(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void eventStarted(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         player.getGameEncoder().sendMessage("You swing your pickaxe at the rock.");
     }
 
     @Override
-    public void eventStopped(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void eventStopped(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         player.setAnimation(-1);
     }
 
     @Override
-    public void actionSuccess(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void actionSuccess(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         double moreResourcesChance = 0;
         if (entry.getCreate() != null && entry.getCreate().getId() != ItemId.RUNITE_ORE
                 && entry.getCreate().getId() != ItemId.AMETHYST
                 && player.getEquipment().wearingAccomplishmentCape(getSkillId())) {
-            moreResourcesChance = Utils.addDoubles(moreResourcesChance, 5);
+            moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 5);
         }
         if (entry.getCreate() != null && (player.getEquipment().getHandId() == ItemId.MINING_GLOVES
                 || player.getEquipment().getHandId() == ItemId.EXPERT_MINING_GLOVES)) {
             if (entry.getCreate().getId() == ItemId.SILVER_ORE) {
-                moreResourcesChance = Utils.addDoubles(moreResourcesChance, 50);
+                moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 50);
             } else if (entry.getCreate().getId() == ItemId.COAL) {
-                moreResourcesChance = Utils.addDoubles(moreResourcesChance, 40);
+                moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 40);
             } else if (entry.getCreate().getId() == ItemId.GOLD_ORE) {
-                moreResourcesChance = Utils.addDoubles(moreResourcesChance, 33.33);
+                moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 33.33);
             }
         }
         if (entry.getCreate() != null && (player.getEquipment().getHandId() == ItemId.SUPERIOR_MINING_GLOVES
                 || player.getEquipment().getHandId() == ItemId.EXPERT_MINING_GLOVES)) {
             if (entry.getCreate().getId() == ItemId.MITHRIL_ORE) {
-                moreResourcesChance = Utils.addDoubles(moreResourcesChance, 25);
+                moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 25);
             } else if (entry.getCreate().getId() == ItemId.ADAMANTITE_ORE) {
-                moreResourcesChance = Utils.addDoubles(moreResourcesChance, 16.66);
+                moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 16.66);
             } else if (entry.getCreate().getId() == ItemId.RUNITE_ORE) {
-                moreResourcesChance = Utils.addDoubles(moreResourcesChance, 12.5);
+                moreResourcesChance = PNumber.addDoubles(moreResourcesChance, 12.5);
             }
         }
-        if (moreResourcesChance <= 0 || !Utils.inRange(moreResourcesChance)) {
+        if (moreResourcesChance <= 0 || !PRandom.inRange(moreResourcesChance)) {
             setTemporaryMapObject(player, mapObject, entry);
         }
     }
@@ -97,11 +98,11 @@ public class Mining extends SkillContainer {
     @Override
     public void clueRolled(Player player, Npc npc, MapObject mapObject, SkillEntry entry) {
         var clueId = ItemId.CLUE_GEODE_EASY;
-        if (Utils.randomE(100) < 10) {
+        if (PRandom.randomE(100) < 10) {
             clueId = ItemId.CLUE_GEODE_ELITE;
-        } else if (Utils.randomE(100) < 20) {
+        } else if (PRandom.randomE(100) < 20) {
             clueId = ItemId.CLUE_GEODE_HARD;
-        } else if (Utils.randomE(100) < 30) {
+        } else if (PRandom.randomE(100) < 30) {
             clueId = ItemId.CLUE_GEODE_MEDIUM;
         }
         player.getInventory().addOrDropItem(clueId);
@@ -111,23 +112,23 @@ public class Mining extends SkillContainer {
     public Item createHook(Player player, Item item, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (entry.getCreate() != null && entry.getCreate().getId() == ItemId.UNCUT_OPAL) {
             int createId;
-            if (Utils.inRange(player.getCombat().getDropRate(ItemId.UNCUT_ONYX, 0.0025))) {
+            if (PRandom.inRange(player.getCombat().getDropRate(ItemId.UNCUT_ONYX, 0.0025))) {
                 createId = ItemId.ZENYTE_SHARD;
-            } else if (Utils.inRange(player.getCombat().getDropRate(ItemId.UNCUT_ONYX, 0.005))) {
+            } else if (PRandom.inRange(player.getCombat().getDropRate(ItemId.UNCUT_ONYX, 0.005))) {
                 createId = ItemId.UNCUT_ONYX;
-            } else if (Utils.inRange(player.getCombat().getDropRate(ItemId.UNCUT_ONYX, 0.01))) {
+            } else if (PRandom.inRange(player.getCombat().getDropRate(ItemId.UNCUT_ONYX, 0.01))) {
                 createId = ItemId.UNCUT_DRAGONSTONE;
-            } else if (Utils.randomE(128) < 4) {
+            } else if (PRandom.randomE(128) < 4) {
                 createId = ItemId.UNCUT_DIAMOND;
-            } else if (Utils.randomE(128) < 5) {
+            } else if (PRandom.randomE(128) < 5) {
                 createId = ItemId.UNCUT_RUBY;
-            } else if (Utils.randomE(128) < 5) {
+            } else if (PRandom.randomE(128) < 5) {
                 createId = ItemId.UNCUT_EMERALD;
-            } else if (Utils.randomE(128) < 9) {
+            } else if (PRandom.randomE(128) < 9) {
                 createId = ItemId.UNCUT_SAPPHIRE;
-            } else if (Utils.randomE(128) < 15) {
+            } else if (PRandom.randomE(128) < 15) {
                 createId = ItemId.UNCUT_RED_TOPAZ;
-            } else if (Utils.randomE(128) < 30) {
+            } else if (PRandom.randomE(128) < 30) {
                 createId = ItemId.UNCUT_JADE;
             } else {
                 createId = ItemId.UNCUT_OPAL;
@@ -135,11 +136,11 @@ public class Mining extends SkillContainer {
             return new Item(createId, item.getAmount());
         }
         if (entry.getCreate() != null && entry.getCreate().getId() == ItemId.VOLCANIC_ASH) {
-            return new Item(Utils.randomE(32) == 0 ? ItemId.SODA_ASH : ItemId.VOLCANIC_ASH, item.getAmount());
+            return new Item(PRandom.randomE(32) == 0 ? ItemId.SODA_ASH : ItemId.VOLCANIC_ASH, item.getAmount());
         }
         MiningPickaxe pickaxe = getPickaxe(player);
         int smithingXp = 0;
-        if (entry.getCreate() != null && pickaxe.getItemId() == ItemId.INFERNAL_PICKAXE && Utils.randomE(3) == 0) {
+        if (entry.getCreate() != null && pickaxe.getItemId() == ItemId.INFERNAL_PICKAXE && PRandom.randomE(3) == 0) {
             switch (entry.getCreate().getId()) {
             case ItemId.GOLD_ORE:
                 smithingXp = 9;
@@ -151,7 +152,7 @@ public class Mining extends SkillContainer {
             case ItemId.GRANITE_500G:
             case ItemId.GRANITE_2KG:
             case ItemId.GRANITE_5KG:
-                smithingXp = 6 + Utils.randomI(15);
+                smithingXp = 6 + PRandom.randomI(15);
                 break;
             }
         }
@@ -162,7 +163,7 @@ public class Mining extends SkillContainer {
             return null;
         }
         if (entry.getVariable(UNIDENTIFIED_MINERAL_VARIABLE) > 0
-                && Utils.randomE(entry.getVariable(UNIDENTIFIED_MINERAL_VARIABLE)) == 0) {
+                && PRandom.randomE(entry.getVariable(UNIDENTIFIED_MINERAL_VARIABLE)) == 0) {
             player.getInventory().addOrDropItem(ItemId.UNIDENTIFIED_MINERALS, 1);
         }
         return item;
@@ -185,7 +186,7 @@ public class Mining extends SkillContainer {
     }
 
     @Override
-    public boolean canDoActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean canDoActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (getPickaxe(player) == null) {
             player.getGameEncoder().sendMessage("You need a pickaxe to do this.");
             return false;
@@ -194,7 +195,7 @@ public class Mining extends SkillContainer {
     }
 
     @Override
-    public boolean skipActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean skipActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         var power = (player.getSkills().getLevel(getSkillId()) / 2) + (getPickaxe(player).getLevel() / 2) + 8;
         var failure = entry.getLevel() + 2;
         if (player.inWildernessResourceArea()) {
@@ -210,18 +211,18 @@ public class Mining extends SkillContainer {
             chance = power / ((failure + 1) * 2.0);
         }
         if (player.getEquipment().wearingProspectorOutfit()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (player.isPremiumMember()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.getController().inWilderness()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
-        return Utils.randomI(100) < Math.max(0.01, 1 - chance) * 100;
+        return PRandom.randomI(100) < Math.max(0.01, 1 - chance) * 100;
     }
 
     @Override

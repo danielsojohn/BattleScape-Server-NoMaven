@@ -15,8 +15,9 @@ import com.palidino.osrs.model.player.skill.SkillEntry;
 import com.palidino.osrs.model.player.skill.SkillModel;
 import com.palidino.osrs.model.player.skill.SkillPet;
 import com.palidino.osrs.model.player.skill.SkillTemporaryMapObject;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 import lombok.Getter;
 import lombok.var;
 
@@ -61,29 +62,29 @@ public class Woodcutting extends SkillContainer {
     }
 
     @Override
-    public int getEventTick(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public int getEventTick(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         return 5;
     }
 
     @Override
-    public void eventStarted(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void eventStarted(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         player.getGameEncoder().sendMessage("You swing your axe at the tree.");
     }
 
     @Override
-    public void eventStopped(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void eventStopped(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         player.setAnimation(-1);
     }
 
     @Override
-    public void actionSuccess(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void actionSuccess(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         setTemporaryMapObject(player, mapObject, entry);
         var nestChance = 128;
         if (player.getEquipment().wearingAccomplishmentCape(getSkillId())) {
             nestChance /= 1.1;
         }
-        if (Utils.randomE(nestChance - entry.getLevel()) == 0) {
-            player.getController().addMapItem(Utils.arrayRandom(COLORED_EGG_NESTS), player, player);
+        if (PRandom.randomE(nestChance - entry.getLevel()) == 0) {
+            player.getController().addMapItem(PRandom.arrayRandom(COLORED_EGG_NESTS), player, player);
             player.getGameEncoder().sendMessage("<col=ff0000>A bird's nest falls out of the tree.</col>");
         }
     }
@@ -91,11 +92,11 @@ public class Woodcutting extends SkillContainer {
     @Override
     public void clueRolled(Player player, Npc npc, MapObject mapObject, SkillEntry entry) {
         var clueId = ItemId.CLUE_NEST_EASY;
-        if (Utils.randomE(100) < 10) {
+        if (PRandom.randomE(100) < 10) {
             clueId = ItemId.CLUE_NEST_ELITE;
-        } else if (Utils.randomE(100) < 20) {
+        } else if (PRandom.randomE(100) < 20) {
             clueId = ItemId.CLUE_NEST_HARD;
-        } else if (Utils.randomE(100) < 30) {
+        } else if (PRandom.randomE(100) < 30) {
             clueId = ItemId.CLUE_NEST_MEDIUM;
         }
         player.getInventory().addOrDropItem(clueId);
@@ -105,13 +106,13 @@ public class Woodcutting extends SkillContainer {
     public Item createHook(Player player, Item item, Npc npc, MapObject mapObject, SkillEntry entry) {
         var fireContainer = SkillContainer.get(Skills.FIREMAKING);
         var fireEntry = fireContainer.findEntryFromConsume(item.getId());
-        if (getHatchet(player).getItemId() == ItemId.INFERNAL_AXE && fireEntry != null && Utils.randomE(3) == 0) {
+        if (getHatchet(player).getItemId() == ItemId.INFERNAL_AXE && fireEntry != null && PRandom.randomE(3) == 0) {
             var fireXp = fireContainer.experienceHook(player, fireEntry.getExperience(), npc, mapObject, fireEntry);
             player.setGraphic(86, 100);
             player.getSkills().addXp(Skills.FIREMAKING, fireXp / 2);
             player.getCharges().degradeItem(ItemId.INFERNAL_AXE);
             fireContainer.rollPet(player, fireEntry);
-            if (Utils.randomE(160 - fireEntry.getLevel()) == 0) {
+            if (PRandom.randomE(160 - fireEntry.getLevel()) == 0) {
                 player.getInventory().addOrDropItem(ItemId.SUPPLY_CRATE);
             }
             return null;
@@ -134,7 +135,7 @@ public class Woodcutting extends SkillContainer {
     }
 
     @Override
-    public boolean canDoActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean canDoActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (getHatchet(player) == null) {
             player.getGameEncoder().sendMessage("You need an axe to do this.");
             return false;
@@ -143,7 +144,7 @@ public class Woodcutting extends SkillContainer {
     }
 
     @Override
-    public boolean skipActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean skipActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         var power = (player.getSkills().getLevel(getSkillId()) / 2) + (getHatchet(player).getLevel() / 2) + 8;
         var failure = entry.getLevel() + 2;
         if (player.inWildernessResourceArea()) {
@@ -159,18 +160,18 @@ public class Woodcutting extends SkillContainer {
             chance = power / ((failure + 1) * 2.0);
         }
         if (player.getEquipment().wearingLumberjackOutfit()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (player.isPremiumMember()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.getController().inWilderness()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
-        return Utils.randomI(100) < Math.max(0.01, 1 - chance) * 100;
+        return PRandom.randomI(100) < Math.max(0.01, 1 - chance) * 100;
     }
 
     @Override
@@ -197,7 +198,7 @@ public class Woodcutting extends SkillContainer {
             player.getInventory().deleteItem(ItemId.BIRDS_EGG_5078, Item.MAX_AMOUNT);
             player.getInventory().addOrDropItem(ItemId.COINS, 250_000 * eggCount);
             player.getInventory().addOrDropItem(ItemId.BIRD_NEST_5073, 1 * eggCount);
-            if (Utils.randomE(132 / eggCount) == 0) {
+            if (PRandom.randomE(132 / eggCount) == 0) {
                 if (!player.hasItem(ItemId.EVIL_CHICKEN_FEET)) {
                     player.getInventory().addOrDropItem(ItemId.EVIL_CHICKEN_FEET);
                 } else if (!player.hasItem(ItemId.EVIL_CHICKEN_WINGS)) {
@@ -207,7 +208,7 @@ public class Woodcutting extends SkillContainer {
                 } else if (!player.hasItem(ItemId.EVIL_CHICKEN_LEGS)) {
                     player.getInventory().addOrDropItem(ItemId.EVIL_CHICKEN_LEGS);
                 } else {
-                    player.getInventory().addOrDropItem(Utils.arrayRandom(EVIL_CHICKEN_OUTFIT));
+                    player.getInventory().addOrDropItem(PRandom.arrayRandom(EVIL_CHICKEN_OUTFIT));
                 }
             }
             return true;

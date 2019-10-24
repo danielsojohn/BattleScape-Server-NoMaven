@@ -37,7 +37,7 @@ cs = new NCombatScript() {
 
     /* @Override */
     hitTypeHook: function(hitType) {
-        if (hitType == HitType.MAGIC && Utils.randomE(5) != 0) {
+        if (hitType == HitType.MAGIC && PRandom.randomE(5) != 0) {
             return HitType.RANGED;
         }
         return hitType;
@@ -60,7 +60,7 @@ cs = new NCombatScript() {
         var players = npc.getController().getPlayers();
         for each (var player in players) {
             averageHP += player.getMaxHitpoints();
-            playerMultiplier = Utils.addDoubles(playerMultiplier, 0.5);
+            playerMultiplier = PNumber.addDoubles(playerMultiplier, 0.5);
         }
         averageHP /= players.size();
         var hitpoints = ((50 + (players.size() * 25) + (averageHP * 2)) * playerMultiplier)|0;

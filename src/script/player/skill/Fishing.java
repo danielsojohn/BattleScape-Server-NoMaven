@@ -16,8 +16,9 @@ import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.model.player.skill.SkillEntry;
 import com.palidino.osrs.model.player.skill.SkillModel;
 import com.palidino.osrs.model.player.skill.SkillPet;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class Fishing extends SkillContainer {
@@ -41,24 +42,24 @@ public class Fishing extends SkillContainer {
     }
 
     @Override
-    public int getEventTick(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public int getEventTick(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         return entry.getCreate().getId() == ItemId.MINNOW ? 1 : 5;
     }
 
     @Override
-    public void eventStarted(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void eventStarted(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         player.getGameEncoder().sendMessage("You attempt to catch a fish.");
         player.setFaceEntity(npc);
     }
 
     @Override
-    public void eventStopped(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void eventStopped(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         player.setAnimation(-1);
     }
 
     @Override
-    public void actionSuccess(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
-        if (entry.getCreate().getId() == ItemId.MINNOW && Utils.randomE(64) == 0) {
+    public void actionSuccess(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
+        if (entry.getCreate().getId() == ItemId.MINNOW && PRandom.randomE(64) == 0) {
             npc.setGraphic(FLYING_FISH_GRAPHIC);
             event.setAttachment(FLYING_FISH_ATTACHMENT, true);
         }
@@ -84,11 +85,11 @@ public class Fishing extends SkillContainer {
     @Override
     public void clueRolled(Player player, Npc npc, MapObject mapObject, SkillEntry entry) {
         var clueId = ItemId.CLUE_BOTTLE_EASY;
-        if (Utils.randomE(100) < 10) {
+        if (PRandom.randomE(100) < 10) {
             clueId = ItemId.CLUE_BOTTLE_ELITE;
-        } else if (Utils.randomE(100) < 20) {
+        } else if (PRandom.randomE(100) < 20) {
             clueId = ItemId.CLUE_BOTTLE_HARD;
-        } else if (Utils.randomE(100) < 30) {
+        } else if (PRandom.randomE(100) < 30) {
             clueId = ItemId.CLUE_BOTTLE_MEDIUM;
         }
         player.getInventory().addOrDropItem(clueId);
@@ -100,13 +101,13 @@ public class Fishing extends SkillContainer {
         if (entry.getCreate().getId() == ItemId.MINNOW) {
             unusualChance *= 5;
         }
-        if (Utils.randomE(unusualChance - entry.getLevel()) == 0) {
+        if (PRandom.randomE(unusualChance - entry.getLevel()) == 0) {
             player.getGameEncoder().sendMessage("<col=ff0000>You catch an unusual fish.</col>");
             return new Item(ItemId.UNUSUAL_FISH);
         }
         var cookingContainer = SkillContainer.get(Skills.COOKING);
         var cookEntry = cookingContainer.findEntryFromConsume(item.getId());
-        if (usingInfernalHarpoon(player, entry) && cookEntry != null && Utils.randomE(3) == 0) {
+        if (usingInfernalHarpoon(player, entry) && cookEntry != null && PRandom.randomE(3) == 0) {
             var cookXp = cookingContainer.experienceHook(player, cookEntry.getExperience(), npc, mapObject, cookEntry);
             player.setGraphic(86, 100);
             player.getSkills().addXp(Skills.COOKING, cookXp / 2);
@@ -159,7 +160,7 @@ public class Fishing extends SkillContainer {
     }
 
     @Override
-    public boolean canDoActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean canDoActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (entry.getCreate() != null && entry.getCreate().getId() == ItemId.INFERNAL_EEL
                 && player.getEquipment().getHandId() != ItemId.ICE_GLOVES) {
             player.getGameEncoder().sendMessage("You need to be wearing ice gloves to fish here.");
@@ -169,10 +170,10 @@ public class Fishing extends SkillContainer {
     }
 
     @Override
-    public boolean skipActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean skipActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (event != null && Boolean.TRUE.equals(event.getAttachment(FLYING_FISH_ATTACHMENT))) {
             npc.setGraphic(FLYING_FISH_GRAPHIC);
-            player.getInventory().deleteItem(entry.getCreate().getId(), 16 + Utils.randomI(10));
+            player.getInventory().deleteItem(entry.getCreate().getId(), 16 + PRandom.randomI(10));
             return true;
         }
         var power = player.getSkills().getLevel(getSkillId()) + 8;
@@ -190,22 +191,22 @@ public class Fishing extends SkillContainer {
             chance = power / ((failure + 1) * 2.0);
         }
         if (player.getEquipment().wearingAnglerOutfit()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (usingDragonHarpoon(player, entry) || usingInfernalHarpoon(player, entry)
                 || usingUnchargedInfernalHarpoon(player, entry)) {
-            chance = Math.min(Utils.addDoubles(chance, 0.2), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.2), 1.0);
         }
         if (player.isPremiumMember()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.getController().inWilderness()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
-        return Utils.randomI(100) < Math.max(0.01, 1 - chance) * 100;
+        return PRandom.randomI(100) < Math.max(0.01, 1 - chance) * 100;
     }
 
     @Override

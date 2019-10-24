@@ -2,7 +2,7 @@ package script.packetdecoder.command;
 
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 public class AnimLoopCommand implements Command {
@@ -19,7 +19,7 @@ public class AnimLoopCommand implements Command {
     @Override
     public void execute(Player player, String message) {
         var fromId = Integer.parseInt(message);
-        var event = new Event(1) {
+        var event = new PEvent(1) {
             int id = fromId;
             boolean reset = false;
 

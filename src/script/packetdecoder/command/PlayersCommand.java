@@ -9,8 +9,8 @@ import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.dialogue.old.DialogueOld;
 import com.palidino.osrs.model.dialogue.old.DialogueEntry;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.setting.SqlUserRank;
-import com.palidino.util.Time;
+import com.palidino.rs.setting.SqlUserRank;
+import com.palidino.util.PTime;
 import lombok.var;
 
 public class PlayersCommand implements Command {
@@ -34,9 +34,9 @@ public class PlayersCommand implements Command {
             var icon = player2.getMessaging().getIconImage();
             var username = player2.getUsername();
             var location = getLocation(player2);
-            playerNames.add(icon + username + ": on: " + Time.ticksToLongDuration(player2.getTotalTicks()) + ", map: "
-                    + Time.ticksToLongDuration(player2.getLastMapUpdate()) + ", idle: "
-                    + Time.ticksToLongDuration(player2.getIdleTime()) + ", loc: " + location);
+            playerNames.add(icon + username + ": on: " + PTime.ticksToLongDuration(player2.getTotalTicks()) + ", map: "
+                    + PTime.ticksToLongDuration(player2.getLastMapUpdate()) + ", idle: "
+                    + PTime.ticksToLongDuration(player2.getIdleTime()) + ", loc: " + location);
         }
         var dialogue = new DialogueEntry();
         dialogue.setLargeSelection("Players", playerNames.toArray(new String[playerNames.size()]));

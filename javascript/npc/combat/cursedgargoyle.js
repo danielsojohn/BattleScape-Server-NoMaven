@@ -18,7 +18,7 @@ cs = new NCombatScript() {
     },
 
     combatStyleHook: function(combatStyle) {
-        return Utils.randomE(8) == 0 ? SPECIAL_ATTACK : combatStyle;
+        return PRandom.randomE(8) == 0 ? SPECIAL_ATTACK : combatStyle;
     },
 
     droppingItemHook: function(player, droppingItem, dropTableChance) {

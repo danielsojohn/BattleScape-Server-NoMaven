@@ -19,9 +19,9 @@ import com.palidino.osrs.model.player.Runecrafting;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.Smithing;
 import com.palidino.osrs.model.player.controller.PestControlPC;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
+import com.palidino.util.PEvent;
 
 public class MapObject0 {
     // Rocks
@@ -156,7 +156,7 @@ public class MapObject0 {
             return;
         }
         player.setAnimation(player.getCombat().getAttackAnimation());
-        if (Utils.randomE(4) != 0) {
+        if (PRandom.randomE(4) != 0) {
             player.getGameEncoder().sendMessage("You fail to cut through it.");
             return;
         }
@@ -284,7 +284,7 @@ public class MapObject0 {
         Tile toTile = new Tile(mapObject.getX() + 1, mapObject.getY(), mapObject.getHeight());
         player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.EAST));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -312,15 +312,15 @@ public class MapObject0 {
                     }
                     player.getSkills().addXp(Skills.AGILITY, xp);
                     // 102 laps an hour
-                    if (Utils.randomE(25) == 0) {
+                    if (PRandom.randomE(25) == 0) {
                         int amount = 4;
                         if (player.isPremiumMember()) {
                             amount = 6;
                         }
                         player.getInventory().addOrDropItem(11849, amount);
                     }
-                    if (Utils.randomE(2) == 0) {
-                        int rewardType = Utils.randomE(3);
+                    if (PRandom.randomE(2) == 0) {
+                        int rewardType = PRandom.randomE(3);
                         if (rewardType == 0) {
                             player.getInventory().addOrDropItem(3009, 1);
                         } else if (rewardType == 1) {
@@ -534,7 +534,7 @@ public class MapObject0 {
             if (!player.getInventory().hasItem(1523)) {
                 player.getGameEncoder().sendMessage("You need a lockpick for this lock.");
                 return;
-            } else if (Utils.randomE(4) != 0) {
+            } else if (PRandom.randomE(4) != 0) {
                 player.getGameEncoder().sendMessage("You fail to pick the lock.");
                 return;
             }
@@ -559,7 +559,7 @@ public class MapObject0 {
             if (!player.getInventory().hasItem(1523)) {
                 player.getGameEncoder().sendMessage("You need a lockpick for this lock.");
                 return;
-            } else if (Utils.randomE(4) != 0) {
+            } else if (PRandom.randomE(4) != 0) {
                 player.getGameEncoder().sendMessage("You fail to pick the lock.");
                 return;
             }
@@ -697,7 +697,7 @@ public class MapObject0 {
             player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.WEST));
             player.lock();
             player.getGameEncoder().sendMessage("You start to climb the precarious rocks.");
-            Event event = new Event() {
+            PEvent event = new PEvent() {
                 @Override
                 public void execute() {
                     super.stop();
@@ -725,7 +725,7 @@ public class MapObject0 {
             player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.NORTH));
             player.lock();
             player.getGameEncoder().sendMessage("You start to climb the precarious rocks.");
-            Event event = new Event() {
+            PEvent event = new PEvent() {
                 @Override
                 public void execute() {
                     super.stop();
@@ -753,7 +753,7 @@ public class MapObject0 {
             player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.SOUTH));
             player.lock();
             player.getGameEncoder().sendMessage("You start to climb the precarious rocks.");
-            Event event = new Event() {
+            PEvent event = new PEvent() {
                 @Override
                 public void execute() {
                     super.stop();
@@ -781,7 +781,7 @@ public class MapObject0 {
             player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.NORTH));
             player.lock();
             player.getGameEncoder().sendMessage("You start to climb the precarious rocks.");
-            Event event = new Event() {
+            PEvent event = new PEvent() {
                 @Override
                 public void execute() {
                     super.stop();
@@ -809,7 +809,7 @@ public class MapObject0 {
             player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.SOUTH));
             player.lock();
             player.getGameEncoder().sendMessage("You start to climb the precarious rocks.");
-            Event event = new Event() {
+            PEvent event = new PEvent() {
                 @Override
                 public void execute() {
                     super.stop();
@@ -837,7 +837,7 @@ public class MapObject0 {
             player.setForceMovement(new ForceMovement(player, 0, toTile, 2, Tile.SOUTH));
             player.lock();
             player.getGameEncoder().sendMessage("You start to climb the precarious rocks.");
-            Event event = new Event() {
+            PEvent event = new PEvent() {
                 @Override
                 public void execute() {
                     super.stop();
@@ -1723,7 +1723,7 @@ public class MapObject0 {
         }
         Tile toTile = new Tile(3506, 3492, 2);
         player.getMovement().ladderUpTeleport(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -1751,7 +1751,7 @@ public class MapObject0 {
         Tile toTile = new Tile(3503, 3504, 2);
         player.setForceMovement(new ForceMovement(player, 0, toTile, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -1782,7 +1782,7 @@ public class MapObject0 {
         Tile toTile = new Tile(3492, 3504, 2);
         player.setForceMovement(new ForceMovement(player, 0, toTile, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -1813,7 +1813,7 @@ public class MapObject0 {
         Tile toTile = new Tile(3478, 3486, 2);
         player.setForceMovement(new ForceMovement(player, 0, toTile, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -1844,7 +1844,7 @@ public class MapObject0 {
         Tile toTile = new Tile(3510, 3476, 2);
         player.setForceMovement(new ForceMovement(player, 0, toTile, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -1875,7 +1875,7 @@ public class MapObject0 {
         Tile toTile = new Tile(3479, 3499, 3);
         player.setForceMovement(new ForceMovement(player, 0, toTile, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -1905,7 +1905,7 @@ public class MapObject0 {
         Tile toTile = new Tile(3489, 3476, 3);
         player.setForceMovement(new ForceMovement(player, 1, toTile, 4, Tile.EAST));
         player.lock();
-        Event event = new Event(3) {
+        PEvent event = new PEvent(3) {
             @Override
             public void execute() {
                 super.stop();
@@ -1932,7 +1932,7 @@ public class MapObject0 {
         }
         Tile toTile = new Tile(3510, 3485, 0);
         player.getMovement().animatedTeleport(toTile, 7133, null, 0);
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -1944,15 +1944,15 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                if (Utils.randomE(10) == 0) {
+                if (PRandom.randomE(10) == 0) {
                     int amount = 4;
                     if (player.isPremiumMember()) {
                         amount = 6;
                     }
                     player.getInventory().addOrDropItem(11849, amount);
                 }
-                if (Utils.randomE(2) == 0) {
-                    int rewardType = Utils.randomE(3);
+                if (PRandom.randomE(2) == 0) {
+                    int rewardType = PRandom.randomE(3);
                     if (rewardType == 0) {
                         player.getInventory().addOrDropItem(3009, 1);
                     } else if (rewardType == 1) {
@@ -1981,7 +1981,7 @@ public class MapObject0 {
         Tile toTile2 = new Tile(2729, 3491, 3);
         player.setFaceTile(toTile2);
         player.getMovement().animatedTeleport(toTile1, 3063, null, 1);
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -2016,7 +2016,7 @@ public class MapObject0 {
         player.setAnimation(2588);
         player.setForceMovement(new ForceMovement(player, 0, toTile1, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -2059,7 +2059,7 @@ public class MapObject0 {
         player.setAnimation(2588);
         player.setForceMovement(new ForceMovement(player, 0, toTile1, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -2096,7 +2096,7 @@ public class MapObject0 {
         Tile toTile = new Tile(2702, 3465, 2);
         player.setForceMovement(new ForceMovement(player, 0, toTile, 4, direction));
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -2126,7 +2126,7 @@ public class MapObject0 {
         Tile toTile = new Tile(2704, 3464, 0);
         player.setFaceTile(toTile);
         player.getMovement().animatedTeleport(toTile, 7133, null, 0);
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -2138,15 +2138,15 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                if (Utils.randomE(6) == 0) {
+                if (PRandom.randomE(6) == 0) {
                     int amount = 4;
                     if (player.isPremiumMember()) {
                         amount = 6;
                     }
                     player.getInventory().addOrDropItem(11849, amount);
                 }
-                if (Utils.randomE(2) == 0) {
-                    int rewardType = Utils.randomE(3);
+                if (PRandom.randomE(2) == 0) {
+                    int rewardType = PRandom.randomE(3);
                     if (rewardType == 0) {
                         player.getInventory().addOrDropItem(3009, 1);
                     } else if (rewardType == 1) {
@@ -2174,7 +2174,7 @@ public class MapObject0 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -2209,7 +2209,7 @@ public class MapObject0 {
         }
         Tile toTile = new Tile(2625, 3675, 3);
         player.getMovement().ladderUpTeleport(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -2237,7 +2237,7 @@ public class MapObject0 {
         Tile toTile = new Tile(2622, 3668, 3);
         player.setForceMovement(new ForceMovement(player, 1, toTile, 2, direction));
         player.lock();
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -2269,7 +2269,7 @@ public class MapObject0 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -2306,7 +2306,7 @@ public class MapObject0 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             boolean reachedRope = false;
 
             @Override
@@ -2357,7 +2357,7 @@ public class MapObject0 {
         Tile toTile = new Tile(2643, 3657, 3);
         player.setForceMovement(new ForceMovement(player, 1, toTile, 2, direction));
         player.lock();
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -2390,7 +2390,7 @@ public class MapObject0 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -2428,7 +2428,7 @@ public class MapObject0 {
         }
         Tile toTile = new Tile(2652, 3676, 0);
         player.getMovement().animatedTeleport(toTile, 7133, null, 0);
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 super.stop();
@@ -2440,15 +2440,15 @@ public class MapObject0 {
                     xp *= 1.1;
                 }
                 player.getSkills().addXp(Skills.AGILITY, xp);
-                if (Utils.randomE(4) == 0) {
+                if (PRandom.randomE(4) == 0) {
                     int amount = 4;
                     if (player.isPremiumMember()) {
                         amount = 6;
                     }
                     player.getInventory().addOrDropItem(11849, amount);
                 }
-                if (Utils.randomE(2) == 0) {
-                    int rewardType = Utils.randomE(3);
+                if (PRandom.randomE(2) == 0) {
+                    int rewardType = PRandom.randomE(3);
                     if (rewardType == 0) {
                         player.getInventory().addOrDropItem(3009, 1);
                     } else if (rewardType == 1) {
@@ -2491,7 +2491,7 @@ public class MapObject0 {
             if (index == 0) {
                 player.getGameEncoder().sendMessage("The door is locked.");
                 return;
-            } else if (Utils.randomE(4) != 0) {
+            } else if (PRandom.randomE(4) != 0) {
                 player.getGameEncoder().sendMessage("You fail to pick the lock.");
                 return;
             }
@@ -2557,7 +2557,7 @@ public class MapObject0 {
             if (index == 0) {
                 player.getGameEncoder().sendMessage("The door is locked.");
                 return;
-            } else if (Utils.randomE(4) != 0) {
+            } else if (PRandom.randomE(4) != 0) {
                 player.getGameEncoder().sendMessage("You fail to pick the lock.");
                 return;
             }
@@ -2896,7 +2896,7 @@ public class MapObject0 {
         if (player.getController().isMagicBound()) {
             player.getGameEncoder()
                     .sendMessage("A magical force stops you from moving for "
-                            + Time.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
+                            + PTime.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
                             + " more seconds.");
             return;
         }
@@ -2917,7 +2917,7 @@ public class MapObject0 {
         if (player.getController().isMagicBound()) {
             player.getGameEncoder()
                     .sendMessage("A magical force stops you from moving for "
-                            + Time.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
+                            + PTime.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
                             + " more seconds.");
             return;
         }

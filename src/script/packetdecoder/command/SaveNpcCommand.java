@@ -8,7 +8,7 @@ import com.palidino.osrs.io.cache.NpcId;
 import com.palidino.osrs.model.Tile;
 import com.palidino.osrs.model.npc.Npc;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.PString;
 import lombok.var;
 
 public class SaveNpcCommand implements Command {
@@ -76,7 +76,7 @@ public class SaveNpcCommand implements Command {
             lines.add("    \"y\": " + player.getY());
         }
         lines.add("  },");
-        FileManager.appendTextFile("./npcs.json", Utils.toStringArray(lines));
+        FileManager.appendTextFile("./npcs.json", PString.toStringArray(lines));
         player.getGameEncoder().sendMessage("Spawned & saved " + npc.getDef().getName());
     }
 }

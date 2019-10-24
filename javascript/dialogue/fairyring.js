@@ -4,7 +4,7 @@ function Ring(key, description, tile) {
     this.tile = tile;
 }
 
-var RINGS = Utils.toList(
+var RINGS = PCollection.toList(
     new Ring("AIQ", "Asgarnia: Mudskipper Point", new Tile(2996, 3114)),
     new Ring("AIR", "Islands: South-east of Ardougne", new Tile(2700, 3247)),
     new Ring("AJR", "Kandarin: Slayer cave south-east of Rellekka", new Tile(2780, 3613)),
@@ -52,7 +52,7 @@ for each (var ring in RINGS) {
 }
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

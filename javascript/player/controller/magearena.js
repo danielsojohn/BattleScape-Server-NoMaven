@@ -43,7 +43,7 @@ ABSORPTION_POTION.empty = -1;
 ABSORPTION_POTION.action = (new Skills.ItemAction() {
     execute: function(player) {
         absorption += 50;
-        player.getGameEncoder().sendMessage("You have " + Utils.formatNumber(absorption) + " points of absorption.");
+        player.getGameEncoder().sendMessage("You have " + PNumber.formatNumber(absorption) + " points of absorption.");
     }
 });
 
@@ -52,7 +52,7 @@ var monsters = new ArrayList();
 var spawnDelay = 8;
 var paused = false;
 var arena2WaveId = 1;
-var spawnIndex = Utils.randomE(ARENA_2_SPAWNS.length);
+var spawnIndex = PRandom.randomE(ARENA_2_SPAWNS.length);
 var time = 0;
 var recurrentDamage = 0;
 var zapper = 0;
@@ -163,26 +163,26 @@ pc = new PController() {
                 player.getWorld().removeNpc(zapperNPC);
             }
         }
-        if (powerSurge == 0 && Utils.randomE(192) == 0) {
+        if (powerSurge == 0 && PRandom.randomE(192) == 0) {
             powerSurge = -1;
             pc.addMapObject(new MapObject(26264, this.getRandomTile(), 10, 0)); // Power surge
             player.getGameEncoder().sendMessage("<col=4443FA>A power-up has spawned: <col=ff0000>Power surge");
         }
-        if (recurrentDamage == 0 && Utils.randomE(128) == 0) {
+        if (recurrentDamage == 0 && PRandom.randomE(128) == 0) {
             recurrentDamage = -1;
             pc.addMapObject(new MapObject(26265, this.getRandomTile(), 10, 0)); // Recurrent damage
             player.getGameEncoder().sendMessage("<col=4443FA>A power-up has spawned: <col=ff0000>Recurrent damage");
         }
-        if (zapper == 0 && Utils.randomE(96) == 0) {
+        if (zapper == 0 && PRandom.randomE(96) == 0) {
             zapper = -1;
             pc.addMapObject(new MapObject(26256, this.getRandomTile(), 10, 0)); // Zapper
             player.getGameEncoder().sendMessage("<col=4443FA>A power-up has spawned: <col=ff0000>Zapper");
         }
-        if (Utils.randomE(128) == 0) {
-            if (Utils.randomE(4) == 0) {
-                pc.addMapItem(new Item(ItemId.SUPER_MAGIC_POTION_4 + Utils.randomI(3), 1), player, player);
+        if (PRandom.randomE(128) == 0) {
+            if (PRandom.randomE(4) == 0) {
+                pc.addMapItem(new Item(ItemId.SUPER_MAGIC_POTION_4 + PRandom.randomI(3), 1), player, player);
             } else {
-                pc.addMapItem(new Item(ItemId.ABSORPTION_4 + Utils.randomI(3), 1), player, player);
+                pc.addMapItem(new Item(ItemId.ABSORPTION_4 + PRandom.randomI(3), 1), player, player);
             }
         }
     },
@@ -281,7 +281,7 @@ pc = new PController() {
 
     finishArena2: function() {
         pc.exitTileTeleport();
-        player.getGameEncoder().sendMessage("Duration: <col=ff0000>" + Time.ticksToDuration(time));
+        player.getGameEncoder().sendMessage("Duration: <col=ff0000>" + PTime.ticksToDuration(time));
         if (!player.getInventory().addItem(ItemId.IMBUED_SARADOMIN_CAPE, 1).success()) {
             player.getBank().add(new Item(ItemId.IMBUED_SARADOMIN_CAPE, 1));
         }
@@ -313,12 +313,12 @@ pc = new PController() {
 
     getRandomTile: function() {
         var tile;
-        if (Utils.randomE(2) == 0) {
+        if (PRandom.randomE(2) == 0) {
             tile = new Tile(3093, 3930);
-            tile.moveTile(Utils.randomI(24), Utils.randomI(7));
+            tile.moveTile(PRandom.randomI(24), PRandom.randomI(7));
         } else {
             tile = new Tile(3102, 3921);
-            tile.moveTile(Utils.randomI(6), Utils.randomI(25));
+            tile.moveTile(PRandom.randomI(6), PRandom.randomI(25));
         }
         return tile;
     }

@@ -23,7 +23,7 @@ var healTime = HEAL_TIME;
 var exhumedList = new ArrayList();
 var acidicList = new ArrayList();
 var hasScreeched = false;
-var attackingDirection = Utils.arrayRandom(ATTACKING_DIRECTIONS);
+var attackingDirection = PRandom.arrayRandom(ATTACKING_DIRECTIONS);
 var directionChange = DIRECTION_TIME;
 
 cs = new NCombatScript() {
@@ -78,7 +78,7 @@ cs = new NCombatScript() {
             }
         }
         var mapObject = new MapObject(32744, tileHitEvent.getTile(), 22, MapObject.getRandomDirection());
-        var event = new Event(speed.eventDelay) {
+        var event = new PEvent(speed.eventDelay) {
             execute: function() {
                 if (event.getExecutions() == 0) {
                     event.setTick(0);
@@ -133,7 +133,7 @@ cs = new NCombatScript() {
         var players = npc.getController().getPlayers();
         for each (var player in players) {
             averageHP += player.getMaxHitpoints();
-            playerMultiplier = Utils.addDoubles(playerMultiplier, 0.5);
+            playerMultiplier = PNumber.addDoubles(playerMultiplier, 0.5);
         }
         averageHP /= players.size();
         baseHitpoints = ((50 + (players.size() * 25) + (averageHP * 2)) * playerMultiplier)|0;
@@ -167,8 +167,8 @@ cs = new NCombatScript() {
                 var mapObject = new MapObject(32743, tile, 22, 0);
                 var tempMapObject = new TempMapObject(16, npc.getController(), mapObject);
                 npc.getWorld().addEvent(tempMapObject);
-                var eventListener = new EventListener() {
-                    execute: function(event) {
+                var event = new PEvent(0) {
+                    execute: function() {
                         var mapObject = event.getAttachment().getTempMapObject(0);
                         if (event.getExecutions() == 1) {
                             if (mapObject != null) {
@@ -207,7 +207,7 @@ cs = new NCombatScript() {
                         event.getAttachment().stop();
                     }
                 };
-                var event = npc.getWorld().addEvent(eventListener, 0);
+                var event = npc.getWorld().addEvent(event);
                 event.setAttachment(tempMapObject);
                 exhumedList.add(event);
             }
@@ -243,7 +243,7 @@ cs = new NCombatScript() {
         if (directionChange-- > 0) {
             return;
         }
-        attackingDirection = Utils.arrayRandom(ATTACKING_DIRECTIONS);
+        attackingDirection = PRandom.arrayRandom(ATTACKING_DIRECTIONS);
         directionChange = DIRECTION_TIME;
         npc.setFaceTile(attackingDirection);
     }

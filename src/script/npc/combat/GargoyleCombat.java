@@ -27,7 +27,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class GargoyleCombat extends NpcCombat {
@@ -168,7 +168,7 @@ public class GargoyleCombat extends NpcCombat {
     @Override
     public NpcCombatStyle attackTickCombatStyleHook(NpcCombatStyle combatStyle, Entity opponent) {
         return (npc.getId() == NpcId.MARBLE_GARGOYLE_349 || npc.getId() == NpcId.CURSED_GARGOYLE_349_16007)
-                && Utils.randomE(8) == 0 ? SPECIAL_ATTACK : combatStyle;
+                && PRandom.randomE(8) == 0 ? SPECIAL_ATTACK : combatStyle;
     }
 
     @Override

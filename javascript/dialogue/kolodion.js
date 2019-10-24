@@ -13,14 +13,14 @@ lines.add("View Shop");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 lines.add("<col=ff0000>WARNING</col>: The final wave requires all three god spells to complete. Make sure you have the correct runes, spells, and staves before you continue.");
 continueLine = "Click here to continue";
 actions.add("dialogue=kolodion,2");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setTextContinue(continueLine, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setTextContinue(continueLine, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Start From Boosted");
@@ -31,7 +31,7 @@ lines.add("Final Wave");
 actions.add("close|script");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
@@ -43,7 +43,7 @@ instance = new DialogueScript() {
                 }
                 var height = player.getWorld().getUniqueHeight();
                 player.getMovement().teleport(3105, 3934, height);
-                var event = new Event(5) {
+                var event = new PEvent(5) {
                     execute: function() {
                         event.stop();
                         if (!player.isVisible()) {

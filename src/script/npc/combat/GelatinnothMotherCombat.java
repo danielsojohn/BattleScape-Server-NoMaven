@@ -18,7 +18,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class GelatinnothMotherCombat extends NpcCombat {
@@ -122,6 +122,6 @@ public class GelatinnothMotherCombat extends NpcCombat {
     }
 
     public void setChangeDelay() {
-        changeDelay = 25 + Utils.randomI(8);
+        changeDelay = 25 + PRandom.randomI(8);
     }
 }

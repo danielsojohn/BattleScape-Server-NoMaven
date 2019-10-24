@@ -37,7 +37,7 @@ cs = new NCombatScript() {
     restore: function() {
         lastCombatStyle = null;
         autoAttacks = 6;
-        specialAttack = Utils.randomE(2);
+        specialAttack = PRandom.randomE(2);
         poisonTiles = null;
         poisonFireballs = 0;
         npc.getWorld().removeNpc(spawn);
@@ -48,7 +48,7 @@ cs = new NCombatScript() {
             npc.setAnimation(-1);
         }
         if (npc.getEngagingEntity() != null && npc.getController().getMapObject(32000, npc.getEngagingEntity())) {
-            npc.getEngagingEntity().addHit(new HitEvent(0, npc.getEngagingEntity(), new Hit(Utils.randomI(10))));
+            npc.getEngagingEntity().addHit(new HitEvent(0, npc.getEngagingEntity(), new Hit(PRandom.randomI(10))));
         }
         if (specialAttack == 0 && npc.isAttacking() && npc.getHitDelay() == 0 && autoAttacks == 0) {
             autoAttacks = 6;
@@ -57,7 +57,7 @@ cs = new NCombatScript() {
             poisonFireballs = 25;
             var speed = cs.getSpeed(10);
             for (var i = 0; i < 64; i++) {
-                var tile = new Tile(2261 + Utils.randomI(22), 4054 + Utils.randomI(22));
+                var tile = new Tile(2261 + PRandom.randomI(22), 4054 + PRandom.randomI(22));
                 if (tile.within(2270, 4062, 2274, 4067) || tile.within(2269, 4063, 2275, 4067)) {
                     continue;
                 }
@@ -65,7 +65,7 @@ cs = new NCombatScript() {
                 npc.getCombat().sendMapProjectile(null, npc, tile, 1483, 43, 31, speed.clientDelay,
                         speed.clientSpeed, 48, 64);
             }
-            var event = new Event(speed.eventDelay) {
+            var event = new PEvent(speed.eventDelay) {
                 /* @Override */
                 execute: function() {
                     event.stop();
@@ -73,7 +73,7 @@ cs = new NCombatScript() {
                         return;
                     }
                     for each (var tile in poisonTiles) {
-                        var poison = new MapObject(32000, tile, 10, Utils.randomI(3));
+                        var poison = new MapObject(32000, tile, 10, PRandom.randomI(3));
                         npc.getWorld().addEvent(new TempMapObject(25 - speed.eventDelay, npc.getController(),
                                 poison));
                     }
@@ -100,7 +100,7 @@ cs = new NCombatScript() {
             entity.getPrayer().deactivateAll();
             entity.getGameEncoder().sendMessage("<col=ff0000>Your prayers have been disabled!");
         } else if (combatStyle == FREEZE_FIREBALL) {
-            var event = new Event(hitEvent.getTick()) {
+            var event = new PEvent(hitEvent.getTick()) {
                 /* @Override */
                 execute: function() {
                     event.stop();
@@ -108,7 +108,7 @@ cs = new NCombatScript() {
                         return;
                     }
                     npc.getWorld().removeNpc(spawn);
-                    var tile = Utils.randomI(1) == 0 ? new Tile(2265, 4057, 0) : new Tile(2278, 4069, 0);
+                    var tile = PRandom.randomI(1) == 0 ? new Tile(2265, 4057, 0) : new Tile(2278, 4069, 0);
                     spawn = new Npc(npc.getController(), 8063, tile);
                     spawn.getMovement().setFollowing(npc.getEngagingEntity());
                 }

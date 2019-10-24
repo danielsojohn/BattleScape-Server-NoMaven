@@ -1,6 +1,6 @@
 package script.world.pvptournament.prize;
 
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
 
 public class OsrsPrize implements Prize {
     private int value;
@@ -11,6 +11,6 @@ public class OsrsPrize implements Prize {
 
     @Override
     public String getMessage() {
-        return "Prizes include " + Utils.abbreviateNumber(value) + " OSRS coins.";
+        return "Prizes include " + PNumber.abbreviateNumber(value) + " OSRS coins.";
     }
 }

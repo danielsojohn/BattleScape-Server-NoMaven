@@ -22,7 +22,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 public class MageArena2DemonCombat extends NpcCombat {
@@ -140,7 +140,7 @@ public class MageArena2DemonCombat extends NpcCombat {
     public void targetTileHitEventHook(NpcCombatStyle combatStyle, Entity opponent, TileHitEvent tileHitEvent,
             Graphic.Projectile projectile) {
         if (npc.getId() == NpcId.DERWEN_235_7859) {
-            var event = new Event(tileHitEvent.getTick()) {
+            var event = new PEvent(tileHitEvent.getTick()) {
                 @Override
                 public void execute() {
                     stop();

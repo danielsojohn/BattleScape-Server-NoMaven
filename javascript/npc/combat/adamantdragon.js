@@ -9,7 +9,7 @@ cs = new NCombatScript() {
 
     /* @Override */
     applyAttackStartHook: function(combatStyle, entity, count) {
-        boltEffect = combatStyle.getType() == HitType.RANGED && Utils.randomE(20) == 0;
+        boltEffect = combatStyle.getType() == HitType.RANGED && PRandom.randomE(20) == 0;
     },
 
     /* @Override */

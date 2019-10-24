@@ -26,7 +26,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class AncientWyvernCombat extends NpcCombat {
@@ -137,7 +137,7 @@ public class AncientWyvernCombat extends NpcCombat {
     public void applyAttackEndHook(NpcCombatStyle combatStyle, Entity opponent, int applyAttackLoopCount,
             HitEvent hitEvent) {
         if (!(opponent instanceof Player) || combatStyle.getType().getHitType() != HitType.DRAGONFIRE
-                || Utils.randomE(5) != 0) {
+                || PRandom.randomE(5) != 0) {
             return;
         }
         var player = (Player) opponent;

@@ -30,7 +30,7 @@ import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.PMovement;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class BarrowsCombat extends NpcCombat {
@@ -245,8 +245,8 @@ public class BarrowsCombat extends NpcCombat {
             return combatStyle;
         }
         var player = (Player) opponent;
-        if (npc.getId() == NpcId.AHRIM_THE_BLIGHTED_98 && Utils.randomE(5) == 0) {
-            var type = Utils.randomE(3);
+        if (npc.getId() == NpcId.AHRIM_THE_BLIGHTED_98 && PRandom.randomE(5) == 0) {
+            var type = PRandom.randomE(3);
             NpcCombatStyle attemptedStyle = null;
             var skillId = 0;
             if (type == 0) {
@@ -279,7 +279,7 @@ public class BarrowsCombat extends NpcCombat {
         }
         var player = (Player) opponent;
         if (npc.getId() == NpcId.AHRIM_THE_BLIGHTED_98) {
-            if (Utils.randomE(4) == 0) {
+            if (PRandom.randomE(4) == 0) {
                 player.getSkills().changeStat(Skills.STRENGTH, -5);
                 player.setGraphic(400, 100);
             }
@@ -343,19 +343,19 @@ public class BarrowsCombat extends NpcCombat {
         var player = (Player) opponent;
         if (npc.getId() == NpcId.DHAROK_THE_WRETCHED_115) {
             damage *= 1.0 + (npc.getMaxHitpoints() - npc.getHitpoints()) / 100.0 * (npc.getMaxHitpoints() / 100.0);
-        } else if (npc.getId() == NpcId.GUTHAN_THE_INFESTED_115 && Utils.randomE(4) == 0) {
+        } else if (npc.getId() == NpcId.GUTHAN_THE_INFESTED_115 && PRandom.randomE(4) == 0) {
             opponent.setGraphic(398);
             if (damage > 0) {
                 npc.adjustHitpoints((int) damage, 0);
             }
-        } else if (npc.getId() == NpcId.KARIL_THE_TAINTED_98 && Utils.randomE(4) == 0) {
+        } else if (npc.getId() == NpcId.KARIL_THE_TAINTED_98 && PRandom.randomE(4) == 0) {
             player.getSkills().changeStat(Skills.AGILITY, (int) -(player.getSkills().getLevel(Skills.AGILITY) * 0.2));
             opponent.setGraphic(401, 100);
-        } else if (npc.getId() == NpcId.TORAG_THE_CORRUPTED_115 && damage > 0 && Utils.randomE(4) == 0) {
+        } else if (npc.getId() == NpcId.TORAG_THE_CORRUPTED_115 && damage > 0 && PRandom.randomE(4) == 0) {
             player.getMovement().setEnergy((int) (player.getMovement().getEnergy() - PMovement.MAX_ENERGY * 0.2));
             opponent.setGraphic(399, 100);
-        } else if (npc.getId() == NpcId.VERAC_THE_DEFILED_115 && Utils.randomE(4) == 0) {
-            damage = Utils.randomI(23) + 1;
+        } else if (npc.getId() == NpcId.VERAC_THE_DEFILED_115 && PRandom.randomE(4) == 0) {
+            damage = PRandom.randomI(23) + 1;
             opponent.setGraphic(1041);
         }
         return damage;

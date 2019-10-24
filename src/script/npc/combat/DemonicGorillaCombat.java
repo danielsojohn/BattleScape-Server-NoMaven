@@ -30,7 +30,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class DemonicGorillaCombat extends NpcCombat {
@@ -155,7 +155,7 @@ public class DemonicGorillaCombat extends NpcCombat {
         if (!npc.isAttacking() && lastStyleChange++ >= 50) {
             chooseAttackStyle();
         }
-        if (npc.getHitDelay() == 0 && npc.isAttacking() && attackStyle != HitType.MELEE && Utils.randomE(5) == 0
+        if (npc.getHitDelay() == 0 && npc.isAttacking() && attackStyle != HitType.MELEE && PRandom.randomE(5) == 0
                 && npc.getCombat().canAttackEntity(npc.getEngagingEntity(), null)
                 && npc.withinDistance(npc.getEngagingEntity(), 10)) {
             npc.getWorld()
@@ -212,7 +212,7 @@ public class DemonicGorillaCombat extends NpcCombat {
 
     @Override
     public void deathDropItemsHook(Player player, int additionalPlayerLoopCount, Tile dropTile) {
-        if (Main.isSpawn() && Utils.inRange(player.getCombat().getDropRate(ItemId.DRAGON_CLAWS, 0.04))) {
+        if (Main.isSpawn() && PRandom.inRange(player.getCombat().getDropRate(ItemId.DRAGON_CLAWS, 0.04))) {
             npc.getController().addMapItem(new Item(ItemId.DRAGON_CLAWS), dropTile, player);
         }
     }

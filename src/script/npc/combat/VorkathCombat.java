@@ -36,8 +36,8 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.random.PRandom;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 public class VorkathCombat extends NpcCombat {
@@ -234,7 +234,7 @@ public class VorkathCombat extends NpcCombat {
     public void restoreHook() {
         lastCombatStyle = null;
         autoAttacks = 6;
-        specialAttack = Utils.randomE(2);
+        specialAttack = PRandom.randomE(2);
         poisonTiles.clear();
         poisonFireballs = 0;
         npc.getWorld().removeNpc(spawn);
@@ -247,7 +247,7 @@ public class VorkathCombat extends NpcCombat {
         }
         if (npc.getEngagingEntity() != null
                 && npc.getController().getMapObject(32000, npc.getEngagingEntity()) != null) {
-            npc.getEngagingEntity().addHit(new HitEvent(0, npc.getEngagingEntity(), new Hit(Utils.randomI(10))));
+            npc.getEngagingEntity().addHit(new HitEvent(0, npc.getEngagingEntity(), new Hit(PRandom.randomI(10))));
         }
         if (specialAttack == 0 && npc.isAttacking() && npc.getHitDelay() == 0 && autoAttacks == 0) {
             autoAttacks = 6;
@@ -255,7 +255,7 @@ public class VorkathCombat extends NpcCombat {
             poisonFireballs = 25;
             var speed = getProjectileSpeed(10);
             for (var i = 0; i < 64; i++) {
-                var tile = new Tile(2261 + Utils.randomI(22), 4054 + Utils.randomI(22));
+                var tile = new Tile(2261 + PRandom.randomI(22), 4054 + PRandom.randomI(22));
                 if (tile.within(2270, 4062, 2274, 4067) || tile.within(2269, 4063, 2275, 4067)) {
                     continue;
                 }
@@ -264,7 +264,7 @@ public class VorkathCombat extends NpcCombat {
                         .projectileSpeed(speed).build();
                 sendMapProjectile(projectile);
             }
-            var event = new Event(speed.getEventDelay()) {
+            var event = new PEvent(speed.getEventDelay()) {
                 @Override
                 public void execute() {
                     stop();
@@ -272,7 +272,7 @@ public class VorkathCombat extends NpcCombat {
                         return;
                     }
                     for (var tile : poisonTiles) {
-                        var poison = new MapObject(32000, tile, 10, Utils.randomI(3));
+                        var poison = new MapObject(32000, tile, 10, PRandom.randomI(3));
                         npc.getWorld()
                                 .addEvent(new TempMapObject(25 - speed.getEventDelay(), npc.getController(), poison));
                     }
@@ -304,7 +304,7 @@ public class VorkathCombat extends NpcCombat {
             player.getPrayer().deactivateAll();
             player.getGameEncoder().sendMessage("<col=ff0000>Your prayers have been disabled!");
         } else if (combatStyle == FREEZE_ATTACK) {
-            var event = new Event(hitEvent.getTick()) {
+            var event = new PEvent(hitEvent.getTick()) {
                 @Override
                 public void execute() {
                     stop();
@@ -312,7 +312,7 @@ public class VorkathCombat extends NpcCombat {
                         return;
                     }
                     npc.getWorld().removeNpc(spawn);
-                    var tile = Utils.randomI(1) == 0 ? new Tile(2265, 4057) : new Tile(2278, 4069);
+                    var tile = PRandom.randomI(1) == 0 ? new Tile(2265, 4057) : new Tile(2278, 4069);
                     spawn = new Npc(npc.getController(), NpcId.ZOMBIFIED_SPAWN_64, tile);
                     spawn.getMovement().setFollowing(npc.getEngagingEntity());
                 }

@@ -15,10 +15,11 @@ import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.controller.ClanWarsPC;
 import com.palidino.osrs.util.RequestManager;
 import com.palidino.osrs.world.WorldEventHooks;
-import com.palidino.setting.SqlUserRank;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.rs.setting.SqlUserRank;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.var;
@@ -27,21 +28,21 @@ import script.player.plugin.clanwars.state.PlayerState;
 import script.world.pvptournament.dialogue.AdminCofferDialogue;
 import script.world.pvptournament.dialogue.CofferDialogue;
 import script.world.pvptournament.dialogue.DonateItemDialogue;
+import script.world.pvptournament.prize.CustomPrize;
 import script.world.pvptournament.prize.DefaultPrize;
 import script.world.pvptournament.prize.Prize;
-import script.world.pvptournament.prize.CustomPrize;
 import script.world.pvptournament.state.IdleState;
 import script.world.pvptournament.state.LobbyState;
 import script.world.pvptournament.state.State;
 
-public class PvpTournament extends Event implements WorldEventHooks {
+public class PvpTournament extends PEvent implements WorldEventHooks {
     public static final boolean DISABLED = false;
     public static final Tile LOBBY_TILE = new Tile(3079, 3479);
     public static final Tile ARENA_TILE_1 = new Tile(2594, 5406, 1), ARENA_TILE_2 = new Tile(2594, 5416, 1);
     public static final String[] TIME = {
         "0:30", "2:30", "4:30", "6:30", "8:30", "10:30", "12:30", "14:30", "16:30", "18:30", "20:30", "22:30"
     };
-    public static final int MAX_TIME = (int) Time.minToTick(60), MAX_ROUND_TIME = (int) Time.minToTick(5);
+    public static final int MAX_TIME = (int) PTime.minToTick(60), MAX_ROUND_TIME = (int) PTime.minToTick(5);
     public static final int LOBBY_JOIN_TIME = 200;
     public static final int MINIMUM_PLAYERS = 4;
     public static final int TIME_BETWEEN_ROUNDS = 25;
@@ -164,7 +165,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
         var plugin = player.getPlugin(ClanWarsPlugin.class);
         if (isWinner) {
             plugin.incrimentTournamentWins();
-            if (Utils.randomE(240) == 0) {
+            if (PRandom.randomE(240) == 0) {
                 player.getBank().add(new Item(ItemId.RAINBOW_PARTYHAT, 1));
                 player.getWorld().sendItemDropNews(player, ItemId.RAINBOW_PARTYHAT, "a tournament");
             }
@@ -175,7 +176,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
         var position = players.size();
         var points = getPoints(position);
         if (points > 0 && !isCustom) {
-            plugin.setPoints(Utils.addInt(plugin.getPoints(), points));
+            plugin.setPoints(PNumber.addInt(plugin.getPoints(), points));
         }
         var prizes = prize.getItems(position);
         if (prizes == null || prizes.isEmpty()) {
@@ -194,10 +195,10 @@ public class PvpTournament extends Event implements WorldEventHooks {
             } else {
                 player.getBank().add(new Item(prize.getId(), prizeAmount));
             }
-            lines.add(prize.getName() + " x" + Utils.formatNumber(prizeAmount));
+            lines.add(prize.getName() + " x" + PNumber.formatNumber(prizeAmount));
             RequestManager.addPlayerLog("clanwarstournament/" + player.getLogFilename(),
                     "[" + player.getId() + "; " + player.getIP() + "] " + player.getUsername() + " won ["
-                            + prize.getId() + "] " + prize.getName() + " x" + Utils.formatNumber(prizeAmount)
+                            + prize.getId() + "] " + prize.getName() + " x" + PNumber.formatNumber(prizeAmount)
                             + " in the tournament.");
         }
         Scroll.open(player, "#" + (position + 1) + ": Rewards", lines);
@@ -227,7 +228,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
             }
             lines.add("<col=004080>Placing #" + (i + 1) + "</col>");
             for (var item : prizes) {
-                lines.add(item.getName() + " x" + Utils.formatNumber(item.getAmount()));
+                lines.add(item.getName() + " x" + PNumber.formatNumber(item.getAmount()));
             }
         }
         Scroll.open(player, "Donations", lines);
@@ -279,7 +280,7 @@ public class PvpTournament extends Event implements WorldEventHooks {
         var itemAmount = item.getAmount();
         if (isDefault && (itemId != ItemId.COINS || itemAmount < CUSTOM_COINS_MINIMUM)) {
             player.getGameEncoder().sendMessage(
-                    "The first donation must be at least " + Utils.formatNumber(CUSTOM_COINS_MINIMUM) + " coins.");
+                    "The first donation must be at least " + PNumber.formatNumber(CUSTOM_COINS_MINIMUM) + " coins.");
             return false;
         }
         if (isDefault) {
@@ -288,10 +289,10 @@ public class PvpTournament extends Event implements WorldEventHooks {
         prize.addItem(placing, new Item(item));
         player.getInventory().deleteItem(item);
         player.getWorld().sendClanWarsTournamentMessage(player.getUsername() + " has donated " + item.getName() + " x"
-                + Utils.formatNumber(itemAmount) + " to the tournament.");
+                + PNumber.formatNumber(itemAmount) + " to the tournament.");
         RequestManager.addPlayerLog("clanwarstournament/" + player.getLogFilename(),
                 "[" + player.getId() + "; " + player.getIP() + "] " + player.getUsername() + " donated [" + item.getId()
-                        + "] " + item.getName() + " x" + Utils.formatNumber(itemAmount) + " to the tournament.");
+                        + "] " + item.getName() + " x" + PNumber.formatNumber(itemAmount) + " to the tournament.");
         return true;
     }
 
@@ -304,15 +305,15 @@ public class PvpTournament extends Event implements WorldEventHooks {
         player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 6, state.getMessage());
         if (player.inClanWarsBattle()) {
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 8,
-                    "Remaining: " + Time.ticksToDuration(state.getTime()));
+                    "Remaining: " + PTime.ticksToDuration(state.getTime()));
             String opponentName = opponent != null && !opponent.isLocked() ? opponent.getUsername() : "None";
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 10, "Opponent: " + opponentName);
         } else {
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 8,
                     "Mode: " + (mode != null ? mode.getName() : "None"));
             player.getGameEncoder().sendWidgetText(WidgetId.LMS_LOBBY_OVERLAY, 10,
-                    "Wins/Points: " + Utils.abbreviateNumber(plugin.getTournamentWins()) + "/"
-                            + Utils.abbreviateNumber(plugin.getPoints()));
+                    "Wins/Points: " + PNumber.abbreviateNumber(plugin.getTournamentWins()) + "/"
+                            + PNumber.abbreviateNumber(plugin.getPoints()));
         }
     }
 
@@ -348,8 +349,8 @@ public class PvpTournament extends Event implements WorldEventHooks {
         if (TIME == null) {
             return null;
         }
-        var currentHour = Time.getHour24();
-        var currentMinute = Time.getMinute();
+        var currentHour = PTime.getHour24();
+        var currentMinute = PTime.getMinute();
         for (var i = 0; i < TIME.length; i++) {
             var time = TIME[i].split(":");
             var hour = Integer.parseInt(time[0]);

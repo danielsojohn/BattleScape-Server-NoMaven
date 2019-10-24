@@ -18,7 +18,7 @@ for (var i = 0; i < 7; i++) { // 0-6
     }
     var obj = new DialogueEntry();
     entries.add(obj);
-    obj.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+    obj.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 }
 
 for (var i = 0; i < 7; i++) { // 7-13
@@ -31,7 +31,7 @@ for (var i = 0; i < 7; i++) { // 7-13
     actions.add("close|script");
     var obj = new DialogueEntry();
     entries.add(obj);
-    obj.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+    obj.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 }
 
 instance = new DialogueScript() {

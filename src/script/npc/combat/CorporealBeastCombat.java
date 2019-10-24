@@ -32,7 +32,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class CorporealBeastCombat extends NpcCombat {
@@ -234,7 +234,7 @@ public class CorporealBeastCombat extends NpcCombat {
                 npc.getCombat().setFollowing(opponent, 0);
                 npc.getCombat().setPlayerAggressionDelay(2);
             }
-            if (darkCore == null && Utils.randomE(8) == 0) {
+            if (darkCore == null && PRandom.randomE(8) == 0) {
                 if (Route.canMove(npc, npc.getX() - 1, npc.getY())) {
                     darkCore = new Npc(npc.getController(), NpcId.DARK_ENERGY_CORE_75, npc.getX() - 1, npc.getY(),
                             npc.getHeight());

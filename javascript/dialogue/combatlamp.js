@@ -16,7 +16,7 @@ lines.add("Defence");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Level 99";
 lines.add("Attack");
@@ -31,7 +31,7 @@ lines.add("Next Options");
 actions.add("dialogue=combatlamp,2");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Level 99";
 lines.add("Defence");
@@ -44,7 +44,7 @@ lines.add("Previous Option");
 actions.add("dialogue=combatlamp,1");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Prayer";
 lines.add("Level 25");
@@ -59,7 +59,7 @@ lines.add("Level 52");
 actions.add("close|script");
 var obj3 = new DialogueEntry();
 entries.add(obj3);
-obj3.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj3.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Level 99; (XP Rem. / 3) HP XP";
 lines.add("Attack");
@@ -74,7 +74,7 @@ lines.add("Defence");
 actions.add("close|script");
 var obj4 = new DialogueEntry();
 entries.add(obj4);
-obj4.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj4.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

@@ -18,8 +18,9 @@ import com.palidino.osrs.model.player.skill.SkillModel;
 import com.palidino.osrs.model.player.skill.SkillNpcProtector;
 import com.palidino.osrs.model.player.skill.SkillPet;
 import com.palidino.osrs.model.player.skill.SkillTemporaryMapObject;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class Thieving extends SkillContainer {
@@ -41,7 +42,7 @@ public class Thieving extends SkillContainer {
     }
 
     @Override
-    public void actionSuccess(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public void actionSuccess(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (npc != null) {
             player.getGameEncoder().sendMessage("You pick the " + npc.getName() + "'s pocket.");
         } else if (mapObject != null) {
@@ -52,7 +53,7 @@ public class Thieving extends SkillContainer {
 
     @Override
     public Item createHook(Player player, Item item, Npc npc, MapObject mapObject, SkillEntry entry) {
-        if (player.getEquipment().wearingRogueOutfit() && Utils.randomE(10) == 0) {
+        if (player.getEquipment().wearingRogueOutfit() && PRandom.randomE(10) == 0) {
             item = new Item(item.getId(), item.getAmount() + 1);
         }
         return item;
@@ -67,7 +68,7 @@ public class Thieving extends SkillContainer {
     }
 
     @Override
-    public boolean failedActionHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public boolean failedActionHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         var power = player.getSkills().getLevel(getSkillId()) + 8;
         var failure = entry.getLevel() + 2;
         var chance = 0.0;
@@ -78,24 +79,24 @@ public class Thieving extends SkillContainer {
         }
         if (player.inArdougne() && player.hasItem(ItemId.ARDOUGNE_CLOAK_2) || player.hasItem(ItemId.ARDOUGNE_CLOAK_3)
                 || player.hasItem(ItemId.ARDOUGNE_CLOAK_4) || player.hasItem(ItemId.ARDOUGNE_MAX_CAPE)) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (player.getEquipment().wearingRogueOutfit()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (player.getEquipment().wearingAccomplishmentCape(getSkillId())) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
         if (player.isPremiumMember()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.hasVoted()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.05), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.05), 1.0);
         }
         if (player.getController().inWilderness()) {
-            chance = Math.min(Utils.addDoubles(chance, 0.1), 1.0);
+            chance = Math.min(PNumber.addDoubles(chance, 0.1), 1.0);
         }
-        if (npc != null && Utils.randomI(100) < Math.max(0.01, 1 - chance) * 100) {
+        if (npc != null && PRandom.randomI(100) < Math.max(0.01, 1 - chance) * 100) {
             npc.setForceMessage("What do you think you're doing?");
             npc.setAnimation(npc.getDef().getAttackAnimation());
             npc.setFaceTile(player);
@@ -109,7 +110,7 @@ public class Thieving extends SkillContainer {
     }
 
     @Override
-    public String deathReasonHook(Player player, Event event, Npc npc, MapObject mapObject, SkillEntry entry) {
+    public String deathReasonHook(Player player, PEvent event, Npc npc, MapObject mapObject, SkillEntry entry) {
         if (npc != null) {
             return "pickpocketing a " + npc.getName();
         }

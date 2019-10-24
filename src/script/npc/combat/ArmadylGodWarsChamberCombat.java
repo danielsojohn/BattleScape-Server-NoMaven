@@ -29,7 +29,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatProjectile;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class ArmadylGodWarsChamberCombat extends NpcCombat {
@@ -303,7 +303,7 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
         if (combatStyle.getType().getHitType() == HitType.MELEE) {
             return combatStyle;
         }
-        return Utils.randomI(1) == 0 ? npc.getDef().getCombat().getRangedAttack()
+        return PRandom.randomI(1) == 0 ? npc.getDef().getCombat().getRangedAttack()
                 : npc.getDef().getCombat().getMagicAttack();
     }
 
@@ -313,7 +313,7 @@ public class ArmadylGodWarsChamberCombat extends NpcCombat {
         if (npc.getId() != NpcId.KREEARRA_580) {
             return;
         }
-        if (Utils.randomI(4) == 0) {
+        if (PRandom.randomI(4) == 0) {
             var x = opponent.getX();
             var y = opponent.getY();
             if (x < npc.getX() && y <= npc.getY() && Route.canMove(opponent, x, y, x - 1, y)) {

@@ -12,7 +12,7 @@ import com.palidino.osrs.model.player.Magic;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.combat.CombatSpellDef;
-import com.palidino.util.Time;
+import com.palidino.util.PTime;
 
 public class SpellbookWidget implements Widget {
     @Override
@@ -431,7 +431,7 @@ public class SpellbookWidget implements Widget {
                     break;
                 } else if (player.getMagic().getMagicImbueTime() > 0) {
                     player.getGameEncoder().sendMessage("You can cast Magic Imbue in "
-                            + Time.tickToSec(player.getMagic().getMagicImbueTime()) + " seconds.");
+                            + PTime.tickToSec(player.getMagic().getMagicImbueTime()) + " seconds.");
                     break;
                 }
                 player.getGameEncoder().sendMessage("You are charged to combine runes!");
@@ -459,7 +459,7 @@ public class SpellbookWidget implements Widget {
                     break;
                 } else if (player.getMagic().getVengeanceDelay() > 0) {
                     player.getGameEncoder().sendMessage("You can cast Vengeance in "
-                            + Time.tickToSec(player.getMagic().getVengeanceDelay()) + " seconds.");
+                            + PTime.tickToSec(player.getMagic().getVengeanceDelay()) + " seconds.");
                     break;
                 } else if (player.getMagic().getVengeanceCast()) {
                     player.getGameEncoder().sendMessage("You already have Vengeance cast.");
@@ -488,7 +488,7 @@ public class SpellbookWidget implements Widget {
                     break;
                 } else if (player.getMagic().getGeomancyTime() > 0) {
                     player.getGameEncoder().sendMessage("You can cast Geomancy in "
-                            + Time.tickToSec(player.getMagic().getGeomancyTime()) + " seconds.");
+                            + PTime.tickToSec(player.getMagic().getGeomancyTime()) + " seconds.");
                     break;
                 }
                 player.getMagic().deleteRunes(ItemId.ASTRAL_RUNE, 3);

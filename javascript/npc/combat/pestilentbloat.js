@@ -110,7 +110,7 @@ cs = new NCombatScript() {
                 continue;
             }
             player.getGameEncoder().setVarp(1575, npc.getHitpoints() + (npc.getMaxHitpoints() * 2048));
-            var hitpointsPercent = Utils.getPercent(npc.getHitpoints(), npc.getMaxHitpoints())|0;
+            var hitpointsPercent = PRandom.getPercent(npc.getHitpoints(), npc.getMaxHitpoints())|0;
             player.getGameEncoder().sendWidgetText(596, 4, "Health: " + hitpointsPercent + "%");
         }
     },
@@ -137,7 +137,7 @@ cs = new NCombatScript() {
             }
             var speed = cs.getSpeed(player);
             cs.sendMapProjectile(player, npc, player, 1568, 0, 0, speed.clientDelay, speed.clientSpeed, 0, 0);
-            player.addHit(new HitEvent(speed.eventDelay, player, new Hit(npc, 10 + Utils.randomI(10))));
+            player.addHit(new HitEvent(speed.eventDelay, player, new Hit(npc, 10 + PRandom.randomI(10))));
             player.setInCombatDelay(Entity.COMBAT_DELAY);
             for (var i2 = 0; i2 < players.size(); i2++) {
                 var player2 = players.get(i2);
@@ -150,7 +150,7 @@ cs = new NCombatScript() {
                 speed = cs.getSpeed(player2);
                 cs.sendMapProjectile(player2, player, player2, 1568, 0, 0, speed.clientDelay, speed.clientSpeed,
                         0, 0);
-                player2.addHit(new HitEvent(speed.eventDelay, player2, new Hit(npc, 10 + Utils.randomI(10))));
+                player2.addHit(new HitEvent(speed.eventDelay, player2, new Hit(npc, 10 + PRandom.randomI(10))));
                 player2.setInCombatDelay(Entity.COMBAT_DELAY);
             }
         }
@@ -173,11 +173,11 @@ cs = new NCombatScript() {
                 meatDelay = 6;
                 for (var i = 0; i < 14; i++) {
                     var tile = new Tile(3288, 4440);
-                    tile.moveTile(Utils.randomI(15), Utils.randomI(15));
+                    tile.moveTile(PRandom.randomI(15), PRandom.randomI(15));
                     if (npc.getController().getMapClip(tile) != 0) {
                         continue;
                     }
-                    npc.getController().sendMapGraphic(tile, new Graphic(1570 + Utils.randomI(3)));
+                    npc.getController().sendMapGraphic(tile, new Graphic(1570 + PRandom.randomI(3)));
                     var the = new TileHitEvent(4, npc.getController(), tile, 50, HitType.TYPELESS);
                     the.setMinDamage(30);
                     the.setBind(4);

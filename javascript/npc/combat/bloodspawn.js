@@ -22,7 +22,7 @@ cs = new NCombatScript() {
             objects.add(tmo);
             npc.getWorld().addEvent(tmo);
         }
-        if (!npc.isLocked() && (Utils.randomE(4) == 0 || !npc.getMovement().isRouting())) {
+        if (!npc.isLocked() && (PRandom.randomE(4) == 0 || !npc.getMovement().isRouting())) {
             npc.getMovement().clear();
             npc.getMovement().generateRandomPath();
         }

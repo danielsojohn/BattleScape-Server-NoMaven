@@ -79,6 +79,6 @@ cs = new NCombatScript() {
     },
 
     setChangeDelay: function() {
-        changeDelay = 25 + Utils.randomI(8);
+        changeDelay = 25 + PRandom.randomI(8);
     }
 };

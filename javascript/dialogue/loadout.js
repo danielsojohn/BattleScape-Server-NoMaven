@@ -10,7 +10,7 @@ for (var i = 0; i < 15; i++) {
 }
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Load");
@@ -23,7 +23,7 @@ lines.add("Delete");
 actions.add("dialogue=loadout,3");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Combat Levels: Ignore");
@@ -40,7 +40,7 @@ lines.add("Add Loadout");
 actions.add("close|script");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Delete Loadout");
@@ -49,7 +49,7 @@ lines.add("Nevermind");
 actions.add("close");
 var obj3 = new DialogueEntry();
 entries.add(obj3);
-obj3.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj3.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 title = "Select an Option";
 lines.add("Equipment: Save");
@@ -64,7 +64,7 @@ lines.add("Add Loadout");
 actions.add("close|script");
 var obj4 = new DialogueEntry();
 entries.add(obj4);
-obj4.setLargeSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj4.setLargeSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

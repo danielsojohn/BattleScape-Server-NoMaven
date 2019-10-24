@@ -10,14 +10,14 @@ lines.add("View Ironman Group");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 lines.add("<col=ff0000>WARNING</col>: Updating your group without your current members in the Clan Chat will remove them from your group.");
 continueLine = "Click here to update group";
 actions.add("close|script");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setTextContinue(continueLine, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setTextContinue(continueLine, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {

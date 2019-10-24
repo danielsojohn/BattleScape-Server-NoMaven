@@ -13,7 +13,7 @@ import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.player.ItemCharges;
 import com.palidino.osrs.model.player.PCombat;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Time;
+import com.palidino.util.PTime;
 import lombok.var;
 import script.player.plugin.clanwars.ClanWarsPlugin;
 import script.world.pvptournament.PvpTournament;
@@ -212,12 +212,12 @@ public class RoundsState implements State {
             for (var player : tournament.getPlayers()) {
                 if (timer < 100) {
                     player.getGameEncoder().sendMessage(
-                            "<col=ff0000>The next round will begin in " + Time.tickToSec(timer) + " seconds.");
+                            "<col=ff0000>The next round will begin in " + PTime.tickToSec(timer) + " seconds.");
                 } else if (timer < 200) {
                     player.getGameEncoder().sendMessage("<col=ff0000>The next round will begin in 1 minute.");
                 } else {
                     player.getGameEncoder().sendMessage(
-                            "<col=ff0000>The next round will begin in " + Time.tickToMin(timer) + " minutes.");
+                            "<col=ff0000>The next round will begin in " + PTime.tickToMin(timer) + " minutes.");
                 }
                 if (player.getMovement().isViewing()) {
                     player.getMovement().stopViewing();

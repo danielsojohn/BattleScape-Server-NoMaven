@@ -32,7 +32,7 @@ instance = new NScript() {
                 npc.getController().sendMapGraphic(npc, new Graphic(1295));
                 for each (var player in npc.getController().getPlayers()) {
                     if (npc.withinDistance(player, 2)) {
-                        var hitEvent = new HitEvent(0, player, new Hit(4 + Utils.randomI(6)));
+                        var hitEvent = new HitEvent(0, player, new Hit(4 + PRandom.randomI(6)));
                         player.addHit(hitEvent);
                     }
                 }

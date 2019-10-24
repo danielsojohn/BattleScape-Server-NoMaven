@@ -29,7 +29,7 @@ import com.palidino.osrs.model.npc.combat.style.NpcCombatStyle;
 import com.palidino.osrs.model.npc.combat.style.NpcCombatStyleType;
 import com.palidino.osrs.model.npc.combat.style.special.NpcCombatTargetTile;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 import script.map.area.CatacombsOfKourendArea;
 
@@ -252,7 +252,7 @@ public class DarkBeastCombat extends NpcCombat {
     @Override
     public void tickStartHook() {
         if ((npc.getId() == NpcId.NIGHT_BEAST_374 || npc.getId() == NpcId.CURSED_DARK_BEAST_374_16009)
-                && npc.isAttacking() && !usingSpecialAttack && Utils.randomE(20) == 0) {
+                && npc.isAttacking() && !usingSpecialAttack && PRandom.randomE(20) == 0) {
             usingSpecialAttack = true;
         }
     }

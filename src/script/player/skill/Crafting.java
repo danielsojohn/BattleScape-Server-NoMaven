@@ -16,7 +16,7 @@ import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.skill.SkillContainer;
 import com.palidino.osrs.model.player.skill.SkillEntry;
-import com.palidino.util.Utils;
+import com.palidino.util.PNumber;
 import lombok.var;
 
 public class Crafting extends SkillContainer {
@@ -211,24 +211,25 @@ public class Crafting extends SkillContainer {
         player.getGameEncoder().sendWidgetItemModel(WidgetId.TANNING, 105, ItemId.BLACK_DRAGON_LEATHER, 200);
         player.getGameEncoder().sendWidgetItemModel(WidgetId.TANNING, 106, ItemId.SNAKESKIN, 200);
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 108, "Leather");
-        player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 116, Utils.formatNumber(LEATHER_COST) + " Coins");
+        player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 116, PNumber.formatNumber(LEATHER_COST) + " Coins");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 109, "Hard Leather");
-        player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 117, Utils.formatNumber(HARD_LEATHER_COST) + " Coins");
+        player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 117,
+                PNumber.formatNumber(HARD_LEATHER_COST) + " Coins");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 110, "Green Leather");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 118,
-                Utils.formatNumber(GREEN_DRAGON_LEATHER_COST) + " Coins");
+                PNumber.formatNumber(GREEN_DRAGON_LEATHER_COST) + " Coins");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 111, "Blue Leather");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 119,
-                Utils.formatNumber(BLUE_DRAGON_LEATHER_COST) + " Coins");
+                PNumber.formatNumber(BLUE_DRAGON_LEATHER_COST) + " Coins");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 112, "Red Leather");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 120,
-                Utils.formatNumber(RED_DRAGON_LEATHER_COST) + " Coins");
+                PNumber.formatNumber(RED_DRAGON_LEATHER_COST) + " Coins");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 113, "Black Leather");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 121,
-                Utils.formatNumber(BLACK_DRAGON_LEATHER_COST) + " Coins");
+                PNumber.formatNumber(BLACK_DRAGON_LEATHER_COST) + " Coins");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 114, "Snakeskin");
         player.getGameEncoder().sendWidgetText(WidgetId.TANNING, 122,
-                Utils.formatNumber(SNAKESKIN_LEATHER_COST) + " Coins");
+                PNumber.formatNumber(SNAKESKIN_LEATHER_COST) + " Coins");
     }
 
     static {

@@ -6,8 +6,8 @@ import com.palidino.osrs.io.cache.WidgetId;
 import com.palidino.osrs.model.player.Player;
 import com.palidino.osrs.model.player.PlayerPlugin;
 import com.palidino.osrs.model.player.Skills;
-import com.palidino.util.Time;
-import com.palidino.util.event.Event;
+import com.palidino.util.PTime;
+import com.palidino.util.PEvent;
 import lombok.var;
 
 public class AchievementDiaryPlugin extends PlayerPlugin {
@@ -30,11 +30,11 @@ public class AchievementDiaryPlugin extends PlayerPlugin {
             case ItemId.FALADOR_SHIELD_1:
             case ItemId.FALADOR_SHIELD_2:
                 if (isEquipment && index == 1 || !isEquipment && index == 2) {
-                    if (Time.getSimpleDate().equals(faladorShield1And2)) {
+                    if (PTime.getSimpleDate().equals(faladorShield1And2)) {
                         player.getGameEncoder().sendMessage("You can only use this once a day.");
                         return true;
                     }
-                    faladorShield1And2 = Time.getSimpleDate();
+                    faladorShield1And2 = PTime.getSimpleDate();
                     if (itemId == ItemId.FALADOR_SHIELD_1) {
                         player.getPrayer().adjustPoints((int) (prayerLevel * 0.25));
                     } else if (itemId == ItemId.FALADOR_SHIELD_2) {
@@ -47,12 +47,12 @@ public class AchievementDiaryPlugin extends PlayerPlugin {
             case ItemId.FALADOR_SHIELD_3:
             case ItemId.FALADOR_SHIELD_4:
                 if (isEquipment && index == 1 || !isEquipment && index == 2) {
-                    if (!Time.getSimpleDate().equals(faladorShield3And4)) {
-                        faladorShield3And4 = Time.getSimpleDate();
+                    if (!PTime.getSimpleDate().equals(faladorShield3And4)) {
+                        faladorShield3And4 = PTime.getSimpleDate();
                         player.getPrayer().adjustPoints(prayerLevel);
                         player.getGameEncoder().sendMessage("Your prayer points have been restored.");
-                    } else if (!Time.getSimpleDate().equals(faladorShield1And2)) {
-                        faladorShield1And2 = Time.getSimpleDate();
+                    } else if (!PTime.getSimpleDate().equals(faladorShield1And2)) {
+                        faladorShield1And2 = PTime.getSimpleDate();
                         if (itemId == ItemId.FALADOR_SHIELD_3) {
                             player.getPrayer().adjustPoints((int) (prayerLevel * 0.5));
                         } else if (itemId == ItemId.FALADOR_SHIELD_4) {
@@ -74,7 +74,7 @@ public class AchievementDiaryPlugin extends PlayerPlugin {
                         return true;
                     }
                     player.getGameEncoder().sendHintIconTile(mole);
-                    player.getWorld().addEvent(new Event(16) {
+                    player.getWorld().addEvent(new PEvent(16) {
                         @Override
                         public void execute() {
                             stop();

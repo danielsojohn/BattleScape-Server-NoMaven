@@ -22,9 +22,10 @@ import com.palidino.osrs.model.player.Skills;
 import com.palidino.osrs.model.player.Smithing;
 import com.palidino.osrs.model.player.controller.BossInstancePC;
 import com.palidino.osrs.model.player.controller.ClanWarsFreeForAllPC;
-import com.palidino.util.Time;
-import com.palidino.util.Utils;
-import com.palidino.util.event.Event;
+import com.palidino.util.PEvent;
+import com.palidino.util.PNumber;
+import com.palidino.util.PTime;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class MapObject1 {
@@ -313,7 +314,7 @@ public class MapObject1 {
         Tile toTile = new Tile(mapObject.getX() - 1, player.getY(), 1);
         player.getMovement().ladderUpTeleport(toTile);
         player.setFaceTile(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -720,7 +721,7 @@ public class MapObject1 {
                 || player.getX() < mapObject.getX() && mapObject.getDirection() == 1) {
             if (player.getCombat().getRiskedValue() < entryRequirement) {
                 player.getGameEncoder().sendMessage(
-                        "You need to risk at least " + Utils.formatNumber(entryRequirement) + " to enter.");
+                        "You need to risk at least " + PNumber.formatNumber(entryRequirement) + " to enter.");
                 return;
             } else if (player.getInCombatDelay() > 0) {
                 player.getGameEncoder().sendMessage("You can't use this yet.");
@@ -756,7 +757,7 @@ public class MapObject1 {
         player.getMovement().clear();
         player.getMovement().addMovement(startTile);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             boolean reachedStartTile = false;
             int reachedStartTileTries = 0;
 
@@ -803,7 +804,7 @@ public class MapObject1 {
         Tile toTile = new Tile(player.getX(), 3423, 1);
         player.getMovement().ladderUpTeleport(toTile);
         player.setFaceTile(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -835,7 +836,7 @@ public class MapObject1 {
         player.setLock(5);
         player.getMovement().animatedTeleport(toTile, 3063, -2, null, null, 2);
         player.setFaceTile(toTile);
-        Event event = new Event(Event.MILLIS_600) {
+        PEvent event = new PEvent(PEvent.MILLIS_600) {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -873,7 +874,7 @@ public class MapObject1 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event(Event.MILLIS_600) {
+        PEvent event = new PEvent(PEvent.MILLIS_600) {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -898,15 +899,15 @@ public class MapObject1 {
                     if (player.getAttributeInt("agility_stage") == 6) {
                         player.removeAttribute("agility_stage");
                         // 102 laps an hour
-                        if (Utils.randomE(50) == 0) {
+                        if (PRandom.randomE(50) == 0) {
                             int amount = 4;
                             if (player.isPremiumMember()) {
                                 amount = 6;
                             }
                             player.getInventory().addOrDropItem(11849, amount);
                         }
-                        if (Utils.randomE(2) == 0) {
-                            int rewardType = Utils.randomE(3);
+                        if (PRandom.randomE(2) == 0) {
+                            int rewardType = PRandom.randomE(3);
                             if (rewardType == 0) {
                                 player.getInventory().addOrDropItem(3009, 1);
                             } else if (rewardType == 1) {
@@ -937,7 +938,7 @@ public class MapObject1 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event(Event.MILLIS_600) {
+        PEvent event = new PEvent(PEvent.MILLIS_600) {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -966,8 +967,8 @@ public class MapObject1 {
                             xp *= 1.1;
                         }
                         player.getSkills().addXp(Skills.AGILITY, xp);
-                        if (Utils.randomE(2) == 0) {
-                            int rewardType = Utils.randomE(3);
+                        if (PRandom.randomE(2) == 0) {
+                            int rewardType = PRandom.randomE(3);
                             if (rewardType == 0) {
                                 player.getInventory().addOrDropItem(3009, 1);
                             } else if (rewardType == 1) {
@@ -999,7 +1000,7 @@ public class MapObject1 {
         boolean running = player.getMovement().getRunning();
         final Tile finalTileStart = startTile;
         final Tile finalTileTo = toTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             boolean reachedStartTile = false;
 
             @Override
@@ -1049,7 +1050,7 @@ public class MapObject1 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1112,7 +1113,7 @@ public class MapObject1 {
         boolean running = player.getMovement().getRunning();
         player.setAnimation(753);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1160,7 +1161,7 @@ public class MapObject1 {
         boolean running = player.getMovement().getRunning();
         player.getMovement().setRunning(false);
         player.lock();
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1193,7 +1194,7 @@ public class MapObject1 {
         player.getGameEncoder().sendMessage("You climb the tree...");
         Tile toTile = new Tile(2473, 3420, 2);
         player.getMovement().ladderUpTeleport(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -1220,7 +1221,7 @@ public class MapObject1 {
         player.getGameEncoder().sendMessage("You climb down the tree...");
         Tile toTile = new Tile(2487, 3421, 0);
         player.getMovement().ladderUpTeleport(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -1247,7 +1248,7 @@ public class MapObject1 {
         player.getGameEncoder().sendMessage("You climb down the tree...");
         Tile toTile = new Tile(2487, 3421, 0);
         player.getMovement().ladderUpTeleport(toTile);
-        Event event = new Event(1) {
+        PEvent event = new PEvent(1) {
             @Override
             public void execute() {
                 super.stop();
@@ -1274,7 +1275,7 @@ public class MapObject1 {
         if (player.getController().isMagicBound()) {
             player.getGameEncoder()
                     .sendMessage("A magical force stops you from moving for "
-                            + Time.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
+                            + PTime.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
                             + " more seconds.");
             return;
         }
@@ -1495,7 +1496,7 @@ public class MapObject1 {
         player.getMovement().setRunning(false);
         player.lock();
         final Tile finalTile = toTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1542,7 +1543,7 @@ public class MapObject1 {
         player.getMovement().setRunning(false);
         player.lock();
         final Tile finalTile = toTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1589,7 +1590,7 @@ public class MapObject1 {
         player.getMovement().setRunning(false);
         player.lock();
         final Tile finalTile = toTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1636,7 +1637,7 @@ public class MapObject1 {
         player.getMovement().setRunning(false);
         player.lock();
         final Tile finalTile = toTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1682,7 +1683,7 @@ public class MapObject1 {
         player.getMovement().setRunning(false);
         player.lock();
         final Tile finalTile = toTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.isVisible()) {
@@ -1723,7 +1724,7 @@ public class MapObject1 {
     public static void mapObject25286(Player player, int index, MapObject mapObject) {
         if (player.getInventory().hasItem(11338)) {
             player.getInventory().deleteItem(11338, 1);
-            if (Utils.inRange(player.getCombat().getDropRate(11335, 0.8))) {
+            if (PRandom.inRange(player.getCombat().getDropRate(11335, 0.8))) {
                 player.getInventory().addItem(11335, 1);
                 player.getGameEncoder()
                         .sendMessage("You burn the chewed bones... And find a dragon full helm in the ashes!");
@@ -1783,7 +1784,7 @@ public class MapObject1 {
         if (!player.getInventory().hasItem(" pickaxe")) {
             player.getGameEncoder().sendMessage("You need a pickaxe to do this.");
             return;
-        } else if (!Utils.inRange(player.getController().getLevelForXP(Skills.MINING) + 1)) {
+        } else if (!PRandom.inRange(player.getController().getLevelForXP(Skills.MINING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to mine the rock.");
             return;
         }
@@ -1797,7 +1798,7 @@ public class MapObject1 {
         if (!player.getInventory().hasItem(" axe")) {
             player.getGameEncoder().sendMessage("You need an axe to do this.");
             return;
-        } else if (!Utils.inRange(player.getController().getLevelForXP(Skills.WOODCUTTING) + 1)) {
+        } else if (!PRandom.inRange(player.getController().getLevelForXP(Skills.WOODCUTTING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to chop the tendrils.");
             return;
         }
@@ -1811,7 +1812,7 @@ public class MapObject1 {
         if (!player.getInventory().hasItem(590)) {
             player.getGameEncoder().sendMessage("You need a tinderbox to do this.");
             return;
-        } else if (!Utils.inRange(player.getController().getLevelForXP(Skills.FIREMAKING) + 1)) {
+        } else if (!PRandom.inRange(player.getController().getLevelForXP(Skills.FIREMAKING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to burn down the boil.");
             return;
         }
@@ -1822,7 +1823,7 @@ public class MapObject1 {
 
     // Eyes
     public static void mapObject26191(Player player, int index, MapObject mapObject) {
-        if (!Utils.inRange(player.getController().getLevelForXP(Skills.THIEVING) + 1)) {
+        if (!PRandom.inRange(player.getController().getLevelForXP(Skills.THIEVING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to distract the eyes.");
             return;
         }
@@ -1833,7 +1834,7 @@ public class MapObject1 {
 
     // Gap
     public static void mapObject26192(Player player, int index, MapObject mapObject) {
-        if (!Utils.inRange(player.getController().getLevelForXP(Skills.AGILITY) + 1)) {
+        if (!PRandom.inRange(player.getController().getLevelForXP(Skills.AGILITY) + 1)) {
             player.getGameEncoder().sendMessage("You fail to squeeze through the gap.");
             return;
         }
@@ -1851,7 +1852,7 @@ public class MapObject1 {
 
     // Gap
     public static void mapObject26250(Player player, int index, MapObject mapObject) {
-        if (!Utils.inRange(player.getController().getLevelForXP(Skills.AGILITY) + 1)) {
+        if (!PRandom.inRange(player.getController().getLevelForXP(Skills.AGILITY) + 1)) {
             player.getGameEncoder().sendMessage("You fail to squeeze through the gap.");
             return;
         }
@@ -1862,7 +1863,7 @@ public class MapObject1 {
 
     // Eyes
     public static void mapObject26251(Player player, int index, MapObject mapObject) {
-        if (!Utils.inRange(player.getController().getLevelForXP(Skills.THIEVING) + 1)) {
+        if (!PRandom.inRange(player.getController().getLevelForXP(Skills.THIEVING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to distract the eyes.");
             return;
         }
@@ -1876,7 +1877,7 @@ public class MapObject1 {
         if (!player.getInventory().hasItem(590)) {
             player.getGameEncoder().sendMessage("You need a tinderbox to do this.");
             return;
-        } else if (!Utils.inRange(player.getController().getLevelForXP(Skills.FIREMAKING) + 1)) {
+        } else if (!PRandom.inRange(player.getController().getLevelForXP(Skills.FIREMAKING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to burn down the boil.");
             return;
         }
@@ -1890,7 +1891,7 @@ public class MapObject1 {
         if (!player.getInventory().hasItem(" axe")) {
             player.getGameEncoder().sendMessage("You need an axe to do this.");
             return;
-        } else if (!Utils.inRange(player.getController().getLevelForXP(Skills.WOODCUTTING) + 1)) {
+        } else if (!PRandom.inRange(player.getController().getLevelForXP(Skills.WOODCUTTING) + 1)) {
             player.getGameEncoder().sendMessage("You fail to chop the tendrils.");
             return;
         }
@@ -2056,7 +2057,7 @@ public class MapObject1 {
         if (player.getController().isMagicBound()) {
             player.getGameEncoder()
                     .sendMessage("A magical force stops you from moving for "
-                            + Time.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
+                            + PTime.tickToSec(player.getMovement().getMagicBindDelay() - Movement.MAGIC_REBIND_DELAY)
                             + " more seconds.");
             return;
         }
@@ -2176,7 +2177,7 @@ public class MapObject1 {
         player.getMovement().addMovement(endTile);
         player.getMovement().setForceRunning(false);
         final Tile finalTile = endTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.matchesTile(finalTile)) {
@@ -2226,7 +2227,7 @@ public class MapObject1 {
         player.getMovement().addMovement(endTile);
         player.getMovement().setForceRunning(false);
         final Tile finalTile = endTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.matchesTile(finalTile)) {
@@ -2276,7 +2277,7 @@ public class MapObject1 {
         player.getMovement().addMovement(endTile);
         player.getMovement().setForceRunning(false);
         final Tile finalTile = endTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.matchesTile(finalTile)) {
@@ -2326,7 +2327,7 @@ public class MapObject1 {
         player.getMovement().addMovement(endTile);
         player.getMovement().setForceRunning(false);
         final Tile finalTile = endTile;
-        Event event = new Event() {
+        PEvent event = new PEvent() {
             @Override
             public void execute() {
                 if (!player.matchesTile(finalTile)) {
@@ -2814,7 +2815,7 @@ public class MapObject1 {
     // energy sphere
     public static void mapObject31678(Player player, int index, MapObject mapObject) {
         if (mapObject.getAttachment() != null) {
-            var tmo = (Event) mapObject.getAttachment();
+            var tmo = (PEvent) mapObject.getAttachment();
             tmo.setAttachment(2, player);
             tmo.stop();
         }
@@ -2823,7 +2824,7 @@ public class MapObject1 {
     // energy sphere
     public static void mapObject31679(Player player, int index, MapObject mapObject) {
         if (mapObject.getAttachment() != null) {
-            var tmo = (Event) mapObject.getAttachment();
+            var tmo = (PEvent) mapObject.getAttachment();
             tmo.setAttachment(2, player);
             tmo.stop();
         }
@@ -2832,7 +2833,7 @@ public class MapObject1 {
     // energy sphere
     public static void mapObject31680(Player player, int index, MapObject mapObject) {
         if (mapObject.getAttachment() != null) {
-            var tmo = (Event) mapObject.getAttachment();
+            var tmo = (PEvent) mapObject.getAttachment();
             tmo.setAttachment(2, player);
             tmo.stop();
         }

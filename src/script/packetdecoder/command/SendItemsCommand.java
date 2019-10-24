@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import com.palidino.osrs.io.Command;
 import com.palidino.osrs.model.item.Item;
 import com.palidino.osrs.model.player.Player;
-import com.palidino.util.Utils;
+import com.palidino.util.random.PRandom;
 import lombok.var;
 
 public class SendItemsCommand implements Command {
@@ -30,7 +30,7 @@ public class SendItemsCommand implements Command {
         }
         var items = new ArrayList<Item>();
         for (var i = 0; i < itemCount; i++) {
-            items.add(new Item(randomIds ? Utils.randomE(8192) : i, 1));
+            items.add(new Item(randomIds ? PRandom.randomE(8192) : i, 1));
         }
         player.getGameEncoder().sendItems(widgetId, childId, 0, items);
     }

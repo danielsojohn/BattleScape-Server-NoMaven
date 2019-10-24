@@ -14,7 +14,7 @@ lines.add("The Shallows");
 actions.add("close|script");
 var obj0 = new DialogueEntry();
 entries.add(obj0);
-obj0.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj0.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 lines.add("You will lose all of your items dropped if you die!");
 lines.add("I know I'm risking everything I have.");
@@ -23,7 +23,7 @@ lines.add("I need to prepare some more.");
 actions.add("close");
 var obj1 = new DialogueEntry();
 entries.add(obj1);
-obj1.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj1.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 lines.add("Are you sure?");
 lines.add("Yes, I know items dropped in the instance will be lost.");
@@ -32,7 +32,7 @@ lines.add("On second thoughts, better not.");
 actions.add("close");
 var obj2 = new DialogueEntry();
 entries.add(obj2);
-obj2.setSelection(title, Utils.toStringArray(lines, true), Utils.toStringArray(actions, true));
+obj2.setSelection(title, PString.toStringArray(lines, true), PString.toStringArray(actions, true));
 
 instance = new DialogueScript() {
     execute: function(player, index, childId, slot) {
